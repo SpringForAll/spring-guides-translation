@@ -100,20 +100,20 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 
 Designed to be read and comprehended in an hour or less, providing more wide-ranging or subjective content than a getting started guide.
 
-| 标题                                       | 译者                                       | 校对   |
-| ---------------------------------------- | ---------------------------------------- | ---- |
-| [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | Topical guide to Spring Security, how the bits fit together and how they interact with Spring Boot |      |
+| 标题                                       | 简介                                       | 译者   | 校对   |
+| ---------------------------------------- | ---------------------------------------- | ---- | ---- |
+| [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | Topical guide to Spring Security, how the bits fit together and how they interact with Spring Boot |      |      |
 
 #### Tutorials
 
 Designed to be completed in 2-3 hours, these guides provide deeper, in-context explorations of enterprise application development topics, leaving you ready to implement real-world solutions.
 
-| 标题                                       | 译者                                       | 校对   |      |
-| ---------------------------------------- | ---------------------------------------- | ---- | ---- |
-| [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) | Learn how to easily build, test, and secure RESTful services with Spring |      |      |
-| [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) | A tutorial on how to use Spring Security with a single page application with various backend architectures, ranging from a simple single server to an API gateway with OAuth2 authentication. |      |      |
-| [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) | A tutorial based on the 5-part blog series by Greg Turnquist |      |      |
-| [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) | A tutorial on "social" login and single sign on with Facebook and Github |      |      |
+| 标题                                       | 简介                                       | 译者   | 校对   |      |
+| ---------------------------------------- | ---------------------------------------- | ---- | ---- | ---- |
+| [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) | Learn how to easily build, test, and secure RESTful services with Spring |      |      |      |
+| [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) | A tutorial on how to use Spring Security with a single page application with various backend architectures, ranging from a simple single server to an API gateway with OAuth2 authentication. |      |      |      |
+| [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) | A tutorial based on the 5-part blog series by Greg Turnquist |      |      |      |
+| [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) | A tutorial on "social" login and single sign on with Facebook and Github |      |      |      |
 
 ## 致谢
 
