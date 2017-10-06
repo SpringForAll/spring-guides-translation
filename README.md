@@ -6,19 +6,20 @@
 
 ## 协作参与
 
+交流社区：[SpringForAll社区](http://spring4all.com)
 Github：https://github.com/SpringForAll/spring-guides-translation
+组织人：[程序猿DD](https://github.com/dyc87112/)
 
 ### 如何认领
 
 下面列举了当前所有教程列表，还译者栏和校对栏空缺的表示还没有人参与翻译，有兴趣的读者可以联系我（微信：zhaiyongchao1987）参与翻译或校对工作。
 
-翻译内容包含：标题、简介、正文
+关于翻译的一些规范如下：
 
-翻译文件格式：markdown
-
-文件名格式：原文标题.md
-
-提交以Pull Request方式提交
+- 翻译内容包含：标题、简介、正文
+- 翻译文件格式：markdown
+- 文件名格式：原文标题.md
+- 提交以Pull Request方式提交
 
 ### 翻译内容
 
