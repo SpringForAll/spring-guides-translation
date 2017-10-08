@@ -6,9 +6,9 @@
 
 ## 协作参与
 
-交流社区：[SpringForAll社区](http://spring4all.com)
-Github：https://github.com/SpringForAll/spring-guides-translation
-组织人：[程序猿DD](https://github.com/dyc87112/)
+- 交流社区：[SpringForAll社区](http://spring4all.com)
+- Github：https://github.com/SpringForAll/spring-guides-translation
+- 组织人：[程序猿DD](https://github.com/dyc87112/)
 
 ### 如何认领
 
