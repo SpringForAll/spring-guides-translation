@@ -61,7 +61,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | 标题                                       | 简介                                       | 译者                                    | 校对                                    |
 | ---------------------------------------- | ---------------------------------------- | ------------------------------------- | ------------------------------------- |
 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) | Learn how to create a RESTful web service with Spring. | [冀天宇](https://github.com/Jitianyu)    |                                       |
-| [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | Learn how to schedule tasks with Spring. |                                       |                                       |
+| [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | Learn how to schedule tasks with Spring. | [张伟文](https://github.com/carlzhangweiwen)|                                     |
 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) | Learn how to retrieve web page data with Spring's RestTemplate. |                                       |                                       |
 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | Learn how to build a Java project with Gradle. |                                       |                                       |
 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) | Learn how to access relational data with Spring. |                                       |                                       |
