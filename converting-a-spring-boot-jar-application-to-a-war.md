@@ -1,19 +1,36 @@
-# 中文标题
+# 把一个Spring Boot JAR程序转为WAR程序
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) 
 >
-> 译者：
+> 译者：JohnHello
 >
 > 校对：
 
-在此处编写正文，基本翻译规范：
 
-* 正文标题按层次结构 从 \#\# 开始
-* 代码片段\`\`\`之后需要写明语言类型
-* 如有图片更静态资源保存在static目录下，每篇文章建立自己的目录存储
-* 尊重原作、不修改、不删减内容
-* 每篇文章翻译完成之后提交PR，并在翻译交流群中找校对人员完成review，最后由管理员完成Merge
-* 若译者与校对有不同建议，可以将争议部分发到交流群中一起讨论确定结果
+Spring Boot自带两个强大的插件：
+
+* spring-boot-gradle-plugin
+* spring-boot-maven-plugin
+
+这两个插件本质上提供相同的功能，都可以在命令行启动Spring Boot程序或直接打包成可运行的jar包。几乎每一个Spring Boot新手指南上都会提到这一点。
+
+除此之外，还有很多人习惯于生成WAR文件部署到容器中。当然，这两个插件同样支持生成WAR包。基本上两步就可以搞定，首先需要修改程序生成文件的格式为WAR方式，同时声明嵌入式容器依赖为"provided"。这样就可以保证相关的内嵌式容器依赖文件不会被放入生成的WAR文件中。
+
+如何配置你的项目去打包成可被容器使用的WAR文件，更多详细步骤可以参考以下：
+* [Packaging executable jar and war files with Maven](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging)
+* [Packaging executable jar and war files with Gradle](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-gradle-packaging)
+
+>  Spring Boot 程序可以运行在servlet 3.0规范的容器中。
+
+### 更多
+下面这篇指南可能同样适合你：
+* [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+
+
+
+
+
+
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
