@@ -27,5 +27,5 @@
 
 关于REST如何在微服务的世界使用会有更广的讨论，但对于本教程，我们来看看构建REST服务。
 
-为什么选择REST？借鉴Martin Fowler的说法，REST实践中指出：“”
+为什么选择REST？借鉴[Martin Fowler](http://martinfowler.com/)的说法，[REST实践](https://www.amazon.com/gp/product/0596805829?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596805829)中指出：“网络是大规模可扩展分布式系统的一个存在证据，它的工作原理很好，我们借鉴它更容易构建集成系统。”我认为这是一个很好的理由：REST包含了网络自身的规则、自身架构、优势以及所有。
 
