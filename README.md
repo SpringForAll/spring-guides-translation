@@ -10,46 +10,6 @@
 - Github：https://github.com/SpringForAll/spring-guides-translation
 - 组织人：[程序猿DD](https://github.com/dyc87112/)
 
-### 如何认领
-
-下面列举了当前所有教程列表，还译者栏和校对栏空缺的表示还没有人参与翻译，有兴趣的读者可以联系我（微信：zhaiyongchao1987）参与翻译或校对工作。
-
-翻译认领登记方法：
-
-- 在本项目中提issue的方式提交认领登记
-
-- 登记格式如下：
-
-  > 原文：从下面表格中选择感兴趣的文章
-  >
-  > 角色：译者 or 校对
-
-- 关于译者与校对的建议，如果对Spring的文章翻译没有太多经验的话，可以先从校对开始
-
-- 为了保证翻译质量，所有文章都需要经过校对后才发布
-
-关于翻译的一些规范如下：
-
-- 翻译文件格式：markdown
-
-- 文件名格式：原文标题.md
-
-- 提交以Pull Request方式提交，每篇文章在他比较PR之后，必须找一位校对人员校对之后才能发布（翻译保证质量）
-
-- 翻译内容包含：标题、简介、正文
-
-- 文章摘要部分采用如下的固定格式：
-
-  > 原文：[Securing a Web Application](https://spring.io/guides/gs/securing-web/)
-  >
-  > 译者：[徐靖峰](https://github.com/lexburner)
-  >
-  > 校对：[程序猿DD](https://github.com/dyc87112/)
-
-- 文章末尾使用统一的版权声明：
-
-  > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
-
 ### 翻译内容
 
 待翻译内容有如下三个部分：
