@@ -78,7 +78,7 @@
 
 举个栗子，使用unix或者Linux系统的同学使用 `mkdir -p` 命令分别创建以下文件夹
 
-`
+```
 mkdir -p gs-yarn-batch-processing-appmaster/src/main/resources
 mkdir -p gs-yarn-batch-processing-appmaster/src/main/java/hello/appmaster
 mkdir -p gs-yarn-batch-processing-container/src/main/resources
@@ -86,11 +86,11 @@ mkdir -p gs-yarn-batch-processing-container/src/main/java/hello/container
 mkdir -p gs-yarn-batch-processing-client/src/main/resources
 mkdir -p gs-yarn-batch-processing-client/src/main/java/hello/client
 mkdir -p gs-yarn-batch-processing-dist/src/test/java/hello
-`
+```
 
 ### 创建gradle编译文件
 
-[初始化Gradle编译文件 ][13]。也可以用[Spring Tool Suite (STS)][14]工具直接导入源码
+[初始化Gradle编译文件 ][13]，也可以用[Spring Tool Suite (STS)][14]工具直接导入源码
 
 `build.gradle`
 
@@ -582,6 +582,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 ````
 
 ### 总结一下
+
 恭喜了，可以开发Spring Batch job的Spring YARN程序了
 
 
@@ -602,6 +603,8 @@ public class AppIT extends AbstractBootYarnClusterTests {
 [12]:https://spring.io/guides/gs/gradle
 [13]:https://github.com/spring-guides/gs-yarn-batch-processing/blob/master/initial/build.gradle
 [14]:https://spring.io/guides/gs/sts
+
+
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
 
