@@ -24,7 +24,7 @@
 
 ## 如何完成这篇指南
 
-像大多数的Spring指南 [Getting Started guides](https://spring.io/guides),你可以从头开始，完成每一步，也可以跳过已经熟悉的基本步骤。 无论哪种方式，你都会得到起作用的代码。
+像大多数的[Spring指南](https://spring.io/guides)，你可以从头开始，完成每一步，也可以跳过已经熟悉的基本步骤。 无论哪种方式，你都会得到起作用的代码。
 
 **从零开始**，请移步[Build with Gradle](https://spring.io/guides/gs/routing-and-filtering/#scratch).
 
@@ -32,13 +32,13 @@
 
 - [下载](https://github.com/spring-guides/gs-routing-and-filtering/archive/master.zip)并解压此篇指南的源码，或者使用Git来克隆：`git clone https://github.com/spring-guides/gs-routing-and-filtering.git`
 - 使用cd命令进入`gs-routing-and-filtering/initial`
-- 前往[构建一个微服务](##构建一个微服务)(https://spring.io/guides/gs/routing-and-filtering/#initial)
+- 前往[构建一个微服务](https://spring.io/guides/gs/routing-and-filtering/#initial)
 
 **当你完成后**，你可以和此处的代码进行对比`gs-routing-and-filtering/complete`.
 
 ## 使用Gradle构建
 
-首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得设置基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
 
 ### 创建目录结构
 
@@ -498,7 +498,7 @@ public class GatewayApplication {
 
 ## 试试看
 
-确保两个应用程序都在运行。在浏览器中，通过网关应用访问Book应用。如果你使用本文前面展示的配置，你可以直接通过`localhost：8090`访问Book服务，并且通过`localhost:8080/books`访问网关上的Book服务。
+确保两个应用程序都在运行。在浏览器中，通过网关应用访问Book应用。如果你使用本文前面展示的配置，你可以直接通过`localhost：8090`访问Book服务，并且通过`localhost:8080/books`访问基于网关的Book服务。
 
 访问Book服务的一个终端，例如`localhost:8080/books/available`，并且你可以看到在访问Book应用之前，你的请求被记录在网关应用的控制台中。
 
