@@ -1,3 +1,5 @@
+【zaixiandemiao 正在翻译】
+
 # 中文标题
 
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
@@ -16,6 +18,3 @@
 * 若译者与校对有不同建议，可以将争议部分发到交流群中一起讨论确定结果
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
-
-
-
