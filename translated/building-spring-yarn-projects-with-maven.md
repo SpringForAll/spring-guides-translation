@@ -6,9 +6,10 @@
 >
 > 校对：[zx-stefan](https://github.com/zx-stefan)
 
+
 老司机带你走一遍，用`Maven`构建一个简单的Spring YARN 工程
 ### 你将学到点什么
-创建一个简单的app然后用Maven构建之
+创建一个简单的app然后用`Maven`构建之
 
 这篇文章不准备创建一个完整可用的YARN app，而是关注项目和构建模型
 
@@ -121,7 +122,6 @@ public class AppmasterApplication {
 创建一个 `ClientApplication` 类
 
 
-
 `gs-maven-yarn-client/src/main/java/hello/client/ClientApplication.java`
 
 ````
@@ -149,7 +149,7 @@ spring:
         appName: gs-yarn-maven
 ````
 
-### 通过 Spring YARN 理解 Maven的使用规则
+### 通过Spring YARN项目理解Maven的使用规则
 
 父级目录的pom文件结构
 
@@ -223,7 +223,7 @@ spring:
 </project>
 ````
 
-创建了appmaster，container，client 三个独立子项目。另外，构建一个完整的项目等时候还要创建dist项目用来集成插件所有的artifacts，以便管理其子项目
+创建了appmaster，container，client 三个独立子项目。另外，构建一个完整的项目的时候还要创建dist项目用来集成所有的artifacts，以便管理其子项目
 
 appmaster项目的pom文件
 
@@ -261,8 +261,7 @@ appmaster项目的pom文件
 
 container子项目的pom文件
 
-`gs-maven-yarn-container/pom.xml`
-pom文件路径
+`gs-maven-yarn-container/pom.xml` pom文件路径
 ````
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -295,8 +294,7 @@ pom文件路径
 
 client子项目的pom文件
 
-`gs-maven-yarn-client/pom.xml`
-pom文件路径
+`gs-maven-yarn-client/pom.xml` pom文件路径
 
 ````
 <?xml version="1.0" encoding="UTF-8"?>
@@ -331,8 +329,7 @@ pom文件路径
 
 父目录pom文件
 
-`gs-maven-yarn-dist/pom.xml`
-pom文件路径
+`gs-maven-yarn-dist/pom.xml` pom文件路径
 
 ````
 <?xml version="1.0" encoding="UTF-8"?>
@@ -426,6 +423,7 @@ pom文件路径
 集成配置文件
 
 `gs-maven-yarn-dist/assembly.xml`
+
 集成配置文件路径
 ````
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
@@ -532,6 +530,7 @@ pom文件路径
 gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-container-0.1.0.jar
 gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-appmaster-0.1.0.jar
 `
+
 运行项目
 
 `java -jar gs-maven-yarn-dist/target/dist/gs-maven-yarn-client-0.1.0.jar`
