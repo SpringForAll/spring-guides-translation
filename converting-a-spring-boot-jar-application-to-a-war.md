@@ -2,7 +2,7 @@
 
 > 原文：[Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) 
 >
-> 译者：JohnHello
+> 译者：[JohnHello](https://github.com/JohnHello)
 >
 > 校对：
 
