@@ -40,7 +40,7 @@ git clone  [`https://github.com/spring-guides/gs-maven-yarn.git`][5]
 
 首先用Maven构建一个java 工程，当然这个项目尽可能简单，因为重点是在Maven上
 
-### Create the directory structure 目录结构
+### 创建目录结构
 
 选定工程文件夹以后，建立子文件夹：
 
@@ -68,7 +68,7 @@ git clone  [`https://github.com/spring-guides/gs-maven-yarn.git`][5]
 │                   └── client
 └── gs-maven-yarn-dist
 ````
-举个栗子，在`Unix`或`Linux`系统下，使用`mkdir -p` 命令创建
+举个栗子，在`Unix`或`Linux`系统下，使用`mkdir -p` 命令创建以下目录
 
 ```
 mkdir -p gs-maven-yarn-appmaster/src/main/resources
@@ -77,12 +77,12 @@ mkdir -p gs-maven-yarn-container/src/main/resources
 mkdir -p gs-maven-yarn-container/src/main/java/hello/container
 mkdir -p gs-maven-yarn-client/src/main/resources
 mkdir -p gs-maven-yarn-client/src/main/java/hello/client
-mkdir -p gs-maven-yarn-dist
+mkdir  gs-maven-yarn-dist
 ```
 
 创建一个`ContainerApplication` 类
 
-`gs-maven-yarn-container/src/main/java/hello/container/ContainerApplication.java`_
+`gs-maven-yarn-container/src/main/java/hello/container/ContainerApplication.java`
 
 ````
 package hello.container;
@@ -149,24 +149,7 @@ spring:
         appName: gs-yarn-maven
 ````
 
-`gs-maven-yarn-appmaster/src/main/resources/application.yml`
-
-````
-spring:
-    yarn:
-        appName: gs-yarn-maven
-````
-
-
-`gs-maven-yarn-client/src/main/resources/application.yml`
-
-````
-spring:
-    yarn:
-        appName: gs-yarn-maven
-````
-# Understanding Maven Usage with Spring YARN
-# 通过 Spring YARN 理解 Maven的使用规则
+### 通过 Spring YARN 理解 Maven的使用规则
 
 父级目录的pom文件结构
 
