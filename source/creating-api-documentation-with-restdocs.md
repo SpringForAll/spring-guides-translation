@@ -2,9 +2,17 @@
 
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
 >
-> 译者：
+> 译者：HoldDie
 >
 > 校对：
+
+
+
+HoldDie 翻译中
+
+
+
+
 
 在此处编写正文，基本翻译规范：
 
