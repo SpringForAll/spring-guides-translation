@@ -14,7 +14,7 @@
 
 下面列举了当前所有教程列表，还译者栏和校对栏空缺的表示还没有人参与翻译，有兴趣的读者可以联系我（微信：zhaiyongchao1987）参与翻译或校对工作。
 
-翻译认领登记方法：
+**翻译登记方法**：
 
 - 在本项目中提issue的方式提交认领登记
 
@@ -24,31 +24,11 @@
   >
   > 角色：译者 or 校对
 
-- 关于译者与校对的建议，如果对Spring的文章翻译没有太多经验的话，可以先从校对开始
+*注意：*
 
-- 为了保证翻译质量，所有文章都需要经过校对后才发布
-
-关于翻译的一些规范如下：
-
-- 翻译文件格式：markdown
-
-- 文件名格式：原文标题.md
-
-- 提交以Pull Request方式提交，每篇文章在他比较PR之后，必须找一位校对人员校对之后才能发布（翻译保证质量）
-
-- 翻译内容包含：标题、简介、正文
-
-- 文章摘要部分采用如下的固定格式：
-
-  > 原文：[Securing a Web Application](https://spring.io/guides/gs/securing-web/)
-  >
-  > 译者：[徐靖峰](https://github.com/lexburner)
-  >
-  > 校对：[程序猿DD](https://github.com/dyc87112/)
-
-- 文章末尾使用统一的版权声明：
-
-  > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
+- 如果对文章翻译和Spring的使用没有太多经验的话，可以先从**校对**开始
+- 请勿一次认领多篇，在完成一篇之后再认领下一篇，保证高效多人并行
+- 为了保证翻译质量，所有文章都需要经过校对后才发布，校对人员可在交流群中找，校对通过PR的Review完成
 
 ### 翻译内容
 
@@ -89,7 +69,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/) | Learn how to create a web page with Spring MVC. | [dejunyu](https://github.com/dejunyu)    | [xiudongxu](https://github.com/xiudongxu) |
 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | Learn how to convert your Spring Boot JAR-based application to a WAR file. | [JohnHello](https://github.com/JohnHello) |                                          |
 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | Learn how to create asynchronous service methods. | [nl101531](https://github.com/nl101531)  [shaoshao721](https://github.com/shaoshao721) |                                          |
-| [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) | Learn how to create and submit a web form with Spring. |                                          |                                          |
+| [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) | Learn how to create and submit a web form with Spring. | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | Learn how to build an application with minimal configuration. | [shenpengyan](https://github.com/shenpengyan) 、 [nycgym](https://github.com/Anycgym) | [xiudongxu](https://github.com/xiudongxu) |
 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) | Learn how to the send and receive messages between a browser and the server over a WebSocket | [汪志峰](https://github.com/maskwang520)    | [francischan714](https://github.com/francischan714) |
 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | Learn how to import a Getting Started guide with Spring Tool Suite (STS). |                                          |                                          |
@@ -110,7 +90,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) | Learn how to work with RESTful, hypermedia-based data persistence using Spring Data REST. |                                          |                                          |
 | [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/) | Learn how to create a SOAP-based web service with Spring. | [feilangrenM](https://github.com/feilangrenM) |                                          |
 | [Simple Single Project YARN Application](https://spring.io/guides/gs/yarn-basic-single/) | Learn how to build a simple Spring YARN application |                                          |                                          |
-| [Caching Data with Spring](https://spring.io/guides/gs/caching/) | Learn how to cache data in memory with Spring |                                          |                                          |
+| [Caching Data with Spring](https://spring.io/guides/gs/caching/) | Learn how to cache data in memory with Spring | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | [Deploying to Cloud Foundry from STS](https://spring.io/guides/gs/sts-cloud-foundry-deployment/) | Learn how to deploy a Spring application to Cloud Foundry from STS |                                          |                                          |
 | [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/) | Learn how to create a Docker container from a Spring Boot application with Maven or Gradle | [StormMaybin](https://github.com/StormMaybin)、 [suliangxd](https://github.com/suliangxd) | [jinliang123](https://github.com/jinliang123) |
 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) | Learn how to work a Getting Started guide with IntelliJ IDEA. | [xuxiaoxie](https://github.com/xuxiaoxie) 、 [xiudongxu](https://github.com/xiudongxu) |                                          |
@@ -144,6 +124,28 @@ Designed to be completed in 2-3 hours, these guides provide deeper, in-context e
 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) | A tutorial on how to use Spring Security with a single page application with various backend architectures, ranging from a simple single server to an API gateway with OAuth2 authentication. | [徐靖峰](https://github.com/lexburner)      | [程序猿DD](https://github.com/dyc87112/) |
 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) | A tutorial based on the 5-part blog series by Greg Turnquist |                                          |                                       |
 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) | A tutorial on "social" login and single sign on with Facebook and Github | [CoconutJuice](https://github.com/CoconutJuice) |                                       |
+
+## 翻译规范
+
+关于翻译的一些规范如下：
+
+- 翻译文件格式：markdown
+
+- 文件名格式：原文标题.md （文件已经预创建，直接编辑即可）
+
+- 提交以Pull Request方式提交，每篇文章在他比较PR之后，必须找一位校对人员校对之后才能发布（翻译保证质量）
+
+- 文章摘要部分采用如下的固定格式：（已经预创建，请勿删除该部分）
+
+  > 原文：[Securing a Web Application](https://spring.io/guides/gs/securing-web/)
+  >
+  > 译者：[徐靖峰](https://github.com/lexburner)
+  >
+  > 校对：[程序猿DD](https://github.com/dyc87112/)
+
+- 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
+
+  > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
 
 ## 致谢
 
