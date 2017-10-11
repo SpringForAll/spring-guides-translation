@@ -1,6 +1,6 @@
 # 【strongant 正在翻译】
 
-## accessing-jpa-data-with-rest
+# accessing-jpa-data-with-rest
 ============================================================
 
 > 原文：[accessing-jpa-data-with-rest](https://spring.io/guides/gs/accessing-data-rest/)
@@ -11,14 +11,14 @@
 
 本指南将引导您完成创建通过基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端访问关系型JPA数据的应用程序的过程。
 
-### 你会得到什么？
+## 你会得到什么？
 
 你会创建一个Spring应用，它能够使用Spring Data REST创建并且删除一个存储在数据库中的`Person`对象。Spring Data REST具有[Spring HATEOAS](https://projects.spring.io/spring-hateoas)和[Spring Data JPA](https://projects.spring.io/spring-data-jpa)的功能，并将它们自动组合在一起。
 
 > Spring Data REST 也支持 [Spring Data Neo4j](https://spring.io/guides/gs/accessing-neo4j-data-rest), [Spring Data Gemfire](https://spring.io/guides/gs/accessing-gemfire-data-rest) 和 [Spring Data MongoDB](https://spring.io/guides/gs/accessing-mongodb-data-rest) 作为后端存储, 但这些并不是本指南的一部分。
 
 
-### 你需要准备什么？
+## 你需要准备什么？
 
 大约15分钟时间
 
@@ -35,7 +35,7 @@
 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 
-### 怎样完成指南？
+## 怎样完成指南？
 
 像大多数 Spring [入门指南](https://spring.io/guides)一样, 你可以从头开始，完成每一步, 或者你也可以绕过你熟悉的基本步骤再开始。 不管通过哪种方式，你最后都会得到一份可执行的代码。
 
@@ -51,7 +51,7 @@
 
 **当你完成之后**，你可以在`gs-accessing-data-rest/complete`根据代码检查下结果。
 
-### 使用Gradle构建
+## 使用Gradle构建
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
@@ -113,9 +113,88 @@ dependencies {
 * 搜索public static void main()方法并且将它标记为可执行类。
 * 提供了将内部依赖的版本都去匹配 Spring Boot 依赖的版本.你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-### 使用Maven构建
+## 使用Maven构建
 
-### 使用你的IDE构建
+First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with Maven is included here. If you’re not familiar with Maven, refer to Building Java Projects with Maven.
+
+Create the directory structure
+
+In a project directory of your choosing, create the following subdirectory structure; for example, with mkdir -p src/main/java/hello on *nix systems:
+
+└── src
+    └── main
+        └── java
+            └── hello
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-accessing-data-rest</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
+The Spring Boot Maven plugin provides many convenient features:
+
+It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
+It searches for the public static void main() method to flag as a runnable class.
+It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot’s chosen set of versions.
+
+## 使用你的IDE构建
 
 Read how to import this guide straight into Spring Tool Suite.
 Read how to work with this guide in IntelliJ IDEA.
