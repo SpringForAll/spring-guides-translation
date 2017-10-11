@@ -40,19 +40,28 @@ source 目录文件夹下，第一行没有【XXX正在翻译的】的文章，�
 
 * 文件名格式：原文标题.md （文件已经预创建，直接编辑即可）
 
-* 提交以Pull Request方式提交，每篇文章在他比较PR之后，必须找一位校对人员校对之后才能发布（翻译保证质量）
-
 * 文章摘要部分采用如下的固定格式：（已经预创建，请勿删除该部分）
 
-  > 原文：\[Securing a Web Application\]\([https://spring.io/guides/gs/securing-web/\](https://spring.io/guides/gs/securing-web/\)\)
-  >
-  > 译者：\[xxx\]\(\)
-  >
-  > 校对：\[yyy\]\(\)
+  * > 原文：\[Securing a Web Application\]\([https://spring.io/guides/gs/securing-web/\](https://spring.io/guides/gs/securing-web/%29\)
+    >
+    > 译者：\[xxx\]\(\)
+    >
+    > 校对：\[yyy\]\(\)
+  * 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
 
-* 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
+    > 本文由spring4all.com翻译小分队创作，采用\[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可\]\([http://creativecommons.org/licenses/by-nc-sa/4.0/\)协议进行许可。](http://creativecommons.org/licenses/by-nc-sa/4.0/%29协议进行许可。)
 
-  > 本文由spring4all.com翻译小分队创作，采用\[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可\]\([http://creativecommons.org/licenses/by-nc-sa/4.0/\)协议进行许可。](http://creativecommons.org/licenses/by-nc-sa/4.0/%29协议进行许可。)
+* 正文标题按层次结构 从\# 开始
+
+* 代码片段\`\`\`之后需要写明语言类型
+
+* 如有图片更静态资源保存在static目录下，每篇文章建立自己的目录存储（目录名使用文章编号，文章编号见README）
+
+* 尊重原作、不修改、不删减内容
+
+* 每篇文章翻译完成之后提交PR，并在翻译交流群中找校对人员完成review，最后由管理员完成Merge
+
+* 若译者与校对有不同建议，可以将争议部分发到交流群中一起讨论确定结果
 
 
 
