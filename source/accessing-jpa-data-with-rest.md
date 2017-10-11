@@ -9,11 +9,11 @@
 >
 > 校对： [汪志峰](https://github.com/maskwang520)
 
-本指南将引导您完成通过基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端访问关系型JPA数据的应用程序的创建过程。
+本指南将引导您完成创建通过基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端访问关系型JPA数据的应用程序的过程。
 
 你会得到什么？
 
-你会创建一个应用Spring应用，它能够使用Spring Data REST创建并且删除一个存储在数据库中的Person对象。Spring Data REST具有Spring HATEOAS和Spring Data JPA的功能，并将它们自动组合在一起。
+你会创建一个应用Spring应用，它能够使用Spring Data REST创建并且删除一个存储在数据库中的`Person`对象。Spring Data REST具有Spring HATEOAS和Spring Data JPA的功能，并将它们自动组合在一起。
 
 Spring Data REST also supports Spring Data Neo4j, Spring Data Gemfire and Spring Data MongoDB as backend data stores, but those are not part of this guide.
 What you’ll need
