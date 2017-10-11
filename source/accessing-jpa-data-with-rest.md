@@ -53,11 +53,11 @@
 
 ### 使用Gradle构建
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with Gradle and Maven is included here. If you’re not familiar with either, refer to Building Java Projects with Gradle or Building Java Projects with Maven.
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
-Create the directory structure
+创建以下目录结构
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with mkdir -p src/main/java/hello on *nix systems:
+在你的项目根目录，创建如下的子目录结构; 例如，如果你使用的是*nix系统，你可以使用`mkdir -p src/main/java/hello`:
 
 ```
 └── src
@@ -66,9 +66,9 @@ In a project directory of your choosing, create the following subdirectory struc
             └── hello
 ```
 
-Create a Gradle build file
+创建Gradle构建文件
 
-Below is the initial Gradle build file.
+下面是一份[初始化Gradle构建文件](https://github.com/spring-guides/gs-accessing-data-rest/blob/master/initial/build.gradle)
 
 `build.gradle`
 
@@ -107,11 +107,11 @@ dependencies {
 }
 ```
 
-The Spring Boot gradle plugin provides many convenient features:
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多非常方便的功能：
 
-* It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
-* It searches for the public static void main() method to flag as a runnable class.
-* It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot’s chosen set of versions.
+* 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷。
+* 搜索public static void main()方法并且将它标记为可执行类。
+* 提供了将内部依赖的版本都去匹配 Spring Boot 依赖的版本.你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ### 使用Maven构建
 
