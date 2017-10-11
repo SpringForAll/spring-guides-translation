@@ -10,25 +10,10 @@
 - Github：https://github.com/SpringForAll/spring-guides-translation
 - 组织人：[程序猿DD](https://github.com/dyc87112/)
 
-### 如何认领
+### 翻译流程
 
-下面列举了当前所有教程列表，还译者栏和校对栏空缺的表示还没有人参与翻译，有兴趣的读者可以联系我（微信：zhaiyongchao1987）参与翻译或校对工作。
+[翻译申请认领流程](https://github.com/chenzhijun/spring-guides-translation/blob/master/translate-readme.md)
 
-**翻译登记方法**：
-
-- 在本项目中提issue的方式提交认领登记
-
-- 登记格式如下：
-
-  > 原文：从下面表格中选择感兴趣的文章
-  >
-  > 角色：译者 or 校对
-
-*注意：*
-
-- 如果对文章翻译和Spring的使用没有太多经验的话，可以先从**校对**开始
-- 请勿一次认领多篇，在完成一篇之后再认领下一篇，保证高效多人并行
-- 为了保证翻译质量，所有文章都需要经过校对后才发布，校对人员可在交流群中找，校对通过PR的Review完成
 
 ### 翻译内容
 
@@ -107,14 +92,6 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 
 
 #### Topical Guides
-
-Designed to be read and comprehended in an hour or less, providing more wide-ranging or subjective content than a getting started guide.
-
-| 编号   | 标题                                       | 简介                                       | 译者                                  | 校对                                    |
-| ---- | ---------------------------------------- | ---------------------------------------- | ----------------------------------- | ------------------------------------- |
-| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | Topical guide to Spring Security, how the bits fit together and how they interact with Spring Boot | [徐靖峰](https://github.com/lexburner) | [程序猿DD](https://github.com/dyc87112/) |
-
-#### Tutorials
 
 Designed to be completed in 2-3 hours, these guides provide deeper, in-context explorations of enterprise application development topics, leaving you ready to implement real-world solutions.
 
