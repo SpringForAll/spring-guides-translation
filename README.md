@@ -12,7 +12,7 @@
 
 ### 翻译流程
 
-[翻译申请认领流程](https://github.com/chenzhijun/spring-guides-translation/blob/master/traslate-readme.md)
+[翻译申请认领流程](https://github.com/chenzhijun/spring-guides-translation/blob/master/translate-readme.md)
 
 
 ### 翻译内容
