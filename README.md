@@ -101,12 +101,12 @@ Designed to be read and comprehended in an hour or less, providing more wide-ran
 
 Designed to be completed in 2-3 hours, these guides provide deeper, in-context explorations of enterprise application development topics, leaving you ready to implement real-world solutions.
 
-|      | 标题                                       | 状态   | 译者                                       | 校对                                    |
-| ---- | ---------------------------------------- | ---- | ---------------------------------------- | ------------------------------------- |
-| 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) |      | [silentbalanceyh](https://github.com/silentbalanceyh)、 [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                       |
-| 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      | [徐靖峰](https://github.com/lexburner)      | [程序猿DD](https://github.com/dyc87112/) |
-| 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                       |
-| 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      | [CoconutJuice](https://github.com/CoconutJuice) |                                       |
+|      | 标题                                       | 状态   | 译者                                       | 校对                                       |
+| ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
+| 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) |      | [silentbalanceyh](https://github.com/silentbalanceyh) | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |
+| 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      | [徐靖峰](https://github.com/lexburner)      |                                          |
+| 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
+| 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      | [CoconutJuice](https://github.com/CoconutJuice) |                                          |
 
 ## 翻译规范
 
@@ -118,14 +118,13 @@ Designed to be completed in 2-3 hours, these guides provide deeper, in-context e
 
 * 文章摘要部分采用如下的固定格式：（已经预创建，请勿删除该部分）
 
-  * > 原文：\[Securing a Web Application\]\([https://spring.io/guides/gs/securing-web/\](https://spring.io/guides/gs/securing-web/%29\)
-    >
-    > 译者：\[xxx\]\(\)
-    >
-    > 校对：\[yyy\]\(\)
-  * 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
-
-    > 本文由spring4all.com翻译小分队创作，采用\[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可\]\([http://creativecommons.org/licenses/by-nc-sa/4.0/\)协议进行许可。](http://creativecommons.org/licenses/by-nc-sa/4.0/%29协议进行许可。)
+  > 原文：\[Securing a Web Application\]\([https://spring.io/guides/gs/securing-web/\](https://spring.io/guides/gs/securing-web/%29\)
+  >
+  > 译者：\[xxx\]\(\)
+  >
+  > 校对：\[yyy\]\(\)
+* 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
+  > 本文由spring4all.com翻译小分队创作，采用\[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可\]\([http://creativecommons.org/licenses/by-nc-sa/4.0/\)协议进行许可。](http://creativecommons.org/licenses/by-nc-sa/4.0/%29协议进行许可。)
 
 * 正文标题按层次结构 从\# 开始
 
