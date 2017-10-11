@@ -11,7 +11,7 @@
 
 ## 你将构建什么
 
-您将构建一个使用<font color=blue size=2>StringRedisTemplate</font>发布字符串消息并使用<font color=blue size=2>MessageListenerAdapter</font>进行[POJO](https://spring.io/understanding/POJO)订阅它的应用程序。
+你将构建一个使用<font color=blue size=2>StringRedisTemplate</font>发布字符串消息并使用<font color=blue size=2>MessageListenerAdapter</font>进行[POJO](https://spring.io/understanding/POJO)订阅它的应用程序。
 使用Spring Data Redis作为发布消息的手段可能听起来会很奇怪，但是你会发现，Redis不仅提供NoSQL数据存储，也提供了消息交互的体系。
 
 ## 你需要准备哪些工作
@@ -59,8 +59,8 @@
 
 在你建立好可以进行消息传递的应用之前,你需要先搭建好可以接受和发送消息的服务器。
 
-Redis是一个开源的、BSD许可的键值对形式数据存储数据库,还附带消息系统。Redis服务器可以在http://redis.io/download上免费获得，
-你可以手动下载，或者使用Mac自己搭建:
+Redis是一个开源的、BSD许可的键值对形式数据存储数据库,还附带消息系统。Redis服务器可以在[http://redis.io/download](http://redis.io/download)上免费获得,
+你可以手动下载,或者使用Mac自己搭建:
 
 <table>
   <tr>
@@ -136,14 +136,8 @@ public class Receiver {
 ```
 接收着是一个简单的POJO，它定义了一种接收消息的方法。你会看到当你把接受者注册为消息监听器时,
 </br>你将可以按你需要的方法命名消息处理的方法。
-<table>
-  <tr>
-   <td bgcolor=#D9D9D9 width=800 height=30>
-    <font color=#009933 size=6>&#124;</font>&nbsp;&nbsp;&nbsp;为了演示的目的,它会通过同步工具类自动装配好构造函数。
-    这样,它就可以在消息到来时发送信号。
-   </td>
- </tr>
-</table>
+
+>为了演示的目的,它会通过同步工具类自动装配好构造函数。这样,它就可以在消息到来时发送信号。
 
 ## 注册监听和发送消息
 Spring Data Redis 提供了所有你需要Redis发送和接受消息的组件,具体来说，你需要配置：
@@ -152,7 +146,7 @@ Spring Data Redis 提供了所有你需要Redis发送和接受消息的组件,�
 * 一个消息监听的容器
 * 一个Redis模板
 
-您将使用Redis模板发送消息，您将使用消息侦听器容器注册`Receiver`，以便它接收消息。连接工厂驱动模板和消息侦听器容器,
+你将使用Redis模板发送消息，你将使用消息侦听器容器注册`Receiver`，以便它接收消息。连接工厂驱动模板和消息侦听器容器,
 </br>使其能够连接到Redis服务器。
 
 这个示例使用的是Spring Boot默认的`RedisConnectionFactory`,该对象是基于`Jedis` Redis库的`JedisConnectionFactory`实例。
@@ -254,14 +248,7 @@ java -jar build/libs/gs-messaging-redis-0.1.0.jar
 ```
 java -jar target/gs-messaging-redis-0.1.0.jar
 ```
-<table>
-  <tr>
-   <td bgcolor=#D9D9D9 width=800 height=30>
-    <font color=#009933 size=6>&#124;</font>&nbsp;&nbsp;&nbsp;上面的过程将创建一个可运行的JAR文件。
-    你也可以选择构建成一个[经典的WAR](https://spring.io/guides/gs/convert-jar-to-war/)文件。
-   </td>
- </tr>
-</table>
+>上面的过程将创建一个可运行的JAR文件。你也可以选择构建成一个[经典的WAR](https://spring.io/guides/gs/convert-jar-to-war/)文件。
 
 你应该会看到如下的输出:
 ```
@@ -286,13 +273,7 @@ java -jar target/gs-messaging-redis-0.1.0.jar
 ## 总结
 恭喜！ 你刚刚使用Spring和Redis开发了一个简单的发布和订阅应用程序。
 
-<table>
-  <tr>
-   <td bgcolor=#D9D9D9 width=800 height=30>
-    <font color=#009933 size=6>&#124;</font>&nbsp;&nbsp;&nbsp;[获取Redis支持](http://gopivotal.com/products/redis)
-   </td>
- </tr>
-</table>
+> 获取[Redis支持](http://gopivotal.com/products/redis)  
 
 ## 也可以看看
 
@@ -303,14 +284,9 @@ java -jar target/gs-messaging-redis-0.1.0.jar
 * [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
-<table>
-  <tr>
-   <td bgcolor=#D9D9D9 width=800 height=30>
-    <font color=#009933 size=6>&#124;</font>&nbsp;&nbsp;&nbsp;所有指南都将发布ASLv2许可证的代码，
-    以及[署名,NoDerivatives创作共用许可证](https://creativecommons.org/licenses/by-nd/3.0/)的写作。
-   </td>
- </tr>
-</table>
+
+>所有指南都将发布ASLv2许可证的代码，以及[署名,NoDerivatives创作共用许可证](https://creativecommons.org/licenses/by-nd/3.0/)的写作。
+
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
