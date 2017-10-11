@@ -1,6 +1,6 @@
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/accessing-data-mongodb/)
+> 原文：[Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
 >
 > 译者：cholf
 >
