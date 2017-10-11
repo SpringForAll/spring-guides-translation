@@ -37,16 +37,19 @@
 
 ### 怎样完成指南？
 
-Like most Spring Getting Started guides, you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
+像大多数 Spring [入门指南](https://spring.io/guides)一样, 你可以从头开始，完成每一步, 或者你也可以绕过你熟悉的基本步骤再开始。 不管通过哪种方式，你最后都会得到一份可执行的代码。
 
-To start from scratch, move on to Build with Gradle.
+**如果从基础开始**，你可以往下查看[怎样使用 Gradle 构建项目](https://spring.io/guides/gs/accessing-data-rest/#scratch)。
 
-To skip the basics, do the following:
+**如果已经熟悉跳过一些基本步骤**，你可以：
 
-Download and unzip the source repository for this guide, or clone it using Git: git clone https://github.com/spring-guides/gs-accessing-data-rest.git
-cd into gs-accessing-data-rest/initial
-Jump ahead to Create a domain object.
-When you’re finished, you can check your results against the code in gs-accessing-data-rest/complete.
+* [下载](https://github.com/spring-guides/gs-accessing-data-rest/archive/master.zip)并解压源码库，或者通过 [Git](https://spring.io/understanding/Git)克隆：
+
+ `git clone https://github.com/spring-guides/gs-accessing-data-rest.git`
+* 进入 `gs-accessing-data-rest/initial`目录
+* 跳过前面的部分[创建一个域对象](https://spring.io/guides/gs/accessing-data-rest/#initial)。
+
+**当你完成之后**，你可以在`gs-accessing-data-rest/complete`根据代码检查下结果。
 
 Build with Gradle
 
