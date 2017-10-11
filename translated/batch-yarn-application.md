@@ -589,8 +589,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 
 
 [1]:http://www.oracle.com/technetwork/java/javase/downloads/index.html
-[2]:http://www.gradle.org/downlo
-ads
+[2]:http://www.gradle.org/downloads
 [3]:https://maven.apache.org/download.cgi
 [4]:(https://spring.io/guides/gs/sts)
 [5]:https://spring.io/guides/gs/intellij-idea/
