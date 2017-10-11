@@ -9,12 +9,12 @@
 
 本指南将会引导你完成使用Spring Data Redis 发布和订阅通过redis发送的消息的过程。
 
-##你将构建什么
+## 你将构建什么
 
 您将构建一个使用<font color=blue size=2>StringRedisTemplate</font>发布字符串消息并使用<font color=blue size=2>MessageListenerAdapter</font>进行[POJO](https://spring.io/understanding/POJO)订阅它的应用程序。
 使用Spring Data Redis作为发布消息的手段可能听起来会很奇怪，但是你会发现，Redis不仅提供NoSQL数据存储，也提供了消息交互的体系。
 
-##你需要准备哪些工作
+## 你需要准备哪些工作
 
 * 大概15分钟
 
@@ -32,7 +32,7 @@
     
        * Redis server (安装说明如下:)
 
-##如何完成本指南
+## 如何完成本指南
 跟大多数[Spring入门指南](https://spring.io/guides)一样,你可以从头开始然后一步步完成，
 也可以直接绕过对你而言已经很熟悉的基本步骤。无论哪种方式,你都可以运行起来代码。
 
@@ -55,7 +55,7 @@
 
 ## \>通过你的IDE构建
 
-##搭建一个redis服务器
+## 搭建一个redis服务器
 
 在你建立好可以进行消息传递的应用之前,你需要先搭建好可以接受和发送消息的服务器。
 
@@ -104,7 +104,7 @@ Redis是一个开源的、BSD许可的键值对形式数据存储数据库,还�
 [35142] 01 May 14:36:28.941 # Server started, Redis version 2.6.12
 [35142] 01 May 14:36:28.941 * The server is now ready to accept connections on port 6379</pre>
 ```
-##创建一个Redis消息接收者
+## 创建一个Redis消息接收者
 在任何基于消息传递的应用程序中,都会有消息发布者和消息接受者。 要创建消息接收者，请实现一个接收方来响应消息：
 
 <font color=#3366ff size=3>&nbsp;&nbsp;&nbsp;src/main/java/hello/Receiver.java</font>
@@ -145,7 +145,7 @@ public class Receiver {
  </tr>
 </table>
 
-##注册监听和发送消息
+## 注册监听和发送消息
 Spring Data Redis 提供了所有你需要Redis发送和接受消息的组件,具体来说，你需要配置：
 
 * 一个连接工厂
@@ -240,7 +240,7 @@ main()方法通过创建一个绝无仅有的Spring应用程序上下文,然后�
 并且消息侦听器容器对象开始监听消息。然后main()方法从应用程序上下文中检索StringRedisTemplate对象,</br>
 并使用它发送一个“Hello from Redis！”消息到“聊天”主题。最后，它关闭了Spring应用程序上下文，应用程序结束。
 
-##构建一个可执行的jar包
+## 构建一个可执行的jar包
 你可以在Gradle或Maven通过命令行运行应用程序。或者,你可以构建一个包含所有必需依赖项,类和资源文件的单个可执行JAR文件,并运行该文件。
 </br>这使得在整个开发生命周期中,在到不同的环境下,更容易将其不同版本的服务部署成为一个应用程序。
 
@@ -283,7 +283,7 @@ java -jar target/gs-messaging-redis-0.1.0.jar
 2014-04-18 08:03:34.380  INFO 47002 --- [       Thread-1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
 ```
 
-##总结
+## 总结
 恭喜！ 你刚刚使用Spring和Redis开发了一个简单的发布和订阅应用程序。
 
 <table>
@@ -294,7 +294,7 @@ java -jar target/gs-messaging-redis-0.1.0.jar
  </tr>
 </table>
 
-##也可以看看
+## 也可以看看
 
 以下的指南可能也很有帮助的:
 
