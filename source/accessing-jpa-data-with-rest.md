@@ -51,11 +51,71 @@
 
 **当你完成之后**，你可以在`gs-accessing-data-rest/complete`根据代码检查下结果。
 
-Build with Gradle
+### 使用Gradle构建
 
-Build with Maven
+First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with Gradle and Maven is included here. If you’re not familiar with either, refer to Building Java Projects with Gradle or Building Java Projects with Maven.
 
-Build with your IDE
+Create the directory structure
+
+In a project directory of your choosing, create the following subdirectory structure; for example, with mkdir -p src/main/java/hello on *nix systems:
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+Create a Gradle build file
+
+Below is the initial Gradle build file.
+
+`build.gradle`
+
+```
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-accessing-data-rest'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+```
+
+The Spring Boot gradle plugin provides many convenient features:
+
+* It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
+* It searches for the public static void main() method to flag as a runnable class.
+* It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot’s chosen set of versions.
+
+### 使用Maven构建
+
+### 使用你的IDE构建
 
 Read how to import this guide straight into Spring Tool Suite.
 Read how to work with this guide in IntelliJ IDEA.
