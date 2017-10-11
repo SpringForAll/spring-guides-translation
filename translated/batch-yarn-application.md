@@ -177,9 +177,10 @@ task wrapper(type: Wrapper) {
 `gesettings.gradle`文件定义其子项目
 
 `settings.gradle` 内容
-`
+
+````
 include 'gs-yarn-batch-processing-client','gs-yarn-batch-processing-appmaster','gs-yarn-batch-processing-container','gs-yarn-batch-processing-dist'
-`
+````
 
 ### Spring 批处理介绍
 
@@ -234,9 +235,9 @@ public class PrintTasklet implements Tasklet {
 
 一个job的step当中，Tasklet接口是Spring Batch最简单通俗易懂的概念之一。这个tasklet目的只是简单示范一下真正Partitioned Step是如何执行的。当然就不用介绍如何处理复杂job处理啦
 
-在PrintTasklet类 就是些简单输出日志
+PrintTasklet类就是些简单输出日志
 
-然后创建ContainerApplication 类
+然后创建ContainerApplication类
 
 `gs-yarn-batch-processing-container/src/main/java/hello/container/ContainerApplication.java`
 
@@ -286,7 +287,7 @@ public class ContainerApplication {
  
  * @AutoWired  step建造者把steps转换成beans
  * 把PrintTasklet转换成Bean
- *  一个step变成bean以后就知道怎么执行一个tasklet了
+ * 一个step转换成bean以后就知道怎么执行一个tasklet了
  
  
  接下来为容器写一个application.yml文件
@@ -314,7 +315,7 @@ public class ContainerApplication {
 
 ### 创建一个批处理job
 
-创建 AppmasterApplication 类
+创建 AppmasterApplication类
 
 `gs-yarn-batch-processing-appmaster/src/main/java/hello/appmaster/AppmasterApplication.java`
 
@@ -455,9 +456,9 @@ public class ClientApplication {
 ````
 
 
-ClientApplication非常类似在其他指南的程序，不过这里的目的只是提交一个YARN application
+ClientApplication与其他指南的例子程序的类差不多，不过这里的目的只是提交一个YARN application
 
-创建一个client `application.ym`l 文件
+创建一个client `application.yml` 文件
 
 `gs-yarn-batch-processing-client/src/main/resources/application.yml`
 
@@ -484,12 +485,15 @@ spring:
 ### 编译程序
 
 使用简单粗暴的gradle命令：clean清空工作目录，build编译
+
 `./gradlew clean build`
 
 跳过所有的单元测试
+
 `./gradlew clean build -x test`
 
 使用简单粗暴的Maven命令：clean清空工作目录，package打包
+
 `mvn clean package`
 
 gradle 编译成功之后 在target里有以下三个jar包
@@ -511,7 +515,7 @@ $ cd gs-yarn-batch-processing-dist
 $ java -jar target/gs-yarn-batch-processing-dist/gs-yarn-batch-processing-client-0.1.0.jar`
 
 
-在YARN可以看到两段执行过程如果这个程序没有出错
+如果这个程序没有出错，在YARN可以看到两段执行过程
 
 ###  创建一个单元测试类
 
@@ -603,9 +607,9 @@ public class AppIT extends AbstractBootYarnClusterTests {
 [12]:https://spring.io/guides/gs/gradle
 [13]:https://github.com/spring-guides/gs-yarn-batch-processing/blob/master/initial/build.gradle
 [14]:https://spring.io/guides/gs/sts
+[15]:http://creativecommons.org/licenses/by-nc-sa/4.0/
 
-
-> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
+> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][15] 协议进行许可。
 
 
 
