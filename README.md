@@ -10,6 +10,11 @@
 - Github：https://github.com/SpringForAll/spring-guides-translation
 - 组织人：[程序猿DD](https://github.com/dyc87112/)
 
+### 翻译流程
+
+[翻译申请认领流程](./traslate-readme.md)
+
+
 ### 翻译内容
 
 Designed to be completed in 2-3 hours, these guides provide deeper, in-context explorations of enterprise application development topics, leaving you ready to implement real-world solutions.
