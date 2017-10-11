@@ -592,7 +592,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 [1]:http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [2]:http://www.gradle.org/downloads
 [3]:https://maven.apache.org/download.cgi
-[4]:(https://spring.io/guides/gs/sts)
+[4]:(https://spring.io/guides/gs/sts
 [5]:https://spring.io/guides/gs/intellij-idea/
 [6]:https://spring.io/guides/gs/yarn-batch-processing/#scratch
 [7]:https://github.com/spring-guides/gs-yarn-batch-processing/archive/master.zip
