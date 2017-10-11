@@ -21,11 +21,16 @@
 ### 你需要准备什么？
 
 大约15分钟时间
+
 一个喜欢的文本编辑器或者IDE
+
 [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或 更高版本
+
 [Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
+
 你也可以直接导入代码到IDE:
 [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+
 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 
