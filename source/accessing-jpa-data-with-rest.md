@@ -11,21 +11,25 @@
 
 本指南将引导您完成创建通过基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端访问关系型JPA数据的应用程序的过程。
 
-你会得到什么？
+### 你会得到什么？
 
-你会创建一个应用Spring应用，它能够使用Spring Data REST创建并且删除一个存储在数据库中的`Person`对象。Spring Data REST具有Spring HATEOAS和Spring Data JPA的功能，并将它们自动组合在一起。
+你会创建一个Spring应用，它能够使用Spring Data REST创建并且删除一个存储在数据库中的`Person`对象。Spring Data REST具有[Spring HATEOAS](https://projects.spring.io/spring-hateoas)和[Spring Data JPA](https://projects.spring.io/spring-data-jpa)的功能，并将它们自动组合在一起。
 
-Spring Data REST also supports Spring Data Neo4j, Spring Data Gemfire and Spring Data MongoDB as backend data stores, but those are not part of this guide.
-What you’ll need
+> Spring Data REST 也支持 [Spring Data Neo4j](https://spring.io/guides/gs/accessing-neo4j-data-rest), [Spring Data Gemfire](https://spring.io/guides/gs/accessing-gemfire-data-rest) 和 [Spring Data MongoDB](https://spring.io/guides/gs/accessing-mongodb-data-rest) 作为后端存储, 但这些并不是本指南的一部分。
 
-About 15 minutes
-A favorite text editor or IDE
-JDK 1.8 or later
-Gradle 2.3+ or Maven 3.0+
-You can also import the code straight into your IDE:
-Spring Tool Suite (STS)
-IntelliJ IDEA
-How to complete this guide
+
+### 你需要准备什么？
+
+大约15分钟时间
+一个喜欢的文本编辑器或者IDE
+[JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或 更高版本
+[Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
+你也可以直接导入代码到IDE:
+[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+
+
+### 怎样完成指南？
 
 Like most Spring Getting Started guides, you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
 
