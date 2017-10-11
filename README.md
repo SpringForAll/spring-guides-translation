@@ -69,7 +69,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | 1042 | [Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/) |      | [ucool2007](https://github.com/ucool2007) |                                          |
 | 1043 | [Restartable Batch YARN Application](https://spring.io/guides/gs/yarn-batch-restart/) |      |                                          |                                          |
 | 1044 | [Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/) |      |                                          |                                          |
-| 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) |      |                                          |                                          |
+| 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) |正在翻译      | [strongant](https://github.com/strongant)                                         |                                          |
 | 1046 | [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/) |      |                                          |                                          |
 | 1047 | [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/) |      |                                          |                                          |
 | 1048 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) |      |                                          |                                          |
