@@ -63,7 +63,7 @@
 
 build.gradle
 
-```
+```groovy
 buildscript {
     repositories {
         mavenCentral()
@@ -129,7 +129,7 @@ dependencies {
 
 pom.xml
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -213,7 +213,7 @@ rabbitmq-server
 
 docker-compose.yml
 
-```
+```yaml
 rabbitmq:
   image: rabbitmq:management
   ports:
@@ -229,7 +229,7 @@ rabbitmq:
 
 src/main/java/hello/Receiver.java
 
-```
+```java
 package hello;
 
 import java.util.concurrent.CountDownLatch;
@@ -272,7 +272,7 @@ Spring AMQP 的 RabbitTemplate 提供了任何你想要通过 RabbitMQ 发送和
 
 src/main/java/hello/Application.java
 
-```
+```java
 package hello;
 
 import org.springframework.amqp.core.Binding;
@@ -334,9 +334,9 @@ public class Application {
 
 * `@EnableAutoConfiguration` 告诉 SpringBoot 启动的时候在 classpath 设置、其它已经装载的 Bean 以及其它配置文件的基础上自动进行配置 Bean.
 
-*  通常你会在SpringMVC应用上使用`@EnableMvc`，但是Spring Boot 在看到spring-webmvc 在它的classpath目录下的时候，它会自动加载该注解。这个注解标记了这个应用是一个web应用，并且会激活一些关键功能，比如说加载`DispatcherServlet`.
+* 通常你会在SpringMVC应用上使用`@EnableMvc`，但是Spring Boot 在看到spring-webmvc 在它的classpath目录下的时候，它会自动加载该注解。这个注解标记了这个应用是一个web应用，并且会激活一些关键功能，比如说加载`DispatcherServlet`.
 
-*  `@ComponetScan` 告诉 Spring 在 hello 包下扫描其它的注解，如组件(componets)，配置(configurations)，或者服务(services),Spring 也会通过它找到控制器(controllers)
+* `@ComponetScan` 告诉 Spring 在 hello 包下扫描其它的注解，如组件(componets)，配置(configurations)，或者服务(services),Spring 也会通过它找到控制器(controllers)
 
 `main()` 方法里面通过调用 Spring Boot 的`SpringApplication.run()`方法来启动应用。你有没有注意到到现在还没有写过一行 XML ？甚至也没有`web.xml`文件。这个 web 应用完全 100% 都是使用的 Java，并且你还不需要对任何应用的基础设置进行配置。
 
@@ -357,7 +357,7 @@ public class Application {
 
 src/main/java/hello/Runner.java
 
-```
+```java
 package hello;
 
 import java.util.concurrent.TimeUnit;
@@ -404,13 +404,13 @@ public class Runner implements CommandLineRunner {
 
 如果你使用 Gradle ，你可以使用`./gradlew`来启动应用，或者你可以使用`./gradlew build`来构建一个 JAR 文件。之后，你可以通过运行 JAR 文件：
 
-```
+```shell
 java -jar build/libs/gs-messaging-rabbitmq-0.1.0.jar
 ```
 
 如果你使用 Maven ，你可以使用`./mvnw spring-boot:run`来运行应用。或者你可以使用`./mvnw clean package`来构建一个 JAR 包。之后你可以运行JAR文件：
 
-```
+```shell
 java -jar target/gs-messaging-rabbitmq-0.1.0.jar
 ```
 
