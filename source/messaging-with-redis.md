@@ -1,7 +1,7 @@
 
 # Redis消息交互
 
-> 原文：[Messaging With Redis](https://spring.io/guides/gs/messaging-redis/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Messaging With Redis](https://spring.io/guides/gs/messaging-redis/) 
 >
 > 译者：linzx2015
 >
@@ -51,11 +51,153 @@
 
 ## \>通过Gradle构建
 
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
+
+### 创建 Gradle 目录结构
+在你的项目根目录，创建如下的子目录结构；例如，如果你使用的是`*nix`系统，你可以使用`mkdir -p src/main/java/hello` 
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+### 创建 Gradle 构建文件
+下面是一份[初始化Gradle构建文件](https://github.com/spring-guides/gs-messaging-redis/blob/master/initial/build.gradle)
+
+build.gradle
+
+```groovy
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-messaging-redis'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    testCompile("junit:junit")
+}
+```
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了非常多方便的功能：
+
+* 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
+
+* 搜索<font color=blue size=2>public static void main()</font>方法并且将它标记为可执行类
+
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+
 ## \>通过Maven构建
+
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven](https://maven.apache.org/) 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven).
+
+### 创建 Maven 目录结构
+
+在你的项目根目录，创建如下的子目录结构；例如，如果你使用的是`*nix`系统，你可以使用`mkdir -p src/main/java/hello` 
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+pom.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-messaging-redis</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
+```
+
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了非常多方便的功能：
+
+* 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
+
+* 搜索<font color=blue size=2>public static void main()</font>方法并且将它标记为可执行类
+
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## \>通过你的IDE构建
 
-## 搭建一个redis服务器
+*   [如何在Spring Tool Suite中构建](https://spring.io/guides/gs/sts/).
+
+*   [如何在IntelliJ IDEA中构建](https://spring.io/guides/gs/intellij-idea).
+
+## 搭建一个Redis服务器
 
 在你建立好可以进行消息传递的应用之前,你需要先搭建好可以接受和发送消息的服务器。
 
