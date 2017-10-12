@@ -388,14 +388,15 @@ Content-Length: 0
 Date: Wed, 26 Feb 2014 20:26:55 GMT
 ```
 
-- `-i` ensures you can see the response message including the headers. The URI of the newly created `Person` is shown
-- `-X POST` signals this a POST used to create a new entry
-- `-H "Content-Type:application/json"` sets the content type so the application knows the payload contains a JSON object
-- `-d "{ \"firstName\" : \"Frodo\", \"lastName\" : \"Baggins\" }"` is the data being sent. Double quotes inside the data need to be escaped as `\"`.
+- `-i` 确保你可以看到响应消息头。这个 URI 指向显示新创建的`Person` 。
+- `-X POST` 发信号通知用于创建新条目的POST
+- `-H "Content-Type:application/json"` 设置内容类型，以便应用程序知道有效载荷包含一个JSON对象
+- `-d "{ \"firstName\" : \"Frodo\", \"lastName\" : \"Baggins\" }"`
+是正在发送的数据。数据中的双引号需要转义为`\“`。
 
-> Notice how the previous `POST` operation includes a `Location` header. This contains the URI of the newly created resource. Spring Data REST also has two methods on `RepositoryRestConfiguration.setReturnBodyOnCreate(…)` and `setReturnBodyOnUpdate(…)` which you can use to configure the framework to immediately return the representation of the resource just created. `RepositoryRestConfiguration.setReturnBodyForPutAndPost(…)` is a short cut method to enable representation responses for creates and updates.
+> 注意上一个`POST`操作如何包含一个`Location`头。这包含新创建的资源的URI。 Spring Data REST还有`RepositoryRestConfiguration.setReturnBodyOnCreate（...）`和`setReturnBodyOnUpdate（...）`两个方法，您可以使用它们来配置框架，以立即返回刚创建的资源的表示形式。 `RepositoryRestConfiguration.setReturnBodyForPutAndPost（...）`是一种用于创建和更新表示响应的快捷方法。
 
-From this you can query for all people:
+从这里您可以查询所有人：
 
 ```
 $ curl http://localhost:8080/people
@@ -429,9 +430,10 @@ $ curl http://localhost:8080/people
 }
 ```
 
-The **persons** object contains a list with Frodo. Notice how it includes a **self** link. Spring Data REST also uses [Evo Inflector](http://www.atteo.org/2011/12/12/Evo-Inflector.html) to pluralize the name of the entity for groupings.
 
-You can query directly for the individual record:
+**persons**对象包含一个包含Frodo的列表。注意它如何包括一个**self**链接。 Spring Data REST还使用[Evo Inflector]（http://www.atteo.org/2011/12/12/Evo-Inflector.html）将分组的实体名称复数化。
+
+您可以直接查询单个记录：
 
 ```
 $ curl http://localhost:8080/people/1
@@ -446,11 +448,11 @@ $ curl http://localhost:8080/people/1
 }
 ```
 
-> This might appear to be purely web based, but behind the scenes, there is an H2 relational database. In production, you would probably use a real one, like PostgreSQL.
+> 这可能看起来纯粹是基于网络的，但在幕后，有一个H2关系数据库。在生产中，您可能会使用一个真正的数据库，像PostgreSQL。
 
-In this guide, there is only one domain object. With a more complex system where domain objects are related to each other, Spring Data REST will render additional links to help navigate to connected records.
+在本指南中，只有一个域对象。使用更复杂的系统，其中域对象彼此相关，Spring Data REST将呈现其他链接，以帮助导航到连接的记录。
 
-Find all the custom queries:
+查找所有自定义查询
 
 ```
 $ curl http://localhost:8080/people/search
@@ -464,9 +466,9 @@ $ curl http://localhost:8080/people/search
 }
 ```
 
-You can see the URL for the query including the HTTP query parameter `name`. If you’ll notice, this matches the `@Param("name")` annotation embedded in the interface.
+您可以查看查询的URL，包括HTTP查询参数`name`。如果你注意到，这匹配嵌入在界面中的`@Param（“name”）`注解。
 
-To use the `findByLastName` query, do this:
+要使用`findByLastName`查询，请执行以下操作：
 
 ```
 $ curl http://localhost:8080/people/search/findByLastName?name=Baggins
@@ -485,9 +487,9 @@ $ curl http://localhost:8080/people/search/findByLastName?name=Baggins
 }
 ```
 
-Because you defined it to return `List<Person>` in the code, it will return all of the results. If you had defined it only return `Person`, it will pick one of the Person objects to return. Since this can be unpredictable, you probably don’t want to do that for queries that can return multiple entries.
+因为你定义它在代码中返回`List <Person>`，它会返回所有的结果。如果你已经定义了它，只返回`Person`，它会选择一个Person对象返回。由于这可能是不可预测的，您可能不想为返回多个条目的查询执行此操作。
 
-You can also issue `PUT`, `PATCH`, and `DELETE` REST calls to either replace, update, or delete existing records.
+您也可以发出`PUT`，`PATCH`和`DELETE`REST调用来替换，更新或删除现有记录。
 
 ```
 $ curl -X PUT -H "Content-Type:application/json" -d "{ \"firstName\": \"Bilbo\", \"lastName\": \"Baggins\" }" http://localhost:8080/people/1
@@ -517,9 +519,9 @@ $ curl http://localhost:8080/people/1
 }
 ```
 
-> PUT replaces an entire record. Fields not supplied will be replaced with null. PATCH can be used to update a subset of items.
+> PUT替换整个记录。未提供的字段将被替换为null。 PATCH可用于更新项目的子集。
 
-You can delete records:
+您可以删除记录：
 
 ```
 $ curl -X DELETE http://localhost:8080/people/1
@@ -543,7 +545,8 @@ $ curl http://localhost:8080/people
 }
 ```
 
-A very convenient aspect of this [hypermedia-driven interface](https://spring.io/understanding/HATEOAS) is how you can discover all the RESTful endpoints using curl (or whatever REST client you are using). There is no need to exchange a formal contract or interface document with your customers.
+
+这个[hypermedia-driven interface]（https://spring.io/understanding/HATEOAS）的一个非常方便的方面是如何使用curl（或您正在使用的任何REST客户端）发现所有RESTful端点。没有必要与客户交换正式的合同或接口文件。
 
 ## 总结
 
