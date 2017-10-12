@@ -29,5 +29,7 @@
 
 为什么选择REST？借鉴[Martin Fowler](http://martinfowler.com/)的说法，[REST实践](https://www.amazon.com/gp/product/0596805829?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596805829)中指出：“网络是大规模可扩展分布式系统的一个存在证据，它的工作原理很好，我们借鉴它更容易构建集成系统。”我认为这是一个很好的理由：REST包含了自身的网络规则、架构、优势以及所有。
 
-有什么好处？
+有什么好处？主要因为HTTP自身是一个免费的平台，应用程序安全性（加密和验证）解决方案的数量是已知的，缓存直接内置在协议中，通过DNS的服务路由有良好的弹性，并且大部分系统都支持。
+
+
 
