@@ -5,7 +5,7 @@
 >
 > 译者：linzx2015
 >
-> 校对：
+> 校对：JeffLi1993 
 
 本指南将会引导你完成使用Spring Data Redis 发布和订阅通过redis发送的消息的过程。
 
