@@ -47,7 +47,7 @@
 
  `git clone https://github.com/spring-guides/gs-accessing-data-rest.git`
 * 进入 `gs-accessing-data-rest/initial`目录
-* 跳过前面的部分[创建一个域对象](https://spring.io/guides/gs/accessing-data-rest/#initial)。
+* 跳过前面的部分[创建一个域对象](#initial) 
 
 **当你完成之后**，你可以在`gs-accessing-data-rest/complete`根据代码检查下结果。
 
@@ -205,7 +205,7 @@ dependencies {
 - 阅读如何将本指南直接导入 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建。
 
-## 创建一个域对象
+<h2 id="initial">创建一个域对象</h2>
 
 创建一个新的`Person`域对象。
 
@@ -392,7 +392,7 @@ Date: Wed, 26 Feb 2014 20:26:55 GMT
 - `-X POST` 发信号通知用于创建新条目的POST
 - `-H "Content-Type:application/json"` 设置内容类型，以便应用程序知道有效载荷包含一个JSON对象
 - `-d "{ \"firstName\" : \"Frodo\", \"lastName\" : \"Baggins\" }"`
-是正在发送的数据。数据中的双引号需要转义为`\“`。
+  是正在发送的数据。数据中的双引号需要转义为`\“`。
 
 > 注意上一个`POST`操作如何包含一个`Location`头。这包含新创建的资源的URI。 Spring Data REST还有`RepositoryRestConfiguration.setReturnBodyOnCreate（...）`和`setReturnBodyOnUpdate（...）`两个方法，您可以使用它们来配置框架，以立即返回刚创建的资源的表示形式。 `RepositoryRestConfiguration.setReturnBodyForPutAndPost（...）`是一种用于创建和更新表示响应的快捷方法。
 
