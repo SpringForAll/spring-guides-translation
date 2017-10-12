@@ -268,8 +268,8 @@ Spring将会用 [Jackson JSON](http://wiki.fasterxml.com/JacksonHome)把Greetin
 ```java
 src/main/java/hello/GreetingController.java
 ```
-```javapackage hello;
-
+```java
+package hello;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
