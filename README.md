@@ -10,9 +10,10 @@
 * Github：[https://github.com/SpringForAll/spring-guides-translation](https://github.com/SpringForAll/spring-guides-translation)
 * 组织人：[程序猿DD](https://github.com/dyc87112/)
 
-### 翻译流程
+### 翻译与校对流程
 
-[翻译申请认领流程](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-readme.md)
+[翻译和校对的流程](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-readme.md)
+[待校对的翻译](https://github.com/SpringForAll/spring-guides-translation/pulls)
 
 ### 翻译内容
 
