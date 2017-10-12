@@ -35,7 +35,7 @@
 
 Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了系统遵循RESTful原则的程度，并对其进行了评分。它描述了从0级开始的四个级别，Martin Fowler在成熟度模型上写出了明确的解释：
 
-* 0级（Level 0）：
+* 0级（Level 0）：POX沼泽——在这个级别，我们仅使用HTTP作为传输，
 
 
 
