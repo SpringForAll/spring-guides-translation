@@ -40,11 +40,143 @@ Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了�
 * **2级（Level 2）**：HTTP动词——这就是您想要的级别。如果您用Spring MVC时所有事都做错了，您将仍然在这个地方。在这个级别，服务利用了HTTP的原生术语如标题、状态代码、不同的URI等。这也将是我们旅程的起点。
 * **3级（Level 3）**：超媒体控件——最后一级是我们将努力的地方。超媒体，作为[HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)（Hypermedia as the Engine of Application State）的实践，它是真正受欢迎的设计模式。超媒体通过服务的消费者与该服务的“表面积”和拓扑结构的亲密知识的解藕来促进服务寿命。它描述了REST服务，该服务可以回答调用什么，什么时候调用等问题，稍后我们再深入一下。                             
 
-![](/static/s-rest-001.png)
+
 
 图1：Leonard Richardson成熟度模型
 
 ## 开始
+
+在本教程中，我们将用[Spring Boot](https://spring.io/projects/spring-boot)。Spring Boot删除了许多典型的应用程序开发样板。您可以前往[Spring Initializr](https://start.spring.io/)开始，选择和应用程序支持的工作相对应的复选框（来生成Spring Boot脚手架程序）。这样，我们将构建一个Web应用程序，使用JPA在H2数据库中建模，所以选择下边内容：
+
+* Web
+* JPA
+* H2
+
+然后点击“生成项目”，一个`.zip` 文件将会被下载。解压该文件您会发现一个简单的Maven或Gradle项目目录，配有Maven的`pom.xml`或Gradle中的`build.gradle`。本教程中的示例将基于Maven，尽管如此，对于Gradle部分，您也可以看看。这是很不错的。
+
+Spring Boot可以与任何IDE一起使用，您可使用Eclipse、IntelliJ IDEA、Netbeans等。[Spring Tool Suite](https://spring.io/tools/)（STS）是一个开源的基于Eclipse的IDE发行版，它提供了Eclipse在开发JavaEE过程中的超集工具，而且它包含了使用Spring应用程序更方便的工具。这绝对不是必须的，但是若你想要您的击键变得额外有魅力（省掉重复性工作），您可以考虑它。这是一个演示如何开始使用STS和Spring Boot的视频，仅是一般的介绍，让您熟悉这些工具。
+
+[https://www.youtube.com/watch?v=p8AdyMlpmPk&feature=youtu.be](https://www.youtube.com/watch?v=p8AdyMlpmPk&feature=youtu.be)
+
+## 故事到此……
+
+我们所有的例子都将基于Spring Boot，将会每个示例重温初始化代码。我们的例子是建立一个简单的书签服务，如Instapaper或其他云端书签服务，我们的书签服务只是收集一个URI，以及它的描述。所有的书签将隶属于一个用户账户。该关系模型会使用[模块中](https://github.com/joshlong/bookmarks/tree/tutorial/model/)的JPA和Spring Data JPA存储并进行建模。
+
+我们不会太多地解析代码细节，将使用两个JPA实体对记录进行建模，之后它们将映射到数据库。我们使用标准的SQL关系数据库来存储记录，以便可立即受众于尽可能大的领域。
+
+首先为我们用户账户建模创建第一个类，类名为`Account` 的实体。
+
+_\*：令人惊讶，下列课程是最繁琐的课程——主要是因为Java语言本身的冗长。_
+
+**model/src/main/java/bookmarks/Account.java**
+
+```java
+package bookmarks;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
+
+
+@Entity
+public class Account {
+
+    @OneToMany(mappedBy = "account")
+    private Set<Bookmark> bookmarks = new HashSet<>();
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    public Set<Bookmark> getBookmarks() {
+        return bookmarks;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    @JsonIgnore
+    public String password;
+    public String username;
+
+    public Account(String name, String password) {
+        this.username = name;
+        this.password = password;
+    }
+
+    Account() { // jpa only
+    }
+}
+```
+
+每个`Account`可能没有、或者一个、或者多个对应的`Bookmark`实体，这是一个`1:N`的关系（一对多），`Bookmark`实体的代码如下所示：
+
+**model/src/main/java/bookmarks/Bookmark.java**
+
+```java
+package bookmarks;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Bookmark {
+
+    @JsonIgnore
+    @ManyToOne
+    private Account account;
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    Bookmark() { // jpa only
+    }
+
+    public Bookmark(Account account, String uri, String description) {
+        this.uri = uri;
+        this.description = description;
+        this.account = account;
+    }
+
+    public String uri;
+    public String description;
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}
+```
 
 
 
