@@ -35,14 +35,14 @@
 
 Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了系统遵循RESTful原则的程度，并对其进行了评分。它描述了从0级开始的四个级别，Martin Fowler在成熟度模型上写出了明确的解释：
 
-* **0级（Level 0）**：POX沼泽——在这个级别，我们仅使用HTTP作为传输。您可以将SOAP称为0级技术，它使用HTTP协议，但主要是作为传输。值得一提的是，您也可以在没有HTTP的情况下使用SOAP，如JMS。因此，SOAP不是RESTful的，它只是HTTP感知的。
+* **0级（Level 0）**：POX沼泽——在这个级别，我们仅使用HTTP作为传输。您可以将SOAP称为0级技术，它使用HTTP协议，但主要是作为传输。值得一提的是，您也可以在没有HTTP的情况下使用SOAP，如[JMS](https://www.w3.org/TR/soapjms/)。因此，SOAP不是RESTful的，它只是HTTP感知的。
 * **1级（Level 1）**：资源——在此级别，服务可能会使用HTTP URI来区分系统中的名词、实体。例如，您可以将请求路由到`/customers，/users`等。XML-RPC是1级技术的代表：它使用HTTP，并且可以使用URI来区分端点（Endpoint）。最终，尽管有这些定义，XML-RPC实际也不是Restful的：它使用HTTP做了其他东西（如RPC远程过程调用）的传输。
 * **2级（Level 2）**：HTTP动词——这就是您想要的级别。如果您用Spring MVC时所有事都做错了，您将仍然在这个地方。在这个级别，服务利用了HTTP的原生术语如标题、状态代码、不同的URI等。这也将是我们旅程的起点。
-* **3级（Level 3）**：超媒体控件——最后一级是我们将努力的地方。超媒体，作为HATEOAS（Hypermedia as the Engine of Application State）的实践，它是真正受欢迎的设计模式。超媒体通过服务的消费者与该服务的“表面积”和拓扑结构的亲密知识的解藕来促进服务寿命。它描述了REST服务，该服务可以回答调用什么，什么时候调用等问题，稍后我们再深入一下。
+* **3级（Level 3）**：超媒体控件——最后一级是我们将努力的地方。超媒体，作为[HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)（Hypermedia as the Engine of Application State）的实践，它是真正受欢迎的设计模式。超媒体通过服务的消费者与该服务的“表面积”和拓扑结构的亲密知识的解藕来促进服务寿命。它描述了REST服务，该服务可以回答调用什么，什么时候调用等问题，稍后我们再深入一下。                             
 
-               ![](/static/s-rest-001.png)
+![](/static/s-rest-001.png)
 
-                                                                      图1：Leonard Richardson成熟度模型
+图1：Leonard Richardson成熟度模型
 
 ## 开始
 
