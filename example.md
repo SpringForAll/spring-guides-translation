@@ -44,5 +44,5 @@ public class Application {
 }
 ```
 
-
+一旦启动，Spring Boot将调用所有`CommandLineRunner`类型的Bean，给它们一个回调。这种情况下，`CommandLineRunner`是只有一个抽象方法的接口，这意味着在Java 8的世界中，我们可以用lambda表达式来替换它。本教程中所有的示例将使用Java 8，然后，若您不使用Java 8，而是6或7，那么只要将简洁的lambda语法替换成实现该接口的稍微复杂详细的匿名内部类就可以了。
 
