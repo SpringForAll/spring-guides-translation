@@ -1,4 +1,7 @@
-> 原文：[Using WebSocket to build an interactive web application](https://github.com/SpringForAll/spring-guides-translation/blob/master/translated/securing-a-web-application.md)
+# Using WebSocket to build an interactive web application
+ ============================================================
+
+> 原文：[Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/)
 >
 > 译者：[汪志峰](https://github.com/maskwang520)
 >
@@ -6,19 +9,28 @@
 
 本指南将引导你完成创建“hello world”应用程序的过程，该应用程序在浏览器和服务器之间来回传送消息。 WebSocket是一个轻量级的建立在TCP之上的。它使得非常适合使用subprotocols"来嵌入消息。在本指南中，我们将使用Spring进行[STOMP](https://en.wikipedia.org/wiki/Streaming_Text_Oriented_Messaging_Protocol)消息传递，并创建一个交互式Web应用程序。
 
-##你将构建什么应用
+## 你将构建什么应用 
 你通过建立服务端来接收带有用户姓名的信息。之后给由客户端构成的队列来回复一个问候信息。
-##你需要建立什么
-* 大概花费你15分钟
-* 一个你喜欢的IDEA或者编辑器
-* JDK1.8或者更高
-* [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-* 你可以通过以下方式把代码导入到你的IDEA
-[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
-[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
-##你如何完成这个指南
-像其他Spring入门指南一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，你最后都能把代码跑起来。
-* 从最基本的开始, [用 Gradle来构建吧](https://spring.io/guides/gs/messaging-stomp-websocket/#scratch).
+## 你需要准备什么？
+ 
+ 大约15分钟时间
+ 
+ 一个喜欢的文本编辑器或者IDE
+ 
+ [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或 更高版本
+ 
+ [Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
+ 
+ 你也可以直接导入代码到IDE:
+ 
+ [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+ 
+ [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+ 
+ 
+##你如何完成这个入门指南
+像其他Spring入门指南一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
+* 你可以往下查看[怎样使用 Gradle 构建项目](#scratch).
 * 跳过一些基础的，你可以像下面这样做
 [下载](https://github.com/spring-guides/gs-messaging-stomp-websocket/archive/master.zip) 并解压这个引导。或者直接使用 [Git](https://spring.io/understanding/Git): git clone [https://github.com/spring-guides/gs-messaging-stomp-websocket.git](https://github.com/spring-guides/gs-messaging-stomp-websocket.git)
 
@@ -26,7 +38,7 @@
 
 ## 使用Gradle构建
 
-首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle) 或者 [使用Maven构建Java项目](https://spring.io/guides/gs/maven).
 
 ### 创建目录结构
 
@@ -181,12 +193,12 @@ dependencies {
 - 它提供了一个内置的依赖解析器，将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为Boot所选择的一组版本。
 ## 使用你的IDE构建
 
-- 阅读如何导入这篇指南进入你的IDE [Spring Tool Suite](https://spring.io/guides/gs/sts/).
+- 阅读如何导入这篇指南到你的IDE [Spring Tool Suite](https://spring.io/guides/gs/sts/).
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建.
 ## 创建资源代表类
 现在你已经建立你的项目，你就可以创建你的 STOMP服务。
 开始想下服务交互的过程。
-服务将会接受包含在 STOMP消息中的name,它的消息体是[JSON](https://spring.io/understanding/JSON) 对象，如何name给定Fred，那么消息体就像下面这样。
+服务将会接受包含在 STOMP消息中的name,它的消息体是[JSON](https://spring.io/understanding/JSON) 对象，如何给name指定Fred，那么消息体就像下面这样。
 ```json
 {
     "name": "Fred"
@@ -225,7 +237,7 @@ public class HelloMessage {
     "content": "Hello, Fred!"
 }
 ```
-为了把携带回复的消息模型化，你可以创建一个带有content属性的普通Java类和相应的getContent()方法。
+为了把携带问候的消息模型化，你可以创建一个带有content属性的普通Java类和相应的getContent()方法。
 ```java
 src/main/java/hello/Greeting.java
 ```
@@ -286,8 +298,8 @@ public class GreetingController {
 
 在内部，该方法的实现通过使线程睡眠1秒来模拟处理延迟。这是为了说明在客户端发送消息之后，服务器可以采取与需要异步处理消息一样长的时间。客户可以继续其需要做的任何工作，而不必等待响应。
 
-在延迟1秒后，greeting（）方法创建一个Greeting对象并返回它。返回值将广播给所有订阅者，如[@SendTo
-](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/SendTo.html)注释中指定的“/ topic / greetings”。
+在延迟1秒后，greeting（）方法创建一个Greeting对象并返回它。返回值将广播给所有订阅者，如[@SendTo 
+](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/SendTo.html)注释中指定的“/ topic / greetings”。   
 ##用Spring配置STOMP 消息
 现在服务最重要的一步已经建立起来啦，你可以用Spring来配置WebSocket 和STOMP消息。
 创建一个Java类WebSocketConfig，像下面这样。
@@ -322,7 +334,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 ```
 WebSocketConfig用@Configuration进行注解，表示它是一个Spring配置类。它也注释为[@EnableWebSocketMessageBroker
 ](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/simp/config/EnableWebSocketMessageBroker.html)。顾名思义，@EnableWebSocketMessageBroker启用WebSocket消息处理，由消息代理支持。
-configureMessageBroker（）方法覆盖WebSocketMessageBrokerConfigurer中的默认方法来配置消息代理。它通过调用enableSimpleBroker（）来启用一个简单的基于内存的消息代理，将问候语消息返回给客户端，前缀为“/ topic”。它还为绑定为@MessageMapping注解方法的邮件指定“/ app”前缀。该前缀将用于定义所有消息映射;例如，“/ app / hello”是GreetingController.greeting（）方法映射到的端点。
+configureMessageBroker（）方法覆盖WebSocketMessageBrokerConfigurer中的默认方法来配置消息代理。它通过调用enableSimpleBroker（）来启用一个简单的基于内存的消息代理，将问候语消息返回给客户端，前缀为“/ topic”。它还为绑定为@MessageMapping注解方法的邮件指定“/app”前缀。该前缀将用于定义所有消息映射;例如，“/app/hello”是GreetingController.greeting（）方法映射到的端点。
 registerStompEndpoints（）方法注册“/ gs-guide-websocket”端点，启用SockJS后备选项，以便在WebSocket不可用时可以使用备用传输。 SockJS客户端将尝试连接到“/ gs-guide-websocket”并使用最好的传输（websocket，xhr-streaming，xhr-polling等）。
 ## 创建一个浏览器客户端
 使用服务器端部件，现在让我们将注意力从服务器端转移到发送消息并能够接受消息的avaScript客户端。像下面这样建立一个index.html 的页面
@@ -446,7 +458,6 @@ $(function () {
 这个JavaScript文件的主要部分是connect（）和sendName（）函数。
 
 connect（）函数使用SockJS和stomp.js来打开与“/ gs-guide-websocket”的连接，这是SockJS服务器正在等待连接的地方。在成功连接之后，客户端订阅“/ topic / greetings”目的地，服务器将发布问候消息。当在该目的地收到一个问候语时，它将附加一个段落元素到DOM以显示问候留言。
-
 sendName（）函数检索用户输入的名称，并使用STOMP客户端将其发送到“/ app / hello”目的地（GreetingController.greeting（）将接收到）。
 
 ##使得应用可执行
@@ -487,7 +498,6 @@ java -jar build/libs/gs-messaging-stomp-websocket-0.1.0.jar
 java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 ```
 >上面的过程将创建一个可运行的JAR。你也可以选择构建一个典型的WAR文件。
-
 显示记录输出。该服务应该在几秒钟内启动并运行。
 ## 测试服务
 现在服务正在运行，请将浏览器指向http：// localhost：8080，然后单击“连接”按钮。
@@ -502,6 +512,5 @@ java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 
-想写一个新的指南或贡献一个现有的？查看我们的贡献指南 [contribution guidelines](https://github.com/spring-guides/getting-started-guides/wiki).
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
