@@ -95,9 +95,9 @@ dependencies {
 - 搜索`public static void main()`方法，并对该可执行类进行标记。
 - 提供了内置的依赖解析功能，该功能将依赖的版本与[ Spring Boot dependencies](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)相匹配。用户可以按照需求覆盖依赖(dependency)的任何版本号，但是默认版本号是Spring Boot中已经选择好的版本号的集合。
 
-###使用Maven构建
+### 使用Maven构建
 第一步，建立基本构建脚本(build script)。 当使用Spring构建apps的时候，几乎可以使用任何你喜欢的构建工具， 但是此部分只介绍了如何使用Maven来构建目标app。如果你不熟悉这个工具，请参考[ Building Java Projects with Maven](https://spring.io/guides/gs/maven)。
-####创建目录结构
+#### 创建目录结构
 在你选定的工程目录中，创建如下的子目录结构。例如，在*nix系统中使用命令`mkdir -p src/main/java/hello`来创建该目录结构。
 ```
 └── src
@@ -302,7 +302,7 @@ java -jar target/gs-rest-service-0.1.0.jar
 
 日志会输出，上述服务应该在几秒钟内准备就绪，开始运行。
 
-###3.8 测试此服务
+### 测试此服务
 现在该服务已经准备就绪，访问[http://localhost:8080/greeting](http://localhost:8080/greeting)，将会看到：
 ```
 {"id":1,"content":"Hello, World!"}
@@ -315,7 +315,7 @@ java -jar target/gs-rest-service-0.1.0.jar
 
 同时也要注意`id`属性值如何从`1`变为`2`。这表明同一个`GreetingController`实例处理多个HTTP请求，正如预期的那样，其`counter`属性在每次处理完请求后都会自增1。
 
-###总结
+## 总结
 恭喜你！你已经成功使用Spring开发了一项RESTful web service。
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
