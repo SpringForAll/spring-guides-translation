@@ -28,7 +28,7 @@
  [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
  
  
-##你如何完成这个入门指南
+## 你如何完成这个入门指南
 像其他Spring入门指南一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
 * 你可以往下查看[怎样使用 Gradle 构建项目](#scratch).
 * 跳过一些基础的，你可以像下面这样做
@@ -300,7 +300,7 @@ public class GreetingController {
 
 在延迟1秒后，greeting（）方法创建一个Greeting对象并返回它。返回值将广播给所有订阅者，如[@SendTo 
 ](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/SendTo.html)注释中指定的“/ topic / greetings”。   
-##用Spring配置STOMP 消息
+## 用Spring配置STOMP 消息
 现在服务最重要的一步已经建立起来啦，你可以用Spring来配置WebSocket 和STOMP消息。
 创建一个Java类WebSocketConfig，像下面这样。
 ```java
@@ -460,7 +460,7 @@ $(function () {
 connect（）函数使用SockJS和stomp.js来打开与“/ gs-guide-websocket”的连接，这是SockJS服务器正在等待连接的地方。在成功连接之后，客户端订阅“/ topic / greetings”目的地，服务器将发布问候消息。当在该目的地收到一个问候语时，它将附加一个段落元素到DOM以显示问候留言。
 sendName（）函数检索用户输入的名称，并使用STOMP客户端将其发送到“/ app / hello”目的地（GreetingController.greeting（）将接收到）。
 
-##使得应用可执行
+## 使得应用可执行
 虽然可以将此服务打包为传统WAR文件以部署到外部应用程序服务器，但下面演示的简单方法创建了独立应用程序。您将所有内容都包装在一个可执行的JAR文件中，由一个Java main（）方法驱动。在这过程中，您使用Spring的支持将Tomcat servlet容器嵌入到HTTP运行时，而不是部署到外部实例。
 ```java
 src/main/java/hello/Application.java
@@ -504,10 +504,10 @@ java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 
 打开连接后，系统会询问您的姓名。输入你的姓名，然后点击“发送”。你的姓名通过STOMP作为JSON消息发送到服务器。经过1秒钟的模拟延迟后，服务器将返回一条消息，并显示在页面上显示的“Hello”问候语。此时，你可以发送另一个名称，也可以单击“断开连接”按钮关闭连接。
 
-##总结
+## 总结
 
 恭喜！你刚刚使用Spring开发了基于STOMP的消息传递服务。
-##你也可以看如下的
+## 你也可以看如下的
 下面的指导也可能是有用的
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
