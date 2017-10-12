@@ -50,7 +50,7 @@
 
 **当完成所有的编码以后**，可以将你的代码与`gs-soap-service/complete`目录下的示例代码进行对比，以检查结果是否正确。
 
-## *使用Gradle构建项目
+## * xx 使用Gradle构建项目
 
 首先需要设置一个基本的构建脚本。在使用Spring构建应用程序时，你可以使用任何自己喜欢的构建系统，这里准备了在使用[Gradle](https://gradle.org/)和[Maven](https://maven.apache.org/)构建项目时需要的代码。如果你对Gradle和Maven都不熟悉，可以参照[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle/)或[使用Maven构建Java项目](https://spring.io/guides/gs/gradle/)。
 
