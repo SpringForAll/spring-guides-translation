@@ -42,6 +42,8 @@ Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了�
 
 图1：Leonard Richardson成熟度模型
 
+![](/static/s-rest-001.png)
+
 ## 开始
 
 在本教程中，我们将用[Spring Boot](https://spring.io/projects/spring-boot)。Spring Boot删除了许多典型的应用程序开发样板。您可以前往[Spring Initializr](https://start.spring.io/)开始，选择和应用程序支持的工作相对应的复选框（来生成Spring Boot脚手架程序）。这样，我们将构建一个Web应用程序，使用JPA在H2数据库中建模，所以选择下边内容：
