@@ -284,10 +284,6 @@ java -jar target/gs-messaging-redis-0.1.0.jar
 * [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
-
->所有指南都将发布ASLv2许可证的代码，以及[署名,NoDerivatives创作共用许可证](https://creativecommons.org/licenses/by-nd/3.0/)的写作。
-
-
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
 
