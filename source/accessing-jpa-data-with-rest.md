@@ -519,7 +519,7 @@ $ curl http://localhost:8080/people/1
 }
 ```
 
-> PUT替换整个记录。未提供的字段将被替换为null。 PATCH可用于更新项目的子集。
+> PUT替换整个记录。未提供的字段将被替换为null。 PATCH可用于更新某一项的子集。
 
 您可以删除记录：
 
