@@ -113,13 +113,13 @@ dependencies {
 * 搜索public static void main()方法并且将它标记为可执行类。
 * 提供了将内部依赖的版本都去匹配 Spring Boot 依赖的版本.你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-## Build with Maven
+## 使用Maven构建
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org/) is included here. If you’re not familiar with Maven, refer to [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先，您需要设置一个基本的构建脚本。当使用Spring构建应用程序时，你可以使用任何你喜欢的构建系统，但是使用 [Maven](https://maven.apache.org/) 构建的代码如下所示。如果您不熟悉Maven，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
-### Create the directory structure
+### 创建目录结构
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/hello` on *nix systems:
+在你选择的项目目录中，创建以下子目录结构;例如, 在Linux/Unix系统中使用如下命令: `mkdir -p src/main/java/hello`
 
 ```
 └── src
@@ -194,20 +194,20 @@ In a project directory of your choosing, create the following subdirectory struc
 </project>
 ```
 
-The [Spring Boot Maven plugin](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) provides many convenient features:
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
 
-- It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
-- It searches for the `public static void main()` method to flag as a runnable class.
-- It provides a built-in dependency resolver that sets the version number to match [Spring Boot dependencies](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml). You can override any version you wish, but it will default to Boot’s chosen set of versions.
+- 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布你的服务。
+- 它寻找`public static void main()` 方法来将其标记为一个可执行的类。
+- 它提供了一个内置的依赖解析器将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为Boot所选择的一组版本。
 
-## Build with your IDE
+## 使用你的IDE构建
 
-- Read how to import this guide straight into [Spring Tool Suite](https://spring.io/guides/gs/sts/).
-- Read how to work with this guide in [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea).
+- 阅读如何将本指南直接导入 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。
+- 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建。
 
-## Create a domain object
+## 创建一个域对象
 
-Create a new domain object to present a person.
+创建一个新的`Person`域对象。
 
 `src/main/java/hello/Person.java`
 
@@ -247,11 +247,11 @@ public class Person {
 }
 ```
 
-The `Person` has a first name and a last name. There is also an id object that is configured to be automatically generated so you don’t have to deal with that.
+这个 `Person` 类有一个名和姓属性.还有一个id对象配置为自动生成,所以你不必处理。
 
-## Create a Person repository
+## 创建一个 Person 存储库
 
-Next you need to create a simple repository.
+接下来你需要创建一个简单的存储库。
 
 `src/main/java/hello/PersonRepository.java`
 
@@ -272,19 +272,17 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 }
 ```
 
-This repository is an interface and will allow you to perform various operations involving `Person` objects. It gets these operations by extending the [PagingAndSortingRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html)interface defined in Spring Data Commons.
+这个存储库是一个接口,允许您对`Person`对象执行各种操作。它在 Spring Data Commons中的[PagingAndSortingRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html)扩展这些操作数据共享。
 
-At runtime, Spring Data REST will create an implementation of this interface automatically. Then it will use the [@RepositoryRestResource](https://docs.spring.io/spring-data/rest/docs/current/api/org/springframework/data/rest/core/annotation/RepositoryRestResource.html) annotation to direct Spring MVC to create RESTful endpoints at `/people`.
+在运行时,Spring Data REST自动创建该接口的一个实现。然后它会使用Spring MVC [@RepositoryRestResource](https://docs.spring.io/spring-data/rest/docs/current/api/org/springframework/data/rest/core/annotation/RepositoryRestResource.html)注释直接创建RESTful端点`/people`。
 
-| **   | `@RepositoryRestResource` is not required for a repository to be exported. It is only used to change the export details, such as using `/people` instead of the default value of `/persons`. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> @RepositoryRestResource不是存储仓库必需导出的。它仅用于改变导出的细节,例如使用 `/people`而不是默认的 `/people`值。
 
-Here you have also defined a custom query to retrieve a list of `Person` objects based on the lastName. You’ll see how to invoke it further down in this guide.
+在这里你也定义了一个定制的查询检索一个‘Person’的对象列表基于lastName。您将进一步在本指南看到如何调用它。
 
-## Make the application executable
+## 使应用程序可运行
 
-Although it is possible to package this service as a traditional [WAR](https://spring.io/understanding/WAR) file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. Along the way, you use Spring’s support for embedding the [Tomcat](https://spring.io/understanding/Tomcat) servlet container as the HTTP runtime, instead of deploying to an external instance.
+尽管可以将本服务打包为传统的 [WAR](https://spring.io/understanding/WAR) 文件，然后部署在外部的应用程序服务器上，下面展示一种更简便的方法，即创建独立的应用程序。这种方法将本服务打包为单独的、可直接运行的JAR文件，这个jar文件由传统的`main()`函数方法驱动。使用这种打包方法，可以使用Spring提供的嵌入式 [Tomcat](https://spring.io/understanding/Tomcat)  servlet容器作为运行时(HTTP runtime)， 而不是直接部署外部实例中。
 
 `src/main/java/hello/Application.java`
 
@@ -303,46 +301,44 @@ public class Application {
 }
 ```
 
-`@SpringBootApplication` is a convenience annotation that adds all of the following:
+`@SpringBootApplication`作为一个方便使用的注解，提供了如下的功能：
 
-- `@Configuration` tags the class as a source of bean definitions for the application context.
-- `@EnableAutoConfiguration` tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
-- Normally you would add `@EnableWebMvc` for a Spring MVC app, but Spring Boot adds it automatically when it sees **spring-webmvc** on the classpath. This flags the application as a web application and activates key behaviors such as setting up a `DispatcherServlet`.
-- `@ComponentScan` tells Spring to look for other components, configurations, and services in the `hello` package, allowing it to find the controllers.
+- `@Configuration`表明使用该注解的类是应用程序上下文(Applicaiton Context)中Bean定义的来源。
+- `@EnableAutoConfiguration`注解根据classpath的配置、其他bean的定义或者不同的属性设置(property settings)等条件，使Spring Boot自动加入所需的bean。
+- 对于Spring MVC应用，通常需要加入`@EnableWebMvc`注解，但是当**spring-webmvc** 存在于classpath中时，Spring Boot自动加入该注解。该注解将当前应用标记为web应用，并激活web应用的关键行为，例如开启`DispatcherServlet`。
+- `@ComponentScan`注解使Spring在`hello`包(package)中搜索其他的组件、配置(configurations)和服务(service),在本例中，spring会搜索到控制器(controllers)。
 
-The `main()` method uses Spring Boot’s `SpringApplication.run()` method to launch an application. Did you notice that there wasn’t a single line of XML? No **web.xml** file either. This web application is 100% pure Java and you didn’t have to deal with configuring any plumbing or infrastructure.
+`main()`方法使用Spring Boot的`SpringApplication.run()`方法来加载应用。你有没有注意到本例子中一行XML代码都没有吗？也没有web.xml文件。此web应用100%使纯java代码，因此不需花精力处理任何像基础设施或者下水管道一般的配置工作。
 
-Spring Boot automatically spins up Spring Data JPA to create a concrete implementation of the `PersonRepository` and configure it to talk to a back end in-memory database using JPA.
+Spring Boot自动加上Spring Data JPA创建`PersonRepository`的具体实现和使用JPA配置它跟后端内存数据库。
 
-Spring Data REST builds on top of Spring MVC. It creates a collection of Spring MVC controllers, JSON converters, and other beans needed to provide a RESTful front end. These components link up to the Spring Data JPA backend. Using Spring Boot this is all autoconfigured; if you want to investigate how that works, you could start by looking at the `RepositoryRestMvcConfiguration` in Spring Data REST.
+Spring Data REST构建于Spring MVC之上。它创建了一个集合的Spring MVC控制器,JSON转换器,和其他bean需要提供一个RESTful的前端。这些组件链接到Spring Data JPA的后端。使用Spring Boot将自动配置；如果你想研究这是如何工作的,你可以在Spring Data REST中通过查看`RepositoryRestMvcConfiguration`了解。
 
-### Build an executable JAR
+### 构建可执行的JAR
 
-You can run the application from the command line with Gradle or Maven. Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources, and run that. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
+您可以在命令行使用Gradle或Maven运行应用程序。或者您可以构建一个可执行的JAR文件,其中包含所有必需的依赖关系,类,和资源,并运行。这使得在整个开发生命周期中非常容易，跨不同的环境等运输，版本和部署服务成为一个应用程序。等等。
 
-If you are using Gradle, you can run the application using `./gradlew bootRun`. Or you can build the JAR file using `./gradlew build`. Then you can run the JAR file:
+如果您使用的是 Gradle，则可以使用该应用程序 `./gradlew bootRun`。或者您可以使用JAR文件构建 `./gradlew build`。然后可以运行 JAR 文件：
 
 ```
 java -jar build/libs/gs-accessing-data-rest-0.1.0.jar
 ```
 
-If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you can run the JAR file:
+如果您使用 Maven，则可以使用该命令 `./mvnw spring-boot:run`。或者您可以使用 JAR 文件来构建 `./mvnw clean package`。然后可以运行 JAR 文件：:
 
 ```
 java -jar target/gs-accessing-data-rest-0.1.0.jar
 ```
 
-| **   | The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](https://spring.io/guides/gs/convert-jar-to-war/)instead. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> 上面的过程将创建一个可运行的JAR。您也可以选择 [构建一个WAR文件](https://spring.io/guides/gs/convert-jar-to-war/)。
 
-Logging output is displayed. The service should be up and running within a few seconds.
+显示记录输出。该服务应该在几秒钟内启动并运行。
 
-## Test the application
+## 测试应用程序
 
-Now that the application is running, you can test it. You can use any REST client you wish. The following examples use the *nix tool `curl`.
+现在应用程序正在运行，您可以测试它。你可以使用任何你喜欢的REST客户端。下面使用*nix系统工具`curl`进行测试。
 
-First you want to see the top level service.
+首先你想看到顶级服务。
 
 ```
 $ curl http://localhost:8080
@@ -356,11 +352,9 @@ $ curl http://localhost:8080
 }
 ```
 
-Here you get a first glimpse of what this server has to offer. There is a **people** link located at <http://localhost:8080/people>. It has some options such as `?page`, `?size`, and `?sort`.
+在这里，您可以首先了解此服务器提供的内容。有一个**people**链接位于<http://localhost:8080/people>。它包含了一些比如`?page`, `?size`, 和 `?sort`的选项。
 
-| **   | Spring Data REST uses the [HAL format](http://stateless.co/hal_specification.html) for JSON output. It is flexible and offers a convenient way to supply links adjacent to the data that is served. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> Spring Data REST 使用 [HAL format](http://stateless.co/hal_specification.html) 提供 JSON 输出。它是灵活的，并提供了一种方便的方式来提供与所提供数据相邻的链接。
 
 ```
 $ curl http://localhost:8080/people
@@ -383,7 +377,7 @@ $ curl http://localhost:8080/people
 }
 ```
 
-There are currently no elements and hence no pages. Time to create a new `Person`!
+目前没有元素，因此没有页面。创建一个新`Person`!
 
 ```
 $ curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Frodo\",  \"lastName\" : \"Baggins\" }" http://localhost:8080/people
@@ -399,9 +393,7 @@ Date: Wed, 26 Feb 2014 20:26:55 GMT
 - `-H "Content-Type:application/json"` sets the content type so the application knows the payload contains a JSON object
 - `-d "{ \"firstName\" : \"Frodo\", \"lastName\" : \"Baggins\" }"` is the data being sent. Double quotes inside the data need to be escaped as `\"`.
 
-| **   | Notice how the previous `POST` operation includes a `Location` header. This contains the URI of the newly created resource. Spring Data REST also has two methods on `RepositoryRestConfiguration.setReturnBodyOnCreate(…)` and `setReturnBodyOnUpdate(…)` which you can use to configure the framework to immediately return the representation of the resource just created. `RepositoryRestConfiguration.setReturnBodyForPutAndPost(…)` is a short cut method to enable representation responses for creates and updates. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> Notice how the previous `POST` operation includes a `Location` header. This contains the URI of the newly created resource. Spring Data REST also has two methods on `RepositoryRestConfiguration.setReturnBodyOnCreate(…)` and `setReturnBodyOnUpdate(…)` which you can use to configure the framework to immediately return the representation of the resource just created. `RepositoryRestConfiguration.setReturnBodyForPutAndPost(…)` is a short cut method to enable representation responses for creates and updates.
 
 From this you can query for all people:
 
@@ -454,9 +446,7 @@ $ curl http://localhost:8080/people/1
 }
 ```
 
-| **   | This might appear to be purely web based, but behind the scenes, there is an H2 relational database. In production, you would probably use a real one, like PostgreSQL. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> This might appear to be purely web based, but behind the scenes, there is an H2 relational database. In production, you would probably use a real one, like PostgreSQL.
 
 In this guide, there is only one domain object. With a more complex system where domain objects are related to each other, Spring Data REST will render additional links to help navigate to connected records.
 
@@ -527,9 +517,7 @@ $ curl http://localhost:8080/people/1
 }
 ```
 
-| **   | PUT replaces an entire record. Fields not supplied will be replaced with null. PATCH can be used to update a subset of items. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> PUT replaces an entire record. Fields not supplied will be replaced with null. PATCH can be used to update a subset of items.
 
 You can delete records:
 
@@ -557,10 +545,16 @@ $ curl http://localhost:8080/people
 
 A very convenient aspect of this [hypermedia-driven interface](https://spring.io/understanding/HATEOAS) is how you can discover all the RESTful endpoints using curl (or whatever REST client you are using). There is no need to exchange a formal contract or interface document with your customers.
 
-## Summary
+## 总结
 
-Congratulations! You’ve just developed an application with a [hypermedia-based](https://spring.io/guides/gs/rest-hateoas) [RESTful](https://spring.io/understanding/REST) front end and a JPA-based back end.
+恭喜你!您刚刚开发了一个使用[基于hypermedia](https://spring.io/guides/gs/rest-hateoas) 的[RESTful](https://spring.io/understanding/REST)前端和基于JPA的后端应用。
 
-Want to write a new guide or contribute to an existing one? Check out our [contribution guidelines](https://github.com/spring-guides/getting-started-guides/wiki).
+
+想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
+
+> 所有指南都将发布ASLv2许可证的代码，以及署名，NoDerivatives为写作创作共用许可证。
+
+
+
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
