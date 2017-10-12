@@ -37,7 +37,7 @@ Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了�
 
 * **0级（Level 0）**：POX沼泽——在这个级别，我们仅使用HTTP作为传输。您可以将SOAP称为0级技术，它使用HTTP协议，但主要是作为传输。值得一提的是，您也可以在没有HTTP的情况下使用SOAP，如JMS。因此，SOAP不是RESTful的，它只是HTTP感知的。
 * **1级（Level 1）**：资源——在此级别，服务可能会使用HTTP URI来区分系统中的名词、实体。例如，您可以将请求路由到`/customers，/users`等。XML-RPC是1级技术的代表：它使用HTTP，并且可以使用URI来区分端点（Endpoint）。最终，尽管有这些定义，XML-RPC实际也不是Restful的：它使用HTTP做了其他东西（如RPC远程过程调用）的传输。
-* **2级（Level 2）**：HTTP动词——这就是您想要的级别。
+* **2级（Level 2）**：HTTP动词——这就是您想要的级别。如果您用Spring MVC时所有事都做错了，您将仍然在这个地方。
 
 
 
