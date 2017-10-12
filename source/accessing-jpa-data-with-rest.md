@@ -553,9 +553,4 @@ $ curl http://localhost:8080/people
 恭喜你!您刚刚开发了一个使用[基于hypermedia](https://spring.io/guides/gs/rest-hateoas) 的[RESTful](https://spring.io/understanding/REST)前端和基于JPA的后端应用。
 
 
-想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
-
-> 所有指南都将发布ASLv2许可证的代码，以及署名，NoDerivatives为写作创作共用许可证。
-
-
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
