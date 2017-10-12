@@ -10,7 +10,7 @@
 本指南将引导你完成创建“hello world”应用程序的过程，该应用程序在浏览器和服务器之间来回传送消息。 WebSocket是一个轻量级的建立在TCP之上的。它使得非常适合使用subprotocols"来嵌入消息。在本指南中，我们将使用Spring进行[STOMP](https://en.wikipedia.org/wiki/Streaming_Text_Oriented_Messaging_Protocol)消息传递，并创建一个交互式Web应用程序。
 
 ## 你将构建什么应用 
-你通过建立服务端来接收带有用户姓名的信息。之后给由客户端构成的队列来回复一个问候信息。
+你通过建立服务端来接收带有用户姓名的信息。之后给由客户端构成的队列来问候一个问候信息。
 ## 你需要准备什么？
  
  大约15分钟时间
@@ -101,8 +101,7 @@ dependencies {
 
 ## 使用Maven构建
 
-
-首先你设置一个基本的构建脚本。在使用Spring构建应用程序时，您可以使用任何构建系统，但您需要使用与Maven一起使用的代码。如果您不熟悉Maven，请参阅使用Maven构建Java项目。
+首先你设置一个基本的构建脚本。在使用Spring构建应用程序时，你可以使用任何构建系统，但你需要使用与Maven一起使用的代码。如果你不熟悉Maven，请参阅使用Maven构建Java项目。
 
 ### 创建目录结构
 
@@ -290,14 +289,10 @@ public class GreetingController {
 ```
 
 这个控制器简洁而简单，但有很多事情。让我们一步一步地剖析它。
-
 [@MessageMapping
 ](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/MessageMapping.html)注解确保如果将消息发送到目标“/ hello”，则会调用greeting（）方法。
-
 消息的有效内容绑定到一个HelloMessage对象，该对象被传递到greeting（）。
-
 在内部，该方法的实现通过使线程睡眠1秒来模拟处理延迟。这是为了说明在客户端发送消息之后，服务器可以采取与需要异步处理消息一样长的时间。客户可以继续其需要做的任何工作，而不必等待响应。
-
 在延迟1秒后，greeting（）方法创建一个Greeting对象并返回它。返回值将广播给所有订阅者，如[@SendTo 
 ](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/SendTo.html)注释中指定的“/ topic / greetings”。   
 ## 用Spring配置STOMP 消息
@@ -461,7 +456,7 @@ connect（）函数使用SockJS和stomp.js来打开与“/ gs-guide-websocket”
 sendName（）函数检索用户输入的名称，并使用STOMP客户端将其发送到“/ app / hello”目的地（GreetingController.greeting（）将接收到）。
 
 ## 使得应用可执行
-虽然可以将此服务打包为传统WAR文件以部署到外部应用程序服务器，但下面演示的简单方法创建了独立应用程序。您将所有内容都包装在一个可执行的JAR文件中，由一个Java main（）方法驱动。在这过程中，您使用Spring的支持将Tomcat servlet容器嵌入到HTTP运行时，而不是部署到外部实例。
+虽然可以将此服务打包为传统WAR文件以部署到外部应用程序服务器，但下面演示的简单方法创建了独立应用程序。你将所有内容都包装在一个可执行的JAR文件中，由一个Java main（）方法驱动。在这过程中，你使用Spring的支持将Tomcat servlet容器嵌入到HTTP运行时，而不是部署到外部实例。
 ```java
 src/main/java/hello/Application.java
 ```
@@ -481,19 +476,18 @@ public class Application {
 ```
 
 @SpringBootApplication是一个方便的注解，它添加以下所有内容：
-
 @Configuration将该类标记为应用程序上下文的bean定义的源。
 @EnableAutoConfiguration指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
-通常，您将为Spring MVC应用程序添加@EnableWebMvc，但是当Spring类在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
+通常，你将为Spring MVC应用程序添加@EnableWebMvc，但是当Spring类在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
 @ComponentScan告诉Spring在hello包中查找其他组件，配置和服务，允许它找到控制器。
-main（）方法使用Spring Boot的SpringApplication.run（）方法启动应用程序。你注意到没有一行XML吗？没有web.xml文件。此Web应用程序是100％纯Java，您无需处理配置其他基础构件。
+main（）方法使用Spring Boot的SpringApplication.run（）方法启动应用程序。你注意到没有一行XML吗？没有web.xml文件。此Web应用程序是100％纯Java，你无需处理配置其他基础构件。
 ## 构建可执行的JAR
-您可以从命令行运行Gradle或Maven应用程序。或者，您可以构建一个包含所有必需依赖项，类和资源的单个可执行JAR文件，并运行该文件。这使得在整个开发生命周期中，跨不同的环境等运输，版本和部署服务成为一个应用程序。
-如果你使用的是Gradle，则可以使用./gradlew bootRun运行应用程序。或者您可以使用./gradlew构建来构建JAR文件。然后可以运行JAR文件：
+你可以从命令行运行Gradle或Maven应用程序。或者，你可以构建一个包含所有必需依赖项，类和资源的单个可执行JAR文件，并运行该文件。这使得在整个开发生命周期中，跨不同的环境等运输，版本和部署服务成为一个应用程序。
+如果你使用的是Gradle，则可以使用./gradlew bootRun运行应用程序。或者你可以使用./gradlew构建来构建JAR文件。然后可以运行JAR文件：
 ```shell
 java -jar build/libs/gs-messaging-stomp-websocket-0.1.0.jar
 ```
-如果使用Maven，可以使用./mvnw spring-boot运行应用程序：run。或者您可以使用./mvnw clean包来构建JAR文件。然后可以运行JAR文件
+如果使用Maven，可以使用./mvnw spring-boot运行应用程序：run。或者你可以使用./mvnw clean包来构建JAR文件。然后可以运行JAR文件
 ```shell
 java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 ```
@@ -502,7 +496,7 @@ java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 ## 测试服务
 现在服务正在运行，请将浏览器指向http：// localhost：8080，然后单击“连接”按钮。
 
-打开连接后，系统会询问您的姓名。输入你的姓名，然后点击“发送”。你的姓名通过STOMP作为JSON消息发送到服务器。经过1秒钟的模拟延迟后，服务器将返回一条消息，并显示在页面上显示的“Hello”问候语。此时，你可以发送另一个名称，也可以单击“断开连接”按钮关闭连接。
+打开连接后，系统会询问你的姓名。输入你的姓名，然后点击“发送”。你的姓名通过STOMP作为JSON消息发送到服务器。经过1秒钟的模拟延迟后，服务器将返回一条消息，并显示在页面上显示的“Hello”问候语。此时，你可以发送另一个名称，也可以单击“断开连接”按钮关闭连接。
 
 ## 总结
 
