@@ -1,4 +1,5 @@
-## Consuming a RESTful Web Service with AngularJS
+使用AngularJS消费RESTful Web服务
+=======
 
 > 原文：[Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/)
 >
@@ -20,7 +21,7 @@ http://rest-service.guides.spring.io/greeting
 
 服务端会对gretting响应JSON格式的数据，如下：
 
-```
+```json
 {"id":1,"content":"Hello, World!"}
 ```
 
@@ -41,7 +42,7 @@ AngularJS客户端会将ID以及content渲染到DOM当中
 
 **public/hello.js**
 
-```
+```javascript
 angular.module('demo', [])
 .controller('Hello', function($scope, $http) {
     $http.get('http://rest-service.guides.spring.io/greeting').
@@ -61,7 +62,7 @@ angular.module('demo', [])
 
 **public/index.html**
 
-```
+```html
 <!doctype html>
 <html ng-app="demo">
 	<head>
@@ -81,7 +82,7 @@ angular.module('demo', [])
 
 需要注意一下在head节点中的两个script标签。
 
-```
+```html
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script src="hello.js"></script>
 ```
@@ -95,7 +96,7 @@ AngularJS库允许在标砖的HTML标签中使用多个自定义属性。在inde
 
 这里还有两个```<p>```标签，当中使用了占位符(使用双大括号标示)
 
-```
+```html
 <p>The ID is {{greeting.id}}</p>
 <p>The content is {{greeting.content}}</p>
 ```
@@ -110,7 +111,7 @@ AngularJS库允许在标砖的HTML标签中使用多个自定义属性。在inde
 
 **app.groovy**
 
-```
+```groovy
 @Controller class JsApp { }
 ```
 
@@ -122,7 +123,7 @@ spring run app.groovy
 
 一旦应用成功启动，在浏览器中打开 http://localhost:8080，就可以看到以下内容：
 
-![https://spring.io/guides/gs/consuming-rest-angularjs/images/hello.png](https://spring.io/guides/gs/consuming-rest-angularjs/images/hello.png)
+![hello.png](../static/1034/hello.png)
 
 每次刷新页面ID的值都会自动增加。
 
