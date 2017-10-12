@@ -1,7 +1,7 @@
 # 翻译指南
 
 
->  本指南的目的教您怎么实际操作,在申请翻译前请先阅读[申领流程](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-readme.md)
+>  本指南的目的是教您怎么实际操作，在申请翻译前请先阅读[申领流程](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-readme.md)
 
 ## 准备
 
