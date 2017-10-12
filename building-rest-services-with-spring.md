@@ -19,8 +19,9 @@
 
 ## 术语表
 
-* REST/RESTful：不翻译，
-
+* REST/RESTful：不翻译
+* Repository：数据访问层组件名，不翻译，对应@Repository
+* 
 ## 正文
 
 因为REST易于构建和使用，它很快成为网络中构建Web服务应用的标准。
@@ -39,8 +40,6 @@ Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了�
 * **1级（Level 1）**：资源——在此级别，服务可能会使用HTTP URI来区分系统中的名词、实体。例如，您可以将请求路由到`/customers，/users`等。XML-RPC是1级技术的代表：它使用HTTP，并且可以使用URI来区分端点（Endpoint）。最终，尽管有这些定义，XML-RPC实际也不是Restful的：它使用HTTP做了其他东西（如RPC远程过程调用）的传输。
 * **2级（Level 2）**：HTTP动词——这就是您想要的级别。如果您用Spring MVC时所有事都做错了，您将仍然在这个地方。在这个级别，服务利用了HTTP的原生术语如标题、状态代码、不同的URI等。这也将是我们旅程的起点。
 * **3级（Level 3）**：超媒体控件——最后一级是我们将努力的地方。超媒体，作为[HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)（Hypermedia as the Engine of Application State）的实践，它是真正受欢迎的设计模式。超媒体通过服务的消费者与该服务的“表面积”和拓扑结构的亲密知识的解藕来促进服务寿命。它描述了REST服务，该服务可以回答调用什么，什么时候调用等问题，稍后我们再深入一下。                             
-
-
 
 图1：Leonard Richardson成熟度模型
 
@@ -175,6 +174,42 @@ public class Bookmark {
     public String getDescription() {
         return description;
     }
+}
+```
+
+我们将使用两个[Spring Data JPA repositories](https://spring.io/guides/gs/accessing-data-jpa/)来处理繁琐的数据库交互。Spring Data repositories通常是支持对后端数据进行读取、更新、删除和创建记录的方法接口。一些repositories通常还支持数据分页，并在适当的情况下进行排序，Spring Data根据接口中方法命名约定来实现。除了JPA之外，还有多个存储repositories的实现，您可以使用Spring Data MongoDB、Spring Data GemFire、Spring Data Cassandra等。
+
+一个Repository将管理我们的`Account`实体，称为`AccountRepository`，如下所示。包含了一个自定义查找方法`findByUsername`，针对该方法创建一个基于JPA的查询：`select a from Account a where a.username = :username`。运行它（将方法参数`username`作为命名参数传递），最终返回我们需要的结果。方便！
+
+**`model/src/main/java/bookmarks/AccountRepository.java`**
+
+```java
+package bookmarks;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface AccountRepository extends JpaRepository<Account, Long> {
+    Optional<Account> findByUsername(String username);
+}
+```
+
+下边是和`Bookmark`实体工作的Repository：
+
+**model/src/main/java/bookmarks/BookmarkRepository.java**
+
+```java
+package bookmarks;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Collection;
+
+public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
+    Collection<Bookmark> findByAccountUsername(String username);
 }
 ```
 
