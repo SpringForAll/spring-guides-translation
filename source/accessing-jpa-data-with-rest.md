@@ -39,7 +39,7 @@
 
 像大多数 Spring [入门指南](https://spring.io/guides)一样, 你可以从头开始，完成每一步, 或者你也可以绕过你熟悉的基本步骤再开始。 不管通过哪种方式，你最后都会得到一份可执行的代码。
 
-**如果从基础开始**，你可以往下查看[怎样使用 Gradle 构建项目](https://spring.io/guides/gs/accessing-data-rest/#scratch)。
+**如果从基础开始**，你可以往下查看[怎样使用 Gradle 构建项目](#scratch)。
 
 **如果已经熟悉跳过一些基本步骤**，你可以：
 
@@ -51,7 +51,7 @@
 
 **当你完成之后**，你可以在`gs-accessing-data-rest/complete`根据代码检查下结果。
 
-## 使用Gradle构建
+<h2 id="scratch"> 使用Gradle构建 </h2>
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
@@ -249,9 +249,9 @@ public class Person {
 
 这个 `Person` 类有一个名和姓属性.还有一个id对象配置为自动生成,所以你不必处理。
 
-## 创建一个 Person 存储库
+## 创建一个 Person 仓库
 
-接下来你需要创建一个简单的存储库。
+接下来你需要创建一个简单的仓库。
 
 `src/main/java/hello/PersonRepository.java`
 
@@ -280,7 +280,7 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 
 在这里你也定义了一个定制的查询检索一个‘Person’的对象列表基于lastName。您将进一步在本指南看到如何调用它。
 
-## 使应用程序可运行
+## 使应用可运行
 
 尽管可以将本服务打包为传统的 [WAR](https://spring.io/understanding/WAR) 文件，然后部署在外部的应用程序服务器上，下面展示一种更简便的方法，即创建独立的应用程序。这种方法将本服务打包为单独的、可直接运行的JAR文件，这个jar文件由传统的`main()`函数方法驱动。使用这种打包方法，可以使用Spring提供的嵌入式 [Tomcat](https://spring.io/understanding/Tomcat)  servlet容器作为运行时(HTTP runtime)， 而不是直接部署外部实例中。
 
@@ -556,8 +556,6 @@ $ curl http://localhost:8080/people
 想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
 > 所有指南都将发布ASLv2许可证的代码，以及署名，NoDerivatives为写作创作共用许可证。
-
-
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
