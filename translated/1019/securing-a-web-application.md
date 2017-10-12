@@ -38,7 +38,7 @@
 
 ## 使用Gradle构建
 
-首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你使用 Gradle 和 Maven构建需要的代码在本文提供: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
 
 ### 创建目录结构
 
