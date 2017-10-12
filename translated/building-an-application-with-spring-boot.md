@@ -6,10 +6,7 @@
 >
 > 校对：
 
-本指南提供了一个例子，旨在说明Spring Boot是怎样加速你开发应用程序的。如果你有兴趣
-可以阅读更多关于Spring系列的入门指南，在这里你将会找到更多有用的例子。这个例子将会
-让你体验Spring Boot的便捷快速。如果你想创建自己的Spring Boot项目，可以参照这个[ Spring Initializr](https://start.spring.io/)，
-在这个页面你需要填写自己项目的详细信息，选择项目配置，接下来你可以选择生成Maven构建文件或者直接生成zip包来获取到自己的项目。
+本指南提供了一个例子，旨在说明Spring Boot是怎样加速你开发应用程序的。如果你有兴趣可以阅读更多关于Spring系列的入门指南，在这里你将会找到更多有用的例子。这个例子将会让你体验Spring Boot的便捷快速。如果你想创建自己的Spring Boot项目，可以参照这个[ Spring Initializr](https://start.spring.io/)，在这个页面你需要填写自己项目的详细信息，选择项目配置，接下来你可以选择生成Maven构建文件或者直接生成zip包来获取到自己的项目。
 
 ## 你会创建什么
 你将会使用Spring Boot构建一个简单的web程序，而且可以在程序中加入一些实用的功能
@@ -25,8 +22,7 @@
        + [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 ## 如何完成本项引导
-就像大多数的Spring系列入门指南，你可以从零开始，按照指南中的每一步的指示来做，或者你也可以
-跳过你已经熟悉的基本教程。不论那种方式，最后我们想要的结果都是可以运行的代码。
+就像大多数的Spring系列入门指南，你可以从零开始，按照指南中的每一步的指示来做，或者你也可以跳过你已经熟悉的基本教程。不论那种方式，最后我们想要的结果都是可以运行的代码。
 
 *从零开始*，移步至[ Build with Gradle](https://spring.io/guides/gs/spring-boot/#scratch)
 
@@ -43,8 +39,7 @@
 
 ## 使用Gradle创建项目
 
-首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的项目构建系统，但是你用Maven或Gradle构建的代码必须
-要在这个系统下。如果你还不熟悉，请参阅[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle)或[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
+首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的项目构建系统，但是你用Maven或Gradle构建的代码必须要在这个系统下。如果你还不熟悉，请参阅[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle)或[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
 ## 创建目录结构
 在您选择的项目目录中，创建以下子目录结构;例如，在 unix系统使用
@@ -108,8 +103,7 @@ Spring Boot的[Gradle插件](https://github.com/spring-projects/spring-boot/tree
 
 ## 使用Maven创建项目
 
-首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的项目构建系统，但是你用Maven构建的代码必须
-要在这个系统下。如果你还不熟悉，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
+首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的项目构建系统，但是你用Maven构建的代码必须要在这个系统下。如果你还不熟悉，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
 ### 创建目录结构
 在您选择的项目目录中，创建以下子目录结构;例如，在 unix系统使用
