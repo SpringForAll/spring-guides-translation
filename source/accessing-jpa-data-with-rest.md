@@ -1,13 +1,9 @@
-# 【strongant 翻译完成】
+# 【strongant 校验中】
+> 原文：[accessing-jpa-data-with-rest](https://spring.io/guides/gs/accessing-data-rest/)
+> 译者： [strongant](https://github.com/strongant)
+> 校对： [汪志峰](https://github.com/maskwang520)
 
 # 使用REST访问JPA数据
-============================================================
-
-> 原文：[accessing-jpa-data-with-rest](https://spring.io/guides/gs/accessing-data-rest/)
->
-> 译者： [strongant](https://github.com/strongant)
->
-> 校对： [汪志峰](https://github.com/maskwang520)
 
 本指南将引导您完成创建通过基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端访问关系型JPA数据的应用程序的过程。
 
