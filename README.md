@@ -9,6 +9,8 @@
 * 交流社区：[SpringForAll社区](http://spring4all.com)
 * Github：[https://github.com/SpringForAll/spring-guides-translation](https://github.com/SpringForAll/spring-guides-translation)
 * 组织人：[程序猿DD](https://github.com/dyc87112/)
+* 管理组成员：[maskwang520](https://github.com/maskwang520)、[strongant](https://github.com/strongant)、[chenzhijun](https://github.com/chenzhijun)、[lexburner](https://github.com/lexburner)、[Jitianyu](https://github.com/Jitianyu)
+* 校对组头目：[maskwang520](https://github.com/maskwang520)
 
 ### 协作流程
 
@@ -26,7 +28,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 
 | 编号   | 标题                                       | 状态   | 译者                                       | 校对                                       |
 | ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
-| 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) |      | [冀天宇](https://github.com/Jitianyu)       | [ francischan714](https://github.com/francischan714) 、 [yh128](https://github.com/yh128)  、 [scuwuyu](https://github.com/scuwuyu)、[HoldDie](https://github.com/HoldDie)、 [aprimecoder](https://github.com/aprimecoder) |
+| 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) |      | [Jitianyu](https://github.com/Jitianyu)  | [ francischan714](https://github.com/francischan714) 、 [yh128](https://github.com/yh128)  、 [scuwuyu](https://github.com/scuwuyu)、[HoldDie](https://github.com/HoldDie)、 [aprimecoder](https://github.com/aprimecoder) |
 | 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) |      | [happyxiaofan](https://github.com/happyxiaofan) | [codedrinker](https://github.com/codedrinker)、[张伟文](https://github.com/carlzhangweiwen)、 [nl101531](https://github.com/nl101531) 、 [lovedboy2012](https://github.com/lovedboy2012) |
 | 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) |      | [aprimecoder](https://github.com/aprimecoder) | [scuwuyu](https://github.com/scuwuyu)、 [strongant](https://github.com/strongant) [dongyang1993](https://github.com/SpringForAll/spring-guides-translation/issues?q=is%3Aissue+is%3Aopen+author%3Adongyang1993) |
 | 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) |      | [ongoingdotme](https://github.com/ongoingdotme) | [william-hyx](https://github.com/william-hyx)、[shenpengyan](https://github.com/shenpengyan) |
@@ -36,7 +38,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | 1008 | [Registering an Application with Facebook](https://spring.io/guides/gs/register-facebook-app/) |      |                                          |                                          |
 | 1009 | [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/) | 校对   | [linzx2015](https://github.com/linzx2015) | [codedrinker](https://github.com/codedrinker) |
 | 1010 | [Registering an Application with Twitter](https://spring.io/guides/gs/register-twitter-app/) |      |                                          |                                          |
-| 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 校对   | [陈志军](https://github.com/chenzhijun)     | [hh23485](https://github.com/hh23485) 、 [shenpengyan](https://github.com/shenpengyan) 、 [linzx2015](https://github.com/linzx2015) |
+| 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 校对   | [chenzhijun](https://github.com/chenzhijun) | [hh23485](https://github.com/hh23485) 、 [shenpengyan](https://github.com/shenpengyan) 、 [linzx2015](https://github.com/linzx2015) |
 | 1012 | [Accessing Twitter Data](https://spring.io/guides/gs/accessing-twitter/) |      |                                          |                                          |
 | 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) |      |                                          |                                          |
 | 1014 | [Accessing Data with Neo4j](https://spring.io/guides/gs/accessing-data-neo4j/) |      |                                          |                                          |
@@ -44,7 +46,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) |      |                                          |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        | [JohnHello](https://github.com/JohnHello) |
 | 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) |      |                                          |                                          |
-| 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) |      | [徐靖峰](https://github.com/lexburner)      |                                          |
+| 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) |      | [lexburner](https://github.com/lexburner) |                                          |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
 | 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) |      | [xuxiaoxie](https://github.com/xuxiaoxie) |                                          |
@@ -57,7 +59,7 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 | 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) |      | [shaoshao721](https://github.com/shaoshao721) | [nl101531](https://github.com/nl101531)  |
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) |      | [nycgym](https://github.com/Anycgym)     | [xiudongxu](https://github.com/xiudongxu)、[shenpengyan](https://github.com/shenpengyan) |
-| 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) |      | [汪志峰](https://github.com/maskwang520)    | [francischan714](https://github.com/francischan714) |
+| 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) |      | [maskwang520](https://github.com/maskwang520) | [francischan714](https://github.com/francischan714) |
 | 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) |      |                                          |                                          |
 | 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) |      | [yunlzheng](https://github.com/yunlzheng) |                                          |
 | 1035 | [Consuming a RESTful Web Service with rest.js](https://spring.io/guides/gs/consuming-rest-restjs/) |      |                                          |                                          |
@@ -95,9 +97,9 @@ Designed to be completed in 15-30 minutes, these guides provide quick, hands-on 
 
 Designed to be read and comprehended in an hour or less, providing more wide-ranging or subjective content than a getting started guide.
 
-| 编号   | 标题                                       | 状态   | 译者                                  | 校对   |
-| ---- | ---------------------------------------- | ---- | ----------------------------------- | ---- |
-| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |      | [徐靖峰](https://github.com/lexburner) |      |
+| 编号   | 标题                                       | 状态   | 译者                                       | 校对   |
+| ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---- |
+| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |      | [lexburner](https://github.com/lexburner) |      |
 
 #### Tutorials
 
@@ -106,7 +108,7 @@ Designed to be completed in 2-3 hours, these guides provide deeper, in-context e
 |      | 标题                                       | 状态   | 译者                                       | 校对                                       |
 | ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) |      | [silentbalanceyh](https://github.com/silentbalanceyh) | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |
-| 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      | [徐靖峰](https://github.com/lexburner)      |                                          |
+| 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      | [lexburner](https://github.com/lexburner) |                                          |
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
 | 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      | [CoconutJuice](https://github.com/CoconutJuice) |                                          |
 
@@ -125,6 +127,7 @@ Designed to be completed in 2-3 hours, these guides provide deeper, in-context e
   > 译者：\[xxx\]\(\)
   >
   > 校对：\[yyy\]\(\)
+
 * 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
   > 本文由spring4all.com翻译小分队创作，采用\[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可\]\([http://creativecommons.org/licenses/by-nc-sa/4.0/\)协议进行许可。](http://creativecommons.org/licenses/by-nc-sa/4.0/%29协议进行许可。)
 
@@ -133,6 +136,10 @@ Designed to be completed in 2-3 hours, these guides provide deeper, in-context e
 * 代码片段\`\`\`之后需要写明语言类型
 
 * 如有图片更静态资源保存在static目录下，每篇文章建立自己的目录存储（目录名使用文章编号，文章编号见README）
+
+* 文章锚点的跳转处理，不要跳转到英文原文，而应该采用文章内部锚点的跳转，在Markdown中的实现示例：假设有一个链接`xxx`是跳转到标题`Gradle`的，那么链接和标题需要下面这样写：
+  * 链接这样写 ：`[xxx](#maodian)`
+  * 要跳转到的标题这样写：`<h2 id="maodian">Gradle</h2>` ， 不能用传统的写法：`## Gradle`
 
 * 尊重原作、不修改、不删减内容
 
