@@ -35,7 +35,8 @@
 
 Leonard Richardson博士将REST总结汇集了一个成熟度模型，解释了系统遵循RESTful原则的程度，并对其进行了评分。它描述了从0级开始的四个级别，Martin Fowler在成熟度模型上写出了明确的解释：
 
-* 0级（Level 0）：POX沼泽——在这个级别，我们仅使用HTTP作为传输，
+* **0级（Level 0）**：POX沼泽——在这个级别，我们仅使用HTTP作为传输。您可以将SOAP称为0级技术，它使用HTTP协议，但主要是作为传输。值得一提的是，您也可以在没有HTTP的情况下使用SOAP，如JMS。因此，SOAP不是RESTful的，它只是HTTP感知的。
+* **1级（Level 1）**：
 
 
 
