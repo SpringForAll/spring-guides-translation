@@ -198,7 +198,7 @@ dependencies {
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布你的服务。
 - 它寻找`public static void main()` 方法来将其标记为一个可执行的类。
-- 它提供了一个内置的依赖解析器将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为Boot所选择的一组版本。
+- 它提供了一个内置的依赖解析器将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为Boot所选择了一组版本。
 
 ## 使用你的IDE构建
 
@@ -272,7 +272,7 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 }
 ```
 
-这个存储库是一个接口,允许您对`Person`对象执行各种操作。它在 Spring Data Commons中的[PagingAndSortingRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html)扩展这些操作数据共享。
+这个存储库是一个接口,允许你对`Person`对象执行各种操作。它在 Spring Data Commons中的[PagingAndSortingRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html)扩展这些操作数据共享。
 
 在运行时,Spring Data REST自动创建该接口的一个实现。然后它会使用Spring MVC [@RepositoryRestResource](https://docs.spring.io/spring-data/rest/docs/current/api/org/springframework/data/rest/core/annotation/RepositoryRestResource.html)注释直接创建RESTful端点`/people`。
 
@@ -312,11 +312,11 @@ public class Application {
 
 Spring Boot自动加上Spring Data JPA创建`PersonRepository`的具体实现和使用JPA配置它跟后端内存数据库。
 
-Spring Data REST构建于Spring MVC之上。它创建了一个集合的Spring MVC控制器,JSON转换器,和其他bean需要提供一个RESTful的前端。这些组件链接到Spring Data JPA的后端。使用Spring Boot将自动配置；如果你想研究这是如何工作的,你可以在Spring Data REST中通过查看`RepositoryRestMvcConfiguration`了解。
+Spring Data REST构建于Spring MVC之上。这里是Spring MVC控制器集合，JSON转换器,和其他bean需要提供一个RESTful的前端。这些组件链接到Spring Data JPA的后端。使用Spring Boot将自动配置；如果你想研究这是如何工作的,你可以在Spring Data REST中通过查看`RepositoryRestMvcConfiguration`了解。
 
 ### 构建可执行的JAR
 
-您可以在命令行使用Gradle或Maven运行应用程序。或者您可以构建一个可执行的JAR文件,其中包含所有必需的依赖关系,类,和资源,并运行。这使得在整个开发生命周期中非常容易，跨不同的环境等运输，版本和部署服务成为一个应用程序。等等。
+您可以在命令行使用Gradle或Maven运行应用程序。或者您可以构建一个可执行的JAR文件,其中包含所有必需的依赖关系,类,和资源,并运行。这使得在整个开发生命周期中非常容易，跨不同的环境，版本等传输和部署服务成为一个应用程序。等等。
 
 如果您使用的是 Gradle，则可以使用该应用程序 `./gradlew bootRun`。或者您可以使用JAR文件构建 `./gradlew build`。然后可以运行 JAR 文件：
 
@@ -354,7 +354,7 @@ $ curl http://localhost:8080
 
 在这里，您可以首先了解此服务器提供的内容。有一个**people**链接位于<http://localhost:8080/people>。它包含了一些比如`?page`, `?size`, 和 `?sort`的选项。
 
-> Spring Data REST 使用 [HAL format](http://stateless.co/hal_specification.html) 提供 JSON 输出。它是灵活的，并提供了一种方便的方式来提供与所提供数据相邻的链接。
+> Spring Data REST 使用 [HAL format](http://stateless.co/hal_specification.html) 提供 JSON 输出。它是灵活的，并提供了一种方便的方式来提供与所提供数据相邻的联系。
 
 ```
 $ curl http://localhost:8080/people
@@ -546,7 +546,7 @@ $ curl http://localhost:8080/people
 ```
 
 
-这个[接口驱动的hypermedia](https://spring.io/understanding/HATEOAS)一个非常方便的方面是如何使用curl（或您正在使用的任何REST客户端）发现所有RESTful端点。没有必要与客户交换正式的合同或接口文件。
+这个[接口驱动的hypermedia](https://spring.io/understanding/HATEOAS)一个非常方便的一面是如何使用curl（或您正在使用的任何REST客户端）发现所有RESTful端点。没有必要与客户交换正式的合同或接口文件。
 
 ## 总结
 
