@@ -26,19 +26,19 @@
 
 像大多数的Spring指南 [Getting Started guides](https://spring.io/guides),你可以从头开始，完成每一步，也可以跳过已经熟悉的基本设置。 无论哪种方式，你都会得到起作用的代码。
 
- **start from scratch**, 移步 [Build with Gradle](https://spring.io/guides/gs/securing-web/#scratch).
+**如果从基础开始**, 移步 [使用Gradle构建](#scratch).
 
-**跳过基础部分**, 执行以下操作:
+**如果你想跳过基础部分**, 执行以下操作:
 
 - [下载](https://github.com/spring-guides/gs-securing-web/archive/master.zip) 并解压本仓库的源码, 或者使用 [Git](https://spring.io/understanding/Git): `git clone https://github.com/spring-guides/gs-securing-web.git` 
 - 进入 `gs-securing-web/initial`
-- 前往 [Set up Spring Security](https://spring.io/guides/gs/securing-web/#initial).
+- 前往 [安装 Spring Security](https://spring.io/guides/gs/securing-web/#initial).
 
 **当你完成后**, 你可以和此处的代码进行对比 `gs-securing-web/complete`.
 
-## 使用Gradle构建
+<h2 id="scratch">使用Gradle构建</h2>
 
-首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你使用 Gradle 和 Maven构建需要的代码在本文提供: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得安装基础的构建脚本. 可以使用任意你喜欢的构建系统去构建Spring应用, 而使用 Gradle 和 Maven构建需要的代码在本文提供: [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
 
 ### 创建目录结构
 
@@ -101,7 +101,7 @@ dependencies {
 
 ## 使用Maven构建
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org/) is included here. If you’re not familiar with Maven, refer to [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先，你需要设置一个基本的构建脚本。当使用Spring构建应用程序时，你可以使用任何你喜欢的构建系统，而使用 [Maven](https://maven.apache.org/) 构建的代码如下所示。如果你不熟悉Maven，请参考[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
 ### 创建目录结构
 
