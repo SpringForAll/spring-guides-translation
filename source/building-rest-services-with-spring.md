@@ -21,8 +21,7 @@
 
 * REST/RESTful：不翻译
 * Repository：数据访问层组件名，不翻译，对应@Repository
-* 
-## 正文
+* ## 正文
 
 因为REST易于构建和使用，它很快成为网络中构建Web服务应用的标准。
 
@@ -181,7 +180,7 @@ public class Bookmark {
 
 一个Repository将管理我们的`Account`实体，称为`AccountRepository`，如下所示。包含了一个自定义查找方法`findByUsername`，针对该方法创建一个基于JPA的查询：`select a from Account a where a.username = :username`。运行它（将方法参数`username`作为命名参数传递），最终返回我们需要的结果。方便！
 
-**`model/src/main/java/bookmarks/AccountRepository.java`**
+`model/src/main/java/bookmarks/AccountRepository.java`
 
 ```java
 package bookmarks;
