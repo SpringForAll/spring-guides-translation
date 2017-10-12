@@ -50,7 +50,7 @@
 
 **当完成所有的编码以后**，可以将你的代码与`gs-soap-service/complete`目录下的示例代码进行对比，以检查结果是否正确。
 
-*xx## 使用Gradle构建项目
+## *使用Gradle构建项目
 
 首先需要设置一个基本的构建脚本。在使用Spring构建应用程序时，你可以使用任何自己喜欢的构建系统，这里准备了在使用[Gradle](https://gradle.org/)和[Maven](https://maven.apache.org/)构建项目时需要的代码。如果你对Gradle和Maven都不熟悉，可以参照[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle/)或[使用Maven构建Java项目](https://spring.io/guides/gs/gradle/)。
 
@@ -173,7 +173,7 @@ dependencies {
 - 该插件会自动搜索程序中的`public static void main()` 方法，作为程序运行的入口。
 - 它还提供了一个内置的依赖解析器，可以自动调整版本号与 [Spring Boot 的依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)相一致。你可以覆盖其中的任何一个版本，但是默认情况下它会使用Spring Boot自身版本集中的版本。
 
-*xx## 使用IDE构建项目
+## *xx使用IDE构建项目
 
 - 在Spring Tool Suite中构建项目，请参照 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。 
 - 在IntelliJ IDEA中构建项目，请参照[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea)。 
