@@ -546,7 +546,7 @@ $ curl http://localhost:8080/people
 ```
 
 
-这个[接口驱动的hypermedia]（https://spring.io/understanding/HATEOAS）一个非常方便的方面是如何使用curl（或您正在使用的任何REST客户端）发现所有RESTful端点。没有必要与客户交换正式的合同或接口文件。
+这个[接口驱动的hypermedia](https://spring.io/understanding/HATEOAS)一个非常方便的方面是如何使用curl（或您正在使用的任何REST客户端）发现所有RESTful端点。没有必要与客户交换正式的合同或接口文件。
 
 ## 总结
 
