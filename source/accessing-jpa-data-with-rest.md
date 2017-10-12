@@ -1,6 +1,6 @@
-# 【strongant 正在翻译】
+# 【strongant 翻译完成】
 
-# accessing-jpa-data-with-rest
+# 使用REST访问JPA数据
 ============================================================
 
 > 原文：[accessing-jpa-data-with-rest](https://spring.io/guides/gs/accessing-data-rest/)
