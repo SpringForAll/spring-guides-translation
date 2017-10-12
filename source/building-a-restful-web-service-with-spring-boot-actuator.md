@@ -1,5 +1,3 @@
-【zaixiandemiao 正在翻译】
-
 # 中文标题
 
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
