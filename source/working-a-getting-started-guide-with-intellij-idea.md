@@ -2,7 +2,7 @@
 
 > 原文：[Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 >
-> 译者：
+> 译者：xiudongxu
 >
 > 校对：
 
