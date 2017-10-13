@@ -1,12 +1,12 @@
 # 用Spring Boot创建应用
-======================================================================
+
 > 原文：[Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 >
 > 译者：[nycgym](https://github.com/nycgym)
 >
-> 校对：
+> 校对：[xiudongxu](https://github.com/xiudongxu)
 
-本指南提供了一个例子，旨在说明Spring Boot是怎样加速你开发应用程序的。如果你有兴趣可以阅读更多关于Spring系列的入门指南，在这里你将会找到更多有用的例子。这个例子将会让你体验Spring Boot的便捷快速。如果你想创建自己的Spring Boot项目，可以参照这个[ Spring Initializr](https://start.spring.io/)，在这个页面你需要填写自己项目的详细信息，选择项目配置，接下来你可以选择生成Maven构建文件或者直接生成zip包来获取到自己的项目。
+本指南提供了一个例子，旨在说明[Spring Boot](https://github.com/spring-projects/spring-boot)是怎么帮助你加速和促进应用程序的开发。如果你有兴趣可以阅读更多关于Spring系列的入门指南，在这里你将会找到更多有用的例子。这个例子将会让你体验Spring Boot的便捷快速。如果你想创建自己的Spring Boot项目，可以参照这个[ Spring Initializr](https://start.spring.io/)，在这个页面你需要填写自己项目的详细信息，选择项目配置，接下来你可以：接下来你可以下载Maven的构建文件或者通过Maven打包成zip格式的项目。
 
 ## 你会创建什么
 你将会使用Spring Boot构建一个简单的web程序，而且可以在程序中加入一些实用的功能
@@ -22,27 +22,27 @@
        + [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 ## 如何完成本项引导
-就像大多数的Spring系列入门指南，你可以从零开始，按照指南中的每一步的指示来做，或者你也可以跳过你已经熟悉的基本教程。不论那种方式，最后我们想要的结果都是可以运行的代码。
+就像大多数的[Spring系列入门指南](https://spring.io/guides)，你可以从零开始，按照指南中的每一步的指示来做，或者你也可以跳过你已经熟悉的基本教程。不论那种方式，最后我们想要的结果都是可以运行的代码。
 
-*从零开始*，移步至[ Build with Gradle](https://spring.io/guides/gs/spring-boot/#scratch)
+**从零开始**，移步至[ Build with Gradle](https://spring.io/guides/gs/spring-boot/#scratch)
 
-*跳过基本教程*，需要做下列操作：
-* [下载](https://github.com/spring-guides/gs-spring-boot/archive/master.zip)本指南的源码zip包并解压，或者直接使用Git获取源码
+**跳过基本教程**，需要做下列操作：
+* [下载](https://github.com/spring-guides/gs-spring-boot/archive/master.zip)本指南的源码zip包并解压，或者直接使用[Git](https://spring.io/understanding/Git)获取源码
 > git clone https://github.com/spring-guides/gs-spring-boot.git
 
 * 打开目录 ``` gs-spring-boot/initial ```
 
-* 初始化项目
+* [初始化](https://spring.io/guides/gs/spring-boot/#initial)项目
 
-*当你做完以上的几步*，你可以在如下目录检查你的代码
+**当你做完以上的几步**，你可以在如下目录检查你的代码
 >gs-spring-boot/complete
 
 ## 使用Gradle创建项目
 
-首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的项目构建系统，但是你用Maven或Gradle构建的代码必须要在这个系统下。如果你还不熟悉，请参阅[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle)或[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
+首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的系统构建项目，但是你用Maven或Gradle构建的代码必须要在这个系统下。如果你还不熟悉，请参阅[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle)或[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
-## 创建目录结构
-在您选择的项目目录中，创建以下子目录结构;例如，在 unix系统使用
+### 创建目录结构
+在您选择的项目目录中，创建以下子目录结构：例如，在 unix系统使用
 ``` mkdir -p src / main / java / hello ```
 
     └── src
@@ -99,14 +99,14 @@ Spring Boot的[Gradle插件](https://github.com/spring-projects/spring-boot/tree
 
 * 它会把类路径下的所有jar包都打包最后生成一个可运行的"über-jar"，可以方便你的运行和服务调用。
 * 它会把 ``` public static void main() ```方法作为入口方法
-* 它提供了一个内置的依赖解析器，可以自动设置适应Spring Boot依赖的版本。你也可以自定义版本号，但这个版本号必须是Spring Boot默认存在的版本号。
+* 它提供了一个内置的依赖解析器，可以自动设置适应[Spring Boot依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)的版本。你也可以自定义版本号，但这个版本号必须是Spring Boot默认存在的版本号。
 
 ## 使用Maven创建项目
 
-首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的项目构建系统，但是你用Maven构建的代码必须要在这个系统下。如果你还不熟悉，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
+首先设置一个基本的构建脚本。 在使用Spring构建应用程序时，你可以使用任何你喜欢的系统构建项目，但是你用Maven构建的代码必须要在这个系统下。如果你还不熟悉，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
 ### 创建目录结构
-在您选择的项目目录中，创建以下子目录结构;例如，在 unix系统使用
+在您选择的项目目录中，创建以下子目录结构：例如，在 unix系统使用
 ``` mkdir -p src / main / java / hello ```
 
     └── src
@@ -159,9 +159,9 @@ Spring Boot的[Maven插件](https://github.com/spring-projects/spring-boot/tree/
 
 * 它会把类路径下的所有jar包都打包最后生成一个可运行的"über-jar"，可以方便你的运行和服务调用。
 * 它会把 ``` public static void main() ```方法作为入口方法
-* 它提供了一个内置的依赖解析器，可以自动设置适应Spring Boot依赖的版本。你也可以自定义版本号，但这个版本号必须是Spring Boot默认存在的版本号。
+* 它提供了一个内置的依赖解析器，可以自动设置适应[Spring Boot依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)的版本。你也可以自定义版本号，但这个版本号必须是Spring Boot默认存在的版本号。
 
-##使用你的编辑器创建项目
+## 使用你的编辑器创建项目
 
 * 了解下如何把本项引导的代码导入[Spring Tool Suite](https://spring.io/guides/gs/sts/)。
 * 了解下在[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea)中如何完成本项引导。
@@ -172,14 +172,14 @@ Spring Boot提供了快速构建应用程序的途径。 它查看你的类路�
 #### 例如
 
 * 想要使用Spring MVC？有几个特定的bean你几乎总是需要，而Spring Boot会自动添加它们。Spring MVC应用程序还需要一个servlet容器，所以Spring Boot内置了Tomcat容器。
-* 想要使用Jetty？你可能想使用Jetty而不是Tomca。 Spring Boot也内置了Jetty，为你解决后顾之忧。
+* 想要使用Jetty？你可能想使用Jetty而不是Tomcat。 Spring Boot也内置了Jetty，为你解决后顾之忧。
 * 想要使用Thymeleaf？有几个特定的bean你几乎总是引用，而Spring Boot已经自动添加它们。
 
 这些只是Spring Boot自动配置的几个例子。Spring Boot的强大远不止如此。 例如，如果在你的类路径上配置Thymeleaf的配置文件，Spring Boot会自动向你的应用程序添加一个SpringTemplateEngine。 但是如果你使用自己定义的SpringTemplateEngine，那么Spring Boot将不会自动配置。 如此一来，你就不能随心所欲地配置项目，但是却可以减少很多文件的配置。
 
 > Spring Boot不会生成代码或对文件进行编辑。相反，当您启动应用程序时，Spring Boot会动态地把你定义的bean和项目配置链接起来，并将其应用于应用程序。
 
-###创建一个简单的Web程序
+## 创建一个简单的Web程序
 
 现在你可以在Web程序中创建一个controller类
 
@@ -199,7 +199,7 @@ Spring Boot提供了快速构建应用程序的途径。 它查看你的类路�
             }
 
         }
-该类被标记为```@RestController```，这意味着它可以使用Spring MVC来处理Web请求。 ```@RequestMapping```映射/到index（）方法。 当从浏览器调用或在命令行使用curl时，该方法返回纯文本。 这是因为```@RestController```结合了```@Controller```和```@ResponseBody```，两个注释导致Web请求返回数据而不是视图。
+该类被标记为```@RestController```，这意味着它可以使用Spring MVC来处理Web请求。 ```@RequestMapping```映射```/```到```index（）```方法。 当从浏览器调用或在命令行使用curl时，该方法返回纯文本。 这是因为```@RestController```结合了```@Controller```和```@ResponseBody```，两个注解导致Web请求返回数据而不是视图。
 
 ## 创建一个Application类
 
@@ -244,9 +244,9 @@ Spring Boot提供了快速构建应用程序的途径。 它查看你的类路�
 ```@SpringBootApplication```是一个方便开发的注解，它包含了下列几个注解：
 
 * ```@Configuration```将该类标记为应用程序中bean定义的源。
-* ```@EnableAutoConfiguration```告诉Spring Boot根据类路径中的项目配置，其他定义的bean，和其他的配置文件来加载bena。
+* ```@EnableAutoConfiguration```告诉Spring Boot根据类路径中的项目配置，其他定义的bean，和其他的配置文件来加载bean。
 * 通常，您将为Spring MVC应用程序添加```@EnableWebMvc```注解，但是当Spring Boot在类路径中看到*spring-webmvc*时，Spring Boot会自动添加这个注解。这样应用程序会被标记为Web程序，并激活一系列关键指令比如设置```DispatcherServlet```。
-* ```@ComponentScan``` 告诉Spring在```hello```包中扫描components, configurations, 和services,也允许其扫描controllers.
+* ```@ComponentScan``` 告诉Spring在```hello```包中扫描components, configurations,services,也允许其扫描controllers.
 
 ```main（）```方法使用Spring Boot的```SpringApplication.run（）```方法启动应用程序。 你注意到没有？没有一行XML 没有```web.xml```文件。 此Web应用程序是纯Java代码，你无需担心任何其他的配置。
 
@@ -469,7 +469,7 @@ Spring Boot提供了快速构建应用程序的途径。 它查看你的类路�
 
 有关每个REST点的更多详细信息以及如何使用```application.properties```文件调整其设置，您可以阅读有关端点的[详细文档](https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/htmlsingle/#production-ready-endpoints)。
 
-## 查看Spring Boot的各种staters
+## 查看Spring Boot的各种starters
 
 你已经看到过一些[starter](https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/htmlsingle/#using-boot-starter)。你也可以直接参照[源码](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters)了解。
 
@@ -508,19 +508,22 @@ Spring Boot提供了快速构建应用程序的途径。 它查看你的类路�
     $ curl localhost:8080
     Hello World!
 
-Spring Boot在你的代码中动态添加关键注释，并使用Groovy Grape来下拉使应用程序运行所需的库。
+Spring Boot在你的代码中动态添加关键注释，并使用[Groovy Grape](http://groovy.codehaus.org/Grape)来下拉使应用程序运行所需的库。
 
-##总结
+## 总结
 
 恭喜！ 您使用Spring Boot构建了一个简单的Web应用程序，并了解了如何提高开发速度。 你也添加了一些方便的生产服务。 这只是Spring Boot可以做的一些小例子。 如果要深入挖掘Spring Boot,请参阅[在线文档](https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/htmlsingle)。
 
-##你也可以看
+## 你也可以看
 
 下列的文章对你可能也有帮助：
 
 *[保护wen应用](https://spring.io/guides/gs/securing-web/)
+
 *[使用Spring MVC提供Web服务](https://spring.io/guides/gs/serving-web-content/)
 
-------------------------------------------------------------------
+如果你想写一个新的教程或者对我们的的教程有任何建议，可以看我们的[贡献流程](https://github.com/SpringForAll/spring-guides-translation)
+
+---
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
