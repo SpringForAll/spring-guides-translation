@@ -1,6 +1,6 @@
-## 校对目录和注意事项以及教程
-#### 1.pull request目录（大家选择等待校对的pull request进行校对）
-| 编号   | pull request                                     | 状态   | 校对认领人                                       |
+## 校对注意事项以及教程
+<!-- #### 1.pull request目录（大家选择等待校对的pull request进行校对） -->
+<!-- | 编号   | pull request                                     | 状态   | 校对认领人                                       |
 | ---- | ---------------------------------------- | ---- |  ---------------------------------------- |
 | #128 | [Producing a SOAP web service](https://github.com/SpringForAll/spring-guides-translation/pull/128) |    正在校对  | [王嘉龙](https://github.com/zaixiandemiao)  |
 | #125| [accessing-jpa-data-with-rest ](https://github.com/SpringForAll/spring-guides-translation/pull/125) |    校对完成  | [maskwang](https://github.com/maskwang520)   |
@@ -17,9 +17,9 @@
 | #103 | [building an application with spring boot](https://github.com/SpringForAll/spring-guides-translation/pull/103) |    等待校对  | [](https://github.com/Jitianyu)   |
 | #101 | [Creating API Documentation with Restdocs](https://github.com/SpringForAll/spring-guides-translation/pull/101) |    等待校对  | [](https://github.com/Jitianyu)   |
 | #96 | [Update messaging-with-redis](https://github.com/SpringForAll/spring-guides-translation/pull/96) |    等待校对  | [](https://github.com/Jitianyu)   |
-| #90 | [routing-and-filtering](https://github.com/SpringForAll/spring-guides-translation/pull/90) |    等待校对  | [](https://github.com/Jitianyu)   |
+| #90 | [routing-and-filtering](https://github.com/SpringForAll/spring-guides-translation/pull/90) |    等待校对  | [](https://github.com/Jitianyu)   | -->
 
-#### 2.注意事项
+#### 1.注意事项
 1.  注意文章格式，首末是否按要求来
 
 2.  检查是否有校对者的信息，未填上的要求补上
@@ -32,7 +32,7 @@
 
 
 
-#### 3.校对教程 
+#### 2.校对教程 
 
 1. 打开pull request 链接
 
