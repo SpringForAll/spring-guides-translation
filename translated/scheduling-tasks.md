@@ -5,14 +5,14 @@
 
 > 译者：[rhwayfun][1]
 
-> 校对：[codedrinker][2]
+> 校对：[carlzhangweiwen][2]
 
 ## 开始使用定时任务
 
-本指南将一步步引导您如何在Spring中使用定时任务。
+本指南将一步步引导您在Spring中使用定时任务。
 
 ### 完成什么
-构建一个应用，实现的功能为每5秒打印出当前时间。这点可以通过Spring注解`@Scheduled`完成。
+构建一个应用，实现的功能为，每隔5秒打印出当前时间。这点可以通过Spring注解`@Scheduled`完成。
 
 ### 准备什么
 
@@ -25,9 +25,9 @@
     - [IntelliJ IDEA][4]
 
 ### 如何完成这份指南
-和其他[Spring使用指南][5]一样，你可以从零开始完成每一步，或者略过你熟悉的一些基本步骤。不管哪种方式你最终都会得到一份工作代码。
+和其他[Spring使用指南][5]一样，你可以从零开始一步步完成，或者略过那些你已經熟悉的項目創建步骤(setup steps)。不管哪种方式你最终都会得到一份工作代码(working code)。
 
-如果从零开始，请移步Build with Gradle。
+如果从零开始，请移步[Build with Gradle][https://spring.io/guides/gs/scheduling-tasks/#scratch]。。
 
 如果打算跳过基本步骤，按照如下操作：
 
@@ -100,7 +100,7 @@ dependencies {
 }
 ```
 
-[Spring Boot gradle 插件][13] 提供了非常多方便的功能：
+[Spring Boot gradle 插件][13] 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
 
@@ -268,7 +268,7 @@ public class Application {
 
 ### 了解更多
 
-下面的指南也非常有帮助：
+下面的指南可能对你也有帮助：
 
 *   [Building an Application with Spring Boot][23]
 
