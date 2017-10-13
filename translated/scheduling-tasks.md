@@ -278,7 +278,7 @@ public class Application {
 
 
   [1]: https://github.com/happyxiaofan
-  [2]: https://github.com/codedrinker
+  [2]: https://github.com/carlzhangweiwen
   [3]: https://spring.io/guides/gs/sts
   [4]: https://spring.io/guides/gs/intellij-idea/
   [5]: https://spring.io/guides
