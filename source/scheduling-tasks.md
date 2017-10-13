@@ -2,8 +2,6 @@
 # Spring 定时任务
 
 # Scheduling Tasks
-============================================================
-
 > 原文：[Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/)
 
 > 译者：[rhwayfun][1]
@@ -282,32 +280,32 @@ Want to write a new guide or contribute to an existing one? Check out our [contr
 
 --------------------------------------------------------------------------------
 
- 
+
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][25]协议进行许可。
 
 
-  [1]: https://github.com/happyxiaofan
-  [2]: https://github.com/codedrinker
-  [3]: https://spring.io/guides/gs/sts
-  [4]: https://spring.io/guides/gs/intellij-idea/
-  [5]: https://spring.io/guides
-  [6]: https://github.com/spring-guides/gs-scheduling-tasks/archive/master.zip
-  [7]: https://spring.io/understanding/Git
-  [8]: http://gradle.org/
-  [9]: https://maven.apache.org/
-  [10]: https://spring.io/guides/gs/gradle
-  [11]: https://spring.io/guides/gs/maven
-  [12]: https://github.com/spring-guides/gs-scheduling-tasks/blob/master/initial/build.gradle
-  [13]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin
-  [14]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
-  [15]: https://maven.apache.org/
-  [16]: https://spring.io/guides/gs/maven
-  [17]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin
-  [18]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
-  [19]: https://spring.io/guides/gs/sts/
-  [20]: https://spring.io/guides/gs/intellij-idea
-  [21]: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/scheduling.html#scheduling-annotation-support-scheduled
-  [22]: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
-  [23]: https://spring.io/guides/gs/spring-boot/
-  [24]: https://spring.io/guides/gs/batch-processing/
-  [25]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[1]: https://github.com/happyxiaofan
+[2]: https://github.com/codedrinker
+[3]: https://spring.io/guides/gs/sts
+[4]: https://spring.io/guides/gs/intellij-idea/
+[5]: https://spring.io/guides
+[6]: https://github.com/spring-guides/gs-scheduling-tasks/archive/master.zip
+[7]: https://spring.io/understanding/Git
+[8]: http://gradle.org/
+[9]: https://maven.apache.org/
+[10]: https://spring.io/guides/gs/gradle
+[11]: https://spring.io/guides/gs/maven
+[12]: https://github.com/spring-guides/gs-scheduling-tasks/blob/master/initial/build.gradle
+[13]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin
+[14]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
+[15]: https://maven.apache.org/
+[16]: https://spring.io/guides/gs/maven
+[17]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin
+[18]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
+[19]: https://spring.io/guides/gs/sts/
+[20]: https://spring.io/guides/gs/intellij-idea
+[21]: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/scheduling.html#scheduling-annotation-support-scheduled
+[22]: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
+[23]: https://spring.io/guides/gs/spring-boot/
+[24]: https://spring.io/guides/gs/batch-processing/
+[25]: http://creativecommons.org/licenses/by-nc-sa/4.0/

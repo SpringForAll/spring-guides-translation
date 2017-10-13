@@ -2,7 +2,7 @@
 
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/)
 >
 > 译者：
 >

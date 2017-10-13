@@ -1,6 +1,6 @@
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
 >
 > 译者：
 >
