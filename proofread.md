@@ -2,7 +2,7 @@
 #### 1.pull request目录（大家选择等待校对的pull request进行校对）
 | 编号   | pull request                                     | 状态   | 校对认领人                                       |
 | ---- | ---------------------------------------- | ---- |  ---------------------------------------- |
-| #128 | [Producing a SOAP web service](https://github.com/SpringForAll/spring-guides-translation/pull/128) |    正在校对  | [王嘉龙]([https://github.com/zaixiandemiao](https://github.com/zaixiandemiao)  |
+| #128 | [Producing a SOAP web service](https://github.com/SpringForAll/spring-guides-translation/pull/128) |    正在校对  | [王嘉龙](https://github.com/zaixiandemiao)  |
 | #125| [accessing-jpa-data-with-rest ](https://github.com/SpringForAll/spring-guides-translation/pull/125) |    校对完成  | [maskwang](https://github.com/maskwang520)   |
 | #124 | [centralized-configuration](https://github.com/SpringForAll/spring-guides-translation/pull/124) |    正在校对  | [胡明昊](https://github.com/hh23485)   |
 | #123 | [consuming-rest-angularjs](https://github.com/SpringForAll/spring-guides-translation/pull/123) |    正在校对  | [rhwayfun](https://github.com/rhwayfun)   |
