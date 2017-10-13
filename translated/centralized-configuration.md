@@ -440,7 +440,8 @@ class MessageRestController {
 * [使用Spring Boot构建一个应用](https://spring.io/guides/gs/spring-boot/)
 * [创建一个多模块的项目](https://spring.io/guides/gs/multi-module/)
 
---------------------------------------------------------------------------------
+想要写一个新的指南或者为现有的一个贡献力量吗？请查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
-
-> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
+ > 所有指南中的代码都将遵照ASLv2许可，指南的编写遵照 [Attribution, NoDerivatives creative commons license](https://creativecommons.org/licenses/by-nd/3.0/)
+ >
+ > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
