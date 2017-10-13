@@ -1,4 +1,6 @@
 # 使用WebSocket来构建交互式Web应用
+ ============================================================
+
 > 原文：[Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/)
 >
 > 译者：[汪志峰](https://github.com/maskwang520)
@@ -10,27 +12,27 @@
 ## 你将构建什么应用 
 你通过建立服务端来接收带有用户姓名的信息。之后给由客户端构成的队列来问候一个问候信息。
 ## 你需要准备什么？
-
+ 
  大约15分钟时间
-
+ 
  一个喜欢的文本编辑器或者IDE
-
+ 
  [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或 更高版本
-
+ 
  [Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
-
+ 
  你也可以直接导入代码到IDE:
-
+ 
  [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
-
+ 
  [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
-
-
+ 
+ 
 ## 你如何完成这个入门指南
 像其他Spring入门指南一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
 * 你可以往下查看[怎样使用 Gradle 构建项目](#scratch).
 * 跳过一些基础的，你可以像下面这样做
-  [下载](https://github.com/spring-guides/gs-messaging-stomp-websocket/archive/master.zip) 并解压这个引导。或者直接使用 [Git](https://spring.io/understanding/Git): git clone [https://github.com/spring-guides/gs-messaging-stomp-websocket.git](https://github.com/spring-guides/gs-messaging-stomp-websocket.git)
+[下载](https://github.com/spring-guides/gs-messaging-stomp-websocket/archive/master.zip) 并解压这个引导。或者直接使用 [Git](https://spring.io/understanding/Git): git clone [https://github.com/spring-guides/gs-messaging-stomp-websocket.git](https://github.com/spring-guides/gs-messaging-stomp-websocket.git)
 
 完成上述步骤，你可以查看结果，并与gs-messaging-stomp-websocket/complete对比。
 
@@ -490,9 +492,9 @@ java -jar build/libs/gs-messaging-stomp-websocket-0.1.0.jar
 java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 ```
 >上面的过程将创建一个可运行的JAR。你也可以选择构建一个典型的WAR文件。
->显示记录输出。该服务应该在几秒钟内启动并运行。
+显示记录输出。该服务应该在几秒钟内启动并运行。
 ## 测试服务
-现在服务正在运行，请将浏览器指向http：// localhost：8080，然后单击“连接”按钮。
+现在服务正在运行，请将浏览器指向http://localhost：8080，然后单击“连接”按钮。
 
 打开连接后，系统会询问你的姓名。输入你的姓名，然后点击“发送”。你的姓名通过STOMP作为JSON消息发送到服务器。经过1秒钟的模拟延迟后，服务器将返回一条消息，并显示在页面上显示的“Hello”问候语。此时，你可以发送另一个名称，也可以单击“断开连接”按钮关闭连接。
 
