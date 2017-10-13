@@ -1,4 +1,3 @@
-
 # 构建一项RESTful风格的web服务(RESTful Web Service)
 
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) 
@@ -6,9 +5,11 @@
 > 译者：冀天宇
 >
 > 校对：
+>
+> 这篇指南将指导你完成如下过程：使用Spring创建一项"hello world"类型的 [RESTful web service](https://spring.io/understanding/REST) 。
 
-这篇指南将指导你完成如下过程：使用Spring创建一项"hello world"类型的RESTful web service。
 ## 你将构建什么
+
 你将构建一项服务(service), 该服务在以下地址接收`HTTP GET`请求：
 ```
 http://localhost:8080/greeting
@@ -25,29 +26,33 @@ http://localhost:8080/greeting?name=User
 ```
 {"id":1,"content":"Hello, User!"}
 ```
+
 ## 你需要做哪些工作
+
 - 大概15分钟
 - 你钟爱的文本编辑器或者IDE
 - JDK1.8或者更高的版本
 - 也可以直接将本节代码导入到你的IDE中
- - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
- - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 ## 如何完成此指南
 就像大部分的Spring Getting Started guides一样， 你可以从零开始，亲自完成每一个步骤。或者跳过你已经熟悉的基本步骤。无论如何，结束此指南的时候你都会实现可以正常工作的代码。
-要从零开始，请跳转到[Build with Gradle](https://spring.io/guides/gs/rest-service/#scratch)
+要从零开始，请跳转到[Build with Gradle](#scratch)
 要跳过基本的步骤，这样做：
 - [下载](https://github.com/spring-guides/gs-rest-service/archive/master.zip)并解压缩此指南的代码，或者使用Git clone:`
-`git clone https://github.com/spring-guides/gs-rest-service.git`
+  `git clone https://github.com/spring-guides/gs-rest-service.git`
 - 进入`gs-rest-service/initial`目录
-- 直接跳转到[创建一个类用来表示资源](https://spring.io/guides/gs/rest-service/#initial)目录
+- 直接跳转到[创建一个类用来表示资源](#initial)目录
 
 当完成以上步骤后，可以在`gs-rest-service/complete`目录中再次查看代码。
 
-### 使用Gradle构建
+<h2 id=scratch>使用Gradle构建</h2>
+
 第一步，建立基本的构建脚本(build script)。 当使用Spring构建apps的时候，几乎可以使用任何你喜欢的构建工具， 但是此指南只介绍了如何使用Gradle和Maven来构建目标app。如果这两个工具你都不熟悉，请参考[ Building Java Projects with Gradle ](https://spring.io/guides/gs/gradle)或者[ Building Java Projects with Maven](https://spring.io/guides/gs/maven)。
 
-###创建目录结构
+### 创建目录结构
+
 在你选定的工程目录中，创建如下的子目录结构。例如，在*nix系统中使用命令`mkdir -p src/main/java/hello`来创建该目录结构。
 ```
 └── src
@@ -55,9 +60,13 @@ http://localhost:8080/greeting?name=User
         └── java
             └── hello
 ```
+
 ### 创建Gradle构建文件(build file)
-下面是Gradle的初始构建文件(initial build file)。
+
+下面是Gradle的初始构建文件([initial Gradle build file](https://github.com/spring-guides/gs-rest-service/blob/master/initial/build.gradle)) 。
+
 `build.gradle`
+
 ```
 buildscript {
     repositories {
@@ -90,22 +99,29 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 ```
+
 [Spring Boot gradle plugin](http://https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了许多方便的功能：
 - 将classpath中的所有jar文件集中起来，构建成单独的可运行的"über-jar", 这使得服务的运行和转移更加便捷。
 - 搜索`public static void main()`方法，并对该可执行类进行标记。
 - 提供了内置的依赖解析功能，该功能将依赖的版本与[ Spring Boot dependencies](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)相匹配。用户可以按照需求覆盖依赖(dependency)的任何版本号，但是默认版本号是Spring Boot中已经选择好的版本号的集合。
 
-### 使用Maven构建
+## 使用Maven构建
+
 第一步，建立基本构建脚本(build script)。 当使用Spring构建apps的时候，几乎可以使用任何你喜欢的构建工具， 但是此部分只介绍了如何使用Maven来构建目标app。如果你不熟悉这个工具，请参考[ Building Java Projects with Maven](https://spring.io/guides/gs/maven)。
-#### 创建目录结构
+
+### 创建目录结构
+
 在你选定的工程目录中，创建如下的子目录结构。例如，在*nix系统中使用命令`mkdir -p src/main/java/hello`来创建该目录结构。
+
 ```
 └── src
     └── main
         └── java
             └── hello
 ```
+
 `pom.xml`
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -167,21 +183,27 @@ dependencies {
     </pluginRepositories>
 </project>
 ```
+
 [Spring Boot Maven plugin](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了许多方便的功能：
 - 将classpath中的所有jar文件集中起来，构建成单独的可运行的"über-jar", 这使得服务的运行和转移更加便捷。
 - 搜索`public static void main()`方法，并对该可执行类进行标记。
 - 提供了内置的依赖解析功能，该功能将依赖的版本与[ Spring Boot dependencies](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)相匹配。用户可以按照需求覆盖依赖(dependency)的任何版本号，但是默认版本号是Spring Boot中已经选择好的版本号的集合。
 
-### 使用IDE构建
+
+
+## 使用IDE构建
+
 - 阅读如何将本指南直接导入到[Spring Tool Suite](https://spring.io/guides/gs/sts/)。
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea)完成本指南。
 
-### 创建一个表示资源的类(Class)
+<h2 id="initial"> 创建一个表示资源的类(Class)</h2>
+
 现在已经建立了工程、配置好了构建系统，可以开始创建Web 服务(Service)了。
 
 现在考虑一下这项服务进行交互的细节，这作为开始。
 
 本服务将处理访问`/greeting`的`GET`请求，并且在查询字符串中可以加入可选的`name`参数。`GET`请求应该返回`200 OK`，在`Response Body`中应该包含表示问候语的`JSON`数据，例如：
+
 ```
 {
     "id": 1,
@@ -192,7 +214,9 @@ dependencies {
 `id`是表示问候语唯一性的标识符，`content`是问候语的文本内容。
 
 为了将问候语建模便于处理，创建一个表示资源的类。在POJO(plain old java object)的基础上，加入`id`和`content`字段、以及对应的构造函数、访问函数：
+
 `src/main/java/hello/Greeting.java`
+
 ```
 package hello;
 
@@ -220,9 +244,12 @@ public class Greeting {
 
 接下来创建资源控制器(Resource Controller)来实现问候语功能。
 
-### 创建资源控制器(Resource Controller)
+## 创建资源控制器(Resource Controller)
+
 使用Spring构建RESTful Web Services的解决方案中，使用Controller来处理http请求。这些Controller组件由`@RestController`注解修饰，很容易区分。下面的`GreetingController`处理对地址`/greeting`的`GET`请求，返回`Greeting`类的一个新实例：
+
 `src/main/java/hello/GreetingController.java`
+
 ```
 package hello;
 
@@ -244,6 +271,7 @@ public class GreetingController {
     }
 }
 ```
+
 上面的控制器(Controller)看起来简洁、简单，但是在底层做了许多工作。现在让我们将其逐步分解。
 
 `@RequestMapping`注解确保了所有访问`/greeting`的HTTP请求均被映射到`greeting()`方法。
@@ -261,9 +289,11 @@ public class GreetingController {
 `Greeting`对象必须被转换为JSON格式。依靠Spring的HTTP 消息转换功能的支持，用户不需手动进行转换。由于[Jackson2](http://wiki.fasterxml.com/JacksonHome)位于classpath中， Spring的[`MappingJackson2HttpMessageConverter `](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)自动执行从`Greeting`实例到JSON类型的转换。
 
 ## 使应用程序可以运行
+
 尽管可以将本服务打包为传统的WAR文件，然后部署在外部的应用程序服务器上，下面展示一种更简便的方法，即创建独立的应用程序。这种方法将本服务打包为单独的、可直接运行的JAR文件，这个jar文件由传统的`main()`函数方法驱动。使用这种打包方法，可以使用Spring提供的嵌入式Tomcat servlet容器作为运行时(HTTP runtime)， 而不是直接部署外部实例中。
 
 `src/main/java/hello/Application.java`
+
 ```
 package hello;
 
@@ -278,6 +308,7 @@ public class Application {
     }
 }
 ```
+
 `@SpringBootApplication`作为一个方便使用的注解，提供了如下的功能：
 - `@Configuration`表明使用该注解的类是应用程序上下文(Applicaiton Context)中Bean定义的来源。
 - `@EnableAutoConfiguration`注解根据classpath的配置、其他bean的定义或者不同的属性设置(property settings)等条件，使Spring Boot自动加入所需的bean。
@@ -287,13 +318,17 @@ public class Application {
 `main()`方法使用Spring Boot的`SpringApplication.run()`方法来加载应用。你有没有注意到本例子中一行XML代码都没有吗？也没有web.xml文件。此web应用100%使纯java代码，因此不需花精力处理任何像基础设施或者下水管道一般的配置工作。
 
 ### 构建可执行的JAR文件
+
 可以从Gradle或者Maven的命令行运行此程序，也可以构建一个单独的可执行的JAR文件，此文件包含了应用程序所有必需的依赖、类以及资源。由于应用程序存在不同的开发周期，也会部署于不同的环境，这种方法使应用程序的转移、版本管理、以及发布都变得更加简单。
 
 如果使用Gradle，可以使用`./gradlew bootRun`运行程序。或者使用`./gradlew build`构建JAR文件，然后运行此JAR文件：
+
 ```
 java -jar build/libs/gs-rest-service-0.1.0.jar
 ```
+
 如果使用Maven，可以使用`./mvnw spring-boot:run`运行程序。或者使用`./mvnw clean package`构建JAR文件，然后运行此JAR文件：
+
 ```
 java -jar target/gs-rest-service-0.1.0.jar
 ```
@@ -302,7 +337,8 @@ java -jar target/gs-rest-service-0.1.0.jar
 
 日志会输出，上述服务应该在几秒钟内准备就绪，开始运行。
 
-### 测试此服务
+## 测试此服务
+
 现在该服务已经准备就绪，访问[http://localhost:8080/greeting](http://localhost:8080/greeting)，将会看到：
 ```
 {"id":1,"content":"Hello, World!"}
@@ -316,6 +352,28 @@ java -jar target/gs-rest-service-0.1.0.jar
 同时也要注意`id`属性值如何从`1`变为`2`。这表明同一个`GreetingController`实例处理多个HTTP请求，正如预期的那样，其`counter`属性在每次处理完请求后都会自增1。
 
 ## 总结
+
 恭喜你！你已经成功使用Spring开发了一项RESTful web service。
+
+## 其可能他有帮助的主题
+
+
+- [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/)
+- [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
+- [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
+- [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/)
+- [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/)
+- [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/)
+- [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/)
+- [Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/)
+- [Consuming a RESTful Web Service with rest.js](https://spring.io/guides/gs/consuming-rest-restjs/)
+- [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
+- [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+- [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/)
+- [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+- [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/)
+- [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/)
+- [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/)
+- [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/)
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
