@@ -5,7 +5,7 @@
 
 # 使用REST访问JPA数据
 
-本指南将引导您完成创建通过基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端访问关系型JPA数据的应用程序的过程。
+本指南将指导你创建一个基于[hypermedia](https://spring.io/guides/gs/rest-hateoas)的[RESTful](https://spring.io/understanding/REST)前端通过JPA访问关系型数据库的应用程序。
 
 ## 你会得到什么？
 
