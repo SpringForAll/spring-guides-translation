@@ -38,7 +38,9 @@ http://localhost:8080/greeting?name=User
 
 ## 如何完成此指南
 就像大部分的Spring Getting Started guides一样， 你可以从零开始，亲自完成每一个步骤。或者跳过你已经熟悉的基本步骤。无论如何，结束此指南的时候你都会实现可以正常工作的代码。
-要从零开始，请跳转到[Build with Gradle](#scratch)
+
+要从零开始，请跳转到[使用Gradle构建](#scratch)
+
 要跳过基本的步骤，这样做：
 - [下载](https://github.com/spring-guides/gs-rest-service/archive/master.zip)并解压缩此指南的代码，或者使用Git clone:`
   `git clone https://github.com/spring-guides/gs-rest-service.git`
