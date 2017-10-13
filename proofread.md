@@ -2,7 +2,7 @@
 #### 1.pull request目录（大家选择等待校对的pull request进行校对）
 | 编号   | pull request                                     | 状态   | 校对认领人                                       |
 | ---- | ---------------------------------------- | ---- |  ---------------------------------------- |
-| #128 | [Producing a SOAP web service](https://github.com/SpringForAll/spring-guides-translation/pull/128) |    正在校对  | [王嘉龙]([https://github.com/zaixiandemiao](https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?requrl=https%3A%2F%2Fgithub.com%2Fzaixiandemiao&skey=%40crypt_ea03e823_cae3c1c74c5cdc22c742f8fa4d05fd80&deviceid=e522466229722867&pass_ticket=OMvm%252FO%252BDBYsPT%252Fj76SlJEEEFQHRlNpbnr78c7tB59eQJOMVvKtCuMvWD%252BN2jeTVR&opcode=2&scene=1&username=@d892b00507cbd2d26126191417a2664c76f216a7ad0cfa12928ceb907003f8e8))   |
+| #128 | [Producing a SOAP web service](https://github.com/SpringForAll/spring-guides-translation/pull/128) |    正在校对  | [王嘉龙]([https://github.com/zaixiandemiao](https://github.com/zaixiandemiao)  |
 | #125| [accessing-jpa-data-with-rest ](https://github.com/SpringForAll/spring-guides-translation/pull/125) |    校对完成  | [maskwang](https://github.com/maskwang520)   |
 | #124 | [centralized-configuration](https://github.com/SpringForAll/spring-guides-translation/pull/124) |    正在校对  | [胡明昊](https://github.com/hh23485)   |
 | #123 | [consuming-rest-angularjs](https://github.com/SpringForAll/spring-guides-translation/pull/123) |    正在校对  | [rhwayfun](https://github.com/rhwayfun)   |
