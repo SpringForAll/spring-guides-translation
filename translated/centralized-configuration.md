@@ -2,7 +2,7 @@
 >
 > 译者：[zaixiandemiao](https://github.com/zaixiandemiao)
 >
-> 校对：
+> 校对：[hh23485](https://github.com/hh23485)
 
 # 配置中心
 
@@ -10,7 +10,7 @@
 
 ## 你将要构建什么
 
-你首先将构建一个配置服务，之后将创建一个客户端来在启动时从该服务中读取配置信息并在不重启客户端的情况下刷新配置信息。
+你首先将构建一个配置服务[Config Server](https://cloud.spring.io/spring-cloud-config/spring-cloud-config.html)，之后将创建一个客户端来在启动时从该服务中读取配置信息并在不重启客户端的情况下刷新配置信息。
 
 ## 你需要什么
 
@@ -26,11 +26,11 @@
 
 像大多数的Spring指南 [Getting Started guides](https://spring.io/guides),你可以从零开始，完成每一步，也可以跳过已经熟悉的基本设置。 无论哪种方式，你都会得到起作用的代码。
 
- **从零开始**, 继续阅读下一节 [Build with Gradle](https://spring.io/guides/gs/securing-web/#scratch).
+ **从零开始**, 移步到[Build with Gradle](#使用Gradle构建).
 
 **跳过基础部分**, 执行以下操作:
 
-- [下载](https://github.com/spring-guides/gs-securing-web/archive/master.zip) 并解压本仓库的源码, 或者使用 [Git](https://spring.io/understanding/Git): `git clone https://github.com/spring-guides/gs-centralized-configuration.git`
+- [下载](https://github.com/spring-guides/gs-securing-web/archive/master.zip) 并解压本仓库的源码, 或者使用 [Git](https://spring.io/understanding/Git): 克隆 `git clone https://github.com/spring-guides/gs-centralized-configuration.git`
 - `cd`进入 `gs-centralized-configuration/initial`  
 - 跳到 [Set up Spring Security](https://spring.io/guides/gs/securing-web/#initial)这一节.
 
@@ -38,7 +38,7 @@
 
 ## 使用Gradle构建
 
-首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 但你使用 [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/)构建需要的代码在本文提供. 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 但你使用 [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/)构建需要的代码在本文提供. 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven)。
 
 ### 创建目录结构
 
@@ -331,7 +331,7 @@ eclipse {
 
 ## 创建一个配置服务
 
-你首先需要一个配置服务来充当你的Spring应用和一个存放配置文件的典型的版本控制仓库之间的中间人。你可以使用Spring Cloud的`@EnableConfigServer`注解来创建一个配置服务器以供其他应用访问。这是一个普通的Spring boot应用，你需要做的仅仅是添加一个注解来使得配置服务可用。
+你首先需要一个配置服务来充当你的Spring应用和一个存放配置文件的典型的版本控制仓库之间的媒介。你可以使用Spring Cloud的`@EnableConfigServer`注解来创建一个配置服务器以供其他应用访问。这是一个普通的Spring boot应用，你需要做的仅仅是添加一个注解来使得配置服务可用。
 
 `configuration-service/src/main/java/hello/ConfigServiceApplication.java`  
 
@@ -352,12 +352,21 @@ public class ConfigServiceApplication {
 }
 ```
 
-这个配置服务需要知道要管理的仓库的位置。这里有几种可选项，但我们将使用一个基于Git的文件系统来作为仓库。你也可以简单地把配置服务指向Github或者Gitlab上的一个repository。在这个文件系统上，创建一个新目录并`git init`该目录。之后添加一个名为`a-bootiful-client.properties`的文件到该Git repository中。确保正确的执行了`git commit`步骤。之后，你将通过一个Spring Boot应用来连接该配置服务器。这个Spring Boot应用的`spring.application.name`属性被设置为`a-bootiful-client`,这也是配置服务器中对于该Spring Boot应用的唯一标识。这就是配置服务器如何知道发送哪些配置信息到特定客户端的方式。配置服务器也会发送Git repository中名为`application.properties`或`application.yml`的文件中的全部配置信息。更加具体命名的文件（如`a-bootiful-client.properties`）中的配置信息会覆盖掉
+这个配置服务需要知道要管理的仓库的位置。这里有几种可选项，但我们将使用一个基于Git的文件系统来作为仓库。你也可以简单地把配置服务指向Github或者Gitlab上的一个repository。在这个文件系统上，创建一个新目录并`git init`该目录。之后添加一个名为`a-bootiful-client.properties`的文件到该Git repository中。确保正确的执行了`git commit`步骤之后，你将通过一个Spring Boot应用来连接该配置服务器。这个Spring Boot应用的`spring.application.name`属性被设置为`a-bootiful-client`,这也是配置服务器中对于该Spring Boot应用的唯一标识。这就是配置服务器如何知道发送哪些配置信息到特定客户端的方式。配置服务器也会发送Git repository中名为`application.properties`或`application.yml`的文件中的全部配置信息。更加具体命名的文件（如`a-bootiful-client.properties`）中的配置信息会覆盖掉
 `application.properties`或`application.yml`文件中重复的属性值。
 
 添加一个简单的属性和值`message = Hello world`,将它加入`a-bootiful-client.properties`文件中并`git commit`该修改后的文件。
 
 配置服务器中`configuration-service/src/main/resources/application.properties`文件内的`spring.cloud.config.server.git.uri`属性指定了配置文件所在的Git repository。在同一台电脑上运行config server和client的时候，确保`server.port`属性被指定为不同的值来防止端口冲突。
+
+`configuration-service/src/main/resources/application.properties`
+
+```
+server.port=8888
+
+spring.cloud.config.server.git.uri=${HOME}/Desktop/config
+```
+
 
 ## 使用client读取配置服务器中的配置信息
 
