@@ -1,7 +1,6 @@
 【chenzhijun 正在翻译.......】
 
-## Messaging with RabbitMQ
-============================================================
+# Messaging with RabbitMQ
 
 > 原文：[Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
 >

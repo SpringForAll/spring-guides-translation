@@ -1,6 +1,6 @@
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Building Java Projects with Maven](https://spring.io/guides/gs/maven/)
 >
 > 译者：  liqiang githubID:  ongoingdotme 翻译中     
 >

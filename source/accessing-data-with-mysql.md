@@ -1,9 +1,8 @@
-【pzzls正在翻译中】
 # 中文标题
 
-> 原文：
+> 原文：[Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
 >
-> 译者：
+> 译者：pzzls
 >
 > 校对：
 
