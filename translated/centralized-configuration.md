@@ -26,7 +26,7 @@
 
 像大多数的Spring指南 [Getting Started guides](https://spring.io/guides),你可以从零开始，完成每一步，也可以跳过已经熟悉的基本设置。 无论哪种方式，你都会得到起作用的代码。
 
- **从零开始**, 移步到[Build with Gradle](#使用Gradle构建).
+ **从零开始**, 移步到[Build with Gradle](#gradle).
 
 **跳过基础部分**, 执行以下操作:
 
@@ -36,7 +36,7 @@
 
 **当你完成后**, 你可以和此处的代码进行对比 `gs-centralized-configuration/complete`.
 
-## 使用Gradle构建
+<h2 id="gradle"> 使用Gradle构建</h2>
 
 首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 但你使用 [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/)构建需要的代码在本文提供. 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven)。
 
