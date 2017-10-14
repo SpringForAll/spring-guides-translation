@@ -456,17 +456,17 @@ java -jar target/gs-securing-web-0.1.0.jar
 
 应用启动后, 在浏览器中访问 [http://localhost:8080](http://localhost:8080/). 你可以访问到首页:
 
-![The application's home page](images/home.png)
+![The application's home page](static/1019/images/home.png)
 
 当你点击链接,他将会让你试图去访问 `/hello`. 但因为该页面是受保护的，所以你需要登录, 于是来到了登录页面。
 
-![The login page](images/login.png)
+![The login page](static/1019/images/login.png)
 
 > 如果您使用未收保护的代码版本访问此处，那么你将看不到此登录页面。 随时备份和编写其余的受安全保护的代码。
 
 在登录页面，分别输入用户名和密码字段的"user"和"password"作为测试用户登录。 提交登录表单后，你将进行身份认证，然后转到问候页面：
 
-![The secured greeting page](images/greeting.png)
+![The secured greeting page](static/1019/images/greeting.png)
 
 如果点击“退出”按钮，您的身份认证将被注销，并返回到登录页面，并显示一条消息，提示你已注销。
 
