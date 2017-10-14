@@ -1,20 +1,18 @@
-# Spring 定时任务
-====================================
-
 > 原文：[Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/)
-
+> 
 > 译者：[rhwayfun][1]
-
+>
 > 校对：[carlzhangweiwen][2]
 
-## 开始使用定时任务
+# Spring 定时任务
 
-本指南将一步步引导您在Spring中使用定时任务。
+本指南将一步步引导您在Spring中使用定时任务
 
-### 完成什么
+## 你将要构建什么
+
 构建一个应用，实现的功能为，每隔5秒打印出当前时间。这点可以通过Spring注解`@Scheduled`完成。
 
-### 准备什么
+## 你需要什么
 
  - 大约需要15分钟
  - 一个您喜爱的文本编辑器或者IDE（集成开发工具）
@@ -24,7 +22,7 @@
     - [Spring Tool Suite (STS)][3]
     - [IntelliJ IDEA][4]
 
-### 如何完成这份指南
+## 如何完成这份指南
 和其他[Spring使用指南][5]一样，你可以从零开始一步步完成，或者略过那些你已經熟悉的項目創建步骤(setup steps)。不管哪种方式你最终都会得到一份工作代码(working code)。
 
 如果从零开始，请移步[Build with Gradle][https://spring.io/guides/gs/scheduling-tasks/#scratch]。。
@@ -38,11 +36,11 @@
 
 当你完成以上操作，你可以在 `gs-scheduling-tasks/complete` 根据代码检查结果。
 
-### 使用 Gradle 构建项目
+## 使用 Gradle 构建项目
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle][8] 或者 [Maven][9] 构建的代码。如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目][10]或者[如何使用 Maven 构建 Java 项目][11]。
 
-#### 创建 Gradle 目录结构
+### 创建 Gradle 目录结构
 
 在你的项目根目录，创建如下的子目录结构；例如，如果你使用的是`*nix`系统，你可以使用`mkdir -p src/main/java/hello` 
 
@@ -53,7 +51,7 @@
             └── hello
 ```
 
-#### 创建 Gradle 构建文件
+### 创建 Gradle 构建文件
 
 下面是一份[初始化Gradle构建文件][12]
 
@@ -108,11 +106,11 @@ dependencies {
 
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][14].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-### 使用 Maven 构建项目
+## 使用 Maven 构建项目
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven][15] 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目][16].
 
-#### 创建 Maven 目录结构
+### 创建 Maven 目录结构
 
 在你的项目根目录，创建如下的子目录结构；例如，如果你使用的是`*nix`系统，你可以使用`mkdir -p src/main/java/hello` 
 
@@ -172,13 +170,13 @@ pom.xml
 
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][18].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-### 使用你的 IDE 进行构建
+## 使用你的 IDE 进行构建
 
 *   [如何在Spring Tool Suite中构建][19].
 
 *   [如何在IntelliJ IDEA中构建][20].
 
-### 创建定时任务
+## 创建定时任务
 既然已经搭建好了项目，下面就可以开始创建定时任务了。
 
 `src/main/java/hello/ScheduledTasks.java`
@@ -211,7 +209,7 @@ public class ScheduledTasks {
 `@Scheduled`注解定义一个方法的执行周期。**注意**：这个例子使用了`fixedRate`，
 它指定了每次方法调用开始执行的间隔。有[其他的选项][21]，比如`fixedDelay`，它指定了从每次方法调用结束开始计算时间的调用间隔。你也可以[使用`@Scheduled(cron=". . .")`表达式实现更复杂的定时任务][22]
 
-### 开启定时功能
+## 开启定时功能
 虽然计划任务可以嵌入在Web应用程序和WAR包中，通过创建一个独立的应用程序，下面演示了一种更简单的方法。 您将所有内容都打包在一个可执行的JAR中，通过Java的`main()`方法就可以执行。
 
 `src/main/java/hello/Application.java`
@@ -263,10 +261,10 @@ public class Application {
 2016-08-25 13:10:15.143  INFO 31565 --- [pool-1-thread-1] hello.ScheduledTasks : The time is now 13:10:15
 ```
 
-### 总结
+## 总结
 恭喜！ 您创建了一个有定时任务功能的应用程序。可以发现，实际代码比构建文件更少！ 这份代码适用于任何类型的应用。
 
-### 了解更多
+## 了解更多
 
 下面的指南可能对你也有帮助：
 
