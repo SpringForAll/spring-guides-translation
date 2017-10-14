@@ -7,7 +7,7 @@
 > 校对：
 
 
-本指南主要是用Gradle构建一个简单的Spring YARN 工程
+本指南主要探讨Gradle构建一个简单的Spring YARN 工程
 
 >
 > 本指南集中在构建项目和模型上，不需要一个完全可用的YARN程序
