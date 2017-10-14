@@ -2,7 +2,13 @@
 		
 # 中文标题		
 
+<<<<<<< master
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）		
+=======
+# 中文标题
+
+> 原文：[Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
+>>>>>>> master
 >
 > 译者：		
 >
