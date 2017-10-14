@@ -2,9 +2,9 @@
 
 > 原文：[Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/) 
 >
-> 译者：feilangrenM
+> 译者：[feilangrenM](https://github.com/feilangrenM)
 >
-> 校对：
+> 校对：[zaixiandemiao](https://github.com/zaixiandemiao)
 
 本指南将帮助你了解使用Spring构建SOAP Web Service 服务端程序的基本流程。
 
@@ -34,11 +34,11 @@
 
 与大多数[Spring入门指南](https://spring.io/guides)一样，你可以从头开始，完成每一步，也可以绕过已经熟悉的基本设置步骤。不管采用哪种方式，最终都可以写出能够运行的代码。
 
-如果是**从零开始**，则可以从[使用Gradle构建项目](#使用gradle构建项目)**小节开始。
+如果是**从零开始**，则可以从[使用Gradle构建项目](#使用gradle构建项目)小节开始。
 
 如果想**跳过基本的设置步骤**，可以按照以下步骤执行：
 
-- [下载](https://github.com/spring-guides/gs-soap-service/archive/master.zip) 并解压本指南相关的源文件，或者直接通过git命令克隆到本地：
+- [下载](https://github.com/spring-guides/gs-soap-service/archive/master.zip) 并解压本指南相关的源文件，或者直接通过[Git](https://spring.io/understanding/Git)命令克隆到本地：
 
   ```
   git clone https://github.com/spring-guides/gs-soap-service.git
@@ -56,7 +56,7 @@
 
 ### 创建目录结构
 
-选择需要创建项目的目录，参照照以下目录结构创建子目录；如果使用的是UNIX系统，可以使用`mkdir -psrc/main/java/hello`命令创建：
+选择需要创建项目的目录，参照照以下目录结构创建子目录；如果使用的是UNIX系统，可以使用`mkdir -p src/main/java/hello`命令创建：
 
 ```
 └── src
@@ -115,9 +115,7 @@ dependencies {
 
 ### 创建目录结构
 
-选择需要创建项目的目录，参照以下目录结构创建子目录；如果使用的是UNIX系统，可以使用`mkdir -psrc/main/java/hello` 命令创建：
-
-`mkdir -psrc/main/java/hello`
+选择需要创建项目的目录，参照以下目录结构创建子目录；如果使用的是UNIX系统，可以使用`mkdir -p src/main/java/hello` 命令创建：
 
 ```
 └── src
@@ -514,18 +512,18 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 - 将bean命名为 `messageDispatcherServlet`，这样可以与[Spring Boot的默认DispatcherServlet bean](https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/htmlsingle/#howto-switch-off-the-spring-mvc-dispatcherservlet)相区分。
 
 
-- [DefaultMethodEndpointAdapter](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.html)配置注释驱动的SpringWS编程模型。 这使得前面提到的各种注解都可以使用，如[`@Endpoint`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/server/endpoint/annotation/Endpoint.html)。
+- [DefaultMethodEndpointAdapter](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.html)配置注解驱动的SpringWS编程模型。 这使得前面提到的各种注解都可以使用，如[`@Endpoint`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/server/endpoint/annotation/Endpoint.html)。
 
 
-- [`DefaultWsdl11Definition`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/wsdl/wsdl11/DefaultWsdl11Definition.html)使[`XsdSchema`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/xml/xsd/XsdSchema.html)发布了一个标准的 WSDL1.1
+- [`DefaultWsdl11Definition`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/wsdl/wsdl11/DefaultWsdl11Definition.html)使用[`XsdSchema`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/xml/xsd/XsdSchema.html)发布了一个标准的 WSDL1.1
 
 需要强调的是，[`MessageDispatcherServlet`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/transport/http/MessageDispatcherServlet.html)和[`DefaultWsdl11Definition`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/wsdl/wsdl11/DefaultWsdl11Definition.html)必须指定bean名称。 这两个bean的名称决定了访问WSDL文件的URL。比如，上述代码生成的WSDL文件位于
 
-`http：//<host>：<port> /ws/countries.wsdl`
+`http：//<host>:<port> /ws/countries.wsdl`
 
-此外，上述配置中还开启了WSDL地址转换：`servlet.setTransformWsdlLocations(true)`。 如果访问
+此外，上述配置中还开启了WSDL地址转换：`servlet.setTransformWsdlLocations(true)`。 如果通过
 
-`http：// localhost：8080 / ws /countries.wsdl`，`则WSDL文件中的soap:address标签显示的是正确的地址：<soap:address location="http://localhost:8080/ws"/>`。 如果你的计算机IP地址是面向公共的IP地址，则访问WSDL文件时，`soap:address` 显示的是你计算机的地址。
+`http：// localhost:8080 / ws /countries.wsdl`访问WSDL文件，则WSDL文件中的`soap:address`标签显示的是正确的地址。 如果你的计算机IP地址是面向公共的IP地址，则访问WSDL文件时，`soap:address` 标签显示的是你计算机的地址，并不是WSDL文件的真实地址。
 
 ## 使应用程序可执行
 
@@ -548,18 +546,18 @@ public class Application {
 }
 ```
 
-`@SpringBootApplication` 是一个方便的注释，它添加以下所有内容：
+`@SpringBootApplication` 是一个方便的注解，它会自动添加以下所有内容：
 
-- @Configuration将该类标记为应用程序上下文的bean定义的源。
-
-
-- @EnableAutoConfiguration指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
+- `@Configuration`将该类标记为应用程序上下文中bean定义的源。
 
 
--   通常，您将为Spring MVC应用程序添加@EnableWebMvc，但是当SpringBoot在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
-- @ComponentScan告诉Spring在hello包中查找其他组件，配置和服务，允许它找到控制器。
+- `@EnableAutoConfiguration`指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
 
-`main()`方法使用Spring Boot的SpringApplication.run（）方法启动应用程序。 你注意到没有一行XML吗？ 没有**web.xml**文件。 此Web应用程序是100%纯Java，您无需处理配置任何管道或基础设施。
+
+-   通常，Spring MVC 应用程序会添加`@EnableWebMvc`注解，但是当Spring Boot在类路径中发现**spring-webmvc**时会自动添加该注解。通过添加该注解将应用程序标记为Web应用程序，并进行一些关键操作，比如设置`DispatcherServlet`。
+-   `@ComponentScan`通知Spring在hello包中查找其他组件，配置和服务，允许Spring扫描到控制器。
+
+`main()`方法使用Spring Boot的`SpringApplication.run()`方法启动应用程序。 你注意到我们没有写过一行XML代码吗？ 而且也没有**web.xml**配置文件。 此Web应用程序是100%纯Java编写的，无需再配置其他基础设施。
 
 ## 构建可执行的JAR
 
@@ -633,7 +631,5 @@ $ curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/w
 
 > 所有指南中的代码都将遵照ASLv2许可，指南的编写遵照 [Attribution, NoDerivatives creative commons license](https://creativecommons.org/licenses/by-nd/3.0/) 。
 >
-> 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
-
