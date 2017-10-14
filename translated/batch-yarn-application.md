@@ -2,7 +2,7 @@
 
 > 原文：[Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/) 
 >
-> 译者：[ucool2007](https://github.com/ucool2007)
+> 译者：[ucool2007][author]
 >
 > 校对：
 
@@ -28,7 +28,7 @@
 
 像大多数[Spring 入门文章]一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
-**如果从基础开始**，参考[配置工程](set_up)
+**如果从基础开始**，参考[配置工程](#set_up)
 
 **如果已经熟悉跳过一些基本步骤**你可以这样
 
@@ -36,11 +36,11 @@
 
 * 使用`cd` 命令跳转到 `gs-yarn-batch-processing/initial` 目录
 
-* 跳转到创建[远程批处理步骤](remote_batch)
+* 跳转到创建[远程批处理步骤](#remote_batch)
 
 **以上步骤结束之后**， 可以在 `gs-yarn-batch-processing/complete` 目录下检查代码.
 
-<h2 id="set_up"> 配置工程 </h2>
+<h2 id="set_up"> 配置工程</h2>
 
 首先要配置编译脚本。Spring构建apps的时候可以使用的编译工具有很多，但是在这里需要用[Gradle][9]编译代码。如果不熟悉，请参考[Gradle编译java工程][10].
 
@@ -608,6 +608,8 @@ public class AppIT extends AbstractBootYarnClusterTests {
 [12]:https://spring.io/guides/gs/sts
 [13]:https://github.com/spring-guides/gs-yarn-batch-processing/archive/master.zip
 [14]:http://creativecommons.org/licenses/by-nc-sa/4.0/
+[author]:https://github.com/ucool2007
+
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][13] 协议进行许可。
 
