@@ -2,7 +2,7 @@
 
 > 原文：[Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/)
 >
-> 译者：
+> 译者：william-hyx
 >
 > 校对：
 
