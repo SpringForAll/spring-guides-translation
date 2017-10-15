@@ -1,4 +1,4 @@
-# 中文标题
+# 使用MongoDB访问数据
 
 > 原文：[Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
 >
@@ -6,13 +6,435 @@
 >
 > 校对：
 
-在此处编写正文，基本翻译规范：
+# 使用MongoDB访问数据
+本指南将引导你使用[ Spring MongoDB ](https://projects.spring.io/spring-data-mongodb/)来构建一个应用程序,这个应用程序将数据存储到[ MongoDB ](https://www.mongodb.com/)并从中获取,MongoDB是一个基于文档的数据库。
 
-* 正文标题按层次结构 从 \#\# 开始
-* 代码片段\`\`\`之后需要写明语言类型
-* 如有图片更静态资源保存在static目录下，每篇文章建立自己的目录存储
-* 尊重原作、不修改、不删减内容
-* 每篇文章翻译完成之后提交PR，并在翻译交流群中找校对人员完成review，最后由管理员完成Merge
-* 若译者与校对有不同建议，可以将争议部分发到交流群中一起讨论确定结果
+
+## 你将创建什么
+您将使用Spring Data MongoDB存储  Customer [ POJOS ](https://spring.io/understanding/POJO)到MongoDB数据库中。
+
+## 开始之前你需要准备
+
+大约15分钟时间
+
+一个喜欢的文本编辑器或者IDE
+
+[JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或 更高版本
+
+[Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
+
+你也可以直接导入代码到IDE:
+
+[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+
+[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+
+
+## 如何完成指南？
+像大多数 Spring [入门指南](https://spring.io/guides)一样, 你可以从头开始，完成每一步, 或者你也可以绕过你熟悉的基本步骤再开始。 不管通过哪种方式，你最后都会得到一份可执行的代码。
+
+**如果从基础开始**，你可以往下查看[怎样使用 Gradle 构建项目](#scratch)。
+
+**如果已经熟悉跳过一些基本步骤**，你可以：
+
+* [下载](https://github.com/spring-guides/gs-accessing-data-mongodb/archive/master.zip)并解压源码库，或者通过 [Git](https://spring.io/understanding/Git)克隆：
+
+ `git clone https://github.com/spring-guides/gs-accessing-data-mongodb.git`
+* 进入 `gs-accessing-data-mongodb/initial`目录
+* 跳过前面的部分[安装并启动MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/#initial)
+
+**当你完成之后**，你可以在`gs-accessing-data-mongodb/complete`根据代码检查下结果。
+
+<h2 id="scratch"> 使用Gradle构建 </h2>
+
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
+
+创建以下目录结构
+
+在你的项目根目录，创建如下的子目录结构; 例如，如果你使用的是*nix系统，你可以使用`mkdir -p src/main/java/hello`:
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+创建Gradle构建文件
+
+下面是一份[初始化Gradle构建文件](https://github.com/spring-guides/gs-accessing-data-rest/blob/master/initial/build.gradle)
+
+`build.gradle`
+
+```
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-accessing-data-rest'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+```
+
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多非常方便的功能：
+
+* 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷。
+* 搜索public static void main()方法并且将它标记为可执行类。
+* 提供了将内部依赖的版本都去匹配 Spring Boot 依赖的版本.你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+
+## 使用Maven构建
+
+首先，你需要设置一个基本的构建脚本。当使用Spring构建应用程序时，你可以使用任何你喜欢的构建系统，但是使用 [Maven](https://maven.apache.org/) 构建的代码如下所示。如果您不熟悉Maven，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
+
+### 创建目录结构
+
+在你选择的项目目录中，创建以下子目录结构;例如, 在Linux/Unix系统中使用如下命令: `mkdir -p src/main/java/hello`
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+`pom.xml`
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-accessing-data-rest</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
+```
+
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
+
+- 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布你的服务。
+- 它寻找`public static void main()` 方法来将其标记为一个可执行的类。
+- 它提供了一个内置的依赖解析器将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为Boot所选择了一组版本。
+
+
+
+## 使用你的IDE构建
+
+- 阅读如何将本指南直接导入 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。
+- 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建。
+
+<h2 id="initial">安装并启动MongoDB</h2>
+
+与您的项目设置,您可以安装并启动MongoDB数据库。
+
+如果你使用的是Mac，你可以使用homebrew来安装,命令如下：
+
+```
+$ brew install mongodb
+```
+
+如果你使用MacPorts,可以这样:
+```
+$ port install mongodb
+```
+对于其它包管理系统,比如,Redhat, Ubuntu, Debian, CentOS, Windows系统,这里[ 介绍 ](http://docs.mongodb.org/manual/installation/)
+
+
+在你安装MongoDB后,在控制台启动它.这么命令还启动了一个服务器进程.
+```
+$ mongod
+```
+这里有更详细的启动信息:
+```
+所有信息都输出到这个文件: /usr/local/var/log/mongodb/mongo.log
+
+```
+
+## 定义一个简单的实体
+MongoDB是一个NoSQL文档存储.这个例子,你可以存储 Customer 对象.
+```
+src/main/java/hello/Customer.java
+```
+
+```
+package hello;
+
+import org.springframework.data.annotation.Id;
+
+
+public class Customer {
+
+    @Id
+    public String id;
+
+    public String firstName;
+    public String lastName;
+
+    public Customer() {}
+
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id=%s, firstName='%s', lastName='%s']",
+                id, firstName, lastName);
+    }
+
+}
+```
+
+现在你已经有了Customer类,三个属性, id, firstName, 和 lastName.
+
+
+id主要是MongoDB内部使用,创建一个新的实例,你还需要有一个构造函数。
+
+> 为了简洁,在指南里,setter和getter省略了
+
+id符合标准的MongoDB id名称,它不需要任何特殊的注释标记它为Spring Data MongoDB。
+
+例外的两个属性,irstName, 和 lastName没有注解,假定他们使用自己的名字映射到数据库.
+
+方便的toString()将会打印 customer 的详细信息.
+
+> MongoDB存储数据集合, Spring Data MongoDB 将映射Customer到一个叫customer的集合.如果你要改变集合的名字,你可以使用Spring Data MongoDB’s [ @Document ](https://docs.spring.io/spring-data/data-mongodb/docs/current/api/org/springframework/data/mongodb/core/mapping/Document.html) 注解到类上.
+
+## 创建基本查询
+Spring Data MongoDB主要存储数据到MongoDB,当然,它也继承了 Spring Data Commons 项目,比如查询能力.本质上,你不用专门学习MongoDB查询语言,你可以简单写一些方法,这些查询都是为你写的.
+
+看这是如何工作的,先创建一个存储接口来查询Customer文档.
+
+```
+src/main/java/hello/CustomerRepository.java
+```
+
+```
+package hello;
+
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface CustomerRepository extends MongoRepository<Customer, String> {
+
+    public Customer findByFirstName(String firstName);
+    public List<Customer> findByLastName(String lastName);
+
+}
+```
+CustomerRepository 继承 MongoRepository接口,开箱即用的,这个接口有许多操作,包括标准的CRUD操作(创建-读-更新-删除)。
+通过简单定义方法签名,你可以定义你需要的查询方法,这里添加了 findByFirstName ,通过firstName搜索Customer文档,找到匹配一个.
+
+你也可以通过findByLastName找到匹配lastNme的列表.
+
+在一个典型的Java应用程序中,你写一个类实现CustomerRepository和查询自己。Spring Data MongoDB如此有用的是,您不需要创建实现.MongoDB动态创建它当您运行应用程序。
+
+
+我们连接起来,看看怎么样.
+
+## 创建一个应用程序类
+这里,使用所有的组件创建一个应用程序类。
+```
+src/main/java/hello/Application.java
+```
+```
+package hello;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application implements CommandLineRunner {
+
+	@Autowired
+	private CustomerRepository repository;
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+
+		repository.deleteAll();
+
+		// save a couple of customers
+		repository.save(new Customer("Alice", "Smith"));
+		repository.save(new Customer("Bob", "Smith"));
+
+		// fetch all customers
+		System.out.println("Customers found with findAll():");
+		System.out.println("-------------------------------");
+		for (Customer customer : repository.findAll()) {
+			System.out.println(customer);
+		}
+		System.out.println();
+
+		// fetch an individual customer
+		System.out.println("Customer found with findByFirstName('Alice'):");
+		System.out.println("--------------------------------");
+		System.out.println(repository.findByFirstName("Alice"));
+
+		System.out.println("Customers found with findByLastName('Smith'):");
+		System.out.println("--------------------------------");
+		for (Customer customer : repository.findByLastName("Smith")) {
+			System.out.println(customer);
+		}
+
+	}
+
+}
+```
+
+
+`@SpringBootApplication`作为一个方便使用的注解，提供了如下的功能：
+
+- `@Configuration`表明使用该注解的类是应用程序上下文(Applicaiton Context)中Bean定义的来源。
+- `@EnableAutoConfiguration`注解根据classpath的配置、其他bean的定义或者不同的属性设置(property settings)等条件，使Spring Boot自动加入所需的bean。
+- 对于Spring MVC应用，通常需要加入`@EnableWebMvc`注解，但是当**spring-webmvc** 存在于classpath中时，Spring Boot自动加入该注解。该注解将当前应用标记为web应用，并激活web应用的关键行为，例如开启`DispatcherServlet`。
+- `@ComponentScan`注解使Spring在`hello`包(package)中搜索其他的组件、配置(configurations)和服务(service),在本例中，spring会搜索到控制器(controllers)。
+
+`main()`方法使用Spring Boot的`SpringApplication.run()`方法来加载应用。你有没有注意到本例子中一行XML代码都没有吗？也没有web.xml文件。此web应用100%使纯java代码，因此不需花精力处理任何像基础设施或者下水管道一般的配置工作。
+
+Spring Boot自动加上加载,只要他们都包含在@SpringBootApplication注解类的同一个包(或子包),注册过程更多的控制,使用@EnableMongoRepositories注解.
+> 默认情况,@EnableMongoRepositories注解会扫描当前包的任何实现了Spring Data的存储库接口的接口。你的项目布局多个项目,需要找到存储库,使用basePackageClasses=MyRepository.class,它会根据不同类型安全告诉Spring Data MongoDB 扫描不同的包.
+
+
+Spring Data MongoDB使用MongoTemplate来执行你find*相关的方法.
+
+Application:包括一个main()方法自动装配的一个实例.
+
+CustomerRepository:Spring Data MongoDB 动态创建一个代理注入.
+我们使用CustomerRepository做一些测试,首先保存一个Customer对象,save()方法设置保存一些数据,下一步,findAll()方法取出库中所有数据,然后findByFirstName()方法,根据firstName找到一个 Customer.最后,调用findByLastName(), 找出所有lashtName 是"Smith"的customers.
+
+> Spring Boot 默认启动尝试连接到一个本地托管MongoDB的实例。阅读的[ 参考文档  ](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-mongodb),详细知道应用程序如何关联MongoDB托管在别处的实例。
+
+## 构建可执行的JAR
+
+您可以在命令行使用Gradle或Maven运行应用程序。或者您可以构建一个可执行的JAR文件,其中包含所有必需的依赖关系,类,和资源,并运行。这使得在整个开发生命周期中非常容易，跨不同的环境，版本等传输和部署服务成为一个应用程序。等等。
+
+如果您使用的是 Gradle，则可以使用该应用程序 `./gradlew bootRun`。或者您可以使用JAR文件构建 `./gradlew build`。然后可以运行 JAR 文件：
+
+```
+java -jar build/libs/gs-accessing-data-mongodb-0.1.0.jar
+```
+如果您使用 Maven，则可以使用该命令 `./mvnw spring-boot:run`。或者您可以使用 JAR 文件来构建 `./mvnw clean package`。然后可以运行 JAR 文件：:
+
+```
+java -jar target/gs-accessing-data-mongodb-0.1.0.jar
+```
+
+
+> 上面的过程将创建一个可运行的JAR。您也可以选择 [构建一个WAR文件](https://spring.io/guides/gs/convert-jar-to-war/)。
+
+在我们的应用程序实现了CommandLineRunner,调用run方法引导时自动启动。你应该看到这样的东西(与其他类似查询):
+
+```
+== Customers found with findAll():
+Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
+Customer[id=51df1b0a3004cb49c50210f9, firstName='Bob', lastName='Smith']
+
+== Customer found with findByFirstName('Alice'):
+Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
+== Customers found with findByLastName('Smith'):
+Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
+Customer[id=51df1b0a3004cb49c50210f9, firstName='Bob', lastName='Smith']
+```
+
+## 总结
+
+恭喜你!你设置MongoDB服务器,编写了一个简单的应用程序,使用Spring Data MongoDB保存数据对象并从数据库中获取他们——都没有写具体的存储库实现。
+
+> 如果你很感兴趣不费力气的使用RESTful关联MongoDB, 你可能会想读[使用REST访问JPA数据](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
+
+## 了解更多
+下面的指南也非常有帮助：
+*   [使用JPA访问数据](https://spring.io/guides/gs/accessing-data-jpa/)
+*   [使用Gemfire访问数据](https://spring.io/guides/gs/accessing-data-gemfire/)
+*   [使用MySQL访问数据](https://spring.io/guides/gs/accessing-data-mysql/)
+*   [使用Neo4j访问数据](https://spring.io/guides/gs/accessing-data-neo4j/)
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
