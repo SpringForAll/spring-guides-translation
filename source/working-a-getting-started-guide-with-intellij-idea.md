@@ -32,11 +32,11 @@
 ./gradlew build && java -jar build/libs/gs-spring-boot-0.1.0.jar
 ```
 
-当IntelliJ IDEA启动和运行后，在*欢迎界面*点击*Import Project*，或者*File Open*在主菜单中：
+当IntelliJ IDEA启动和运行后，在**欢迎界面**点击**Import Project**，或者**File Open**在主菜单中：
 
 ![Import Project](https://spring.io/guides/gs/intellij-idea/images/spring_guide_welcome_import.png)
 
-请确保在弹出的对话框中选择[Maven](https://spring.io/guides/gs/maven)的*pom.xml*或[Gradle](https://spring.io/guides/gs/gradle)的*build.gradle*文件在完整的文件夹路径下。
+请确保在弹出的对话框中选择[Maven](https://spring.io/guides/gs/maven)的**pom.xml**或[Gradle](https://spring.io/guides/gs/gradle)的**build.gradle**文件在**完整**的文件夹路径下。
 
 ![Select File or Directory to Import](https://spring.io/guides/gs/intellij-idea/images/spring_guide_select_gradle_file.png)
 
@@ -44,7 +44,7 @@ IntelliJ IDEA将使用指南中的所有代码创建一个准备运行的项目�
 
 ## 从零开始创建一个项目
 
-假如你喜欢通过一个空的工程或者粘贴复制的方式来开始的话，那么在*项目向导*界面创建一个*Maven*或者*Gradle*工程。
+假如你喜欢通过一个空的工程或者粘贴复制的方式来开始的话，那么在**项目向导**界面创建一个**Maven**或者**Gradle**工程。
 
 ![Project Wizard](https://spring.io/guides/gs/intellij-idea/images/spring_guide_new_project.png)
 
