@@ -218,7 +218,7 @@ $ port install mongodb
 对于其它包管理系统,比如,Redhat, Ubuntu, Debian, CentOS, Windows系统,请参阅[ 说明 ](http://docs.mongodb.org/manual/installation/)
 
 
-在你安装MongoDB后,在控制台窗口启动它。这么命令还启动了一个服务器进程。
+在你安装MongoDB后,在控制台窗口启动它,命令还启动了一个服务器进程。
 ```
 $ mongod
 ```
@@ -265,7 +265,7 @@ public class Customer {
 }
 ```
 
-在这里，您有一个具有三个属性id，firstName 和 lastName 的 Customer 类。该 ID 主要用于 MongoDB 内部使用。创建新实例时，您还可以使用单个构造函数来填充实体。
+这里，您有一个具有三个属性id，firstName 和 lastName 的 Customer 类。该 ID 主要用于 MongoDB 内部使用。创建新实例时，您还可以使用单个构造函数来填充实体。
 
 
 
@@ -311,7 +311,7 @@ CustomerRepository 继承 MongoRepository接口,开箱即用,接口有许多可�
 
 你也可以通过 findByLastName 方法找到匹配姓氏的人员列表。
 
-在典型的Java应用程序中，您编写一个实现CustomerRepository并自行编写查询的类。 Spring Data MongoDB如此有用的是,您不需要自己创建实现,当您运行应用程序的时候MongoDB动态创建它。
+在典型的Java应用程序中，您编写一个实现CustomerRepository并自行编写查询的类。 Spring Data MongoDB如此有用的是,您不需要自己创建实现,当您运行应用程序的时候MongoDB会动态创建它。
 
 让我们来看看它的样子吧！
 
