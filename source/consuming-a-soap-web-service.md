@@ -1,4 +1,4 @@
-# 中文标题[dongyang1993]
+# 消费SOAP web服务[dongyang1993]
 
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 >
