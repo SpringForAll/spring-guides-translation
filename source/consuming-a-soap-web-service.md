@@ -52,7 +52,7 @@
 
 ### 基于WSDL生成领域对象
 
-SOAP Web服务的接口在[WSDL](https://en.wikipedia.org/wiki/Web_Services_Description_Language)中被捕获。 JAXB提供了一种从WSDL生成Java类的简单方法（或者是：WSDL中`<Types />`部分中包含的XSD）。 WSDL中的报价服务可以在http://www.webservicex.com/stockquote.asmx?WSDL找到。
+SOAP Web服务的接口在[WSDL](https://en.wikipedia.org/wiki/Web_Services_Description_Language)中被捕获。 JAXB提供了一种从WSDL生成Java类的简单方法（或者是：WSDL中`<Types />`部分中包含的XSD）。 WSDL引用的服务可以在http://www.webservicex.com/stockquote.asmx?WSDL找到。
 
 用maven通过WSDL生成Java类，需要安装以下插件：
 
