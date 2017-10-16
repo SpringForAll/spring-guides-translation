@@ -7,7 +7,7 @@
 > 校对：
 
 # 使用MongoDB访问数据
-本指南将引导你使用[ Spring MongoDB ](https://projects.spring.io/spring-data-mongodb/)来构建一个应用程序,该应用程序将数据存储到[ MongoDB ](https://www.mongodb.com/)(一个基于文档的数据库)并从中获取数据。
+本指南将引导你使用[ Spring Data MongoDB ](https://projects.spring.io/spring-data-mongodb/)来构建一个应用程序,该应用程序将数据存储到[ MongoDB ](https://www.mongodb.com/)(一个基于文档的数据库)并从中获取数据。
 
 
 ## 你将创建什么
