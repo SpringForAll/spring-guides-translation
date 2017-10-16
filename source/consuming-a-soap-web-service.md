@@ -13,7 +13,7 @@
 
 您将构建一个基于WSDL的web服务并使用SOAP从远程获取天气数据的客户端。你可以在这里找到更多信息关于这个被引用的服务[ http://www.webservicex.com/stockquote.asmx?op=GetQuote.]( http://www.webservicex.com/stockquote.asmx?op=GetQuote.)
 
-该服务提供股票市场报价。 您将能够使用自己的股票代码。
+该服务提供股票市场报价。 您将能够使用自己的股票代码。（这里不知道怎么翻译( ╯□╰ )）
 
 ## 你需要什么
 * 大约15分钟
