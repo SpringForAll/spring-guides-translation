@@ -1,8 +1,8 @@
-## 基于Maven来构建Java项目
+# 基于Maven来构建Java项目
 
 原文：[Building Java Projects with Maven](https://spring.io/guides/gs/maven/)
 
-译者： liqiang      
+译者： liqiangatongoingdotme      
 
 校对：
 
@@ -18,7 +18,7 @@
   
   * 15分钟
   * 一个顺手的文本编辑器或者IDE
-  * [JDK6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)或者更高 
+  * [JDK6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)或者更高版本 
   
 ###如何学习本教程？
 
@@ -26,24 +26,24 @@
 
 从头开始，移步[建立项目](#Setuptheproject)
 
-跳过基础的，执行以下操作：
+跳过基础步骤，可以直接执行以下操作：
 
 * [下载](https://github.com/spring-guides/gs-maven/archive/master.zip)和解压本教程的源代码，或者使用[Git](https://spring.io/understanding/Git)的clone命令 
 * 进入 gs-maven/initial 目录
 * 提前跳转到[初始化]()
 
-当你完成后，您可以检查你的结果与代码在 gs-maven/complete
+当你完成后，可以将你的结果与 gs-maven/complete中的代码进行对比。
 
 ###建立项目
 <span id="Setuptheproject"> </span>
 
 
-首先，你将要用Maven构建一个Java项目。重点是Maven，所以让项目结构尽可能简单。在你选择的项目文件夹中创建此结构。
+首先，你需要新建一个Java项目用于构建后续的Maven工程。为了着重展示Maven的使用，尽可能新建一个简单的java项目。
 
 创建目录结构
 
-在你选择的项目文件夹中，遵循下面的目录结构；  
-如果使用Linux或者Unix系统可以使用 命令 mkdir -p src/main/java/hello
+在你选择的项目文件夹中，新建如下目录结构。 
+若在*nix系统中，可以使用mkdir -p src/main/java/hello命令创建该目录结构。
 
 ~~~
 └── src
@@ -79,9 +79,9 @@ public class Greeter {
 }
 ~~~
 
-现在Maven构建的项目已经准备好了，下一步需要你安装Maven.
+现在用于构建Maven工程的Java项目已经准备完毕，下一步需要你安装Maven。
 
-Maven可以作为zip文件下载在http://maven.apache.org/download.cgi.只需要下载二进制文件，在链接里找 apache-maven-{version}-bin.zip 或者 apache-maven-{version}-bin.tar.gz. 
+通过http://maven.apache.org/download.cgi 可以下载到zip格式的Maven文件。
 
 下载了zip文件后，将其解压缩到您的计算机上。然后将bin文件夹添加到环境变量path中。
 
@@ -109,7 +109,7 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 
 现在Maven已经安装，你需要创建一个Maven项目的定义。Maven项目通过pom.xml文件进行定义，在文件中定义了项目的名称 版本和依赖包，以及一些扩展类库。
 
-创建pom.xml在项目的根目录下（放在src目录下），文件内容如下：
+在项目的根目录下创建pom.xml文件（与src文件夹同一级目录）
 
 `pom.xml`
 
@@ -154,15 +154,15 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 
 ~~~
 
-除了可选的 `<packaging>`元素之外，这是最简单的pom。构建Java项目所需的xml文件。它包括项目配置的以下细节:
+除了可选的 `<packaging>`元素之外，这是构建Java项目所需最简单的pom.xml文件。构建Java项目所需的xml文件。它包括项目配置的以下细节:
 
 * `<modelVersion>`  pom model 版本 通常都是4.0.0
-*  `<groupId>`  项目所属的组织或组织。通常表示为一个反向域名。
+*  `<groupId>`  项目所属的组织或机构。通常用一个反向域名来表示。
 * ` <artifactId>`  项目的artifact名称(例如，它的JAR或WAR文件的名称)。
 *  `<version>` 构建的项目版本
-*  `<packaging> `  工程的打包方式。默认为“jar”文件。可以陪着“war”用来打war包
+*  `<packaging> `  工程的打包方式。默认为“jar”文件。也可以用“war”打包成war文件
 
-
+至此，你创建了一个最小可运行的Maven工程。
 
 >在选择版本命名规范的时候，Spring推荐 [semantic versioning](http://semver.org) 
 >
@@ -170,21 +170,21 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 
 ###Build Java代码
 
-Maven现在已经可以构建项目了。现在可以使用Maven执行几个构建生命周期的命令，包括编译project的代码、创建library package(比如JAR文件)，并install到本地库中
+Maven现在已经可以构建项目了。现在可以使用Maven执行几个构建生命周期的命令，包括编译project的代码、创建library package(比如JAR文件)，并添加到本地库中
 
 如果要用maven编译，可以运行下面的代码：
 
 >mvn compile
 
-这将会运行Maven，告诉它执行编译目标。当编译完成，你可以在 target/classes 目录下找到编译的class文件
+这是Maven执行编译命令。当编译完成时，你可以在target/classes目录下找相应的class文件
 
 你应该不太可能会直接部署.class文件，你应该运行打包命令：
 
 >mvn package
 
-package命令将会编译你的Java代码，运行所有测试类，并将完成打JAR包到target目录下。JAR文件的命名会基于项目的 `<artifactId>` 和  `<version>` 。用前面提到的pom.xml文件打包会得到 gs-maven-0.1.0.jar
+package命令将会编译你的Java代码，运行所有测试类，最后在target目录下打包生产JAR文件。JAR文件的命名会基于项目的 `<artifactId>` 和  `<version>` 。用前面提到的pom.xml文件打包会得到 gs-maven-0.1.0.jar
 
->如果你修改了pom.xml文件中的 `<packaging>` 从“jar” 到"war",target中的WAR文件将会变成JAR文件
+>若pom.xml文件中元素从"jar"改成"war",target中JAR文件将变成WAR文件。
 
 Maven还在本机上维护一个依赖库（通常在你的用户目录下的.m2/repository目录下），你可以快速访问依赖的项目。如果你想要将project的JAR文件安装到本地仓库，你应该试用`install` 命令
 
@@ -237,8 +237,8 @@ public class HelloWorld {
 ~~~
 这块XML声明了项目的依赖列表。具体的来说，他声明了对Joda时间库的单一依赖。在`<dependency>` 元素中，依赖项由三要素组成：
 
-* `<groupId>`  这个依赖属于的组织或者租
-* `<artifactId>` 库名称是必须的
+* `<groupId>`  这个依赖属于的组织或机构
+* `<artifactId>` 该依赖的名称
 * `<version>` 必须指定的依赖库的版本号
 
 默认的所有的依赖作用域全部为 `compile`依赖。在编译时有效。（如果是编译WAR文件，包含/WEB-INF/libs文件夹下的JAR）此外，您可以指定一个`<scope>`元素来指定下列范围之一:
@@ -293,9 +293,9 @@ Maven使用叫做“surefire”的插件运行测试用例。这个插件默认�
 mvn test
 ~~~
 
-或者只使用 `mvn install` ，我们已经展示过（maven的声明周期定义中"test"已经包含在了"install"之中）
+或者只运行前述所示的mvn install命令（maven的“install”生命周期中已包含了“test”）
 
-下面是完成的pom.xml文件：
+下面是完整的pom.xml文件：
 
 ~~~
 <?xml version="1.0" encoding="UTF-8"?>
@@ -358,7 +358,7 @@ mvn test
 
 ###概要
 
-恭喜！你已经可以创建一个简单有效的用Maven来构建Java工程。
+你已经可以创建一个简单而有效的maven项目来构建java工程。
 
 
 ### 参考

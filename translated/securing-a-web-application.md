@@ -1,10 +1,10 @@
+# 保护web应用的安全
+
 > 原文：[Securing a Web Application](https://spring.io/guides/gs/securing-web/)
 >
 > 译者：[徐靖峰](https://github.com/lexburner)
 >
 > 校对：[程序猿DD](https://github.com/dyc87112/)
-
-# 保护web应用的安全
 
 本指南将引导你使用Spring Security来保护Web应用的安全。
 
