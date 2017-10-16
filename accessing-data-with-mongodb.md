@@ -387,7 +387,7 @@ public class Application implements CommandLineRunner {
 > 默认情况, @EnableMongoRepositories注解会扫描当前包的任何实现了Spring Data的存储库接口的接口。你的项目布局多个项目,没有找到你需要的存储库,使用 basePackageClasses=MyRepository.class,它会根据不同类型安全告诉Spring Data MongoDB 扫描不同的包。
 
 
-Spring Data MongoDB使用 MongoTemplate 来执行 find *方法后面的查询。您可以自己使用该模板进行更复杂的查询，但本指南不包括在内。
+Spring Data MongoDB使用 MongoTemplate 来执行 find* 方法后面的查询。您可以自己使用该模板进行更复杂的查询，但本指南不包括在内。
 
 Application:包括一个自动装配实例的 main()方法。
 
