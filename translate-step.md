@@ -41,7 +41,7 @@
 
    f.  提交PR，等待合并，**翻译小组承诺一定以最快的速度merge翻译申请**
 
-   ![文章申请过程GIF](https://github.com/chenzhijun/spring-guides-translation/blob/master/static/2.gif)
+   ![文章申请过程GIF](https://github.com/chenzhijun/spring-learn-me/blob/master/2.gif)
 
    ​
 
