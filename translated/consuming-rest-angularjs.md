@@ -1,11 +1,10 @@
-使用AngularJS消费RESTful Web服务
-=======
+# 使用AngularJS消费RESTful Web服务
 
 > 原文：[Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/)
 >
 > 译者：[郑云龙](https://github.com/yunlzheng)
 >
-> 校对：
+> 校对：[happyxiaofan](https://github.com/happyxiaofan/)
 
 本指南会引导你编写一个简单的AngularJS客户端来使用基于Spring MVC的[RESTful web service](https://spring.io/understanding/REST))。
 
@@ -27,7 +26,7 @@ http://rest-service.guides.spring.io/greeting
 
 AngularJS客户端会将ID以及content渲染到DOM当中
 
-> 在rest-service.guides.spring.io中运行服务的代码主要来自[CORS指南](https://spring.io/guides/gs/rest-service-cors/)中的时候，不过做了一些小的改动: 在@CrossOrigin注解当中并没有定于domain相关的参数，因此这里对外完全开放了/greeting地址。
+> 在rest-service.guides.spring.io中运行服务的代码主要来自[CORS指南](https://spring.io/guides/gs/rest-service-cors/)中的时候，不过做了一些小的改动: 在**@CrossOrigin**注解当中并没有定于domain相关的参数，因此这里对外完全开放了**/greeting**地址。
 
 ## 你需要什么
 
@@ -52,7 +51,7 @@ angular.module('demo', [])
 });
 ```
 
-该controller模块相当于一个简单的JavaScript函数，其使用了AngularJS的$scope和$http组件。并且使用$http组件向REST服务“/greeting”发起调用。
+该controller模块相当于一个简单的JavaScript函数，其使用了AngularJS的**$scope**和**$http**组件。并且使用$http组件向REST服务“/greeting”发起调用。
 
 当请求成功后，该模块会将服务返回的JSON数据分配给**$scope.greeting**,并且创建一个名为“greeting”的模型对象。通过设置模型对象，AngularJS可以将其与页面的DOM对象绑定，并且渲染展示给用户。
 
