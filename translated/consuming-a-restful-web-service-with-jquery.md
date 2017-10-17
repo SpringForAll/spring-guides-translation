@@ -10,13 +10,13 @@
 
 ##  你将构建什么
 
-你将构建一个jQuery客户端用于消费基于Spring的RESTful web服务。特别地，该客户端将消费根据[Building a RESTful Web Service with CORS](https://spring.io/guides/gs/rest-service-cors/)创建的web服务。
+你将构建一个jQuery客户端用于消费基于Spring的RESTful web服务。需要指出的是，客户端将消费的是根据[Building a RESTful Web Service with CORS](https://spring.io/guides/gs/rest-service-cors/)创建的web服务。
 
-在你的浏览器中打开```index.html```文件即可访问此jQuery客户端，同时通过接收下面的请求来消费该Web服务：
+在你的浏览器中打开```index.html```文件即可访问此jQuery客户端，同时通过以下地址来接收请求消费Web服务：
 
 ```http://rest-service.guides.spring.io/greeting```
 
-该服务将返回一个[JSON](https://spring.io/understanding/JSON)格式的问候：
+该服务将返回一个[JSON](https://spring.io/understanding/JSON)格式的问候语：
 
 ``` json
 {"id":1, "content":"Hello, World!"}
@@ -48,9 +48,9 @@ $(document).ready(function() {
 });
 ```
 
-该controller模块可看作一个简单的JavaScript函数。它使用jQuery的```$.ajax()``` 方法去调用位于[http://rest-service.guides.spring.io/greeting](http://rest-service.guides.spring.io/greeting)的REST服务。若调用成功，它将接收到的JSON数据赋值给```data``` 变量，实际上，是将其转化成```Greeting``` 对象。```id``` 和 ```content``` 字段分别添加到```greeting-id``` 和 ```greeting-content``` DOM元素上。
+该controller模块可看作一个简单的JavaScript函数。它使用jQuery的```$.ajax()``` 方法去调用位于[http://rest-service.guides.spring.io/greeting](http://rest-service.guides.spring.io/greeting)的REST服务。若调用成功，它将接收到的JSON数据赋值给```data``` 变量，然后高效地转换成```Greeting``` 类型的对象。```id``` 和 ```content``` 字段分别添加到```greeting-id``` 和 ```greeting-content``` DOM元素上。
 
-注意jQuery promise ```.then()``` 的使用。它告诉jQuery当```.$.ajax()``` 方法执行完成后，执行从完成的AJAX请求中传递```data``` 结果的异步函数。
+注意jQuery promise ```.then()``` 的使用。它告诉jQuery当```.$.ajax()``` 方法执行完成后，将执行结果```data``` 作为参数传递给异步调用函数，并执行。
 
 ## 创建应用页面
 
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 为了运行客户端，你需要web服务器托管该程序。Spring Boot CLI(Command Line Interface)包含一个内置的Tomcat服务器，它提供了一种简单的方式运行web内容。参见[Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)获取更多关于安装和使用CLI的信息。
 
-为了使用Spring Boot中内置的Tomcat服务器托管静态内容，你还需要编写少量web应用代码以便让Spring Boot知道启动Tomcat。下面```app.groovy``` 脚本可以有效的启动Spring Boot中的Tomcat:
+为了使用Spring Boot中内置的Tomcat服务器托管静态内容，你还需要编写少量web应用代码以便让Spring Boot知道需要为应用程序启动Tomcat。下面```app.groovy``` 脚本可以有效的启动Spring Boot中的Tomcat:
 
 ``` app.groovy```
 
