@@ -131,7 +131,7 @@ $(document).ready(function() {
 * [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/)
 * [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
 * [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
-* [ccessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/)
+* [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/)
 * [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/)
 * [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
 * [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
