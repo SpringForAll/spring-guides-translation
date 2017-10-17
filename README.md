@@ -85,7 +85,7 @@
 | 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) |      |                                          |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) |  正在校对    | [zaixiandemiao](https://github.com/zaixiandemiao) |   [胡明昊](https://github.com/hh23485)                                       |
-| 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) |   等待校对   | [hh23485](https://github.com/hh23485)    ||
+| 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) |   正在校对   | [hh23485](https://github.com/hh23485)    |[oshare](https://github.com/oshare)|
 | 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |      | [oshare](https://github.com/oshare)      |                                          |
 | 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |      |                                          |                                          |
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
