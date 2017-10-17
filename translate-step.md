@@ -15,17 +15,19 @@
 
 ## 申请翻译
 
-1.  找到源码仓库（https://github.com/SpringForAll/spring-guides-translation）
+1. 在首页的文章状态目录找到未翻译的文章，并@管理员登记，会很快处理。管理员登记完成后，说明认领成功
 
-2.  点击`Fork` ：
+2.  找到源码仓库（https://github.com/SpringForAll/spring-guides-translation）
+
+3.  点击`Fork` ：
 
    ![Fork仓库](http://oad0bexwv.bkt.clouddn.com/1.jpg)
 
-3. 选择想要翻译的文章
+4. 选择想要翻译的文章
 
    ![选择想要翻译的文章](http://oad0bexwv.bkt.clouddn.com/2.jpg)
 
-4. 文章申请
+5. 文章申请
 
    a. 先在首页表格找到未翻译的文章，在翻译群里面@管理员，让他们修改表格状态，说明你认领成功。
 
