@@ -1,11 +1,10 @@
+# Spring Boot 整合消息中间件 RabbitMQ
 
 > 原文：[Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
 >
 > 译者：[chenzhijun](https://github.com/chenzhijun)
 >
-> 校对：[校对者id-1](https://github.com/校对者id-1)，[校对者id-2](https://github.com/校对者id-2)，[校对者id-3](https://github.com/校对者id-3)
-
-# Spring Boot 整合消息中间件 RabbitMQ
+> 校对：[程序猿DD](https://github.com/dyc87112)
 
 本篇指南会告诉您如何使用构建一个基于`AMQP协议`的 RabbitMQ 服务，并且教您如何实现发布和订阅消息。
 
