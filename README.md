@@ -88,7 +88,7 @@
 | 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) |   正在校对   | [hh23485](https://github.com/hh23485)    |[oshare](https://github.com/oshare)|
 | 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |      | [oshare](https://github.com/oshare)      |                                          |
 | 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |      |                                          |                                          |
-| 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
+| 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |  |                                          |
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |  |
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) |      |                                          |                                          |
 | 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 等待校对     | [HoldDie](https://github.com/HoldDie)    |                                          ||
