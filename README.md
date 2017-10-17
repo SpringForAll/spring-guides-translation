@@ -31,7 +31,7 @@
 | 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) | 等待校对     | [Jitianyu](https://github.com/Jitianyu)  | |
 | 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) |      | [happyxiaofan](https://github.com/happyxiaofan) ||
 | 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) |      | [aprimecoder](https://github.com/aprimecoder) |  |
-| 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) |    等待校对  | [ongoingdotme](https://github.com/ongoingdotme) ||
+| 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) |    等待校对  | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) ||
 | 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) |      | [codedrinker](https://github.com/codedrinker) | |
 | 1006 | [Uploading Files](https://spring.io/guides/gs/uploading-files/) |      | [JustDoNow](https://github.com/JustDoNow) | |
 | 1007 | [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/) |      | [512013674](https://github.com/512013674) |   |
@@ -60,7 +60,7 @@
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 等待校对     | [nycgym](https://github.com/Anycgym)     | |
 | 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) |   校对完成   | [maskwang520](https://github.com/maskwang520) |[strongant](https://github.com/strongant)  |
-| 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) |      |                                          |                                          |
+| 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) |    正在翻译 | [hanbin](https://github.com/hanbin)               |                                          |
 | 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) |正在校对      | [yunlzheng](https://github.com/yunlzheng) | [rhwayfun](https://github.com/rhwayfun)                                         |
 | 1035 | [Consuming a RESTful Web Service with rest.js](https://spring.io/guides/gs/consuming-rest-restjs/) |      |                                          |                                          |
 | 1036 | [Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/) |      | [william-hyx](https://github.com/william-hyx) |                                          |
@@ -74,7 +74,7 @@
 | 1044 | [Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/) |      |                                          |                                          |
 | 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) | 校对完成   | [strongant](https://github.com/strongant) |[maskwang](https://github.com/maskwang520)                                 |
 | 1046 | [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/) |      |                                          |                                          |
-| 1047 | [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/) |      |                                          |                                          |
+| 1047 | [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/) | 正在翻译     |  [qiushile](https://github.com/qiushile)                                        |                                          |
 | 1048 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) |      | [hh23485](https://github.com/hh23485)    |                                          |
 | 1049 | [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/) | 正在校对     | [feilangrenM](https://github.com/feilangrenM) | [王嘉龙](https://github.com/zaixiandemiao)                                        |
 | 1050 | [Simple Single Project YARN Application](https://spring.io/guides/gs/yarn-basic-single/) |      |                                          |                                          |
@@ -83,7 +83,7 @@
 | 1053 | [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/) |   正在校对   | [StormMaybin](https://github.com/StormMaybin) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
 | 1054 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) |      | [xiudongxu](https://github.com/xiudongxu) |  |
 | 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
-| 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) |      |                                          |                                          |
+| 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) |正在翻译      | [lovedboy2012](https://github.com/lovedboy2012)                                         |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) |  正在校对    | [zaixiandemiao](https://github.com/zaixiandemiao) |   [胡明昊](https://github.com/hh23485)                                       |
 | 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) |   正在校对   | [hh23485](https://github.com/hh23485)    |[oshare](https://github.com/oshare)|
 | 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |      | [oshare](https://github.com/oshare)      |                                          |
