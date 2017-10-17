@@ -40,26 +40,26 @@ ps:如何修改标签，如下图
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5281821-37cf2601253312bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+1. 在首页找到翻译但是未校对的文章，@管理员，修改状态，证明你认领成功。
 
-
-1. 打开pull request 链接
+2. 打开pull request 链接
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5281821-a2aba1b36e3416cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-2. 点开Files Changed选项卡
+3. 点开Files Changed选项卡
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5281821-79fe6c3a09100535.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-3. 如果你想对某句做出修改建议，点击行首的“+”号
+4. 如果你想对某句做出修改建议，点击行首的“+”号
 
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5281821-c99d654abb1c3aee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
-4. 填写建议，并点击Start a review
+5. 填写建议，并点击Start a review
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5281821-e6b2de6c7f14db86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-5. 查看建议数，并提交建议，那么翻译者就能看到
+6. 查看建议数，并提交建议，那么翻译者就能看到
 
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5281821-556bc99264fb40ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
