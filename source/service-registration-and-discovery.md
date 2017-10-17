@@ -2,7 +2,7 @@
 
 > 原文：[Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/)
 >
-> 译者：
+> 译者：[lovedboy2012](https://github.com/lovedboy2012)
 >
 > 校对：
 
