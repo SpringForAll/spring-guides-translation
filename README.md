@@ -102,6 +102,8 @@
 
 关于翻译的一些规范如下：
 
+* 翻前必看：**一些专业名词列表：Term List**，
+
 * 翻译文件格式：markdown
 
 * 文件名格式：原文标题.md （文件已经预创建，直接编辑即可）
@@ -116,8 +118,6 @@
 
 * 文章末尾使用统一的版权声明：（已经预创建，请勿删除该部分）
   > 本文由spring4all.com翻译小分队创作，采用\[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可\]\([http://creativecommons.org/licenses/by-nc-sa/4.0/\)协议进行许可。](http://creativecommons.org/licenses/by-nc-sa/4.0/%29协议进行许可。)
-
-* 一些不用翻译的专业名词列表：[Term List](https://github.com/SpringForAll/spring-guides-translation/blob/master/term-list.md)
 
 * 正文标题按层次结构 从 \#\# 开始
 
