@@ -102,7 +102,7 @@
 
 关于翻译的一些规范如下：
 
-* 翻前必看：**一些专业名词列表：Term List**，
+* 翻前必看：**一些专业名词列表：[Term List](https://github.com/SpringForAll/spring-guides-translation/blob/master/term-list.md)**
 
 * 翻译文件格式：markdown
 
