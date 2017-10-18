@@ -324,7 +324,7 @@ eureka-client/pom.xml
 ## 开启Eureka服务注册
 首先需要一个Eureka注册中心。你可以使用Spring Clound的注解@EnabledEurekaServer开启其他应用程序可以通信的服务端。以下是一个通过注解方式开启了服务注册的常规Spring Boot 应用程序。
 
-eureka-service/src/main/java/hello/EurekaServiceApplication.java
+`eureka-service/src/main/java/hello/EurekaServiceApplication.java`
 
 ```java
 package hello;
