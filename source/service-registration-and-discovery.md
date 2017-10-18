@@ -431,7 +431,6 @@ eureka-client定义了一个名为ServiceInstanceRestController的Spring MVC RES
 
 ```
 所有指南的代码都将发布ASLv2许可证，以及署名，NoDerivatives创作共用许可证的写作。
-
 ```
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
