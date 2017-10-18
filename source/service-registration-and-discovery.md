@@ -6,10 +6,10 @@
 >
 > 校对：
 
-本指南将引导您了解Netflix Eureka服务注册表管理的过程
+本指南将引导您了解Netflix Eureka服务注册中心的创建和消费过程
 
 ## 你将要构建什么
-您将设置一个Netflix  Eureka服务注册表，然后构建一个客户端，它们都注册自己的注册表，并使用它来解析自己的主机。服务注册表是有用的，因为它使得客户端负载平衡和服务提供商与消费者分离，而不需要DNS。
+您将创建一个Netflix Eureka服务注册中心，然后构建一个能实现去注册中心自注册的客户端，并使用Eureka服务端来解析自己主机地址。服务注册中心是有很用的，因为它不仅使得客户端负载均衡，而且服务提供者与消费者分离，而不需要DNS地址解析。
 
 ## 你需要什么
  - 大约需要15分钟
@@ -343,7 +343,7 @@ public class EurekaServiceApplication {
 }
 ```
 
-当注册服务启动后，不记录服务注册连接信息的堆栈日志是存在问题的，而且在生产环境中，还将会有多个服务实例。但是这里为了简单起见，不作相关日志的处理。
+当注册服务启动后，若不记录服务注册连接信息的堆栈日志是会存在问题的，况且在生产环境中，还将会有多个服务实例存在。但是这里为了简单起见，不作相关日志的处理。
 
 默认情况下，注册服务也会尝试自注册，所以你也需要关闭它。
 
@@ -414,16 +414,25 @@ class ServiceInstanceRestController {
 ```
 spring.application.name=a-bootiful-client
 ```
+eureka-client定义了一个名为ServiceInstanceRestController的Spring MVC REST服务站点，
+通过访问http：//localhost：8080/service-instances/a-bootiful-client，将返回所有
+`ServiceInstance`服务实例的注册列表。 请参阅[Building a RESTful Web Service]，
+了解更多关于使用Spring MVC 和Spring Boot构建REST服务。
 
+##测试你的应用程序
 
+首先启动Eureka server服务，然后一旦eureka-client加载并启动成功，即可完成客户端到服务端的注册测试。eureka-client需要大约一分钟注册中心去注册自己，并刷新注册中心的注册服务列表，所有的这些参数都是可配置的。在浏览器中访问eureka-client，通过http://localhost:8080/service-instances/a-bootiful-client，应该可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
 
+##总结
 
+恭喜！ 您刚刚使用Spring来启动了Netflix Eureka服务注册中心，并在客户端应用程序中实现了服务的注册。
 
+想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南]。
 
+```
+所有指南的代码都将发布ASLv2许可证，以及署名，NoDerivatives创作共用许可证的写作。
 
-
-
-
+```
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
