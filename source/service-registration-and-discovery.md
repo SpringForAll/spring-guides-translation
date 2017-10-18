@@ -9,7 +9,7 @@
 本指南将引导您了解Netflix Eureka服务注册中心的创建和消费过程
 
 ## 你将要构建什么
-您将创建一个Netflix Eureka服务注册中心，然后构建一个能实现去注册中心自注册的客户端，并使用Eureka服务端来解析自己主机地址。服务注册中心是有很用的，因为它不仅使得客户端负载均衡，而且服务提供者与消费者分离，而不需要DNS地址解析。
+您将创建一个Netflix Eureka服务注册中心，然后构建一个能实现去注册中心自注册的客户端，并通过Eureka服务器来解析自己主机地址。服务注册中心是有很用的，因为它不仅使得客户端负载均衡，而且服务提供者与消费者分离，而不需要DNS地址解析。
 
 ## 你需要什么
  - 大约需要15分钟
@@ -322,7 +322,7 @@ eureka-client/pom.xml
 ## 使用你的 IDE 进行构建
 
 ## 开启Eureka服务注册
-首先需要一个Eureka注册中心。你可以使用Spring Clound的注解@EnabledEurekaServer开启其他应用程序可以通信的服务端。以下是一个通过注解方式开启了服务注册的常规Spring Boot 应用程序。
+首先需要一个Eureka注册中心。你可以使用Spring Clound的注解@EnabledEurekaServer开启其他应用程序可以对话的服务器。以下是一个通过注解方式开启了服务注册的常规Spring Boot 应用程序。
 
 `eureka-service/src/main/java/hello/EurekaServiceApplication.java`
 
@@ -363,8 +363,8 @@ logging.level.com.netflix.eureka=OFF
 logging.level.com.netflix.discovery=OFF
 
 ```
-##将服务注册到Eureka Server
-现在我们已经建立了一个Eureka server服务端，现在让我们使用Spring Cloud 的注解`DiscoveryClient`来发现所有注册服务的主机和端口，从而创建一个实现自注册的客户端。在Spring Cloud中，注解`EnableDiscoveryClient`不仅使Eureka作为服务注册组件实现了`DiscoveryClient`，同时为 Hashicorp Consul 和 Apache Zookeeper也都提供了支持
+##与服务注册中心进行对话
+现在我们已经建立了一个Eureka server服务器，现在让我们使用Spring Cloud 的注解`DiscoveryClient`来发现所有注册服务的主机和端口，从而创建一个实现自注册的客户端。在Spring Cloud中，注解`EnableDiscoveryClient`不仅使Eureka作为服务注册组件实现了`DiscoveryClient`，同时为 Hashicorp Consul 和 Apache Zookeeper也都提供了支持
    
 `eureka-client/src/main/java/hello/EurekaClientApplication.java`                             
 
@@ -421,7 +421,7 @@ eureka-client定义了一个名为ServiceInstanceRestController的Spring MVC RES
 
 ##测试你的应用程序
 
-首先启动Eureka server服务，然后一旦eureka-client加载并启动成功，即可完成客户端到服务端的注册测试。eureka-client需要大约一分钟注册中心去注册自己，并刷新注册中心的注册服务列表，所有的这些参数都是可配置的。在浏览器中访问eureka-client，通过http://localhost:8080/service-instances/a-bootiful-client，应该可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
+首先启动Eureka server服务，然后一旦eureka-client加载并启动成功，即可完成客户端到服务器的注册测试。eureka-client需要大约一分钟注册中心去注册自己，并刷新从服务器获取的注册列表信息，所有的这些阈值都是可配置的。在浏览器中访问eureka-client，通过http://localhost:8080/service-instances/a-bootiful-client，可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
 
 ##总结
 
