@@ -2,9 +2,13 @@
 
 > 原文：[Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/)
 >
-> 译者：
+> 译者：[panhoucheng](https://github.com/panhoucheng)
 >
 > 校对：
+
+
+###panhoucheng翻译中
+
 
 在此处编写正文，基本翻译规范：
 
