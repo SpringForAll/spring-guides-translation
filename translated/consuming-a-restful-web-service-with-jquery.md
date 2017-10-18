@@ -2,9 +2,9 @@
 
 > 原文：[Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/)
 >
-> 译者：william-hyx
+> 译者：[william-hyx](https://github.com/william-hyx)
 >
-> 校对：feilangrenM
+> 校对：[feilangrenM](feilangrenM)
 
 本文将引导你开发一个简单的jQuery客户端，它可以消费基于Spring MVC的[RESTful web服务](https://spring.io/understanding/REST)。
 
