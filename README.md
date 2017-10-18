@@ -90,7 +90,7 @@
 | 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |      |                                          |                                          |
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |                                          |                                          |
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
-| 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) |      |                                          |                                          |
+| 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) |正在翻译      |[panhoucheng](https://github.com/panhoucheng)                                          |                                          |
 | 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 等待校对 | [HoldDie](https://github.com/HoldDie)    |                                          |
 | 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |      |                                          |                                          |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) |      |                                          |                                          |
