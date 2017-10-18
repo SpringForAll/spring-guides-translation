@@ -29,16 +29,16 @@
 | 编号   | 标题                                       | 状态   | 译者                                       | 校对                                       |
 | ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
 | 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) | 等待校对 | [Jitianyu](https://github.com/Jitianyu)  |                                          |
-| 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) |      | [happyxiaofan](https://github.com/happyxiaofan) |                                          |
+| 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | 校对完成     | [happyxiaofan](https://github.com/happyxiaofan) | [carlzhangweiwen](https://github.com/carlzhangweiwen)                                         |
 | 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) |      | [aprimecoder](https://github.com/aprimecoder) |                                          |
-| 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | 等待校对 | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) |                                          |
+| 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | 校对完成 | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) |[william-hyx](https://github.com/william-hyx)                                           |
 | 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) |      | [codedrinker](https://github.com/codedrinker) |                                          |
 | 1006 | [Uploading Files](https://spring.io/guides/gs/uploading-files/) |      | [JustDoNow](https://github.com/JustDoNow) |                                          |
 | 1007 | [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/) |      | [512013674](https://github.com/512013674) |                                          |
 | 1008 | [Registering an Application with Facebook](https://spring.io/guides/gs/register-facebook-app/) |      |                                          |                                          |
 | 1009 | [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/) | 等待校对 | [linzx2015](https://github.com/linzx2015) |                                          |
 | 1010 | [Registering an Application with Twitter](https://spring.io/guides/gs/register-twitter-app/) |      |                                          |                                          |
-| 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 等待校对 | [chenzhijun](https://github.com/chenzhijun) |                                          |
+| 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 校对完成 | [chenzhijun](https://github.com/chenzhijun) |[程序猿DiDi](https://github.com/dyc87112)                                          |
 | 1012 | [Accessing Twitter Data](https://spring.io/guides/gs/accessing-twitter/) |      |                                          |                                          |
 | 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) |      |                                          |                                          |
 | 1014 | [Accessing Data with Neo4j](https://spring.io/guides/gs/accessing-data-neo4j/) |      |                                          |                                          |
@@ -46,7 +46,7 @@
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) |      |                                          |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
 | 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) |      |                                          |                                          |
-| 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 等待校对 | [lexburner](https://github.com/lexburner) |                                          |
+| 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) |[程序猿DiDi](https://github.com/dyc87112)                                          |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
 | 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) |      | [xuxiaoxie](https://github.com/xuxiaoxie) |                                          |
