@@ -4,9 +4,9 @@
 >
 > 译者：[shaoshao721](https://github.com/shaoshao721)
 >
-> 校对：
+> 校对：[mrdear](https://github.com/mrdear)
 
-本指南将引导您完成异步查询GitHub。本文重点关注异步部分，这是在弹性服务时中经常用到的特性。
+本指南将引导您完成异步查询GitHub。本文重点关注异步部分，这是在扩展服务时中经常用到的特性。
 
 ## 你将要构建什么
 
@@ -175,7 +175,7 @@ dependencies {
 
 ## 构建GitHub User的表示
 
-在你创建GitHub查找服务之前，你需要为通过GitHub API检索到的数据定义一个表示。
+在你创建GitHub查找服务之前，你需要为通过GitHub API检索到的数据定义一个表示形式。
 
 为了对用户的表示建模，你需要创建一个资源表示类。使用字段、构造函数和访问器提供一个POJO对象:
 
@@ -262,13 +262,13 @@ public class GitHubLookupService {
 }
 ```
 
-`GitHubLookupService`类使用Spring的`RestTemplate` 类来调用远程REST端点(api.github.com/users/)，然后将响应转换为一个`User`对象。 Spring Boot自动提供一个`RestTemplateBuilder`类，它可以自定义任何自动配置位（即`MessageConverter`）的默认值。
+`GitHubLookupService`类使用Spring的`RestTemplate` 类来调用远程REST接口(api.github.com/users/)，然后将响应转换为一个`User`对象。 Spring Boot自动提供一个`RestTemplateBuilder`类，它可以自定义任何自动配置位（即`MessageConverter`）的默认值。
 
 该类标记有`@Service`注解，这使其成为Spring组件扫描的候选项，用于检测它并将其添加到[应用程序上下文](http://spring.io/understanding/application-context)中。
 
 `findUser`方法使用Spring的`@Async`注解，表示它将在单独的线程上运行。所有的异步服务均要求该方法的返回类型是`CompletableFuture <User>`而非`User`。 此代码使用`completedFuture`方法来返回已完成的具有GitHub查询结果的`CompletableFuture`实例。
 
->创建`GitHubLookupService`类的本地实例不允许`findUser`方法异步运行。 它必须在标记了`@Configuration` 注解的类中被创建或由`@ComponentScan`拾取。
+>创建`GitHubLookupService`类的本地实例不允许`findUser`方法异步运行。 它必须在标记了`@Configuration` 注解的类中被创建或由`@ComponentScan`纳入Spring Bean容器中。
 
 GitHub的API的时间可以有所不同。 为了展示本指南的后续优点，此服务已添加了一秒钟的额外延迟。
 
@@ -405,7 +405,7 @@ java -jar target/gs-async-method-0.1.0.jar
 
 请注意，前两个调用发生在单独的线程（`GithubLookup-2`，`GithubLookup-1`）中，第三个调用停留，直到两个线程中的一个可用。 要比较没有异步功能的时间长短，请尝试注释掉`@Async` 注解并再次运行该服务。 总的经过时间应该显着增加，因为每个查询需要至少一秒钟。 您还可以调整`Executor`以增加`corePoolSize`属性。
 
-基本上，任务所需的时间越长，同时调用的任务越多，您将看到的异步效果越大。 折衷的是处理`CompletableFuture`接口。 它增加了一层间接过程，因为你不再直接处理结果。
+基本上，任务所需的时间越长，同时调用的任务越多，您会发现异步任务更加有优势。 折衷的办法是使用`CompletableFuture`接口。 它增加了一层间接过程，使得你不再直接处理结果。
 
 ## 总结
 
