@@ -4,7 +4,7 @@
 >
 > 译者：[lovedboy2012](https://github.com/lovedboy2012)
 >
-> 校对：
+> 校对：[chenzhijun](https://github.com/chenzhijun)
 
 本指南将引导您了解Netflix Eureka服务注册中心的创建和消费过程
 
