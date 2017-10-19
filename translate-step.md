@@ -15,29 +15,33 @@
 
 ## 申请翻译
 
-1.  找到源码仓库（https://github.com/SpringForAll/spring-guides-translation）
+1. 在首页的文章状态目录找到未翻译的文章，并@管理员登记，会很快处理。管理员登记完成后，说明认领成功
 
-2.  点击`Fork` ：
+2.  找到源码仓库（https://github.com/SpringForAll/spring-guides-translation）
+
+3.  点击`Fork` ：
 
    ![Fork仓库](http://oad0bexwv.bkt.clouddn.com/1.jpg)
 
-3. 选择想要翻译的文章
+4. 选择想要翻译的文章
 
    ![选择想要翻译的文章](http://oad0bexwv.bkt.clouddn.com/2.jpg)
 
-4. 文章申请，
+5. 文章申请
 
-   a. 先在`source` 目录下找到您想翻译的文章，文件名和文章的名字相同；
+   a. 先在首页表格找到未翻译的文章，在翻译群里面@管理员，让他们修改表格状态，说明你认领成功。
 
-   b. 回到`Readme` 中根据文件名找到原文路径(超链接形式，点击就行)；
+   b. 先在`source` 目录下找到您想翻译的文章，文件名和文章的名字相同；
 
-   c.  选中文章的主要内容复制到`Typora` ，检查文章中是否有遗漏段落;
+   c. 回到`Readme` 中根据文件名找到原文路径(超链接形式，点击就行)；
 
-   d.  将翻译小队约定好的头文件，协议信息等填写好，之后将内容覆盖仓库中的文件；
+   d.  选中文章的主要内容复制到`Typora` ，检查文章中是否有遗漏段落;
 
-   e.  提交PR，等待合并，**翻译小组承诺一定以最快的速度merge翻译申请**
+   e.  将翻译小队约定好的头文件，协议信息等填写好，之后将内容覆盖仓库中的文件；
 
-   ![文章申请过程GIF](https://github.com/chenzhijun/spring-guides-translation/blob/master/static/2.gif)
+   f.  提交PR，等待合并，**翻译小组承诺一定以最快的速度merge翻译申请**
+
+   ![文章申请过程GIF](https://github.com/chenzhijun/spring-learn-me/blob/master/2.gif)
 
    ​
 
