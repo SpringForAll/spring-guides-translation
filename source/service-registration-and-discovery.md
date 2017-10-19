@@ -1,4 +1,4 @@
-# 服务注册和发现
+# 服务注册和服务发现
 
 > 原文：[Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/)
 >
@@ -9,34 +9,36 @@
 本指南将引导您了解Netflix Eureka服务注册中心的创建和消费过程
 
 ## 你将要构建什么
-您将创建一个Netflix Eureka服务注册中心，然后构建一个能实现去注册中心自注册的客户端，并通过Eureka服务器来解析自己主机地址。服务注册中心是有很用的，因为它不仅使得客户端负载均衡，而且服务提供者与消费者分离，而不需要DNS地址解析。
+您将创建一个[Netflix Eureka服务注册中心][1]，然后构建一个能实现去注册中心自注册的客户端，并通过Eureka服务器来解析自己主机地址。
+服务注册中心是有很用的，因为它不仅使得客户端负载均衡，而且服务提供者与消费者分离，而不需要DNS地址解析。
 
 ## 你需要什么
  - 大约需要15分钟
  - 一个您喜爱的文本编辑器或者IDE（集成开发工具）
- - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)或更高版本
- - [Gradle 2.3+](http://www.gradle.org/downloads) 或者 [Maven 3.0+](https://maven.apache.org/download.cgi)
+ - [JDK 1.8][2]或更高版本
+ - [Gradle 2.3+][3] 或者 [Maven 3.0+][4]
  - 您也可以直接导入代码到IDE中：
-    - [Spring Tool Suite (STS)][3]
-    - [IntelliJ IDEA][4]
+    - [Spring Tool Suite (STS)][5]
+    - [IntelliJ IDEA][6]
     
 ## 如何完成这份指南
-与大多数“入门指南”指南一样，您可以从头开始，完成每一步，也可以绕过已经熟悉的基本设置步骤。无论哪种方式，你都会得到工作代码。
+与大多数Spring[入门指南][7]一样，您可以从头开始，完成每一步，也可以绕过已经熟悉的基本设置步骤。无论哪种方式，你都会得到工作代码。
 
 如果从零开始，请继续使用Gradle构建。
 
 如果打算跳过基本步骤，按照如下操作：
 
-  - [下载][6]并解压这份指南的源码包，或者使用[Git][7]克隆：
+  - [下载][8]并解压这份指南的源码包，或者使用[Git][9]克隆：
      `git clone https://github.com/spring-guides/gs-scheduling-tasks.git`
   - 进入目录 `gs-service-registration-and-discovery/initial`
-  - 跳转到 `开始Eureka服务注册`。
+  - 跳转到 [开始Eureka服务注册][10]。
   
-完成这些后，您可以依据gs-service-registration-and-discovery/complete中的代码检查你的结果。
+完成这些后，您可以依据`gs-service-registration-and-discovery/complete`中的代码检查你的结果。
 
 ## 使用 Gradle 构建项目
 
-首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle][8] 或者 [Maven][9] 构建的代码。如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目][10]或者[如何使用 Maven 构建 Java 项目][11]。
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle][11] 或者 [Maven][12] 构建的代码。
+如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目][13]或者[如何使用 Maven 构建 Java 项目][14]。
 
 ### 创建 Gradle 目录结构
 
@@ -51,9 +53,9 @@
 
 ### 创建 Gradle 构建文件
 
-下面是一份[初始化Gradle构建文件][12]
+下面是一份[初始化Gradle构建文件][15]
 
-eureka-service/build.gradle
+`eureka-service/build.gradle`
 
 ```groovy
 buildscript {
@@ -104,7 +106,8 @@ eclipse {
 	}
 }
 ```
-eureka-client/build.gradle
+
+`eureka-client/build.gradle`
 
 ```groovy
 buildscript {
@@ -156,17 +159,17 @@ eclipse {
 }
 ```
 
-[Spring Boot gradle 插件][13] 提供了非常多方便的功能：
+[Spring Boot gradle 插件][16] 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
 
 * 搜索`public static void main()`方法并且将它标记为可执行类
 
-* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][14].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][17].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用 Maven 构建项目
 
-首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven][15] 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目][16].
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven][18] 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目][19].
 
 ### 创建 Maven 目录结构
 
@@ -179,7 +182,7 @@ eclipse {
             └── hello
 ```
 
-eureka-service/pom.xml
+`eureka-service/pom.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -242,7 +245,8 @@ eureka-service/pom.xml
 </project>
 
 ```
-eureka-client/pom.xml
+
+`eureka-client/pom.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -311,18 +315,22 @@ eureka-client/pom.xml
 
 ```
 
-[Spring Boot Maven 插件][17] 提供了非常多方便的功能：
+[Spring Boot Maven 插件][20] 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
 
 * 搜索`public static void main()`方法并且将它标记为可执行类
 
-* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][18].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][21].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用你的 IDE 进行构建
 
+*   [如何在Spring Tool Suite中构建][22].
+
+*   [如何在IntelliJ IDEA中构建][23].
+
 ## 开启Eureka服务注册
-首先需要一个Eureka注册中心。你可以使用Spring Clound的注解@EnabledEurekaServer开启其他应用程序可以对话的服务器。以下是一个通过注解方式开启了服务注册的常规Spring Boot 应用程序。
+首先需要一个Eureka注册中心。你可以使用Spring Clound的注解`@EnabledEurekaServer`开启其他应用程序可以对话的服务器。以下是一个通过注解方式开启了服务注册的常规Spring Boot 应用程序。
 
 `eureka-service/src/main/java/hello/EurekaServiceApplication.java`
 
@@ -364,7 +372,7 @@ logging.level.com.netflix.discovery=OFF
 
 ```
 ##与服务注册中心进行对话
-现在我们已经建立了一个Eureka server服务器，现在让我们使用Spring Cloud 的注解`DiscoveryClient`来发现所有注册服务的主机和端口，从而创建一个实现自注册的客户端。在Spring Cloud中，注解`EnableDiscoveryClient`不仅使Eureka作为服务注册组件实现了`DiscoveryClient`，同时为 Hashicorp Consul 和 Apache Zookeeper也都提供了支持
+现在我们已经建立了一个Eureka server服务器，现在让我们使用Spring Cloud 的注解`DiscoveryClient`来发现所有注册服务的主机和端口，从而创建一个实现自注册的客户端。在Spring Cloud中，注解`@EnableDiscoveryClient`不仅使Eureka作为服务注册组件实现了`DiscoveryClient`，同时为 [Hashicorp Consul][24] 和 [Apache Zookeeper][25]也都提供了支持
    
 `eureka-client/src/main/java/hello/EurekaClientApplication.java`                             
 
@@ -414,20 +422,20 @@ class ServiceInstanceRestController {
 ```
 spring.application.name=a-bootiful-client
 ```
-eureka-client定义了一个名为ServiceInstanceRestController的Spring MVC REST服务站点，
-通过访问http：//localhost：8080/service-instances/a-bootiful-client，将返回所有
-`ServiceInstance`服务实例的注册列表。 请参阅[Building a RESTful Web Service]，
+`eureka-client`定义了一个名为`ServiceInstanceRestController`的Spring MVC REST服务站点，
+通过访问[http：//localhost：8080/service-instances/a-bootiful-client][26]，将返回所有
+`ServiceInstance`服务实例的注册列表。 请参阅[Building a RESTful Web Service][27]，
 了解更多关于使用Spring MVC 和Spring Boot构建REST服务。
 
 ##测试你的应用程序
 
-首先启动Eureka server服务，然后一旦eureka-client加载并启动成功，即可完成客户端到服务器的注册测试。eureka-client需要大约一分钟注册中心去注册自己，并刷新从服务器获取的注册列表信息，所有的这些阈值都是可配置的。在浏览器中访问eureka-client，通过http://localhost:8080/service-instances/a-bootiful-client，可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
+首先启动`eureka-service`服务器，然后一旦`eureka-client`加载并启动成功，即可完成客户端到服务器的注册测试。`eureka-client`需要大约一分钟注册中心去注册自己，并刷新从服务器获取的注册列表信息，所有的这些阈值都是可配置的。在浏览器中访问`eureka-client`，通过[http://localhost:8080/service-instances/a-bootiful-client][28]，可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
 
 ##总结
 
 恭喜！ 您刚刚使用Spring来启动了Netflix Eureka服务注册中心，并在客户端应用程序中实现了服务的注册。
 
-想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南]。
+想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南][29]。
 
 ```
 所有指南的代码都将发布ASLv2许可证，以及署名，NoDerivatives创作共用许可证的写作。
@@ -435,5 +443,35 @@ eureka-client定义了一个名为ServiceInstanceRestController的Spring MVC RES
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
+[1]: https://github.com/spring-cloud/spring-cloud-netflix
+[2]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+[3]: http://www.gradle.org/downloads
+[4]: https://maven.apache.org/download.cgi
+[5]: https://spring.io/guides/gs/sts
+[6]: https://spring.io/guides/gs/intellij-idea/
+[7]: https://spring.io/guides
+[8]: https://github.com/spring-guides/gs-service-registration-and-discovery/archive/master.zip
+[9]: https://spring.io/understanding/Git
+[10]: https://spring.io/guides/gs/service-registration-and-discovery/#initial
+[11]: http://gradle.org/
+[12]: https://maven.apache.org/
+[13]: https://spring.io/guides/gs/gradle
+[14]: https://spring.io/guides/gs/maven
+[15]: https://github.com/spring-guides/gs-service-registration-and-discovery/blob/master/initial/build.gradle
+[16]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin
+[17]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
+[18]: https://maven.apache.org/
+[19]: https://spring.io/guides/gs/maven
+[20]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin
+[21]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
+[22]: https://spring.io/guides/gs/sts/
+[23]: https://spring.io/guides/gs/intellij-idea
+[24]: https://www.consul.io/
+[25]: https://zookeeper.apache.org/
+[26]:http://localhost:8080/service-instances/a-bootiful-client
+[27]:https://spring.io/guides/gs/rest-service/
+[28]:http://localhost:8080/service-instances/a-bootiful-client
+[29]:https://github.com/spring-guides/getting-started-guides/wiki
+[30]:https://creativecommons.org/licenses/by-nd/3.0/
 
 
