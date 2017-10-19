@@ -92,7 +92,7 @@
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) |正在翻译      |[panhoucheng](https://github.com/panhoucheng)                                          |                                          |
 | 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 等待校对 | [HoldDie](https://github.com/HoldDie)    |                                          |
-| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |      |                                          |                                          |
+| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |正在翻译     |[YukunSun](https://github.com/YukunSun)                                           |                                          |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) |      |                                          |                                          |
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
