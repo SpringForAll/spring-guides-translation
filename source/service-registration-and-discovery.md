@@ -437,10 +437,6 @@ spring.application.name=a-bootiful-client
 
 想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南][29]。
 
-```
-所有指南的代码都将发布ASLv2许可证，以及署名，NoDerivatives创作共用许可证的写作。
-```
-
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
 [1]: https://github.com/spring-cloud/spring-cloud-netflix
