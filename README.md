@@ -1,6 +1,6 @@
 # Spring官方Guides
 
-随着微服务的流行，Spring Boot/Cloud的崛起，Spring Source几乎再一次要成为Java的代名词。那么我们如何才能快速的学习和入门Spring呢？除了很多国内高手编写的一些教程之外，有没有更为官方的指导呢？实际上，在Spring官方网站中是有非常优秀的教程页面的：[https://spring.io/guides。](https://spring.io/guides。)
+随着微服务的流行，Spring Boot/Cloud的崛起，Spring Source几乎再一次要成为Java的代名词。那么我们如何才能快速的学习和入门Spring呢？除了很多国内高手编写的一些教程之外，有没有更为官方的指导呢？实际上，在Spring官方网站中是有非常优秀的教程页面的：[https://spring.io/guides。](https://spring.io/guides)
 
 但是由于该教程内容均是英文的，所以只有少部分人会关注这里。所以，我们[SpringForAll社区](http://spring4all.com)计划开始组织对这部分高质量内容的翻译工作，以促进Spring这样优秀的框架在国内的发展！由衷的希望Spring大生态变得越来越强大！
 
@@ -92,7 +92,7 @@
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) |正在翻译      |[panhoucheng](https://github.com/panhoucheng)                                          |                                          |
 | 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 等待校对 | [HoldDie](https://github.com/HoldDie)    |                                          |
-| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |      |                                          |                                          |
+| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |正在翻译     |[YukunSun](https://github.com/YukunSun)                                           |                                          |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) |      |                                          |                                          |
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
