@@ -372,7 +372,7 @@ logging.level.com.netflix.eureka=OFF
 logging.level.com.netflix.discovery=OFF
 
 ```
-##与服务注册中心进行对话
+## 与服务注册中心进行对话
 
 现在我们已经建立了一个Eureka server服务器，现在让我们使用Spring Cloud 的注解`DiscoveryClient`来发现所有注册服务的主机和端口，从而创建一个实现自注册的客户端。在Spring Cloud中，注解`@EnableDiscoveryClient`不仅使Eureka作为服务注册组件实现了`DiscoveryClient`，同时为 [Hashicorp Consul][24] 和 [Apache Zookeeper][25]也都提供了支持
    
@@ -430,13 +430,13 @@ spring.application.name=a-bootiful-client
 `ServiceInstance`服务实例的注册列表。 请参阅[Building a RESTful Web Service][27]，
 了解更多关于使用Spring MVC 和Spring Boot构建REST服务。
 
-##测试你的应用程序
+## 测试你的应用程序
 
 首先启动`eureka-service`服务器，然后一旦`eureka-client`加载并启动成功，即可完成客户端到服务器的注册测试。
 `eureka-client`需要大约一分钟注册中心去注册自己，并刷新从服务器获取的注册表信息，所有的这些阈值都是可配置的。
 在浏览器中访问`eureka-client`，通过[http://localhost:8080/service-instances/a-bootiful-client][28]，可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
 
-##总结
+## 总结
 
 恭喜！ 您刚刚使用Spring来启动了Netflix Eureka服务注册中心，并在客户端应用程序中实现了服务的注册。
 
