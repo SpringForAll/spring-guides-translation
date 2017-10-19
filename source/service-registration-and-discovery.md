@@ -1,4 +1,4 @@
-# 服务注册和服务发现
+# 服务注册和发现
 
 > 原文：[Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/)
 >
@@ -9,7 +9,7 @@
 本指南将引导您了解Netflix Eureka服务注册中心的创建和消费过程
 
 ## 你将要构建什么
-您将创建一个[Netflix Eureka服务注册中心][1]，然后构建一个能实现去注册中心自注册的客户端，并通过Eureka服务器来解析自己主机地址。
+您将创建一个[Netflix Eureka服务注册中心][1]，然后构建一个能实现去Eureka服务器自注册的客户端，并向Eureka服务器提交自己IP地址、端口、service ID等服务信息。
 服务注册中心是有很用的，因为它不仅使得客户端负载均衡，而且服务提供者与消费者分离，而不需要DNS地址解析。
 
 ## 你需要什么
@@ -31,7 +31,7 @@
   - [下载][8]并解压这份指南的源码包，或者使用[Git][9]克隆：
      `git clone https://github.com/spring-guides/gs-scheduling-tasks.git`
   - 进入目录 `gs-service-registration-and-discovery/initial`
-  - 跳转到 [开始Eureka服务注册][10]。
+  - 跳转到 [Eureka服务注册和发现章节][10]。
   
 完成这些后，您可以依据`gs-service-registration-and-discovery/complete`中的代码检查你的结果。
 
@@ -330,7 +330,8 @@ eclipse {
 *   [如何在IntelliJ IDEA中构建][23].
 
 ## 开启Eureka服务注册
-首先需要一个Eureka注册中心。你可以使用Spring Clound的注解`@EnabledEurekaServer`开启其他应用程序可以对话的服务器。以下是一个通过注解方式开启了服务注册的常规Spring Boot 应用程序。
+首先需要一个Eureka注册中心。你可以使用Spring Clound的注解`@EnabledEurekaServer`开启其他应用程序可以对话的注册服务器。
+以下是一个通过注解方式开启了服务注册的普通Spring Boot 应用程序。
 
 `eureka-service/src/main/java/hello/EurekaServiceApplication.java`
 
@@ -351,7 +352,7 @@ public class EurekaServiceApplication {
 }
 ```
 
-当注册服务启动后，若不记录服务注册连接信息的堆栈日志是会存在问题的，况且在生产环境中，还将会有多个服务实例存在。但是这里为了简单起见，不作相关日志的处理。
+当Eureka服务器启动后，若不记录服务注册连接信息的堆栈日志是会存在问题的，况且在生产环境中，还将会有多个服务实例存在。但是这里为了简单起见，不作相关日志的处理。
 
 默认情况下，注册服务也会尝试自注册，所以你也需要关闭它。
 
@@ -372,6 +373,7 @@ logging.level.com.netflix.discovery=OFF
 
 ```
 ##与服务注册中心进行对话
+
 现在我们已经建立了一个Eureka server服务器，现在让我们使用Spring Cloud 的注解`DiscoveryClient`来发现所有注册服务的主机和端口，从而创建一个实现自注册的客户端。在Spring Cloud中，注解`@EnableDiscoveryClient`不仅使Eureka作为服务注册组件实现了`DiscoveryClient`，同时为 [Hashicorp Consul][24] 和 [Apache Zookeeper][25]也都提供了支持
    
 `eureka-client/src/main/java/hello/EurekaClientApplication.java`                             
@@ -415,7 +417,8 @@ class ServiceInstanceRestController {
 
 ```
 
-无论你选择什么组件实现，你都可以通过指定spring.application.name属性任何名称来注册eureka客户端，并且可以在server端看到该名称。这个属性在Spring Cloud 中使用很多，通常是配置服务时最先配的。这个属性作为服务的系统配置，习惯上放在`eureka-client/src/main/resources/bootstrap.properties`这个属性文件，此配置文件在`src/main/resources/application.properties`之前加载。
+无论你选择什么组件实现，你都可以通过指定spring.application.name属性任何名称来注册eureka客户端，并且可以在server端看到该名称。
+这个属性在Spring Cloud 中使用很多，通常是配置服务时最先配的。这个属性作为服务的系统配置，习惯上放在`eureka-client/src/main/resources/bootstrap.properties`这个属性文件，此配置文件在`src/main/resources/application.properties`之前加载。
 
 `eureka-client/src/main/resources/bootstrap.properties`
 
@@ -429,7 +432,9 @@ spring.application.name=a-bootiful-client
 
 ##测试你的应用程序
 
-首先启动`eureka-service`服务器，然后一旦`eureka-client`加载并启动成功，即可完成客户端到服务器的注册测试。`eureka-client`需要大约一分钟注册中心去注册自己，并刷新从服务器获取的注册列表信息，所有的这些阈值都是可配置的。在浏览器中访问`eureka-client`，通过[http://localhost:8080/service-instances/a-bootiful-client][28]，可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
+首先启动`eureka-service`服务器，然后一旦`eureka-client`加载并启动成功，即可完成客户端到服务器的注册测试。
+`eureka-client`需要大约一分钟注册中心去注册自己，并刷新从服务器获取的注册表信息，所有的这些阈值都是可配置的。
+在浏览器中访问`eureka-client`，通过[http://localhost:8080/service-instances/a-bootiful-client][28]，可以看到该响应的`eureka-client`服务在注册中心的`ServiceInstance`。
 
 ##总结
 
