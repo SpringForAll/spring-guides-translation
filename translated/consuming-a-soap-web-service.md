@@ -4,7 +4,7 @@
 >
 > 译者：dongyang1993
 >
-> 校对：
+> 校对：feilangrenM
 
 本指南将引导你创建一个消费基于Spring的[SOAP web service](https://spring.io/understanding/SOAP)服务的应用程序。
 
