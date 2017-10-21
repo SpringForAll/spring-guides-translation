@@ -6,51 +6,183 @@
 >
 > 校对：
 
-# Consuming a RESTful Web Service
+# 使用RESTful Web服务
 
-This guide walks you through the process of creating an application that consumes a RESTful web service.
+本指南将引导您完成创建一个使用RESTful Web服务的应用程序的过程。
 
-## What you’ll build
+## 您将构建什么
 
-You’ll build an application that uses Spring’s `RestTemplate` to retrieve a random Spring Boot quotation at [http://gturnquist-quoters.cfapps.io/api/random](https://gturnquist-quoters.cfapps.io/api/random).
+您将构建一个使用Spring RestTemplate的应用程序，并通过访问 http://gturnquist-quoters.cfapps.io/api/random 来获取一段 Spring Boot 随机字符串。
 
-## What you’ll need
+## 您需要准备什么
 
-- About 15 minutes
-- A favorite text editor or IDE
-- [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
-- [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-- You can also import the code straight into your IDE:
+- 大约15分钟
+-  一个喜欢的文本编辑器或者IDE
+-  [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  或1.8以上
+- [Grandle2.3以上](http://www.gradle.org/downloads) 或 [Maven3.0以上](https://maven.apache.org/download.cgi)
+- 您也可以直接将代码引入您的IDE中：
   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
-## How to complete this guide
+## 如何完成该指南
 
-Like most Spring [Getting Started guides](https://spring.io/guides), you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
+与大多数Spring“入门指南”指南一样，您可以从头开始，完成每一步，也可以绕过已经熟悉的基本设置步骤。 无论哪种方式，<u>你都会得到工作代码</u>。
 
-To **start from scratch**, move on to [Build with Gradle](https://spring.io/guides/gs/consuming-rest/#scratch).
+从头开始，请参考 [Build with Gradle](https://spring.io/guides/gs/consuming-rest/#scratch);
 
-To **skip the basics**, do the following:
+要跳过基本操作，请执行以下操作：
 
-- [Download](https://github.com/spring-guides/gs-consuming-rest/archive/master.zip) and unzip the source repository for this guide, or clone it using [Git](https://spring.io/understanding/Git): `git clone https://github.com/spring-guides/gs-consuming-rest.git`
-- cd into `gs-consuming-rest/initial`
-- Jump ahead to [Fetch a REST resource](https://spring.io/guides/gs/consuming-rest/#initial).
+- 下载并解压本指南引用的源代码，或使用Git克隆:git clone https://github.com/spring-guides/gs-consuming-rest.git
+- 使用cd命令进入gs-consuming-rest/initial 目录
+- 获取REST资源
 
-**When you’re finished**, you can check your results against the code in `gs-consuming-rest/complete`.
+完成后，您可以根据gs-consumption-rest / complete目录中的代码检查结果。
 
-## Build with Gradle
+## 通过Gradle构建
 
-## Build with Maven
+首先你设置一个基本的构建脚本。 在使用Spring构建应用程序时，您可以使用任何您喜欢的构建系统，但是您需要使用与Gradle和Maven一起使用的代码。 如果您还不熟悉，请参阅 [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) or [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
 
-## Build with your IDE
+### 创建目录结构
 
-## Fetch a REST resource
+在您选择的项目目录中，创建以下子目录结构; 例如， 在 *nix系统上使用命令 mkdir -p src / main / java / hello 创建
 
-With project setup complete, you can create a simple application that consumes a RESTful service.
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
 
-A RESTful service has been stood up at [http://gturnquist-quoters.cfapps.io/api/random](https://gturnquist-quoters.cfapps.io/api/random). It randomly fetches quotes about Spring Boot and returns them as a JSON document.
+### 创建一个Gradle构建文件
 
-If you request that URL through your web browser or curl, you’ll receive a JSON document that looks something like this:
+以下是原始的Gradle构建文件。
+
+`build.gradle`
+
+```
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-consuming-rest'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework:spring-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    testCompile("junit:junit")
+}
+```
+
+Spring Boot gradle插件提供了许多方便的功能：
+
+- 它收集类路径上的所有jar包，并构建一个可运行的“über-jar”，这样可以更方便地执行和传输您的服务。
+- 它搜索public static void main（）方法来标记为可运行类。
+- 它提供了一个内置的依赖解析器，使版本号与Spring Boot 依赖的版本相匹配。 您可以覆盖任何您想要的版本，但它将默认为Boot所选择的一组版本。
+
+## 通过Maven构建
+
+首先你设置一个基本的构建脚本。 在使用Spring构建应用程序时，您可以使用任何构建系统，但您需要使用与Maven一起使用的代码。 如果您不熟悉Maven，请参阅[Building Java Projects with Maven](https://spring.io/guides/gs/maven)。
+
+### 创建目录结构
+
+在您选择的项目目录中，创建以下子目录结构; 例如，在 * nix系统上使用命令 mkdir -p src / main / java / hello创建 
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+`pom.xml`
+
+```Xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-consuming-rest</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.8.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+```
+
+Spring Boot Maven插件提供了许多方便的功能：
+
+- 它收集类路径上的所有jar包，并构建一个可运行的“über-jar”，这样可以更方便地执行和传输您的服务。
+- 它搜索public static void main（）方法来标记为可运行类。
+- 它提供了一个内置的依赖解析器，使版本号与Spring Boot 依赖的版本相匹配。 您可以覆盖任何您想要的版本，但它将默认为Boot所选择的一组版本。
+
+## 通过IDE构建
+
+- 在 [Spring Tool Suite](https://spring.io/guides/gs/sts/)中构建。
+- 在 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea)构建。
+
+## 获取REST资源
+
+完成项目设置后，您可以创建一个简单的应用程序来使用RESTful服务。
+
+一个RESTful服务已经在http://gturnquist-quoters.cfapps.io/api/random上启动起来了。 它随机地获取 Spring Boot 字符串，并将其作为JSON文档返回。
+
+如果您通过Web浏览器或curl 请求该URL，您将收到一个如下所示的JSON文档：
 
 ```json
 {
@@ -62,11 +194,11 @@ If you request that URL through your web browser or curl, you’ll receive a JSO
 }
 ```
 
-Easy enough, but not terribly useful when fetched through a browser or through curl.
+相当简单，但通过浏览器或通过curl获取还不是最有用的。
 
-A more useful way to consume a REST web service is programmatically. To help you with that task, Spring provides a convenient template class called [`RestTemplate`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html). `RestTemplate`makes interacting with most RESTful services a one-line incantation. And it can even bind that data to custom domain types.
+通过编程式的方式来使用REST web服务更加有用。 为了帮助您完成该任务，Spring提供了一个名为RestTemplate的便捷的模板类。 RestTemplate使我们能用单行代码就可以与大多数RESTful服务交互。 它甚至可以将该数据绑定到自定义域类型。
 
-First, create a domain class to contain the data that you need.
+首先，创建一个域类以包含所需的数据。
 
 `src/main/java/hello/Quote.java`
 
@@ -110,11 +242,11 @@ public class Quote {
 }
 ```
 
-As you can see, this is a simple Java class with a handful of properties and matching getter methods. It’s annotated with `@JsonIgnoreProperties` from the Jackson JSON processing library to indicate that any properties not bound in this type should be ignored.
+如您所见，这是一个简单的Java类，具有少量属性和匹配的getter方法。 它使用Jackson JSON处理库中的@JsonIgnoreProperties进行注释，以表明任何未绑定在此Java类中的属性都应被忽略。
 
-In order for you to directly bind your data to your custom types, you need to specify the variable name exact same as the key in the JSON Document returned from the API. In case your variable name and key in JSON doc are not matching, you need to use `@JsonProperty`annotation to specify the exact key of JSON document.
+为了直接将数据绑定到您的自定义类型，您需要指定与从API返回的JSON文档中的键完全相同的变量名称。 为防止变量名称和JSON文档中的键不匹配，您需要使用@JsonProperty注解来指定与之对应的JSON中的键。
 
-An additional class is needed to embed the inner quotation itself.
+需要一个额外的类来嵌入内部引用本身。
 
 `src/main/java/hello/Value.java`
 
@@ -158,13 +290,13 @@ public class Value {
 }
 ```
 
-This uses the same annotations but simply maps onto other data fields.
+这里虽然使用了相同的注解，但却是映射到其他数据字段。
 
-## Make the application executable
+## 使应用程序可执行
 
-Although it is possible to package this service as a traditional [WAR](https://spring.io/understanding/WAR) file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. Along the way, you use Spring’s support for embedding the [Tomcat](https://spring.io/understanding/Tomcat) servlet container as the HTTP runtime, instead of deploying to an external instance.
+虽然可以将此服务打包为传统WAR文件以部署到外部应用服务器，但下面演示的方法能够更为简便地创建一个独立的应用程序。 您将所有内容都打包在一个可执行的JAR文件中，由main（）方法驱动。 同时，使用Spring提供的内嵌Tomcat servlet 容器作为HTTP运行时环境, 而不是部署到外部实例当中。
 
-Now you can write the `Application` class that uses `RestTemplate` to fetch the data from our Spring Boot quotation service.
+现在，您可以编写使用RestTemplate的Application类来从Spring Boot服务中获取数据。
 
 `src/main/java/hello/Application.java`
 
@@ -190,13 +322,13 @@ public class Application {
 }
 ```
 
-Because the Jackson JSON processing library is in the classpath, `RestTemplate` will use it (via a [message converter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/HttpMessageConverter.html)) to convert the incoming JSON data into a `Quote` object. From there, the contents of the `Quote` object will be logged to the console.
+由于Jackson JSON处理库位于类路径中，所以RestTemplate将使用它（通过消息转换器）将传入的JSON数据转换为Quote对象。 在那里，Quote对象的内容将被记录到控制台。
 
-Here you’ve only used `RestTemplate` to make an HTTP `GET` request. But `RestTemplate`also supports other HTTP verbs such as `POST`, `PUT`, and `DELETE`.
+目前您只使用了RestTemplate进行HTTP GET请求。 但是RestTemplatealso还支持其他HTTP请求，如POST，PUT和DELETE。
 
-## Managing the Application Lifecycle with Spring Boot
+## 使用Spring Boot管理应用程序生命周期
 
-So far we haven’t used Spring Boot in our application, but there are some advantages in doing so, and it isn’t hard to do. One of the advantages is that we might want to let Spring Boot manage the message converters in the `RestTemplate`, so that customizations are easy to add declaratively. To do that we use `@SpringBootApplication` on the main class and convert the main method to start it up, like in any Spring Boot application. Finally we move the `RestTemplate` to a `CommandLineRunner` callback so it is executed by Spring Boot on startup:
+到目前为止，我们在应用程序中没有使用Spring Boot，然而使用Spring Boot有一些优势，并且这并不难。 其中一个优点是，我们可能希望让Spring Boot管理RestTemplate的消息转换器，以便通过声明的方式来进行定制。 为了做到这一点，我们在主类上使用@SpringBootApplication，并转换了main方法来启动它，就像任何Spring Boot应用程序一样。 最后我们将RestTemplate移动到一个CommandLineRunner回调，因此它在启动时由Spring Boot执行：
 
 `src/main/java/hello/Application.java`
 
@@ -237,45 +369,45 @@ public class Application {
 }
 ```
 
-The `RestTemplateBuilder` is injected by Spring, and if you use it to create a `RestTemplate`then you will benefit from all the autoconfiguration that happens in Spring Boot with message converters and request factories. We also extract the `RestTemplate` into a `@Bean` to make it easier to test (it can be mocked more easily that way).
+RestTemplateBuilder由Spring注入，如果您使用它来创建一个RestTemplate，那么您将从Spring Boot的自动配置中受益。 我们还将RestTemplate解压缩成@Bean，使其更易于测试（这样可以更容易模拟）。
 
-### Build an executable JAR
+### Build an executable JAR 构建可执行的JAR
 
-You can run the application from the command line with Gradle or Maven. Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources, and run that. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
+您可以通过Gradle或Maven从命令行运行应用程序。 或者，您可以构建一个包含所有依赖，类和资源的单个可执行JAR文件，并运行该文件。 这使得在整个开发生命周期中，在不同的环境中迁移，打版本和部署服务变得更加容易。
 
-If you are using Gradle, you can run the application using `./gradlew bootRun`. Or you can build the JAR file using `./gradlew build`. Then you can run the JAR file:
+如果您使用的是Gradle，则可以使用./gradlew bootRun运行应用程序。 或者您可以使用./gradlew构建来构建JAR文件。 然后可以运行JAR文件：
 
 ```shell
 java -jar build/libs/gs-consuming-rest-0.1.0.jar
 ```
 
-If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you can run the JAR file:
+如果您使用的是Maven，则可以使用./mvnw spring-boot :run运行应用程序。 或者您可以使用./mvnw clean package 来构建JAR文件。 然后可以运行JAR文件：
 
 ```shell
 java -jar target/gs-consuming-rest-0.1.0.jar
 ```
 
-| **   | The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](https://spring.io/guides/gs/convert-jar-to-war/)instead. |      |      |      |      |
-| ---- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-|      |                                          |      |      |      |      |
+| 上面的过程将创建一个可运行的JAR。 您也可以选择构建一个经典的WAR文件。 |
+| :------------------------------------- |
+|                                        |
 
-You should see output like the following, with a random quote:
+你会看到下面会输出一段随机字符串：
 
 ```java
 2015-09-23 14:22:26.415  INFO 23613 --- [main] hello.Application  : Quote{type='success', value=Value{id=12, quote='@springboot with @springframework is pure productivity! Who said in #java one has to write double the code than in other langs? #newFavLib'}}
 ```
 
-| **   | If you see the error `Could not extract response: no suitable HttpMessageConverter found for response type [class hello.Quote]`it’s possible you are in an environment that cannot connect to the backend service (which sends JSON if you can reach it). Maybe you are behind a corporate proxy? Try setting the standard system properties `http.proxyHost` and `http.proxyPort` to values appropriate for your environment. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+| 如果您看到错误无法提取响应：Could not extract response: no suitable HttpMessageConverter found for response type [class hello.Quote]，您可能处于无法连接到后端服务（如果能连上会返回JSON）。 也许你是代理， 那么尝试将标准系统属性http.proxyHost和http.proxyPort设置为适合您环境的值。 |
+| :--------------------------------------- |
+|                                          |
 
-## Summary
+## Summary 总结
 
-Congratulations! You have just developed a simple REST client using Spring.
+恭喜！ 您刚刚使用Spring开发了一个简单的REST客户端程序。
 
-## See Also
+## 您也可以看看
 
-The following guides may also be helpful:
+以下指南也可能有帮助：
 
 - [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 - [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/)
@@ -293,4 +425,3 @@ The following guides may also be helpful:
 - [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/)
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
-
