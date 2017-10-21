@@ -1,10 +1,10 @@
+# 使用RESTful Web服务
+
 > 原文：[Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/)
 >
 > 译者：[hapihapidoge](https://github.com/hapihapidoge)
 >
 > 校对：
-
-# 使用RESTful Web服务
 
 本指南将引导您完成创建一个使用RESTful Web服务的应用程序的过程。
 
