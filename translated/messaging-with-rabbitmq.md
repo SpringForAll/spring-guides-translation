@@ -1,20 +1,18 @@
-## Spring Boot 整合消息中间件 RabbitMQ
-============================================================
+# Spring Boot 整合消息中间件 RabbitMQ
 
 > 原文：[Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
 >
 > 译者：[chenzhijun](https://github.com/chenzhijun)
 >
-> 校对：[校对者id-1](https://github.com/校对者id-1)，[校对者id-2](https://github.com/校对者id-2)，[校对者id-3](https://github.com/校对者id-3)
-
+> 校对：[程序猿DD](https://github.com/dyc87112)
 
 本篇指南会告诉您如何使用构建一个基于`AMQP协议`的 RabbitMQ 服务，并且教您如何实现发布和订阅消息。
 
-### 你会得到什么？
+## 你会得到什么？
 
 你会创建一个应用，它能够使用 Spring AMQP 的`RabbitTemplate`发布消息，并且通过使用`MessageListenerAdapter`包装一个 [POJO][18] 来接受消息。
 
-### 你需要准备什么？
+## 你需要准备什么？
 
 *   大概15分钟时间
 
@@ -26,7 +24,7 @@
 
 *   你可以直接导入 RabbitMQ 服务的代码到 IDE : [Spring Tool Suite (STS)][7] 或者 [IntelliJ IDEA][8] (点击进入安装步骤)
 
-### 怎样完成指南？
+## 怎样完成指南？
 
 像大多数 Spring [教程指南][19]一样，你可以选择从最基础开始，一步步的完成 Demo ，或者你也可以绕过你熟悉的步骤再开始。不管哪种方式，你最后都会得到一份可执行的代码。
 
@@ -42,11 +40,11 @@
 
 当你完成之后，你可以在`gs-messaging-rabbitmq/complete`检查下结果。
 
-### 使用 Gradle 构建项目
+## 使用 Gradle 构建项目
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle][30] 或者 [Maven][31] 构建的代码。如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目][32]或者[如何使用 Maven 构建 Java 项目][33]。
 
-#### 创建 Gradle 目录结构
+### 创建 Gradle 目录结构
 
 在你的项目根目录，创建如下的子目录结构；例如，如果你使用的是`*nix`系统，你可以使用`mkdir -p src/main/java/hello` 
 
@@ -57,13 +55,13 @@
             └── hello
 ```
 
-#### 创建 Gradle 构建文件
+### 创建 Gradle 构建文件
 
 下面是一份[初始化Gradle构建文件][34]
 
 build.gradle
 
-```
+```groovy
 buildscript {
     repositories {
         mavenCentral()
@@ -112,11 +110,11 @@ dependencies {
 
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][25].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-### 使用 Maven 构建项目
+## 使用 Maven 构建项目
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven][26] 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目][27].
 
-#### 创建 Maven 目录结构
+### 创建 Maven 目录结构
 
 在你的项目根目录，创建如下的子目录结构；例如，如果你使用的是`*nix`系统，你可以使用`mkdir -p src/main/java/hello` 
 
@@ -129,7 +127,7 @@ dependencies {
 
 pom.xml
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -176,13 +174,13 @@ pom.xml
 
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][25].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-### 使用你的 IDE 进行构建
+## 使用你的 IDE 进行构建
 
 *   [如何在Spring Tool Suite中构建][13].
 
 *   [如何在IntelliJ IDEA中构建][14].
 
-### 安装 RabbitMQ
+## 安装 RabbitMQ
 
 在构建消息应用之前，需要先安装 RabbitMQ 消息中间件服务，中间件服务器会处理发送和接受消息。
 
@@ -213,7 +211,7 @@ rabbitmq-server
 
 docker-compose.yml
 
-```
+```yaml
 rabbitmq:
   image: rabbitmq:management
   ports:
@@ -223,13 +221,13 @@ rabbitmq:
 
 将这个文件放到你当前的目录，并且使用`docker-compose`命令，就可以有一个运行 RabbitMQ 的容器了。
 
-### 创建 RabbitMQ 消息接收者
+## 创建 RabbitMQ 消息接收者
 
 对于一些使用消息的应用，你通常都需要创建一个消息接收者来响应已经发布的消息
 
 src/main/java/hello/Receiver.java
 
-```
+```java
 package hello;
 
 import java.util.concurrent.CountDownLatch;
@@ -256,7 +254,7 @@ public class Receiver {
 
 > 为了方便，POJO里面定义了一个`CountDownLatch`。它能够在接收到消息的时候给我们一些提示信号。在正式生产的环境里，你是不太可能像这样操作的。
 
-### 注册监听器并且发送消息
+## 注册监听器并且发送消息
 
 Spring AMQP 的 RabbitTemplate 提供了任何你想要通过 RabbitMQ 发送和接受消息的任何功能。当然，你需要先做一些配置：
 
@@ -272,7 +270,7 @@ Spring AMQP 的 RabbitTemplate 提供了任何你想要通过 RabbitMQ 发送和
 
 src/main/java/hello/Application.java
 
-```
+```java
 package hello;
 
 import org.springframework.amqp.core.Binding;
@@ -334,9 +332,9 @@ public class Application {
 
 * `@EnableAutoConfiguration` 告诉 SpringBoot 启动的时候在 classpath 设置、其它已经装载的 Bean 以及其它配置文件的基础上自动进行配置 Bean.
 
-*  通常你会在SpringMVC应用上使用`@EnableMvc`，但是Spring Boot 在看到spring-webmvc 在它的classpath目录下的时候，它会自动加载该注解。这个注解标记了这个应用是一个web应用，并且会激活一些关键功能，比如说加载`DispatcherServlet`.
+* 通常你会在SpringMVC应用上使用`@EnableMvc`，但是Spring Boot 在看到spring-webmvc 在它的classpath目录下的时候，它会自动加载该注解。这个注解标记了这个应用是一个web应用，并且会激活一些关键功能，比如说加载`DispatcherServlet`.
 
-*  `@ComponetScan` 告诉 Spring 在 hello 包下扫描其它的注解，如组件(componets)，配置(configurations)，或者服务(services),Spring 也会通过它找到控制器(controllers)
+* `@ComponetScan` 告诉 Spring 在 hello 包下扫描其它的注解，如组件(componets)，配置(configurations)，或者服务(services),Spring 也会通过它找到控制器(controllers)
 
 `main()` 方法里面通过调用 Spring Boot 的`SpringApplication.run()`方法来启动应用。你有没有注意到到现在还没有写过一行 XML ？甚至也没有`web.xml`文件。这个 web 应用完全 100% 都是使用的 Java，并且你还不需要对任何应用的基础设置进行配置。
 
@@ -351,13 +349,13 @@ public class Application {
 
 > Spring AMQP 要求`Queue`,`TopicExchange`,`Binding`被声明成了 Spring 的高级 Beans，之后才能正确的执行。
 
-### 发送文本消息
+## 发送文本消息
 
 文本消息通过一个`CommandLineRunner`类来发送，它会等待接收方锁并且关闭应用的上下文：
 
 src/main/java/hello/Runner.java
 
-```
+```java
 package hello;
 
 import java.util.concurrent.TimeUnit;
@@ -394,7 +392,7 @@ public class Runner implements CommandLineRunner {
 
 在测试中runner会被mock掉，目的是为了接受者能够在隔离的环境下测试。
 
-### 运行应用
+## 运行应用
 
 `main()`方法通过创建一个 Spring 应用上下文来启动了程序。它会启动消息监听者容器，容器启动后会监听消息。这里自动执行了一个`Runner`类：它会从应用上下文中检查`RabbitTemplate`，之后会在"spring-boot"队列上发送"Hello from RabbitMQ"消息。最后它会关闭 Spring 应用上下文，然后程序就停止了。
 
@@ -404,13 +402,13 @@ public class Runner implements CommandLineRunner {
 
 如果你使用 Gradle ，你可以使用`./gradlew`来启动应用，或者你可以使用`./gradlew build`来构建一个 JAR 文件。之后，你可以通过运行 JAR 文件：
 
-```
+```shell
 java -jar build/libs/gs-messaging-rabbitmq-0.1.0.jar
 ```
 
 如果你使用 Maven ，你可以使用`./mvnw spring-boot:run`来运行应用。或者你可以使用`./mvnw clean package`来构建一个 JAR 包。之后你可以运行JAR文件：
 
-```
+```shell
 java -jar target/gs-messaging-rabbitmq-0.1.0.jar
 ```
 
@@ -423,11 +421,11 @@ Sending message...
 Received 
 ```
 
-### 总结
+## 总结
 
 恭喜！你已经使用 Spring 和 RabbitMQ 开发了一个简单的`发布-订阅应用`。你也可以使用 Spring 和 RabbitMQ 来做[更多的操作][23],上面的例子只是一个好的开始。
 
-### 了解更多
+## 了解更多
 
 下面的指南也非常有帮助：
 
