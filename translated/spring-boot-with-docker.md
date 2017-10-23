@@ -1,8 +1,8 @@
 # Spring Boot应用Docker化
 
 > 原文：[Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)
-
->译者：[马勇斌](https://https://github.com/stormmaybin)
+> 
+> 译者：[马勇斌](https://https://github.com/stormmaybin)
 >
 > 校对：[張偉文](https://github.com/carlzhangweiwen)
 
