@@ -1,14 +1,13 @@
+# 使用STS的入门指南  
 > 原文：[Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/)
 >
-> 译者：[hanbin](http://github.com/hanbin)
+> 译者：[hanbin](https://github.com/hanbin)
 >
-> 校对：
-
-# 使用STS的入门指南
+> 校对：[Mr.lzc](https://github.com/cleverlzc)
 
 这个指南引导您使用 Spring Tool Suite (STS) 去构建入门程序。
 
-## 你会构建什么
+## 你将构建什么
 
 您将选择一个Spring入门程序并将其导入到Spring Tool Suite中。 接下来，您可以阅读指南，然后编写代码并运行项目。
 
@@ -16,7 +15,7 @@
 
 - 大概15分钟
 - [Spring Tool Suite (STS)](https://spring.io/tools/sts/all)
-- [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 以及更高版本
+- [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或者更高版本
 
 ## 安装STS
 
@@ -28,7 +27,7 @@
 
 启动STS后, 从File菜单打开 **Import Spring Getting Started Content** 向导框。
 
-![Import Getting Started Content](https://spring.io/guides/gs/sts/images/1_open_wizard.png)
+![Import Getting Started Content](static/1033/1_open_wizard.png)
 
 会有一个弹出向导提供从Spring网站搜索并选择已经发布的入门指南。 您可以点击列表，也可以输入搜索字词，以便即时过滤选项。
 
@@ -43,11 +42,11 @@
 
 为了完成本指南的目标,  在搜索框中输入**rest**. 然后选择 [Consuming Rest](https://spring.io/guides/gs/consuming-rest). 选择 **Maven** 作为构建方式, 同时选择 **initial** 和 **complete** 代码集. 还可以同时勾选最下面的打开项目首页的网页， 如下图所示:
 
-![Pick a guide](https://spring.io/guides/gs/sts/images/3_wizard.png)
+![Pick a guide](static/1033/3_wizard.png)
 
 STS将在您的工作空间中创建两个新项目, 并同时导入 [Consuming Rest](https://spring.io/guides/gs/consuming-rest) 的代码 (包括 初始集和完整集), 打开一个STS内置的浏览器选项卡，如下图所示：
 
-![View the code and the guide](https://spring.io/guides/gs/sts/images/4_after-import.png)
+![View the code and the guide](static/1033/4_after-import.png)
 
 到这儿，您就可以开始浏览指南并且查看代码文件了。
 
@@ -55,7 +54,7 @@ STS将在您的工作空间中创建两个新项目, 并同时导入 [Consuming 
 
 恭喜！ 您已经安装了Spring Tool Suite，导入了“Consuming Rest入门项目”，并打开了一个浏览器选项卡来浏览它的说明。
 
-## 也可以看看
+## 了解更多
 
 下面的指南也很有用哦：
 
