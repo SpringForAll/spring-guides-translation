@@ -2,7 +2,7 @@
 
 > 原文：[Building Spring YARN Projects with Maven][1]
 >
-> 译者：[ucool2007][author]
+> 译者：[UniKrau][author]
 >
 > 校对: 
 
@@ -22,7 +22,7 @@
 
 ### 怎样完成指南
 
-像大多数Spring 入门文章一样，即新手按部就班学习或者如果有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring入门][9]文章一样，即新手按部就班学习或者如果有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
 **如果从基础开始** ，请移步[配置项目](#setup_with_maven)
 
@@ -561,6 +561,7 @@ gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-appmaster-0.1.0.jar
 [6]:https://www.google.co.th/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwi9tfm73OXWAhVMOo8KHSGpBLcQFggmMAE&url=https%3A%2F%2Flearn.getgrav.org%2Fadvanced%2Fyaml&usg=AOvVaw0uo63vWO2fwfqu40VHZFUZ
 [7]:https://github.com/spring-guides/getting-started-guides/wiki
 [8]:https://github.com/spring-guides/gs-maven-yarn/archive/master.zip
+[9]:https://spring.io/guides
 [author]::https://github.com/UniKrau
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
