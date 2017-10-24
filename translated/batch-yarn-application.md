@@ -608,7 +608,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 [12]:https://spring.io/guides/gs/sts
 [13]:https://github.com/spring-guides/gs-yarn-batch-processing/archive/master.zip
 [14]:http://creativecommons.org/licenses/by-nc-sa/4.0/
-[author]:https://github.com/ucool2007
+[author]:https://github.com/UniKrau
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][13] 协议进行许可。

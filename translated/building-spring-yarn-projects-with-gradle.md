@@ -368,7 +368,7 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.ja
 [6]:https://spring.io/guides/gs/gradle
 [7]:https://github.com/spring-guides/getting-started-guides/wiki
 [8]:https://github.com/spring-guides/gs-gradle-yarn/archive/master.zip
-[author]:https://github.com/ucool2007
+[author]:https://github.com/UniKrau
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
