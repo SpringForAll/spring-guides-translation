@@ -43,7 +43,7 @@
 | 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) |      |                                          |                                          |
 | 1014 | [Accessing Data with Neo4j](https://spring.io/guides/gs/accessing-data-neo4j/) |      |                                          |                                          |
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
-| 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) |      |                                          |                                          |
+| 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) |      |               xyq000                           |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
 | 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) |      |                                          |                                          |
 | 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) |[程序猿DiDi](https://github.com/dyc87112)                                          |
@@ -51,7 +51,7 @@
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
 | 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) |      | [xuxiaoxie](https://github.com/xuxiaoxie) |                                          |
 | 1023 | [Caching Data with GemFire](https://spring.io/guides/gs/caching-gemfire/) |      | [liweijian199011](https://github.com/liweijian199011) |                                          |
-| 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                          |                                          |
+| 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                         |                                          |
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) |      | [cholf](https://github.com/cholf)        |                                          |
 | 1027 | [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/) |      | [dejunyu](https://github.com/dejunyu)    |                                          |
