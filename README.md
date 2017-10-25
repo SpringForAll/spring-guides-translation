@@ -58,7 +58,7 @@
 | 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 等待校对 | [JohnHello](https://github.com/JohnHello) |                                          |
 | 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 等待校对 | [shaoshao721](https://github.com/shaoshao721) |                                          |
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
-| 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 正在校对 | [nycgym](https://github.com/nycgym)     | [cleverlzc](https://github.com/cleverlzc)                                         |
+| 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 校对调整 | [nycgym](https://github.com/nycgym)     | [cleverlzc](https://github.com/cleverlzc)                                         |
 | 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) | 校对完成 | [maskwang520](https://github.com/maskwang520) | [strongant](https://github.com/strongant) |
 | 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | 正在校对| [hanbin](https://github.com/hanbin)      |  [cleverlzc](https://github.com/cleverlzc)                                        |
 | 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) | 正在校对 | [yunlzheng](https://github.com/yunlzheng) | [rhwayfun](https://github.com/rhwayfun)  |
@@ -71,7 +71,7 @@
 | 1041 | [Testing YARN Application](https://spring.io/guides/gs/yarn-testing/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
 | 1042 | [Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/) | 等待校对 | [UniKrau](https://github.com/UniKrau) |                                          |
 | 1043 | [Restartable Batch YARN Application](https://spring.io/guides/gs/yarn-batch-restart/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
-| 1044 | [Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/) |      |                                          |                                          |
+| 1044 | [Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/) |   校对完成   |                                          |                                          |
 | 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) | 校对完成 | [strongant](https://github.com/strongant) | [maskwang](https://github.com/maskwang520) |
 | 1046 | [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/) |      |                                          |                                          |
 | 1047 | [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/) | 正在翻译 | [qiushile](https://github.com/qiushile)  |                                          |
