@@ -53,7 +53,7 @@
 | 1023 | [Caching Data with GemFire](https://spring.io/guides/gs/caching-gemfire/) |      | [liweijian199011](https://github.com/liweijian199011) |                                          |
 | 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                          |                                          |
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
-| 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) |      | [cholf](https://github.com/cholf)        |                                          |
+| 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) |  寻找校对  | [cholf](https://github.com/cholf)        |                                          |
 | 1027 | [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/) |      | [dejunyu](https://github.com/dejunyu)    |                                          |
 | 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 等待校对 | [JohnHello](https://github.com/JohnHello) |                                          |
 | 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 等待校对 | [shaoshao721](https://github.com/shaoshao721) |                                          |
