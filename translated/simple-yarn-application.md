@@ -437,7 +437,7 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 
 # 总结
 
-恭喜了，你能够开发了Spring YARN的application了
+恭喜了，你能够开发Spring YARN的application了
 
 如果想写一个新的指南或者对其他指南有修改意见和建议，请参考[贡献指南说明][20].
 
