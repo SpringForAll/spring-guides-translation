@@ -2,7 +2,7 @@
 
 > 原文：[Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 >
-> 译者：
+> 译者：xyq000翻译中
 >
 > 校对：
 

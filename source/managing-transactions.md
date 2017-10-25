@@ -2,7 +2,7 @@
 
 > 原文：[Managing Transactions](https://spring.io/guides/gs/managing-transactions/)
 >
-> 译者：
+> 译者：xyq000翻译中
 >
 > 校对：
 
