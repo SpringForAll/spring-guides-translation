@@ -1,8 +1,8 @@
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/)
 >
-> 译者：
+> 译者：william-hyx
 >
 > 校对：
 
