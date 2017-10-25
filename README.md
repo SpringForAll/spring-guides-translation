@@ -60,7 +60,7 @@
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 校对调整 | [nycgym](https://github.com/nycgym)     | [cleverlzc](https://github.com/cleverlzc)                                         |
 | 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) | 校对完成 | [maskwang520](https://github.com/maskwang520) | [strongant](https://github.com/strongant) |
-| 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | 正在校对| [hanbin](https://github.com/hanbin)      |  [cleverlzc](https://github.com/cleverlzc)                                        |
+| 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | 校对完成 | [hanbin](https://github.com/hanbin)      |  [cleverlzc](https://github.com/cleverlzc)                                        |
 | 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) | 正在校对 | [yunlzheng](https://github.com/yunlzheng) | [rhwayfun](https://github.com/rhwayfun)  |
 | 1035 | [Consuming a RESTful Web Service with rest.js](https://spring.io/guides/gs/consuming-rest-restjs/) |      |                                          |                                          |
 | 1036 | [Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/) |      | [william-hyx](https://github.com/william-hyx) |                                          |
