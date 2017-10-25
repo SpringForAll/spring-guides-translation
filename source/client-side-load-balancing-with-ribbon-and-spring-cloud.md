@@ -2,7 +2,7 @@
 
 > 原文：[Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/)
 >
-> 译者：xyq000翻译中
+> 译者：
 >
 > 校对：
 
