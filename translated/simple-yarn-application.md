@@ -9,7 +9,7 @@
 
 > 从这里开始
 
-# 简单的YARN应用
+## 简单的YARN应用
 
 本指南主要介绍创建一个Spring Hadoop YARN应用的流程
 
@@ -114,8 +114,7 @@ In this guide we are going to show how these 3 components,  [YarnClient][12], [Y
   └── gs-yarn-basic-dist
   ```
 
-  for example, on *nix systems, with:
-  
+比如在类nix系统，可以有以下操作  
 
   ```
   mkdir -p gs-yarn-basic-appmaster/src/main/resources
@@ -127,7 +126,7 @@ In this guide we are going to show how these 3 components,  [YarnClient][12], [Y
   mkdir  gs-yarn-basic-dist
   ```
   
-### Create the Gradle build files
+### 创建Gradle编译文件
  
  Below is the [initial Gradle build file ][19] and the [initial Gradle settings file][20]. But you can also use Maven. The pom.xml file is included[right here][21]. If you are using [Spring Tool Suite (STS)][22], you can import the guide directly.
 
@@ -392,27 +391,28 @@ Final part for your application is its runtime configuration, which glues all th
 
 This way you can define your own defaults for your environment. Because these `@ConfigurationProperties` are resolved at runtime by Spring Boot, you even have an easy option to overwrite these properties either by using command-line options, environment variables or by providing additional configuration property files.
 
-### Build the Application
+### 编译 Application
 
-For gradle simply execute the `clean` and `build` tasks.
+如果gradle编译工具可以使用 `clean` and `build` 两个命令
 
 `./gradlew clean build`
 
 
-To skip existing tests if any:
+跳过所有测试命令:
 
 `./gradlew clean build -x test`
 
-For maven simply execute the `clean` and `package` goals.
+如果是maven编译工具可以执行 `clean` and `package` 
 
 `mvn clean package
 `
-To skip existing tests if any:
+
+跳过所有测试命令:
 
 `mvn clean package -DskipTests=true
 `
 
-Below listing shows files after a succesfull gradle build.
+gradle编译成功后，有以下三个jar包
 
 ```
 gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
@@ -420,25 +420,29 @@ gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-appmaster-0.1.0.jar
 gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-container-0.1.0.jar
 ```
 
-### Run the Application
+### 运行application
 
 Now that you’ve successfully compiled and packaged your application, it’s time to do the fun part and execute it on Hadoop YARN.
+现在application通过了编译和打包阶段，该准备在YARN上跑了
 
-To accomplish this, simply run your executable client jar from the projects root dirctory.
+在项目的根目录下执行以下命令即可
 
 `$ java -jar gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
 `
 
-Using the [Resource Manager UI][22] you can see status of an application.
+然后登陆[Resource Manager UI][22]界面（默认端口是8088）查看application的状态.
 
 ![Alt rm_ui](/static/rm_ui.jpg)
 
 
-# Summary
+# 总结
 
-Congratulations! You’ve just developed a Spring YARN application!
+恭喜了，你能够开发了Spring YARN的application了
 
-Want to write a new guide or contribute to an existing one? Check out our [contribution guidelines][20].
+如果想写一个新的指南或者对其他指南有修改意见和建议，请参考[贡献指南说明][20].
+
+[下载完整的源代码][23]
+
 
 >
 >All guides are released with an ASLv2 license for the code, and [an Attribution, NoDerivatives creative commons license][21] for the writing.
@@ -465,6 +469,7 @@ Want to write a new guide or contribute to an existing one? Check out our [contr
 [20]:https://github.com/spring-guides/getting-started-guides/wiki
 [21]:https://creativecommons.org/licenses/by-nd/3.0/
 [22]:http://localhost:8088/cluster
+[23]:https://github.com/spring-guides/gs-yarn-basic.git
 [author]:https://github.com/UniKrau
 [download]:https://github.com/spring-guides/gs-yarn-basic/archive/master.zip
 
