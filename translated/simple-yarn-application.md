@@ -49,41 +49,41 @@
 ## HADOOP YARN 介绍
 
 如果已经在Hadoop社区泡了一至两年，你大概了知道很多YARN的讨论，并且作为Hadoop MapReduce的下一代版本，称之为 MapReduce V2。
-YARN的全称是（Yet Another Resource Negotiator），它的原始设计思想是解决MapReduce组件性能问题。MapReduce v2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。这个理念是：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），可以在Hadoop官网上找到[YARN 架构][11]有关YARN组件之间的依赖关系图。
+YARN的全称是（Yet Another Resource Negotiator），它的原始设计思想是解决MapReduce组件性能问题。MapReduce v2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。这个理念是：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），可以在Hadoop官网上找到[YARN 架构][11]了解有关YARN组件之间的依赖关系图。
 
 
-MapReduceV2在原始MapReduce的基础上重写的并且只是作为一个在YARN上运行的应用程序。因此，可以运行与MapReduce模型无关的应用程序。然而由于YARN的API复杂的性，自定义一个基于YARN的应用程序也是有难度的。YARN的API都是低级别的基础架构API，而不是高级别的开发API。
+MapReduce V2 在最初的MapReduce代码的基础上重写的。重写的结果是作为一个在YARN上运行的应用程序。因此，可以运行与MapReduce模型无关的应用程序。然而由于YARN的API复杂的性，自定义一个基于YARN的应用程序也是有难度的。YARN的API都是低级别的基础架构API，而不是高级别的开发应用API。
 
 
 ## Spring YARN 介绍
 
-从开发者开始编写YARN应用程序到在Hadoop集群上执行这个程序的整个过程，远远比敲几行"Hello world"代码复杂的多。
+开发者开始编写YARN应用程序到在Hadoop集群上运行的整个过程，远远比敲几行"Hello world"代码复杂的多。
 
 见识一下其中的要点：
 
 * 整个工程的代码结构是什么样的？
-* 怎么样编译和打包这个工程是
-* 打包好的程序是怎么样配置的
-* 最终的程序在YARN上怎么跑的
+* 怎么样编译和打包这个工程？
+* 打包好的程序是怎么样配置的？
+* 最终的程序在YARN上怎么跑的？
 
 Spring YARN 和 Spring Boot处理上述几个主题也是有非常清晰的流程
 
-在高层次上，Spring YARN 提供三种不同的组件 [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]。但是这些组件都是Spring YARN Application，我们提供所有组件的默认实现但是也给终端用户尽可能多自定义的选项
+在高层次上，Spring YARN 提供三种不同的组件 [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]。这些组件都是Spring YARN Application，我们提供所有组件的默认实现同样也给终端用户尽可能多自定义的选项。
 
 
 在Hadoop集群环境下进行开发、打包、发布、运行程序是项较为繁重的工作。job提交的过程当中，只是把编译好的包放在Hadoop的classpath下或者通过Hadoop的tool拷贝已经编译的 artifacts jar包到Hadoop集群 ？但是如果代码所依赖的库不在Hadoop默认的classpath？甚至，其依赖的库和已经存在Hadoop默认classpath的库有冲突呢？
 
 
-Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的时候，Spring Boot 可以解决所有的依赖性。或者能自动提取的zip包执行包并且在Hadoop的默认classpath下后者可以重复使用
+Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的时候，有两种方式解决依赖性问题：一、通过Spring Boot解决所有的依赖性问题。二、自动提取zip形式执行包并且保存在Hadoop的默认classpath下，而且第二方式可以重复使用。
 
-通过Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件是如何打包成执行的jar。Spring Boot内部重度依赖应用程序的自动配置同时Spring YARN会添加其自动配置魔法。应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
+使用Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件把application打包成可执行的jar。可以知道，Spring Boot内部通过应用程序的自动化配置和Spring YARN会添加其自动化配置魔法去解决依赖性问题。因此，应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
 
 ##  配置工程
   
-首先配置好基本的编译脚本。可以用熟悉的编译系统构建Spring app。[Gradle][15] and [Maven][16]可以用来构建代码。如果你不熟悉，请参[Building Java Projects with Gradle][24] or [Building Java Projects with Maven][25].
+首先配置基本的编译脚本。可以用熟悉的编译系统构建Spring app。[Gradle][15] 和 [Maven][16]都可以用来构建代码。如果你不熟悉，请参[Building Java Projects with Gradle][24] or [Building Java Projects with Maven][25].
   
   
-  而且还附带关于构建Spring YARN的系统说明指南。如果不熟悉，请参考 [Building Spring YARN Projects with Gradle][17] or [Building Spring YARN Projects with Maven][18].
+如果不熟悉而且想知道关于构建Spring YARN的系统说明指南，请参考 [Building Spring YARN Projects with Gradle][17] or [Building Spring YARN Projects with Maven][18].
   
  ### 创建目录结构
   
@@ -205,7 +205,7 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
   ``include 'gs-yarn-basic-client','gs-yarn-basic-appmaster','gs-yarn-basic-container','gs-yarn-basic-dist'
   ``
   
- 以上的gradle编译文件，简单的创建了三个不同的jar包，各自的类文件都有他们的角色。Spring Boot的插件把这些jar打包成一个可执行的jar。
+以上的gradle编译文件，简单的创建了三个不同的jar包，各自的类文件都有他们的角色。Spring Boot的插件把这些jar打包成一个可执行的jar。
 
 <h2 id="CYC">创建YARN容器</h2>
 
@@ -236,8 +236,6 @@ public class ContainerApplication {
 
 }
 ```
-
-In the above `ContainerApplication` , notice how we added the `@Configuration` annotation at the class level and the `@Bean` annotation on the  method. We have jumped a little bit ahead of what you most likely expect us to do. We previously mentioned `YarnContainer` component which is an interface towards what you’d execute in your containers. You could define your custom `YarnContainer` to implement this interface and wrap all logic inside of that implementation.
 
 这个 `ContainerApplication` 类，添加了类级别的 `@Configuration` 注解，以及 `@Bean` 注解在 `helloPojo()` 方法上。这些内容虽然有些超前，但是不难理解。之前提到的`YarnContainer` 组件其实是一个需要实现的接口。所以可以自定义一个实现这个接口的`YarnContainer`来包装其逻辑实现。
 
@@ -288,10 +286,9 @@ public class HelloPojo {
 * 添加一个 `@Autowired` 注解到Hadoop的 `Configuration` 类 `@YarnComponent` 是一个 stereotype 的注解, 为Spring提供了一个 `@Component` 注解. This is automatically marking a class to be a candidate for having  functionality.
 它能自动标记一个类为候选类——具有 `@YarnContainer`的功能。
 
-Within this class we can use `@OnContainerStart` annotation to mark a public method with void return type and no arguments act as an entry point for some application code that needs to be executed on Hadoop.
+如果想在Hadoop上执行这个方法，那么这个类模版是这样的：要用 `@OnContainerStart` 注解标记一个 `void` 类型返回值的无参数公有方法。这个方法只是作为一个application代码的实体点，
 
-To demonstrate that we actually have some real functionality in this class, we simply use Spring Hadoop’s  `@FsShell` to list entries from the root of the `HDFS` file system. We needed to have Hadoop’s `Configuration` which is prepared for you so that you can just rely on autowiring for access to it.
-
+为了掩饰这一点，在这个类中特意添加了一些真实的功能，使用Spring Hadoop `@FsShell` 列举  `HDFS` 跟文件系统的目录树。并且Hadoop的 `Configuration` 能方便地访问 `HDFS` 文件系统。
 
 ### 创建一个YARN Appmaster 
 
