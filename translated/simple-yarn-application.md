@@ -11,12 +11,12 @@
 
 ## 简单的YARN应用
 
-本指南主要介绍创建一个Spring Hadoop YARN应用的流程
+本指南主要介绍创建一个Spring Hadoop YARN应用程序的流程
 
 
 ## 你会学到什么
 
-使用Spring Hadoop和Spring boot构建简单的Hadoop YARN应用
+使用Spring Hadoop和Spring Boot构建简单的Hadoop YARN应用
 
 ## 你需要准备什么
 
