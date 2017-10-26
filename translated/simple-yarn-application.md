@@ -57,7 +57,7 @@ MapReduceV2在原始MapReduce的基础上重写的并且只是作为一个在YAR
 
 ## Spring YARN 介绍
 
-从开发者开始编写YARN应用程序到在Hadoop集群上执行这个程序的整个过程，远远比敲几行 "Hello world"代码复杂的多。
+从开发者开始编写YARN应用程序到在Hadoop集群上执行这个程序的整个过程，远远比敲几行"Hello world"代码复杂的多。
 
 见识一下其中的要点：
 
@@ -71,23 +71,23 @@ Spring YARN 和 Spring Boot处理上述几个主题也是有非常清晰的流�
 在高层次上，Spring YARN 提供三种不同的组件 [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]。但是这些组件都是Spring YARN Application，我们提供所有组件的默认实现但是也给终端用户尽可能多自定义的选项
 
 
-In a pure Hadoop environment it has always been a cumbersome process to get your own code packaged, deployed and executed on a Hadoop cluster. Should you just put your compiled package in Hadoop’s classpath, or rely on Hadoop’s tools to copy your artifacts into Hadoop during the job submission? What about if your own code depends on some library that isnt already present on Hadoop’s default classpath? Even worse, what about if the dependencies in your code collides with libraries already on Hadoop’s default classpath?
+在Hadoop集群环境下进行开发、打包、发布、运行程序是项较为繁重的工作。job提交的过程当中，只是把编译好的包放在Hadoop的classpath下或者通过Hadoop的tool拷贝已经编译的 artifacts jar包到Hadoop集群 ？但是如果代码所依赖的库不在Hadoop默认的classpath？甚至，其依赖的库和已经存在Hadoop默认classpath的库有冲突呢？
 
 
-With Spring Boot you can work around all these issues. You either create an executable jar (sometimes called an uber or fat jar) which bundles all dependencies, or a zip package which can be automatically extracted before the code is about to be executed. In the latter case, it’s possible to re-use entries already available on Hadoop’s default classpath.
+Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的时候，Spring Boot 可以解决所有的依赖性。或者能自动提取的zip包执行包并且在Hadoop的默认classpath下后者可以重复使用
 
-In this guide we are going to show how these 3 components,  [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]and  are packaged into executable jars using Spring Boot. Internally Spring Boot rely heavy on application auto-configuration and Spring YARN adds its own auto-configuration magic. The application developer can then concentrate on his or her own code and application configuration instead of spending a lot of time trying to understand how all the components should integrate with each other.
+通过Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件是如何打包成执行的jar。Spring Boot内部重度依赖应用程序的自动配置同时Spring YARN会添加其自动配置魔法。应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
+
+##  配置工程
+  
+首先配置好基本的编译脚本。可以用熟悉的编译系统构建Spring app。[Gradle][15] and [Maven][16]可以用来构建代码。如果你不熟悉，请参[Building Java Projects with Gradle][24] or [Building Java Projects with Maven][25].
   
   
-##  Set up the project
+  而且还附带关于构建Spring YARN的系统说明指南。如果不熟悉，请参考 [Building Spring YARN Projects with Gradle][17] or [Building Spring YARN Projects with Maven][18].
   
-  First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Gradle][15] and [Maven][16] is included here. If you’re not familiar with either, refer to Building Java Projects with Gradle or Building Java Projects with Maven.
+ ### 创建目录结构
   
-  We also have additional guides having specific instructions using build systems with Spring YARN. If you’re not familiar with either, refer to [Building Spring YARN Projects with Gradle][17] or [Building Spring YARN Projects with Maven][18].
-  
- ### Create the directory structure
-  
-  In a project directory of your choosing, create the following subdirectory structure:
+  在选定的目录下，创建以下目录结构
   
   ```
   ├── gs-yarn-basic-appmaster
@@ -128,7 +128,8 @@ In this guide we are going to show how these 3 components,  [YarnClient][12], [Y
   
 ### 创建Gradle编译文件
  
- Below is the [initial Gradle build file ][19] and the [initial Gradle settings file][20]. But you can also use Maven. The pom.xml file is included[right here][21]. If you are using [Spring Tool Suite (STS)][22], you can import the guide directly.
+以下是[initial Gradle build file ][19] 和 [initial Gradle settings file][20]文件内容，如果你使用 [Spring Tool Suite (STS)][22]
+可以直接导入目录。
 
   `build.gradle`
   
@@ -204,12 +205,11 @@ In this guide we are going to show how these 3 components,  [YarnClient][12], [Y
   ``include 'gs-yarn-basic-client','gs-yarn-basic-appmaster','gs-yarn-basic-container','gs-yarn-basic-dist'
   ``
   
-  In the above gradle build file we simply create three different jars, each having classes for its specific role. These jars are then repackaged by Spring Boot’s gradle plugin to create an executable jar.
- 
+ 以上的gradle编译文件，简单的创建了三个不同的jar包，各自的类文件都有他们的角色。Spring Boot的插件把这些jar打包成一个可执行的jar。
 
 <h2 id="CYC">创建YARN容器</h2>
 
-Here you create `ContainerApplication`  and `HelloPojo` classes.
+分别创建 `ContainerApplication`  and `HelloPojo` 2个类.
 
 `gs-yarn-basic-container/src/main/java/hello/container/ContainerApplication.java`
 
@@ -237,9 +237,12 @@ public class ContainerApplication {
 }
 ```
 
-In the above `ContainerApplication` , notice how we added the `@Configuration` annotation at the class level and the `@Bean` annotation on the `helloPojo()` method. We have jumped a little bit ahead of what you most likely expect us to do. We previously mentioned `YarnContainer` component which is an interface towards what you’d execute in your containers. You could define your custom `YarnContainer` to implement this interface and wrap all logic inside of that implementation.
+In the above `ContainerApplication` , notice how we added the `@Configuration` annotation at the class level and the `@Bean` annotation on the  method. We have jumped a little bit ahead of what you most likely expect us to do. We previously mentioned `YarnContainer` component which is an interface towards what you’d execute in your containers. You could define your custom `YarnContainer` to implement this interface and wrap all logic inside of that implementation.
 
-However, Spring YARN defaults to a `DefaultYarnContainer` if none is defined and this default implementation expects to find a specific bean type from a `Spring Application Context` having the real user facing logic what container is supposed to do.
+这个 `ContainerApplication` 类，添加了类级别的 `@Configuration` 注解，以及 `@Bean` 注解在 `helloPojo()` 方法上。这些内容虽然有些超前，但是不难理解。之前提到的`YarnContainer` 组件其实是一个需要实现的接口。所以可以自定义一个实现这个接口的`YarnContainer`来包装其逻辑实现。
+
+
+然而，Spring YARN 有一个默认的 `DefaultYarnContainer` ，当没有自实现 `YarnContainer` 的时候，这个默认 `DefaultYarnContainer` 从 `Spring Application Context` 找到指定的bean类型，而 `Spring Application Context` 包含类真实用户container的逻辑。
 
 `gs-yarn-basic-container/src/main/java/hello/container/HelloPojo.java`
 
@@ -278,21 +281,21 @@ public class HelloPojo {
 }
 ```
 
-`HelloPojo` class is a simple `POJO` in a sense that it doesn’t extend any Spring YARN base classes. What we did in this class:
+`HelloPojo` 类是个简单的 `POJO` ，这样的场景下，它不需要继承Spring YARN的基类，这个类包含以下内容:
 
-* We added a class level `@YarnComponent` annotation.
-* We added a method level `@OnContainerStart` annotation
-* We `@Autowired` a Hadoop’s `Configuration` class
-`@YarnComponent` is a stereotype annotation, providing a Spring `@Component` annotation. This is automatically marking a class to be a candidate for having `@YarnContainer` functionality.
+* 添加一个 `@YarnComponent` 类级别的注解
+* 添加一个 `@OnContainerStart` 方法级别的注解
+* 添加一个 `@Autowired` 注解到Hadoop的 `Configuration` 类 `@YarnComponent` 是一个 stereotype 的注解, 为Spring提供了一个 `@Component` 注解. This is automatically marking a class to be a candidate for having  functionality.
+它能自动标记一个类为候选类——具有 `@YarnContainer`的功能。
 
 Within this class we can use `@OnContainerStart` annotation to mark a public method with void return type and no arguments act as an entry point for some application code that needs to be executed on Hadoop.
 
 To demonstrate that we actually have some real functionality in this class, we simply use Spring Hadoop’s  `@FsShell` to list entries from the root of the `HDFS` file system. We needed to have Hadoop’s `Configuration` which is prepared for you so that you can just rely on autowiring for access to it.
 
 
-### Create a Yarn Appmaster
+### 创建一个YARN Appmaster 
 
-Here you create an `AppmasterApplication` class.
+新建一个 `AppmasterApplication` 类.
 
 `AppmasterApplication`
 
@@ -312,16 +315,17 @@ public class AppmasterApplication {
 }
 ```
 
-The application class for `YarnAppmaster` looks even simpler than what we just did for `ClientApplication` . Again the `main()` method uses Spring Boot’s `SpringApplication.run()` method to launch an application.
-
-One might argue that if you use this type of dummy class to basically fire up your application, could we not use a generic class for this? Well simple answer is yes, we even have a generic `SpringYarnBootApplication` class just for this purpose. You’d define that to be your main class for an executable jar and you’d accomplish this during the gradle build.
-
-In real life, however, you most likely need to start adding more custom functionality to your application component and you’d do that by starting to add more beans. To do that you need to define a Spring `@Configuration` or `@ComponentScan`.` AppmasterApplication` would then act as your main starting point to define more custom functionality. Effectively this is exactly what we do with a `YarnContainer` in section below.
+这个 `YarnAppmaster` 比起 `ClientApplication` 简单类许多。值得强调一次是：它 `main()` 调用了Spring Boot的 `SpringApplication.run()` 进行启动一个程序。
 
 
-### Create a Yarn Client
+那么为什么要使用这样的类来封装程序呢，而不用一般的类封装呢。理由是：即使有这样一个 `SpringYarnBootApplication` 类进行封装。但是还是需要在可执行的jar包主类中定义。gradle编译必须需要指定。
 
-Here you create a `ClientApplication` class.
+
+真实的情况是，需要添加许多自定义功能到程序的组件并且添加更多的beans。但是很方便，只需定义Spring `@Configuration` or `@ComponentScan`。当然` AppmasterApplication`也有同样的功能。 在以下部分的 `YarnContainer`中， 它就是明显的例子。
+
+### 创建一个YARN客户端
+
+新建一个 `ClientApplication` 类.
 
 `gs-yarn-basic-client/src/main/java/hello/client/ClientApplication.java`
 
@@ -344,15 +348,14 @@ public class ClientApplication {
 }
 ```
 
-* @EnableAutoConfiguration tells Spring Boot to start adding beans based on classpath setting, other beans, and various property settings.
-* Specific auto-configuration for Spring YARN components takes place in a same way than from a core Spring Boot.
+* `@EnableAutoConfiguration` 能让Spring Boot 添加基于classpath配置的beans、其他的beans和各种各样的属性设置
+* Spring Boot的核心也会以相同的方式为Spring YARN 组件加载特定自动化配置
 
-The `main()` method uses Spring Boot’s `SpringApplication.run()` method to launch an application. From there we simply request a bean of type `YarnClient` and execute its `submitApplication()` method. What happens next depends on application configuration, which we go through later in this guide. Did you notice that there wasn’t a single line of XML?
+这个 `main()` 调用Spring Boot’s `SpringApplication.run()`方法启动一个程序，从简单 `YarnClient` bean请求和执行 `submitApplication()`方法，接下运行流程都要依赖程序的配置文件，后来的指南会讲述相关的内容。配置文件不是只有一个单独XML文件。
 
+### 创建一个程序配置文件
 
-### Create an Application Configuration
-
-Create a new yaml configuration file for all sub-projects.
+根据所有的子工程创建一个新的 yaml 配置文件
 
 ```
 gs-yarn-basic-container/src/main/resources/application.yml 
@@ -383,13 +386,14 @@ spring:
 
 >
 >
->Pay attention to the `yaml` file format which expects correct indentation and no tab characters.
+>注意 `yaml` 文件的格式，它缩进方式不是tab字符。
 >
 >
 
-Final part for your application is its runtime configuration, which glues all the components together, which then can be executed as a Spring YARN application. This configuration act as source for Spring Boot’s `@ConfigurationProperties` and contains relevant configuration properties which cannot be auto-discovered or otherwise needs to have an option to be overwritten by an end user.
+最后一部分是运行配置，把所有的组件能融合在一块，作为一个可执行的Spring YARN 程序，这个配置为Spring Boot `@ConfigurationProperties`提供配置源，内容包含了相关的配置属性，有些是不能可修改的属性也有些是用户可以修改的
 
-This way you can define your own defaults for your environment. Because these `@ConfigurationProperties` are resolved at runtime by Spring Boot, you even have an easy option to overwrite these properties either by using command-line options, environment variables or by providing additional configuration property files.
+
+这种方式，方便自定义默认的环境变量。因为程序运行的时候，Spring Boot会解析 `@ConfigurationProperties` ，当然还有更简单的方式，比如命令行或者定义配置属性文件覆盖默认的属性值。
 
 ### 编译 Application
 
@@ -432,10 +436,10 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 
 然后登陆[Resource Manager UI][22]界面（默认端口是8088）查看application的状态.
 
-![Alt rm_ui](/static/rm_ui.jpg)
+![Alt rm_ui](/translated/static/rm_ui.jpg)
 
 
-# 总结
+## 总结
 
 恭喜了，你能够开发Spring YARN的application了
 
@@ -464,12 +468,14 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 [14]:https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/container/YarnContainer.html
 [15]:http://gradle.org/
 [16]:https://maven.apache.org/
-[17]:https://spring.io/guides/gs/gradle
-[18]:https://spring.io/guides/gs/maven
+[17]:https://spring.io/guides/gs/gradle-yarn
+[18]:https://spring.io/guides/gs/maven-yarn 
 [20]:https://github.com/spring-guides/getting-started-guides/wiki
 [21]:https://creativecommons.org/licenses/by-nd/3.0/
 [22]:http://localhost:8088/cluster
 [23]:https://github.com/spring-guides/gs-yarn-basic.git
+[24]:https://spring.io/guides/gs/gradle
+[25]:https://spring.io/guides/gs/maven
 [author]:https://github.com/UniKrau
 [download]:https://github.com/spring-guides/gs-yarn-basic/archive/master.zip
 
