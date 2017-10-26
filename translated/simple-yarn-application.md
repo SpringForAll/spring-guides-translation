@@ -71,12 +71,12 @@ MapReduce V2 是在最初的MapReduce代码的基础上重写的。重写的结�
 在高层次上，Spring YARN 提供三种不同的组件 [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]。这些组件都是Spring YARN Application，我们提供所有组件的默认实现同样也给终端用户尽可能多自定义的选项。
 
 
-在Hadoop集群环境下进行开发、打包、发布、运行程序是项较为繁重的工作。job提交的过程当中，只是把编译好的包放在Hadoop的classpath下或者通过Hadoop的tool拷贝已经编译的 artifacts jar包到Hadoop集群 ？但是如果代码所依赖的库不在Hadoop默认的classpath？甚至，其依赖的库和已经存在Hadoop默认classpath的库有冲突呢？
+在Hadoop集群环境下进行开发、打包、发布、运行程序是项较为繁重的工作。举个例子，job提交的过程当中，只是把编译好的包放在Hadoop的classpath下或者通过Hadoop的tool拷贝已经编译的 artifacts jar包到Hadoop集群 ？但是如果代码所依赖的库不在Hadoop默认的classpath？甚至，其依赖的库和已经存在Hadoop默认classpath的库有冲突呢？
 
 
 Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的时候，有两种方式解决依赖性问题：一、通过Spring Boot解决所有的依赖性问题。二、自动提取zip形式执行包并且保存在Hadoop的默认classpath下，而且第二方式可以重复使用。
 
-使用Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件把application打包成可执行的jar。可以知道，Spring Boot内部通过应用程序的自动化配置和Spring YARN会添加其自动化配置魔法去解决依赖性问题。因此，应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
+使用Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件把application打包成可执行的jar。可以知道，Spring Boot内部通过应用程序的自动化配置和Spring YARN添加其自动化配置去解决依赖性问题。因此，应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
 
 ##  配置工程
   
