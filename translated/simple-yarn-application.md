@@ -446,7 +446,7 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 
 
 >
->All guides are released with an ASLv2 license for the code, and [an Attribution, NoDerivatives creative commons license][21] for the writing.
+>所有的指南都一个 ASLv2 license，如果想写，请参考[an Attribution, NoDerivatives creative commons license][21]
 >
 
 [1]:https://spring.io/guides/gs/yarn-basic/
