@@ -33,9 +33,9 @@
 
 像大多数[Spring 入门文章][8]一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
-**如果从基础开始**，参考[配置工程](#set_up)
+**如果从零基础开始**，参考[配置工程](#set_up)
 
-**如果已经熟悉跳过一些基本步骤**你可以这样
+**如果有基础则跳过一些基本步骤**你可以这样
 
 
 * [下载][download]源码然后使unzip 命令解压，或者使用[Git][9]拷贝一份源代码，克隆命令`git clone` [https://github.com/spring-guides/gs-yarn-basic.git][9]
@@ -48,25 +48,25 @@
 
 ## HADOOP YARN 介绍
 
-如果已经在Hadoop社区泡了一至两年，你大概了知道很多YARN的讨论，并且作为Hadoop MapReduce的下一代版本，称之为 MapReduce V2。
-YARN的全称是（Yet Another Resource Negotiator），它的原始设计思想是解决MapReduce组件性能问题。MapReduce v2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。这个理念是：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），可以在Hadoop官网上找到[YARN 架构][11]了解有关YARN组件之间的依赖关系图。
+在Hadoop社区泡了一至两年，你大概了知道很多YARN的讨论，并且YARN作为Hadoop MapReduce的下一代版本，也称为 MapReduce V2。
+YARN的全称是（Yet Another Resource Negotiator），它的最初设计思想是解决MapReduce组件性能问题。MapReduce V2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。因此最后是这样的：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），当然可以在Hadoop官网上找到[YARN 架构][11]了解有关YARN组件之间的依赖关系图。
 
 
-MapReduce V2 在最初的MapReduce代码的基础上重写的。重写的结果是作为一个在YARN上运行的应用程序。因此，可以运行与MapReduce模型无关的应用程序。然而由于YARN的API复杂的性，自定义一个基于YARN的应用程序也是有难度的。YARN的API都是低级别的基础架构API，而不是高级别的开发应用API。
+MapReduce V2 是在最初的MapReduce代码的基础上重写的。重写的结果是把它当为一个在YARN上运行的应用程序。所以在YARN上可以运行与MapReduce模型无关的应用程序。然而由于YARN的API复杂的性，开发一个基于YARN的应用程序也是有难度的。YARN的API都是低级别的基础架构API，而不是高级别的开发应用API。
 
 
 ## Spring YARN 介绍
 
-开发者开始编写YARN应用程序到在Hadoop集群上运行的整个过程，远远比敲几行"Hello world"代码复杂的多。
+开发者从开始编写YARN应用程序到在Hadoop集群上运行的整个过程，远远比敲几行"Hello world"代码复杂的多。
 
-见识一下其中的要点：
+需要考虑其中的以下几个要点：
 
-* 整个工程的代码结构是什么样的？
+* 整个工程的代码结构是什么样？
 * 怎么样编译和打包这个工程？
-* 打包好的程序是怎么样配置的？
-* 最终的程序在YARN上怎么跑的？
+* 打包好的程序需要怎么样配置？
+* 最终的程序在YARN上怎么跑？
 
-Spring YARN 和 Spring Boot处理上述几个主题也是有非常清晰的流程
+因此，Spring YARN 和 Spring Boot进行了二次开发Hadoop YARN
 
 在高层次上，Spring YARN 提供三种不同的组件 [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]。这些组件都是Spring YARN Application，我们提供所有组件的默认实现同样也给终端用户尽可能多自定义的选项。
 
