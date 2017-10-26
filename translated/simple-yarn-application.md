@@ -128,7 +128,7 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
   
 ### 创建Gradle编译文件
  
-以下是[initial Gradle build file ][19] 和 [initial Gradle settings file][20]文件内容，如果你使用 [Spring Tool Suite (STS)][22]
+以下是[initial Gradle build file ][19] 和 [initial Gradle settings file][20]文件内容，如果你使用 [Spring Tool Suite (STS)][5]
 可以直接导入目录。
 
   `build.gradle`
