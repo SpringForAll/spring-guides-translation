@@ -53,7 +53,7 @@
 | 1023 | [Caching Data with GemFire](https://spring.io/guides/gs/caching-gemfire/) |      | [liweijian199011](https://github.com/liweijian199011) |                                          |
 | 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                          |                                          |
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
-| 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) | 寻找校对 | [cholf](https://github.com/cholf)        |                                          |
+| 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) | 校对完成 | [cholf](https://github.com/cholf)        |[cleverlzc](https://github.com/cleverlzc)                                          |
 | 1027 | [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/) |      | [dejunyu](https://github.com/dejunyu)    |                                          |
 | 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 等待校对 | [JohnHello](https://github.com/JohnHello) |                                          |
 | 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 等待校对 | [shaoshao721](https://github.com/shaoshao721) |                                          |
@@ -81,7 +81,7 @@
 | 1051 | [Caching Data with Spring](https://spring.io/guides/gs/caching/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | 1052 | [Deploying to Cloud Foundry from STS](https://spring.io/guides/gs/sts-cloud-foundry-deployment/) |      |                                          |                                          |
 | 1053 | [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/) | 正在校对 | [StormMaybin](https://github.com/StormMaybin) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
-| 1054 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) |      | [xiudongxu](https://github.com/xiudongxu) |                                          |
+| 1054 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) |      正在校对| [xiudongxu](https://github.com/xiudongxu) |[cleverlzc](https://github.com/cleverlzc)                                          |
 | 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) | 正在翻译 | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 正在校对 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
