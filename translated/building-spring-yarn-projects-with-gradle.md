@@ -2,7 +2,7 @@
 
 > 原文：[Building Spring YARN Projects with Gradle][1] 
 >
-> 译者：[ucool2007][author]
+> 译者：[UniKrau][author]
 >
 > 校对：
 
@@ -25,7 +25,7 @@
 
 ### 如何完成指南
 
-像大多数Spring 入门文章一样，即新手按部就班学习或者有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring入门][9]文章一样，即新手按部就班学习或者有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
 **如果从基础开始** 参考[配置工程](#gradle_id)
 
@@ -35,7 +35,7 @@
 * 使用 `cd ` 命令跳转到 `gs-gradle-yarn/initial` 目录
 * 或者戳[理解Gradle使用规则](#gradle_inital)
 
-**以上结束后** 可以到 `gs-gradle-yarn/complete` 查看
+**以上结束后** 可以到 `gs-gradle-yarn/complete` 目录查看
 
 如果不了解Gradle或者尚未安装Gradle，请参考[用Gradle构建Java工程][6]
 
@@ -368,7 +368,8 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.ja
 [6]:https://spring.io/guides/gs/gradle
 [7]:https://github.com/spring-guides/getting-started-guides/wiki
 [8]:https://github.com/spring-guides/gs-gradle-yarn/archive/master.zip
-[author]:https://github.com/ucool2007
+[9]:https://spring.io/guides
+[author]:https://github.com/UniKrau
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。

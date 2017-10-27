@@ -43,7 +43,7 @@
 | 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) |      |                                          |                                          |
 | 1014 | [Accessing Data with Neo4j](https://spring.io/guides/gs/accessing-data-neo4j/) |      |                                          |                                          |
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
-| 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) |      |                                          |                                          |
+| 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) | 正在翻译     |[xyq000](https://github.com/xyq000)                                          |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
 | 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) |      |                                          |                                          |
 | 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) |[程序猿DiDi](https://github.com/dyc87112)                                          |
@@ -58,19 +58,19 @@
 | 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 等待校对 | [JohnHello](https://github.com/JohnHello) |                                          |
 | 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 等待校对 | [shaoshao721](https://github.com/shaoshao721) |                                          |
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
-| 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 等待校对 | [nycgym](https://github.com/Anycgym)     |                                          |
+| 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 正在校对 | [nycgym](https://github.com/nycgym)     | [cleverlzc](https://github.com/cleverlzc)                                         |
 | 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) | 校对完成 | [maskwang520](https://github.com/maskwang520) | [strongant](https://github.com/strongant) |
-| 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | 正在翻译 | [hanbin](https://github.com/hanbin)      |                                          |
+| 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | 正在校对| [hanbin](https://github.com/hanbin)      |  [cleverlzc](https://github.com/cleverlzc)                                        |
 | 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) | 正在校对 | [yunlzheng](https://github.com/yunlzheng) | [rhwayfun](https://github.com/rhwayfun)  |
 | 1035 | [Consuming a RESTful Web Service with rest.js](https://spring.io/guides/gs/consuming-rest-restjs/) |      |                                          |                                          |
 | 1036 | [Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/) |      | [william-hyx](https://github.com/william-hyx) |                                          |
 | 1037 | [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/) |      | [yunlzheng](https://github.com/yunlzheng) |                                          |
-| 1038 | [Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn/) |      | [ucool2007](https://github.com/ucool2007) |                                          |
-| 1039 | [Building Spring YARN Projects with Maven](https://spring.io/guides/gs/maven-yarn/) |      | [ucool2007](https://github.com/ucool2007) |                                          |
-| 1040 | [Simple YARN Application](https://spring.io/guides/gs/yarn-basic/) |      | [ucool2007](https://github.com/ucool2007) |                                          |
-| 1041 | [Testing YARN Application](https://spring.io/guides/gs/yarn-testing/) |      | [ucool2007](https://github.com/ucool2007) |                                          |
-| 1042 | [Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/) | 等待校对 | [ucool2007](https://github.com/ucool2007) |                                          |
-| 1043 | [Restartable Batch YARN Application](https://spring.io/guides/gs/yarn-batch-restart/) |      | [ucool2007](https://github.com/ucool2007) |                                          |
+| 1038 | [Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
+| 1039 | [Building Spring YARN Projects with Maven](https://spring.io/guides/gs/maven-yarn/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
+| 1040 | [Simple YARN Application](https://spring.io/guides/gs/yarn-basic/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
+| 1041 | [Testing YARN Application](https://spring.io/guides/gs/yarn-testing/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
+| 1042 | [Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/) | 等待校对 | [UniKrau](https://github.com/UniKrau) |                                          |
+| 1043 | [Restartable Batch YARN Application](https://spring.io/guides/gs/yarn-batch-restart/) |      | [UniKrau](https://github.com/UniKrau) |                                          |
 | 1044 | [Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/) |      |                                          |                                          |
 | 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) | 校对完成 | [strongant](https://github.com/strongant) | [maskwang](https://github.com/maskwang520) |
 | 1046 | [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/) |      |                                          |                                          |
@@ -93,7 +93,7 @@
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) |正在翻译      |[panhoucheng](https://github.com/panhoucheng)                                          |                                          |
 | 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 等待校对 | [HoldDie](https://github.com/HoldDie)    |                                          |
 | 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) |正在翻译     |[YukunSun](https://github.com/YukunSun)                                           |                                          |
-| 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)|正在校对 | [silentbalanceyh](https://github.com/silentbalanceyh)     |[cleverlzc](https://github.com/cleverlzc)                                          |                                          
+| 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)|正在校对 | [silentbalanceyh](https://github.com/silentbalanceyh)     |[cleverlzc](https://github.com/cleverlzc)                                          |                                                        
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
 | 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      |                                          |                                          |

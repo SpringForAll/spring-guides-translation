@@ -1,8 +1,8 @@
 # YARN 的批处理应用程序
 
-> 原文：[Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/) 
+> 原文：[Batch YARN Application][15] 
 >
-> 译者：[ucool2007][author]
+> 译者：[UniKrau][author]
 >
 > 校对：
 
@@ -26,7 +26,7 @@
 
 ### 怎样完成指南
 
-像大多数[Spring 入门文章]一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring 入门文章][16]一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
 **如果从基础开始**，参考[配置工程](#set_up)
 
@@ -89,7 +89,7 @@ mkdir -p gs-yarn-batch-processing-client/src/main/java/hello/client
 mkdir -p gs-yarn-batch-processing-dist/src/test/java/hello
 ```
 
-### 创建gradle编译文件
+### 创建Gradle编译文件
 
 [初始化Gradle编译文件 ][11]，也可以用[Spring Tool Suite (STS)][12]工具直接导入源码
 
@@ -173,7 +173,7 @@ task wrapper(type: Wrapper) {
 }
 ````
 
-依照gradle编译文件，简单的构建三个不同的jar包，Spring Boot’s gradle 插件会把这三个包编译成可执行jar包
+依照gradle编译文件，简单的构建三个不同的jar包，Spring Boot’s Gradle 插件会把这三个包编译成可执行jar包
 
 `gesettings.gradle`文件定义其子项目
 
@@ -485,7 +485,7 @@ spring:
 
 ### 编译程序
 
-使用简单粗暴的gradle命令：clean清空工作目录，build编译
+使用简单粗暴的Gradle命令：clean清空工作目录，build编译
 
 `./gradlew clean build`
 
@@ -497,7 +497,7 @@ spring:
 
 `mvn clean package`
 
-gradle 编译成功之后 在target里有以下三个jar包
+Gradle 编译成功之后 在target里有以下三个jar包
 
 ````
 gs-yarn-batch-processing-dist/target/gs-yarn-batch-processing-dist/gs-yarn-batch-processing-client-0.1.0.jar
@@ -608,7 +608,9 @@ public class AppIT extends AbstractBootYarnClusterTests {
 [12]:https://spring.io/guides/gs/sts
 [13]:https://github.com/spring-guides/gs-yarn-batch-processing/archive/master.zip
 [14]:http://creativecommons.org/licenses/by-nc-sa/4.0/
-[author]:https://github.com/ucool2007
+[15]:https://spring.io/guides/gs/yarn-batch-processing/
+[16]:https://spring.io/guides
+[author]:https://github.com/UniKrau
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][13] 协议进行许可。
