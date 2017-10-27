@@ -1,11 +1,10 @@
 # Spring Boot应用Docker化
 
 > 原文：[Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)
-> 
+>
 > 译者：[马勇斌](https://https://github.com/stormmaybin)
 >
 > 校对：[張偉文](https://github.com/carlzhangweiwen)
-
 
 本教程将引导你通过建立一个Docker镜像来运行Spring Boot应用。
 
@@ -19,8 +18,8 @@ Docker是一个具有社區性的Linux容器管理工具集，它允許用户发
 - [JDK1.8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Gradle2.3+](http://www.gradle.org/downloads)或者[Maven3.0+](https://maven.apache.org/download.cgi)
 - 你也可以直接将代码导入你的IDE
-	- [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
-  	- [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+  - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+    - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 如果你当前使用的系统不是Linux，那么你需要一个虚拟机。通过安装VirtualBox或者像mac的boot2docker等其他工具都可以满足你的使用。
 访问[VirtualBox下载地址](https://www.virtualbox.org/wiki/Downloads)选择你的系统版本来下载VirtualBox，并且安装运行起来。
@@ -170,10 +169,12 @@ dependencies {
 - 它提供了一个内置的依赖解析器，将应用与Spring Boot依赖的版本号进行匹配。你可以修改（override）成你希望的版本，但它默认为Spring Boot选择的版本。
 
 ## 使用你的IDE构建
+
 - 参阅[Spring Tool Suite](https://spring.io/guides/gs/sts/)如何直接导入到你的IDE。
 - 参阅[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea)如何来构建。
 
 ## 创建一个Spring Boot应用程序
+
 现在你可以创建一个简单的Spring Boot应用程序。
 
 `src/main/java/hello/Application.java`
@@ -218,10 +219,10 @@ public class Application {
 
 
 ## 使你的应用程序容器化
+
 Docker有一个[Dockerfile](https://docs.docker.com/reference/builder/)文件格式的文件，并且使用指定的镜像作为基础镜像。接下来我们去创建一个Dockerfile在Spring Boot应用程序中。
 
 `Dockerfile`
-
 
 ```dockerfile
 FROM openjdk:8-jdk-alpine
@@ -243,6 +244,7 @@ ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /ap
 构建Docker镜像，你可以使用一些诸如Gradle或Maven的工具或者借助社区(强烈感谢[Transmode](https://github.com/Transmode/gradle-docker)和[Spotify](https://github.com/spotify/dockerfile-maven)提供这些工具)。
 
 ### 使用Maven构建Docker镜像
+
 在Maven的`pom.xml`中，你应该增加一个插件，如下。(参阅[the plugin documentation](https://github.com/spotify/dockerfile-maven)获取更多信息)。
 
 `pom.xml`
@@ -303,6 +305,7 @@ $ ./mvnw install dockerfile:build
 ```
 
 ### 使用Gradle构建Docker镜像
+
 如果你使用Gradle构建，添加如下插件:
 
 `build.gradle`
@@ -346,20 +349,21 @@ $ ./gradlew build buildDocker
 ```
 
 ### 发布之后
+
 对你来说"Docker镜像发布"会失败(除非你在Dockerhub中是"springio"组织的一员)，但是如果你修改配置符合你自己的docker ID之后同样会成功，你会有一个新的标签，并且部署镜像。
 
 > 如果你没有注册docker，或者没有发布任何docker镜像。但是你有一个本地的镜像，你可以像这样让它运行起来:
-> ```
-> $ docker run -p 8080:8080 -t springio/gs-spring-boot-docker
+```
+$ docker run -p 8080:8080 -t springio/gs-spring-boot-docker
 ....
 2015-03-31 13:25:48.035  INFO 1 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
 2015-03-31 13:25:48.037  INFO 1 --- [           main] hello.Application                        : Started Application in 5.613 seconds (JVM running for 7.293)
-> ```
+```
 
 然后应用程序可以在[http://localhost:8080/](http://localhost:8080/)访问(访问可以看到"Hello Docker World")。确保它是真的在工作，把"springio"前缀改成其他(比如`${env.USER}`并且重新构建运行)。
 
 > 如果你使用mac的boot2docker，你通常在启动时可以看到这样的事情:
-> 
+>
 ```bash
 Docker client to the Docker daemon, please set:
     export DOCKER_CERT_PATH=/Users/gturnquist/.boot2docker/certs/boot2docker-vm
@@ -385,7 +389,6 @@ $ docker stop 81c723d22865
 
 当然你喜欢你也可以删除容器(它们都保存在`/var/lib/docker`文件目录下)。
 
-
 ```bash
 $ docker rm 81c723d22865
 ```
@@ -404,6 +407,7 @@ $ docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t springio/gs-spring-
 ```
 
 ### 在Docker容器中调试应用程序
+
 使用[JPDA Transport](http://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html#Invocation)可以调试应用程序，所以我们可以视容器为一个服务器，启用此功能通过java设置JAVA_OPTS变量和代理的端口映射到本地主机在一个容器中运行。对于[Docker for Mac](https://www.docker.com/products/docker#/mac)由于有限制,我们不能通过IP访问容器因为没有[black magic usage.](https://github.com/docker/for-mac/issues/171)。
 
 
@@ -412,14 +416,14 @@ $ docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,serve
 ```
 
 ## 总结
+
 恭喜你!刚刚为Spring Boot应用程序创建了Docker容器!Spring Boot应用程序在容器中运行默认端口8080映射到相同的宿主机端口使用"-p"参数。
 
 ## 另请参阅
+
 以下教程也可能是有用的:
 
-- [Serving Web Content with Spring MVC
-](https://spring.io/guides/gs/serving-web-content/)
+- [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 - [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 
-想写一篇新的教程？或者为旧教程出力？查看我们的[贡献参考](https://github.com/spring-guides/getting-started-guides/wiki)
-
+> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。

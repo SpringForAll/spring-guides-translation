@@ -1,17 +1,15 @@
 # 基于Maven来构建Java项目
 
-原文：[Building Java Projects with Maven](https://spring.io/guides/gs/maven/)
-
-译者： [liqiangatongoingdotme](http://github.com/liqiangatongoingdotme)
-
-校对：[william-hyx](http://github.com/william-hyx)
-
-
+> 原文：[Building Java Projects with Maven](https://spring.io/guides/gs/maven/)
+>
+> 译者：[liqiangatongoingdotme](http://github.com/liqiangatongoingdotme)
+>
+> 校对：[william-hyx](http://github.com/william-hyx)
 
 这个教程可以教会你通过Maven来构建一个简单的Java项目
 
-
 ## 你会收获什么？
+
 你可以在短时间内用Maven构建你的应用程序
 
 ## 你需要准备什么？
@@ -37,7 +35,6 @@
 ## 建立项目
 <span id="Setuptheproject"> </span>
 
-
 首先，你需要新建一个Java项目用于构建后续的Maven工程。为了着重展示Maven的使用，尽可能新建一个简单的java项目。
 
 创建目录结构
@@ -54,7 +51,7 @@
 
 在这个目录下 src/main/java/hello，你可以创建你想要的任何Java类。为了保持与本教程其余部分的一致性，创建这两个类: HelloWorld.java 和  Greeter.java.
 
->src/main/java/hello/HelloWorld.java
+> src/main/java/hello/HelloWorld.java
 
 ```java
 package hello;
@@ -67,7 +64,7 @@ public class HelloWorld {
 }
 ```
 
->src/main/java/hello/Greeter.java
+> src/main/java/hello/Greeter.java
 
 ```java
 package hello;
@@ -150,8 +147,6 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
         </plugins>
     </build>
 </project>
-
-
 ```
 
 除了可选的 `<packaging>`元素之外，这是构建Java项目所需最简单的pom.xml文件。构建Java项目所需的xml文件。它包括项目配置的以下细节:
@@ -165,8 +160,6 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 至此，你创建了一个最小可运行的Maven工程。
 
 >在选择版本命名规范的时候，Spring推荐 [semantic versioning](http://semver.org) 
->
->
 
 ## Build Java代码
 
@@ -174,28 +167,28 @@ Maven现在已经可以构建项目了。现在可以使用Maven执行几个构�
 
 如果要用maven编译，可以运行下面的代码：
 
->mvn compile
+> mvn compile
 
 这是Maven执行编译命令。当编译完成时，你可以在target/classes目录下找相应的class文件
 
 你应该不太可能会直接部署.class文件，你应该运行打包命令：
 
->mvn package
+> mvn package
 
 package命令将会编译你的Java代码，运行所有测试类，最后在target目录下打包生产JAR文件。JAR文件的命名会基于项目的 `<artifactId>` 和  `<version>` 。用前面提到的pom.xml文件打包会得到 gs-maven-0.1.0.jar
 
->若pom.xml文件中元素从"jar"改成"war",target中JAR文件将变成WAR文件。
+> 若pom.xml文件中元素从"jar"改成"war",target中JAR文件将变成WAR文件。
 
 Maven还在本机上维护一个依赖库（通常在你的用户目录下的.m2/repository目录下），你可以快速访问依赖的项目。如果你想要将project的JAR文件安装到本地仓库，你应该试用`install` 命令
 
->mvn install
+> mvn install
 
 install命令将会编译，测试和打包你的项目代码，然后copy到本地仓库，以便被其余的项目依赖。
 
 讲到依赖，现在是时候声明Maven中的依赖了。
 
-
 ## 声明依赖
+
 简单的Hello World程序是完全自包含，不依赖于任何类库。但对于大多数应用来说，或多或少的依赖于外部的类库来处理通用的和复杂的功能。
 
 举例，假设除了说“Hello World” ，你还想应用程序打印当前日期和事件。你可以使用Java中的日期和时间库，但可以使用Joda时间库，这样更有趣。
@@ -217,7 +210,6 @@ public class HelloWorld {
 		System.out.println(greeter.sayHello());
 	}
 }
-
 ```
 
 这个HelloWorld 使用 Joda类库中的 `LocalTime` 类来打印当前时间。
@@ -233,7 +225,6 @@ public class HelloWorld {
 			<version>2.9.2</version>
 		</dependency>
 </dependencies>
-
 ```
 这块XML声明了项目的依赖列表。具体的来说，他声明了对Joda时间库的单一依赖。在`<dependency>` 元素中，依赖项由三要素组成：
 
@@ -248,9 +239,7 @@ public class HelloWorld {
 
 现在你可以使用 `mvn compile` 或者 `mvn package`  Maven已经可以从中央库解析Joda时间库依赖，并成功构建。
 
-
-
-###编写测试用例
+### 编写测试用例
 首先增加Junit依赖在pom.xml文件中，test作用域：
 
 ```xml
@@ -284,7 +273,6 @@ public class GreeterTest {
 	}
 
 }
-
 ```
 
 Maven使用叫做“surefire”的插件运行测试用例。这个插件默认会把`/src/test/java` 下的名字匹配`*Test`的类编译运行。你可以运行如下命令运行所有测试用例：
@@ -366,11 +354,5 @@ mvn test
 下面的文章可能对你有帮助：
 
 * [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle/)
-
-想写一个新的教程或者捐献已经存在的教程？请检出我们的[contribution guidelines.]()
-
->所有的手册发布遵循 ASLv2 license，遵循[Attribution, NoDerivatives creative commons license](https://creativecommons.org/licenses/by-nd/3.0/) 进行编写。
-
-
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。

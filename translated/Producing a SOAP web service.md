@@ -18,14 +18,8 @@
 
 - 大约15分钟
 - 一个自己喜欢的文本编辑器或者IDE
-
-
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 及以上版本
-
-
 - [Gradle 2.3+](https://gradle.org/install/) 或者 [Maven 3.0+](https://maven.apache.org/download.cgi)
-
-
 - 你也可以直接将代码导入到本地的IDE中：
   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
@@ -40,10 +34,9 @@
 
 - [下载](https://github.com/spring-guides/gs-soap-service/archive/master.zip) 并解压本指南相关的源文件，或者直接通过[Git](https://spring.io/understanding/Git)命令克隆到本地：
 
-  ```
-  git clone https://github.com/spring-guides/gs-soap-service.git
-  ```
-
+```bash
+git clone https://github.com/spring-guides/gs-soap-service.git
+```
 
 - 进入 `gs-soap-service/initial` 目录
 - 直接跳到[添加Spring-WS依赖](#添加-spring-ws-依赖)小节。
@@ -626,9 +619,5 @@ $ curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/w
 ## 小结
 
 恭喜！你已经使用Spring Web Services创建了一个基于SOAP的web service 服务。
-
-想要写一个新的指南或者为现有的一个贡献力量吗？请查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
-
-> 所有指南中的代码都将遵照ASLv2许可，指南的编写遵照 [Attribution, NoDerivatives creative commons license](https://creativecommons.org/licenses/by-nd/3.0/) 。
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。

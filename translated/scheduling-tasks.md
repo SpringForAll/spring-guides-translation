@@ -23,6 +23,7 @@
     - [IntelliJ IDEA][4]
 
 ## 如何完成这份指南
+
 和其他[Spring使用指南][5]一样，你可以从零开始一步步完成，或者略过那些你已經熟悉的項目創建步骤(setup steps)。不管哪种方式你最终都会得到一份工作代码(working code)。
 
 如果从零开始，请移步[Build with Gradle][https://spring.io/guides/gs/scheduling-tasks/#scratch]。。
