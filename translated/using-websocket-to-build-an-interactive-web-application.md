@@ -31,8 +31,8 @@
 跳过一些基础的，你可以像下面这样做
 
 * [下载](https://github.com/spring-guides/gs-messaging-stomp-websocket/archive/master.zip) 并解压这个引导。或者直接使用 [Git](https://spring.io/understanding/Git): git clone [https://github.com/spring-guides/gs-messaging-stomp-websocket.git](https://github.com/spring-guides/gs-messaging-stomp-websocket.git)
-* cd into `gs-messaging-stomp-websocket/initial`
-* Jump ahead to [Create a resource representation class](https://spring.io/guides/gs/messaging-stomp-websocket/#initial).
+* 进入目录 `gs-messaging-stomp-websocket/initial`
+* 跳到[Create a resource representation class](https://spring.io/guides/gs/messaging-stomp-websocket/#initial).
 
 完成上述步骤，你可以查看结果，并与`gs-messaging-stomp-websocket/complete`对比。
 
@@ -250,9 +250,7 @@ public class HelloMessage {
 
 为了把携带问候的消息模型化，你可以创建一个带有content属性的普通Java类和相应的getContent()方法。
 
-```java
-src/main/java/hello/Greeting.java
-```
+`src/main/java/hello/Greeting.java`
 
 ```java
 package hello;
@@ -284,9 +282,7 @@ Spring将会用 [Jackson JSON](http://wiki.fasterxml.com/JacksonHome)把Greetin
 在Spring访问STOMP消息时候，STOMP可以被注解有[@Controller
 ](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Controller.html)的类路由到。例如，GreetingController可以映射到目的地`/hello`。
 
-```java
-src/main/java/hello/GreetingController.java
-```
+`src/main/java/hello/GreetingController.java`
 
 ```java
 package hello;
@@ -323,9 +319,7 @@ public class GreetingController {
 现在服务最重要的一步已经建立起来啦，你可以用Spring来配置WebSocket 和STOMP消息。
 创建一个Java类WebSocketConfig，像下面这样。
 
-```java
-src/main/java/hello/WebSocketConfig.java
-```
+`src/main/java/hello/WebSocketConfig.java`
 
 ```java
 package hello;
@@ -356,17 +350,15 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
 WebSocketConfig用@Configuration进行注解，表示它是一个Spring配置类。它也注释为[@EnableWebSocketMessageBroker](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/simp/config/EnableWebSocketMessageBroker.html)。顾名思义，@EnableWebSocketMessageBroker启用WebSocket消息处理，由消息代理支持。
 
-configureMessageBroker（）方法覆盖WebSocketMessageBrokerConfigurer中的默认方法来配置消息代理。它通过调用enableSimpleBroker（）来启用一个简单的基于内存的消息代理，将问候语消息返回给客户端，前缀为“/ topic”。它还为绑定为@MessageMapping注解方法的邮件指定“/app”前缀。该前缀将用于定义所有消息映射;例如，“/app/hello”是GreetingController.greeting（）方法映射到的端点。
+configureMessageBroker()方法覆盖WebSocketMessageBrokerConfigurer中的默认方法来配置消息代理。它通过调用enableSimpleBroker()来启用一个简单的基于内存的消息代理，将问候语消息返回给客户端，前缀为“/ topic”。它还为绑定为@MessageMapping注解方法的邮件指定“/app”前缀。该前缀将用于定义所有消息映射;例如，“/app/hello”是GreetingController.greeting()方法映射到的端点。
 
-registerStompEndpoints（）方法注册“/ gs-guide-websocket”端点，启用SockJS后备选项，以便在WebSocket不可用时可以使用备用传输。 SockJS客户端将尝试连接到“/ gs-guide-websocket”并使用最好的传输（websocket，xhr-streaming，xhr-polling等）。
+registerStompEndpoints()方法注册“/ gs-guide-websocket”端点，启用SockJS后备选项，以便在WebSocket不可用时可以使用备用传输。 SockJS客户端将尝试连接到“/ gs-guide-websocket”并使用最好的传输（websocket，xhr-streaming，xhr-polling等）。
 
 ## 创建一个浏览器客户端
 
 使用服务器端部件，现在让我们将注意力从服务器端转移到发送消息并能够接受消息的avaScript客户端。像下面这样建立一个index.html 的页面
 
-```java
-src/main/resources/static/index.html
-```
+`src/main/resources/static/index.html`
 
 ```html
 <!DOCTYPE html>
@@ -428,9 +420,7 @@ src/main/resources/static/index.html
 
 来创建一个文件
 
-```java
-src/main/resources/static/app.js
-```
+`src/main/resources/static/app.js`
 
 ```java
 var stompClient = null;
@@ -485,18 +475,16 @@ $(function () {
 });
 ```
 
-这个JavaScript文件的主要部分是connect（）和sendName（）函数。
+这个JavaScript文件的主要部分是connect()和sendName()函数。
 
-connect（）函数使用SockJS和stomp.js来打开与“/ gs-guide-websocket”的连接，这是SockJS服务器正在等待连接的地方。在成功连接之后，客户端订阅“/ topic / greetings”目的地，服务器将发布问候消息。当在该目的地收到一个问候语时，它将附加一个段落元素到DOM以显示问候留言。
-sendName（）函数检索用户输入的名称，并使用STOMP客户端将其发送到“/ app / hello”目的地（GreetingController.greeting（）将接收到）。
+connect()函数使用SockJS和stomp.js来打开与“/ gs-guide-websocket”的连接，这是SockJS服务器正在等待连接的地方。在成功连接之后，客户端订阅“/ topic / greetings”目的地，服务器将发布问候消息。当在该目的地收到一个问候语时，它将附加一个段落元素到DOM以显示问候留言。
+sendName()函数检索用户输入的名称，并使用STOMP客户端将其发送到“/ app / hello”目的地（GreetingController.greeting()将接收到）。
 
 ## 使得应用可执行
 
-虽然可以将此服务打包为传统WAR文件以部署到外部应用程序服务器，但下面演示的简单方法创建了独立应用程序。你将所有内容都包装在一个可执行的JAR文件中，由一个Java main（）方法驱动。在这过程中，你使用Spring的支持将Tomcat servlet容器嵌入到HTTP运行时，而不是部署到外部实例。
+虽然可以将此服务打包为传统WAR文件以部署到外部应用程序服务器，但下面演示的简单方法创建了独立应用程序。你将所有内容都包装在一个可执行的JAR文件中，由一个Java main()方法驱动。在这过程中，你使用Spring的支持将Tomcat servlet容器嵌入到HTTP运行时，而不是部署到外部实例。
 
-```java
-src/main/java/hello/Application.java
-```
+`src/main/java/hello/Application.java`
 
 ```java
 package hello;
@@ -513,12 +501,12 @@ public class Application {
 }
 ```
 
-@SpringBootApplication是一个方便的注解，它添加以下所有内容：
-@Configuration将该类标记为应用程序上下文的bean定义的源。
-@EnableAutoConfiguration指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
-通常，你将为Spring MVC应用程序添加@EnableWebMvc，但是当Spring类在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
-@ComponentScan告诉Spring在hello包中查找其他组件，配置和服务，允许它找到控制器。
-main（）方法使用Spring Boot的SpringApplication.run（）方法启动应用程序。你注意到没有一行XML吗？没有web.xml文件。此Web应用程序是100％纯Java，你无需处理配置其他基础构件。
+'@SpringBootApplication'是一个方便的注解，它添加以下所有内容：
+'@Configuration'将该类标记为应用程序上下文的bean定义的源。
+'@EnableAutoConfiguration'指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
+通常，你将为Spring MVC应用程序添加'@EnableWebMvc'，但是当Spring类在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
+'@ComponentScan'告诉Spring在hello包中查找其他组件，配置和服务，允许它找到控制器。
+main()方法使用Spring Boot的SpringApplication.run()方法启动应用程序。你注意到没有一行XML吗？没有web.xml文件。此Web应用程序是100％纯Java，你无需处理配置其他基础构件。
 
 ## 构建可执行的JAR
 
