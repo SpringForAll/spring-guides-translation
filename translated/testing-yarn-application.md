@@ -12,7 +12,7 @@
 
 ## 你将学会什么
 
-You’ll use an existing sample application and create a simple JUnit test to verify application is executed properly.
+使用已经开发好的application样例，写单元测试进行验证。
 
 ## 你要准备什么
 
