@@ -167,16 +167,15 @@ dependencies {
 [Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
-
 * 搜索`public static void main()`方法并且将它标记为可执行类
-
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用你的 IDE 进行构建
 
 *   [如何在 Spring Tool Suite 中构建](https://spring.io/guides/gs/sts/).
-
 *   [如何在 IntelliJ IDEA 中构建](https://spring.io/guides/gs/intellij-idea).
+*   提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+
 
 ## 创建定时任务
 
@@ -234,6 +233,7 @@ public class Application {
     }
 }
 ```
+
 `@SpringBootApplication`是一个方便的注解，组合了以下注解：
 
  - `@Configuration` 将类标记为应用上下文获取bean定义的地方
@@ -277,31 +277,5 @@ public class Application {
 
 *   [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/)
 
+
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
-
-
-[1]: https://github.com/happyxiaofan
-[2]: https://github.com/carlzhangweiwen
-[3]: https://spring.io/guides/gs/sts
-[4]: https://spring.io/guides/gs/intellij-idea/
-[5]: https://spring.io/guides
-[6]: https://github.com/spring-guides/gs-scheduling-tasks/archive/master.zip
-[7]: https://spring.io/understanding/Git
-[8]: http://gradle.org/
-[9]: https://maven.apache.org/
-[10]: https://spring.io/guides/gs/gradle
-[11]: https://spring.io/guides/gs/maven
-[12]: https://github.com/spring-guides/gs-scheduling-tasks/blob/master/initial/build.gradle
-[13]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin
-[14]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
-[15]: https://maven.apache.org/
-[16]: https://spring.io/guides/gs/maven
-[17]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin
-[18]: https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
-[19]: https://spring.io/guides/gs/sts/
-[20]: https://spring.io/guides/gs/intellij-idea
-[21]: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/scheduling.html#scheduling-annotation-support-scheduled
-[22]: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
-[23]: https://spring.io/guides/gs/spring-boot/
-[24]: https://spring.io/guides/gs/batch-processing/
-[25]: http://creativecommons.org/licenses/by-nc-sa/4.0/

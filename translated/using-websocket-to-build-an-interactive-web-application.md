@@ -25,11 +25,16 @@
 ## 你如何完成这个入门指南
 
 像其他Spring入门指南一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
-* 你可以往下查看[怎样使用 Gradle 构建项目](#scratch).
-* 跳过一些基础的，你可以像下面这样做
-  [下载](https://github.com/spring-guides/gs-messaging-stomp-websocket/archive/master.zip) 并解压这个引导。或者直接使用 [Git](https://spring.io/understanding/Git): git clone [https://github.com/spring-guides/gs-messaging-stomp-websocket.git](https://github.com/spring-guides/gs-messaging-stomp-websocket.git)
 
-完成上述步骤，你可以查看结果，并与gs-messaging-stomp-websocket/complete对比。
+你可以往下查看[怎样使用 Gradle 构建项目](#scratch).
+
+跳过一些基础的，你可以像下面这样做
+
+* [下载](https://github.com/spring-guides/gs-messaging-stomp-websocket/archive/master.zip) 并解压这个引导。或者直接使用 [Git](https://spring.io/understanding/Git): git clone [https://github.com/spring-guides/gs-messaging-stomp-websocket.git](https://github.com/spring-guides/gs-messaging-stomp-websocket.git)
+* cd into `gs-messaging-stomp-websocket/initial`
+* Jump ahead to [Create a resource representation class](https://spring.io/guides/gs/messaging-stomp-websocket/#initial).
+
+完成上述步骤，你可以查看结果，并与`gs-messaging-stomp-websocket/complete`对比。
 
 ## 使用Gradle构建
 
@@ -180,11 +185,12 @@ dependencies {
 </project>
 ```
 
- [Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
+
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
 - 它提供了一个内置的依赖解析器，将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为Boot所选择的一组版本。
-- ​
+
 ## 使用你的IDE构建
 
 - 阅读如何导入这篇指南到你的IDE [Spring Tool Suite](https://spring.io/guides/gs/sts/).
@@ -193,7 +199,9 @@ dependencies {
 ## 创建资源代表类
 
 现在你已经建立你的项目，你就可以创建你的 STOMP服务。
+
 开始想下服务交互的过程。
+
 服务将会接受包含在 STOMP消息中的name,它的消息体是[JSON](https://spring.io/understanding/JSON) 对象，如何给name指定Fred，那么消息体就像下面这样。
 
 ```json
@@ -274,7 +282,7 @@ Spring将会用 [Jackson JSON](http://wiki.fasterxml.com/JacksonHome)把Greetin
 ## 创建一个消息处理controller
 
 在Spring访问STOMP消息时候，STOMP可以被注解有[@Controller
-](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Controller.html)的类路由到。例如，GreetingController可以映射到目的地”/hello“。
+](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Controller.html)的类路由到。例如，GreetingController可以映射到目的地`/hello`。
 
 ```java
 src/main/java/hello/GreetingController.java
@@ -302,13 +310,13 @@ public class GreetingController {
 
 这个控制器简洁而简单，但有很多事情。让我们一步一步地剖析它。
 
-[@MessageMapping](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/MessageMapping.html)注解确保如果将消息发送到目标“/ hello”，则会调用greeting（）方法。
+[@MessageMapping](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/MessageMapping.html)注解确保如果将消息发送到目标`/ hello`，则会调用`greeting()`方法。
 
-消息的有效内容绑定到一个HelloMessage对象，该对象被传递到greeting（）。
+消息的有效内容绑定到一个HelloMessage对象，该对象被传递到`greeting()`。
 
 在内部，该方法的实现通过使线程睡眠1秒来模拟处理延迟。这是为了说明在客户端发送消息之后，服务器可以采取与需要异步处理消息一样长的时间。客户可以继续其需要做的任何工作，而不必等待响应。
 
-在延迟1秒后，greeting（）方法创建一个Greeting对象并返回它。返回值将广播给所有订阅者，如[@SendTo](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/SendTo.html)注释中指定的“/ topic / greetings”。 
+在延迟1秒后，`greeting()`方法创建一个Greeting对象并返回它。返回值将广播给所有订阅者，如[@SendTo](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/handler/annotation/SendTo.html)注释中指定的`/ topic / greetings`。 
 
 ## 用Spring配置STOMP 消息
 
@@ -415,6 +423,7 @@ src/main/resources/static/index.html
 </body>
 </html>
 ```
+
 此HTML文件导入SockJS和STOMP JavaScript库，这些库将用于通过websocket使用STOMP与我们的服务器进行通信。我们还在这里导入一个包含我们客户端应用程序逻辑的app.js。
 
 来创建一个文件
@@ -531,7 +540,7 @@ java -jar target/gs-messaging-stomp-websocket-0.1.0.jar
 
 ## 测试服务
 
-现在服务正在运行，请将浏览器指向http://localhost：8080，然后单击“连接”按钮。
+现在服务正在运行，请将浏览器指向`http://localhost:8080`，然后单击“连接”按钮。
 
 打开连接后，系统会询问你的姓名。输入你的姓名，然后点击“发送”。你的姓名通过STOMP作为JSON消息发送到服务器。经过1秒钟的模拟延迟后，服务器将返回一条消息，并显示在页面上显示的“Hello”问候语。此时，你可以发送另一个名称，也可以单击“断开连接”按钮关闭连接。
 
