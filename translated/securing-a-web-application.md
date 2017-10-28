@@ -53,7 +53,7 @@
 
 ### 创建一个Gradle文件
 
-如下是一个 [Gradle初始化文件](https://github.com/spring-guides/gs-securing-web/blob/master/initial/build.gradle).
+如下是一个 [Gradle初始化文件](https://github.com/spring-guides/gs-securing-web/blob/master/initial/build.gradle)：
 
 `build.gradle`
 
@@ -93,7 +93,7 @@ dependencies {
 }
 ```
 
- [Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多便捷的特性:
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多便捷的特性:
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
@@ -153,7 +153,6 @@ First you set up a basic build script. You can use any build system you like whe
         <java.version>1.8</java.version>
     </properties>
 
-
     <build>
         <plugins>
             <plugin>
@@ -177,11 +176,10 @@ First you set up a basic build script. You can use any build system you like whe
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
 ```
 
- [Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
@@ -444,11 +442,7 @@ java -jar build/libs/gs-securing-web-0.1.0.jar
 java -jar target/gs-securing-web-0.1.0.jar
 ```
 
-
-
 > The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](https://spring.io/guides/gs/convert-jar-to-war/)instead.
-
-
 
 ```
 ... app starts up ...
@@ -482,6 +476,5 @@ java -jar target/gs-securing-web-0.1.0.jar
 - [使用Spring MVC提供Web内容](https://spring.io/guides/gs/serving-web-content/)
 - [Spring Security 架构](https://spring.io/guides/topicals/spring-security-architecture/) (Reference guide)
 - [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) (Tutorial)
-
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
