@@ -166,15 +166,12 @@ pom.xml
 [Spring Boot Maven 插件][17] 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
-
 * 搜索`public static void main()`方法并且将它标记为可执行类
-
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][18].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用你的 IDE 进行构建
 
 *   [如何在Spring Tool Suite中构建][19].
-
 *   [如何在IntelliJ IDEA中构建][20].
 
 ## 创建定时任务
@@ -211,6 +208,7 @@ public class ScheduledTasks {
 它指定了每次方法调用开始执行的间隔。有[其他的选项][21]，比如`fixedDelay`，它指定了从每次方法调用结束开始计算时间的调用间隔。你也可以[使用`@Scheduled(cron=". . .")`表达式实现更复杂的定时任务][22]
 
 ## 开启定时功能
+
 虽然计划任务可以嵌入在Web应用程序和WAR包中，通过创建一个独立的应用程序，下面演示了一种更简单的方法。 您将所有内容都打包在一个可执行的JAR中，通过Java的`main()`方法就可以执行。
 
 `src/main/java/hello/Application.java`
@@ -231,6 +229,7 @@ public class Application {
     }
 }
 ```
+
 `@SpringBootApplication`是一个方便的注解，组合了以下注解：
 
  - `@Configuration` 将类标记为应用上下文获取bean定义的地方
@@ -270,11 +269,9 @@ public class Application {
 下面的指南可能對你也有帮助：
 
 *   [Building an Application with Spring Boot][23]
-
 *   [Creating a Batch Service][24]
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][25]协议进行许可。
-
 
 [1]: https://github.com/happyxiaofan
 [2]: https://github.com/carlzhangweiwen
