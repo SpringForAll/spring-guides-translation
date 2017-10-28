@@ -1,6 +1,6 @@
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Uploading Files](https://spring.io/guides/gs/uploading-files/)
 >
 > 译者：[JustDoNow 翻译中]
 >
