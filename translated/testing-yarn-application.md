@@ -42,19 +42,19 @@
 
 * 直接跳转到 [创建一个Junit单元测试类](#junit_class).
 
-**When you’re finished**， you can check your results against the code in `gs-yarn-testing/complete`.
+**以上结束后** 可以到 `gs-yarn-testing/complete` 目录查看.
 
-If you’re not familiar with gradle, refer to[ Building Java Projects with Gradle][12].
+如果不了解Gradle， 请参考[Building Java Projects with Gradle][12].
 
 
 <h3 id="set_up"> 配置工程 </h3>
 
-Focus on this guide is to use `JUnit` to test your sample application. We have already prepared a project for gradle and application files based on sample [ YARN Basic Sample][13]. What is left for you is to create a `JUnit` test class.
+本指南重点在用 `JUnit` 测试样例程序。这个gradle工程以及所有的程序文件都是基于这个样例[YARN Basic Sample][13].剩下的事情只需创建一个 `JUnit` 测试类 
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Gradle][14] and [Maven][15] is included here. If you’re not familiar with either, refer to [Building Java Projects with Gradle][16] or [Building Java Projects with Maven][17].
+首先配置脚本， 可以使用[Gradle][14] 或者 [Maven][15]工具构建Spring app. 如果不熟悉请参考[Building Java Projects with Gradle][16] or [Building Java Projects with Maven][17].
 
-We also have additional guides having specific instructions using build systems with Spring YARN. If you’re not familiar with either, refer to [Building Spring YARN Projects with Gradle][18] or [Building Spring YARN Projects with Maven][19].
 
+还有另外关于构建Spring YARN系统的指南说明。如果不熟悉，请阅读[Building Spring YARN Projects with Gradle][18] or [Building Spring YARN Projects with Maven][19].
 #### 创建工程目录结构
 
 选定工程文件夹以后，建立子文件夹：
@@ -239,7 +239,7 @@ $ grep Hello gs-yarn-testing-dist/target/yarn--1502101888/yarn--1502101888-logDi
 * [Building Spring YARN Projects with Gradle][26]
 
 
-如果想写一个新的指南或者对其他指南有修改意见和建议，请参考 [contribution guidelines][27].
+如果想写一个新的指南或者对其他指南有修改意见和建议，请阅读 [contribution guidelines][27].
 
 
 [1]:https://spring.io/guides/gs/yarn-testing/
