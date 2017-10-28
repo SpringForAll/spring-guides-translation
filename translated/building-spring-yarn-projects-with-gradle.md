@@ -13,13 +13,13 @@
 > 本指南集中在构建项目和模型上，不需要一个完全可用的YARN程序
 >
 
-### 你会学到什么
+## 你会学到什么
 
 会创建和用Gradle编译一个YARN应用程序
 
-### 准备工作
+## 准备工作
 
-* 花费15分钟
+* 大约15分钟
 * 文本编辑器或者是IDE
 * 需要[JDK][2] 1.6 以上版本 
 
@@ -39,9 +39,11 @@
 
 如果不了解Gradle或者尚未安装Gradle，请参考[用Gradle构建Java工程][6]
 
-<h2 id="gradle_id">配置工程</h2>
+<h3 id="gradle_id">配置工程</h3>
 
 建立一个Java工程，然后用Gradle编译，这个工程尽可能的简单，其目的是学会怎么使用Gradle，
+
+#### 创建工程目录结构
 
 父目录下的子目录的结构应该是这个样子：
 
@@ -168,7 +170,7 @@ spring:
         appName: gs-yarn-gradle
 ```
 
-<h2 id="gradle_inital">理解Gradle使用规则</h2>
+<h3 id="gradle_inital">理解Gradle使用规则</h3>
 
 创建 `build.gradle` 文件，在这个文件里定义好编译所需的内容
 
@@ -283,7 +285,7 @@ include 'gs-gradle-yarn-dist'
 ```
 
 
-## 解决Hadoop依赖
+### 解决Hadoop依赖
 
 通过`Maven POM`项目形式Spring可以很好解决Apache Hadoop的依赖问题。默认使用的是 Apache Hadoop 2.6.x 但是也可以使用其他发行商的Hadoop比如 Pivotal HD, Hortonworks Data Platform or Cloudera CDH。指定好版本，Maven 会自动找到正确的Hadoop发行版本的依赖关系。例如以下案例
 
@@ -333,7 +335,7 @@ dependencies {
 }
 ```
 
-## 编译打包应用程序
+### 编译打包应用程序
 
 运行编译命令
 
@@ -352,6 +354,7 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.ja
 当然还添加提交YARN框架上的代码，但是可以浏览输出的日子信息，可以通过其他的关于 `Spring YARN` 指南了解怎么创建可以提交到YARN上运行的完整应用程序
 
 ### 总结
+
 恭喜了，现在可以通过高效的Maven构建一个简单Spring YARN工程了
 
 

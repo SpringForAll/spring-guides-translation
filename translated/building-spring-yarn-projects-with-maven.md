@@ -9,13 +9,13 @@
 
 学会用`Maven`构建一个简单的Spring YARN 工程
 
-### 你将学到点什么
+## 你将学到点什么
 
 创建一个简单的app然后用`Maven`构建之
 
 这篇文章不准备创建一个完整可用的YARN app，而是关注项目和构建模型
 
-### 需要你准备些什么
+## 需要你准备些什么
 *  差不多15分钟搞定
 *  文本编辑器或者IDE都行
 *  支持JDK6以上
@@ -39,11 +39,11 @@ git clone  [`https://github.com/spring-guides/gs-maven-yarn.git`][4]
 
 如果不熟悉gradle工具，可以参考[ Building Java Projects with Maven][5]
 
-<h2 id="setup_with_maven">配置项目</h2>
+<h3 id="setup_with_maven">配置项目</h3>
 
 首先用Maven构建一个java 工程，当然这个项目尽可能简单，因为重点是在Maven上
 
-### 创建目录结构
+#### 创建工程目录结构
 
 选定工程文件夹以后，建立子文件夹：
 
@@ -151,7 +151,7 @@ spring:
         appName: gs-yarn-maven
 ````
 
-<h2 id="spring_yarn_id">通过Spring YARN项目理解Maven的使用规则</h2>
+<h4 id="spring_yarn_id">通过Spring YARN项目理解Maven的使用规则</h4>
 
 父级目录的pom.xml文件结构
 
@@ -459,7 +459,7 @@ pom.xml文件路径
     </moduleSets>
 </assembly>
 ````
-## 解决Hadoop依赖
+#### 解决Hadoop依赖
 
 通过`Maven POM`项目形式Spring可以很好解决Apache Hadoop的依赖问题。默认使用的是 Apache Hadoop 2.6.x 但是也可以使用其他发行商的Hadoop比如 Pivotal HD, Hortonworks Data Platform or Cloudera CDH。指定好版本，Maven 会自动找到正确的Hadoop发行版本的依赖关系。例如以下案例
 
@@ -527,7 +527,7 @@ pom.xml文件路径
     </dependency>
 </dependencies>
 ````
-## 编译应用程序包
+### 编译应用程序包
 
 运行编译命令:
 
@@ -545,7 +545,7 @@ gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-appmaster-0.1.0.jar
 `java -jar gs-maven-yarn-dist/target/dist/gs-maven-yarn-client-0.1.0.jar`
 但是事实上还不是一个可以提交的YARN应用程序，所以会有错误信息。因此要参考Spring YARN 入门的文章，构建一个完整可以提交到YARN上的应用程序
 
-## 总结
+### 总结
 恭喜了，现在可以通过高效的Maven构建一个简单Spring YARN工程了
 
 

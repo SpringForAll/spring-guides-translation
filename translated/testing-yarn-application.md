@@ -32,9 +32,9 @@
 
 像大多数[Spring入门][7]文章一样,即新手按部就班学习或者如果有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
-**如果从基础开始**， 可以直接跳转到[配置工程](#set_up).
+**如果是零基础开始**， 可以直接从[配置工程](#set_up)开始学习.
 
-**有基础则** 按照以下步骤:
+**如果有些基础** 按照以下步骤:
 
 * [下载][8] 并解压本指南的代码库, 或者使用[Git][9]克隆: `git clone` [ https://github.com/spring-guides/gs-yarn-testing.git][10]
 
@@ -192,7 +192,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 
 #### 运行测试
 
-使用gradle命令
+使用gradle命令：
 
 `./gradlew clean build
 `
@@ -221,10 +221,11 @@ $ grep Hello gs-yarn-testing-dist/target/yarn--1502101888/yarn--1502101888-logDi
 ```
 
 
-## 总结
+### 总结
 
 恭喜！现在已经能写Spring YARN工程的 `JUnit` 单元测试。
 
+[下载完整测试源代码][29]
 
 ## 其他类似内容
    
@@ -269,6 +270,7 @@ $ grep Hello gs-yarn-testing-dist/target/yarn--1502101888/yarn--1502101888-logDi
 [26]:https://spring.io/guides/gs/gradle-yarn/
 [27]:https://github.com/spring-guides/getting-started-guides/wiki
 [28]:https://creativecommons.org/licenses/by-nd/3.0/
+[29]:https://github.com/spring-guides/gs-yarn-testing/archive/master.zip
 
 [author]:https://github.com/UniKrau
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。

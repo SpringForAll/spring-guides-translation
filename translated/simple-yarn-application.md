@@ -29,7 +29,7 @@
   * [IntelliJ IDEA][6]
      *  使用本地单实例模式，需要Hadoop 2.2.0以上的版本,Apache Hadoop官网也有相关一些[说明][7]
 
-## 怎样完成本指南
+### 怎样完成本指南
 
 像大多数[Spring 入门文章][8]一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
@@ -78,14 +78,14 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
 
 使用Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件把application打包成可执行的jar。可以知道，Spring Boot内部通过应用程序的自动化配置和Spring YARN添加其自动化配置去解决依赖性问题。因此，应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
 
-##  配置工程
+###  配置工程
   
 首先配置基本的编译脚本。可以用熟悉的编译系统构建Spring app。[Gradle][15] 和 [Maven][16]都可以用来构建代码。如果你不熟悉，请参[Building Java Projects with Gradle][24] or [Building Java Projects with Maven][25].
   
   
 如果不熟悉而且想知道关于构建Spring YARN的系统说明指南，请参考 [Building Spring YARN Projects with Gradle][17] or [Building Spring YARN Projects with Maven][18].
   
- ### 创建目录结构
+ #### 创建目录结构
   
   在选定的目录下，创建以下目录结构
   
@@ -126,7 +126,7 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
   mkdir  gs-yarn-basic-dist
   ```
   
-### 创建Gradle编译文件
+#### 创建Gradle编译文件
  
 以下是[initial Gradle build file ][19] 和 [initial Gradle settings file][20]文件内容，如果你使用 [Spring Tool Suite (STS)][5]
 可以直接导入目录。
@@ -207,7 +207,7 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
   
 以上的gradle编译文件，简单的创建了三个不同的jar包，各自的类文件都有他们的角色。Spring Boot的插件把这些jar打包成一个可执行的jar。
 
-<h2 id="CYC">创建YARN容器</h2>
+<h4 id="CYC">创建YARN容器</h4>
 
 分别创建 `ContainerApplication`  and `HelloPojo` 2个类.
 
@@ -290,7 +290,7 @@ public class HelloPojo {
 
 为了掩饰这一点，在这个类中特意添加了一些真实的功能，使用Spring Hadoop `@FsShell` 列举  `HDFS` 跟文件系统的目录树。并且Hadoop的 `Configuration` 能方便地访问 `HDFS` 文件系统。
 
-### 创建一个YARN Appmaster 
+#### 创建一个YARN Appmaster 
 
 新建一个 `AppmasterApplication` 类.
 
@@ -320,7 +320,7 @@ public class AppmasterApplication {
 
 真实的情况是，需要添加许多自定义功能到程序的组件并且添加更多的beans。但是很方便，只需定义Spring `@Configuration` or `@ComponentScan`。当然` AppmasterApplication`也有同样的功能。 在以下部分的 `YarnContainer`中， 它就是明显的例子。
 
-### 创建一个YARN客户端
+#### 创建一个YARN客户端
 
 新建一个 `ClientApplication` 类.
 
@@ -350,7 +350,7 @@ public class ClientApplication {
 
 这个 `main()` 调用Spring Boot’s `SpringApplication.run()`方法启动一个程序，从简单 `YarnClient` bean请求和执行 `submitApplication()`方法，接下运行流程都要依赖程序的配置文件，后来的指南会讲述相关的内容。配置文件不是只有一个单独XML文件。
 
-### 创建一个程序配置文件
+#### 创建一个程序配置文件
 
 根据所有的子工程创建一个新的 yaml 配置文件
 
@@ -392,7 +392,7 @@ spring:
 
 这种方式，方便自定义默认的环境变量。因为程序运行的时候，Spring Boot会解析 `@ConfigurationProperties` ，当然还有更简单的方式，比如命令行或者定义配置属性文件覆盖默认的属性值。
 
-### 编译 Application
+#### 编译 Application
 
 如果gradle编译工具可以使用 `clean` and `build` 两个命令
 
@@ -421,7 +421,7 @@ gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-appmaster-0.1.0.jar
 gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-container-0.1.0.jar
 ```
 
-### 运行application
+#### 运行application
 
 Now that you’ve successfully compiled and packaged your application, it’s time to do the fun part and execute it on Hadoop YARN.
 现在application通过了编译和打包阶段，该准备在YARN上跑了
@@ -436,7 +436,7 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 ![Alt rm_ui](/translated/static/rm_ui.jpg)
 
 
-## 总结
+### 总结
 
 恭喜了，你能够开发Spring YARN的application了
 

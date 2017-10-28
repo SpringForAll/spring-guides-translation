@@ -9,11 +9,11 @@
 
 本指南主要探讨Spring批处理job在Hadoop YARN上执行的过程
 
-### 你将学会构建什么
+## 你将学会构建什么
 
 通过Spring Hadoop, Spring Batch and Spring Boot 构建一个简单Hadoop YARN 应用程序
 
-### 你需要准备什么
+## 你需要准备什么
 
 * 大概15分钟
 * 文本编辑器或IDE
@@ -44,7 +44,7 @@
 
 首先要配置编译脚本。Spring构建apps的时候可以使用的编译工具有很多，但是在这里需要用[Gradle][9]编译代码。如果不熟悉，请参考[Gradle编译java工程][10].
 
-### 目录结构
+#### 创建工程目录结构
 
 在工程文件夹下，创建子文件夹
 
@@ -89,7 +89,7 @@ mkdir -p gs-yarn-batch-processing-client/src/main/java/hello/client
 mkdir -p gs-yarn-batch-processing-dist/src/test/java/hello
 ```
 
-### 创建Gradle编译文件
+#### 创建Gradle编译文件
 
 [初始化Gradle编译文件 ][11]，也可以用[Spring Tool Suite (STS)][12]工具直接导入源码
 
@@ -183,7 +183,7 @@ task wrapper(type: Wrapper) {
 include 'gs-yarn-batch-processing-client','gs-yarn-batch-processing-appmaster','gs-yarn-batch-processing-container','gs-yarn-batch-processing-dist'
 ````
 
-### Spring 批处理介绍
+#### Spring 批处理介绍
 
 
 可以用单线程或进程的job解决批处理问题，因此处理许多复杂的问题的时候优可能会先考虑是否能用批处理模式解决。Spring Batch提供了很多并行处理方法解决这些问题。有两种高级层次多并行处理模型：单进程，多线程；多进程
@@ -201,10 +201,10 @@ include 'gs-yarn-batch-processing-client','gs-yarn-batch-processing-appmaster','
  快速浏览Spring Batch 分区是怎样的机制，其理念是：一个分区好的job需要三样东西，第一 远程工作集，第二 分区处理器，第三 分区者。站在用户的角度来看，任何一个 remote step 都有点过于简化了。Spring Batch 本身不包含任何专门网格计算或者特殊远程过程调用实现。然而Spring Batch确实提供PartitionHandler的实现，PartitionHandler会根据Spring的TaskExecutor的策略，然后使用各自独立的线程运行工作集。Spring Hadoop针对Hadoop集群提供了远程工作集的实现。
  
  
- ### 了解更多关于Spring Batch Partitioning的信息，参照Spring Batch文档
+ #### 了解更多关于Spring Batch Partitioning的信息，参照Spring Batch文档
  
  
- <h2 id="remote_batch"> 远程批处理步骤 </h2>
+ <h4 id="remote_batch"> 远程批处理步骤 </h4>
  
  需要一个PrintTasklet 类
  
@@ -314,7 +314,7 @@ public class ContainerApplication {
 * 配置HDFS文件，在真实的集群里是可以自定义的
 * 通过 `spring.yarn.batch.enabled property` 可以在YARN上使用批处理
 
-### 创建一个批处理job
+#### 创建一个批处理job
 
 创建 AppmasterApplication类
 
@@ -431,7 +431,7 @@ spring:
 * enabled 是否自动运行
 * next 是否允许下一步操作
 
-###  创建Yarn客户端
+####  创建Yarn客户端
 
 创建 ClientApplication 类
 
@@ -483,9 +483,9 @@ spring:
 
 * 为application需要提交的，定义好了所有的文件
 
-### 编译程序
+#### 编译程序
 
-使用简单粗暴的Gradle命令：clean清空工作目录，build编译
+使用Gradle命令：clean清空工作目录，build编译
 
 `./gradlew clean build`
 
@@ -493,7 +493,7 @@ spring:
 
 `./gradlew clean build -x test`
 
-使用简单粗暴的Maven命令：clean清空工作目录，package打包
+使用maven命令：clean清空工作目录，package打包
 
 `mvn clean package`
 
@@ -518,7 +518,7 @@ $ java -jar target/gs-yarn-batch-processing-dist/gs-yarn-batch-processing-client
 
 如果这个程序没有出错，在YARN可以看到两段执行过程
 
-###  创建一个单元测试类
+####  创建一个单元测试类
 
 以下这个执行应用程序的类可以作为单元测试类，并不需要在Hadoop集群上跑
 
