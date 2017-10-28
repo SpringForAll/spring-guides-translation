@@ -212,9 +212,9 @@ dependencies {
 
 为了把携带name的消息模型化，你可以创建一个带有name属性的普通Java类和相应的getName()方法。
 
-```java
-src/main/java/hello/HelloMessage.java
-```
+
+`src/main/java/hello/HelloMessage.java`
+
 
 ```java
 package hello;
@@ -501,11 +501,11 @@ public class Application {
 }
 ```
 
-'@SpringBootApplication'是一个方便的注解，它添加以下所有内容：
-'@Configuration'将该类标记为应用程序上下文的bean定义的源。
-'@EnableAutoConfiguration'指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
-通常，你将为Spring MVC应用程序添加'@EnableWebMvc'，但是当Spring类在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
-'@ComponentScan'告诉Spring在hello包中查找其他组件，配置和服务，允许它找到控制器。
+`@SpringBootApplication`是一个方便的注解，它添加以下所有内容：
+`@Configuration`将该类标记为应用程序上下文的bean定义的源。
+`@EnableAutoConfiguration`指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
+通常，你将为Spring MVC应用程序添加`@EnableWebMvc`，但是当Spring类在类路径中看到spring-webmvc时，Spring Boot会自动添加它。这将应用程序标记为Web应用程序，并激活诸如设置DispatcherServlet等关键行为。
+`@ComponentScan`告诉Spring在hello包中查找其他组件，配置和服务，允许它找到控制器。
 main()方法使用Spring Boot的SpringApplication.run()方法启动应用程序。你注意到没有一行XML吗？没有web.xml文件。此Web应用程序是100％纯Java，你无需处理配置其他基础构件。
 
 ## 构建可执行的JAR
