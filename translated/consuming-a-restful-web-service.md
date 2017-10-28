@@ -393,13 +393,13 @@ java -jar target/gs-consuming-rest-0.1.0.jar
 2015-09-23 14:22:26.415  INFO 23613 --- [main] hello.Application  : Quote{type='success', value=Value{id=12, quote='@springboot with @springframework is pure productivity! Who said in #java one has to write double the code than in other langs? #newFavLib'}}
 ```
 
-如果您看到错误无法提取响应：Could not extract response: no suitable HttpMessageConverter found for response type [class hello.Quote]，您可能处于无法连接到后端服务（如果能连上会返回JSON）。 也许你是代理， 那么尝试将标准系统属性http.proxyHost和http.proxyPort设置为适合您环境的值。 
+> 如果您看到错误无法提取响应：Could not extract response: no suitable HttpMessageConverter found for response type [class hello.Quote]，您可能处于无法连接到后端服务（如果能连上会返回JSON）。 也许你用的是代理， 那么尝试将标准系统属性http.proxyHost和http.proxyPort设置为适合您环境的值。 
 
 # Summary 总结
 
 恭喜！ 您刚刚使用Spring开发了一个简单的REST客户端程序。
 
-<!-- ## 您也可以看看
+## 您也可以看看
 
 以下指南也可能有帮助：
 
@@ -416,6 +416,6 @@ java -jar target/gs-consuming-rest-0.1.0.jar
 - [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 - [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/)
 - [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/)
-- [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) -->
+- [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/)
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
