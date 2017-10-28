@@ -1,5 +1,3 @@
-【shaoshao721翻译中】
-
 # 中文标题
 
 > 原文：[Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/)
