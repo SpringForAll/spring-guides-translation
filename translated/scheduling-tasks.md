@@ -2,15 +2,15 @@
 
 > 原文：[Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/)
 >
-> 译者：[rhwayfun][1]
+> 译者：[rhwayfun](https://github.com/happyxiaofan)
 >
-> 校对：[carlzhangweiwen][2]
+> 校对：[carlzhangweiwen](https://github.com/carlzhangweiwen)
 
-本指南将一步步引导您在Spring中使用定时任务
+本指南将一步步引导您在 Spring 中使用定时任务
 
 ## 你将要构建什么
 
-构建一个应用，实现的功能为，每隔5秒打印出当前时间。这点可以通过Spring注解`@Scheduled`完成。
+构建一个应用，实现的功能为，每隔5秒打印出当前时间。这点可以通过 Spring 注解`@Scheduled`完成。
 
 ## 你需要什么
 
@@ -19,27 +19,28 @@
  - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)或更高版本
  - [Gradle 2.3+](http://www.gradle.org/downloads) 或者 [Maven 3.0+](https://maven.apache.org/download.cgi)
  - 您也可以直接导入代码到IDE中：
-    - [Spring Tool Suite (STS)][3]
-    - [IntelliJ IDEA][4]
+    - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+    - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 ## 如何完成这份指南
 
-和其他[Spring使用指南][5]一样，你可以从零开始一步步完成，或者略过那些你已經熟悉的項目創建步骤(setup steps)。不管哪种方式你最终都会得到一份工作代码(working code)。
+和其他 [Spring 使用指南](https://spring.io/guides)一样，你可以从零开始一步步完成，或者略过那些你已經熟悉的項目創建步骤(setup steps)。不管哪种方式你最终都会得到一份工作代码(working code)。
 
-如果从零开始，请移步[Build with Gradle][https://spring.io/guides/gs/scheduling-tasks/#scratch]。。
+如果从零开始，请移步 [Build with Gradle](#gradle)。
 
 如果打算跳过基本步骤，按照如下操作：
 
- - [下载][6]并解压这份指南的源码包，或者使用[Git][7]克隆：
+ - [下载](https://github.com/spring-guides/gs-scheduling-tasks/archive/master.zip)并解压这份指南的源码包，或者使用 [Git](https://spring.io/understanding/Git) 克隆：
     `git clone https://github.com/spring-guides/gs-scheduling-tasks.git`
  - 进入目录 `gs-scheduling-tasks/initial`
  - 跳到 `创建定时任务章节`
 
 当你完成以上操作，你可以在 `gs-scheduling-tasks/complete` 根据代码检查结果。
 
+<h2 id="gradle"></h2>
 ## 使用 Gradle 构建项目
 
-首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle][8] 或者 [Maven][9] 构建的代码。如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目][10]或者[如何使用 Maven 构建 Java 项目][11]。
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/)  构建的代码。如果你对两者都不是很熟悉，你可以先去看下[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
 ### 创建 Gradle 目录结构
 
@@ -54,9 +55,9 @@
 
 ### 创建 Gradle 构建文件
 
-下面是一份[初始化Gradle构建文件][12]
+下面是一份[初始化 Gradle 构建文件](https://github.com/spring-guides/gs-scheduling-tasks/blob/master/initial/build.gradle)
 
-build.gradle
+`build.gradle`
 
 ```groovy
 buildscript {
@@ -99,17 +100,17 @@ dependencies {
 }
 ```
 
-[Spring Boot gradle 插件][13] 提供了非常多方便的功能：
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
 
 * 搜索`public static void main()`方法并且将它标记为可执行类
 
-* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][14].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)，你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用 Maven 构建项目
 
-首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven][15] 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目][16].
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven](https://maven.apache.org/) 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven).
 
 ### 创建 Maven 目录结构
 
@@ -122,7 +123,7 @@ dependencies {
             └── hello
 ```
 
-pom.xml
+`pom.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -163,21 +164,22 @@ pom.xml
 </project>
 ```
 
-[Spring Boot Maven 插件][17] 提供了非常多方便的功能：
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
 
 * 搜索`public static void main()`方法并且将它标记为可执行类
 
-* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][18].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用你的 IDE 进行构建
 
-*   [如何在Spring Tool Suite中构建][19].
+*   [如何在 Spring Tool Suite 中构建](https://spring.io/guides/gs/sts/).
 
-*   [如何在IntelliJ IDEA中构建][20].
+*   [如何在 IntelliJ IDEA 中构建](https://spring.io/guides/gs/intellij-idea).
 
 ## 创建定时任务
+
 既然已经搭建好了项目，下面就可以开始创建定时任务了。
 
 `src/main/java/hello/ScheduledTasks.java`
@@ -208,10 +210,11 @@ public class ScheduledTasks {
 ```
 
 `@Scheduled`注解定义一个方法的执行周期。**注意**：这个例子使用了`fixedRate`，
-它指定了每次方法调用开始执行的间隔。有[其他的选项][21]，比如`fixedDelay`，它指定了从每次方法调用结束开始计算时间的调用间隔。你也可以[使用`@Scheduled(cron=". . .")`表达式实现更复杂的定时任务][22]
+它指定了每次方法调用开始执行的间隔。有[其他的选项](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/scheduling.html#scheduling-annotation-support-scheduled)，比如`fixedDelay`，它指定了从每次方法调用结束开始计算时间的调用间隔。你也可以[使用`@Scheduled(cron=". . .")`表达式实现更复杂的定时任务](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html)。
 
 ## 开启定时功能
-虽然计划任务可以嵌入在Web应用程序和WAR包中，通过创建一个独立的应用程序，下面演示了一种更简单的方法。 您将所有内容都打包在一个可执行的JAR中，通过Java的`main()`方法就可以执行。
+
+虽然计划任务可以嵌入在 Web 应用程序和 WAR 包中，通过创建一个独立的应用程序，下面演示了一种更简单的方法。 您将所有内容都打包在一个可执行的 JAR 中，通过 Java 的`main()`方法就可以执行。
 
 `src/main/java/hello/Application.java`
 
@@ -238,19 +241,19 @@ public class Application {
  - 正常情况下如果是基于Spring MVC构建的应用需要添加注解`@EnableWebMvc`，但是Spring Boot当发现类路径下有**spring-webmvc**依赖时会自动添加这个注解。这个注解的作用标记一个应用为Web应用并且会自动激活一些功能，比如创建`DispatcherServlet`
  - `@ComponentScan` 告诉Spring在`hello`包下扫描其他的组件、配置和服务，从而让Spring找到Controller。
 
-`main()`方法使用Spring Boot的`SpringApplication.run()`启用一个应用。不知道你是否注意到没有一行**XML**配置，也没有**web.xml**文件。这个web应用100%使用Java实现，你不需要任何添加额外的配置。
+`main()`方法使用 Spring Boot 的`SpringApplication.run()`启用一个应用。不知道你是否注意到没有一行**XML**配置，也没有**web.xml**文件。这个 web 应用100%使用 Java 实现，你不需要任何添加额外的配置。
 
-`@EnableScheduling`注解会在后台创建一个任务执行器，没有它定时任务无法正常工作。
+[`@EnableScheduling`](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#scheduling-enable-annotation-support)注解会在后台创建一个任务执行器，没有它定时任务无法正常工作。
 
-**构建一个可执行JAR包**
+### 构建一个可执行JAR包
 
-你可以使用Maven或者Gradle在命令行中启动这个应用。也可以构建一个包含所有依赖、类文件和资源文件的可执行JAR包，然后运行它。这使得在整个开发生命周期中，在不同的环境部署一个服务变得简单了。
+你可以使用 Maven 或者 Gradle 在命令行中启动这个应用。也可以构建一个包含所有依赖、类文件和资源文件的可执行 JAR 包，然后运行它。这使得在整个开发生命周期中，在不同的环境部署一个服务变得简单了。
 
-如果你使用的是Gradle，可以通过运行脚本`./gradlew bootRun`来启动应用。或者在Maven使用`./mvnw clean package`打包成JAR文件，然后运行：
+如果你使用的是 Gradle，可以通过运行脚本`./gradlew bootRun`来启动应用。或者在 Maven 使用`./mvnw clean package`打包成 JAR 文件，然后运行：
 
 `java -jar target/gs-scheduling-tasks-0.1.0.jar`
 
-> 上面的程序会生成一个可执行的JAR，你也可以选择构建传统的WAR包。
+> 上面的程序会生成一个可执行的 JAR，你也可以选择[构建传统的 WAR 包](https://spring.io/guides/gs/convert-jar-to-war/)。
 
 从日志输出可以看到这是在后台的线程在输出，你应该可以看到你的定时任务是5秒输出一次的。
 
@@ -263,17 +266,18 @@ public class Application {
 ```
 
 ## 总结
+
 恭喜！ 您创建了一个有定时任务功能的应用程序。可以发现，实际代码比构建文件更少！ 这份代码适用于任何类型的应用。
 
 ## 了解更多
 
 下面的指南可能對你也有帮助：
 
-*   [Building an Application with Spring Boot][23]
+*   [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 
-*   [Creating a Batch Service][24]
+*   [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/)
 
-> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可][25]协议进行许可。
+> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
 
 
 [1]: https://github.com/happyxiaofan
