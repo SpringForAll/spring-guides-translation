@@ -54,7 +54,8 @@
 首先配置脚本， 可以使用[Gradle][14] 或者 [Maven][15]工具构建Spring app. 如果不熟悉请参考[Building Java Projects with Gradle][16] or [Building Java Projects with Maven][17].
 
 
-还有另外关于构建Spring YARN系统的指南说明。如果不熟悉，请阅读[Building Spring YARN Projects with Gradle][18] or [Building Spring YARN Projects with Maven][19].
+另外还有关于构建Spring YARN工程的指南说明。如果不熟悉，请阅读[Building Spring YARN Projects with Gradle][18] or [Building Spring YARN Projects with Maven][19].
+
 #### 创建工程目录结构
 
 选定工程文件夹以后，建立子文件夹：
