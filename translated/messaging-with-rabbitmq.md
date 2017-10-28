@@ -1,4 +1,4 @@
-# Spring Boot 整合消息中间件 RabbitMQ
+# Spring Boot整合消息中间件RabbitMQ
 
 > 原文：[Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
 >
@@ -15,13 +15,9 @@
 ## 你需要准备什么？
 
 *   大概15分钟时间
-
 *   一个喜欢的文本编辑器或者IDE
-
 *   [JDK 1.8][4] or 更高版本
-
 *   [Gradle 2.3+][5] or [Maven 3.0+][6] 
-
 *   你可以直接导入 RabbitMQ 服务的代码到 IDE : [Spring Tool Suite (STS)][7] 或者 [IntelliJ IDEA][8] (点击进入安装步骤)
 
 ## 怎样完成指南？
@@ -33,9 +29,7 @@
 如果已经熟悉一些基本步骤，你可以：
 
 *   [下载并解压源码库][9]，或者通过 Git 工具克隆一份代码：[了解Git][10] : `git clone [https://github.com/spring-guides/gs-messaging-rabbitmq.git][11]`
-
 *   cd into gs-messaging-rabbitmq/initial
-
 *   往下看 [创建RabbitMQ 消息接收者][12]
 
 当你完成之后，你可以在`gs-messaging-rabbitmq/complete`检查下结果。
@@ -105,9 +99,7 @@ dependencies {
 [Spring Boot gradle 插件][35] 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
-
 * 搜索`public static void main()`方法并且将它标记为可执行类
-
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][25].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用 Maven 构建项目
@@ -169,15 +161,12 @@ pom.xml
 [Spring Boot Maven 插件][28] 提供了非常多方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷
-
 * 搜索`public static void main()`方法并且将它标记为可执行类
-
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本][25].你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用你的 IDE 进行构建
 
 *   [如何在Spring Tool Suite中构建][13].
-
 *   [如何在IntelliJ IDEA中构建][14].
 
 ## 安装 RabbitMQ
@@ -185,6 +174,7 @@ pom.xml
 在构建消息应用之前，需要先安装 RabbitMQ 消息中间件服务，中间件服务器会处理发送和接受消息。
 
 RabbitMQ 是一个基于`AMQP协议`的消息中间件。它完全开源，你可以在这里[http://www.rabbitmq.com/download.html][21]去下载它，如果你使用的是 Mac 电脑，你可以使用 homebrew 来安装：
+
 ```
 brew install rabbitmq
 ```
@@ -207,7 +197,7 @@ rabbitmq-server
             Starting broker... completed with 6 plugins.
 ```
 
- 如果你本地安装了 Docker，你也可以通过 [Docker Compose][22] 的方式来快速启动一个 RabbitMQ 服务。下面是 Github 上面一个建立 RabbitMQ 服务的`docker-compse.yml`，它非常简单：
+如果你本地安装了 Docker，你也可以通过 [Docker Compose][22] 的方式来快速启动一个 RabbitMQ 服务。下面是 Github 上面一个建立 RabbitMQ 服务的`docker-compse.yml`，它非常简单：
 
 docker-compose.yml
 
@@ -259,9 +249,7 @@ public class Receiver {
 Spring AMQP 的 RabbitTemplate 提供了任何你想要通过 RabbitMQ 发送和接受消息的任何功能。当然，你需要先做一些配置：
 
 * 一个消息监听容器
-
 * 声明队列，交换机，并且将它们两者绑定
-
 * 一个发送消息来测试监听器的组件类
 
 > Spring Boot 自动创建了一个连接工厂(译者注:RabbitMQ中的Connection Factory)和一个 RabbitTemplate 用来减少你需要写的大量代码。
@@ -328,12 +316,9 @@ public class Application {
 
 `@SpringBootApplication` 是一个非常方便的注解，它增加了以下注解的所有功能
 
-* `@Configuration` 标记这个类是应用上下文 Bean 的源定义.
-
-* `@EnableAutoConfiguration` 告诉 SpringBoot 启动的时候在 classpath 设置、其它已经装载的 Bean 以及其它配置文件的基础上自动进行配置 Bean.
-
-* 通常你会在SpringMVC应用上使用`@EnableMvc`，但是Spring Boot 在看到spring-webmvc 在它的classpath目录下的时候，它会自动加载该注解。这个注解标记了这个应用是一个web应用，并且会激活一些关键功能，比如说加载`DispatcherServlet`.
-
+* `@Configuration` 标记这个类是应用上下文 Bean 的源定义
+* `@EnableAutoConfiguration` 告诉 SpringBoot 启动的时候在 classpath 设置、其它已经装载的 Bean 以及其它配置文件的基础上自动进行配置 Bean
+* 通常你会在SpringMVC应用上使用`@EnableMvc`，但是Spring Boot 在看到spring-webmvc 在它的classpath目录下的时候，它会自动加载该注解。这个注解标记了这个应用是一个web应用，并且会激活一些关键功能，比如说加载`DispatcherServlet`
 * `@ComponetScan` 告诉 Spring 在 hello 包下扫描其它的注解，如组件(componets)，配置(configurations)，或者服务(services),Spring 也会通过它找到控制器(controllers)
 
 `main()` 方法里面通过调用 Spring Boot 的`SpringApplication.run()`方法来启动应用。你有没有注意到到现在还没有写过一行 XML ？甚至也没有`web.xml`文件。这个 web 应用完全 100% 都是使用的 Java，并且你还不需要对任何应用的基础设置进行配置。
@@ -430,12 +415,8 @@ Received
 下面的指南也非常有帮助：
 
 *   [Messaging with Redis][15]
-
 *   [Messaging with JMS][16]
-
 *   [使用Spring Boot构建应用][17]
-
---------------------------------------------------------------------------------
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 

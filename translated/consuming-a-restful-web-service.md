@@ -369,7 +369,7 @@ public class Application {
 
 RestTemplateBuilder由Spring注入，如果您使用它来创建一个RestTemplate，那么您将从Spring Boot的自动配置中受益。 我们还将RestTemplate解压缩成@Bean，使其更易于测试（这样可以更容易模拟）。
 
-### Build an executable JAR 构建可执行的JAR
+### 构建可执行的JAR
 
 您可以通过Gradle或Maven从命令行运行应用程序。 或者，您可以构建一个包含所有依赖，类和资源的单个可执行JAR文件，并运行该文件。 这使得在整个开发生命周期中，在不同的环境中迁移，打版本和部署服务变得更加容易。
 

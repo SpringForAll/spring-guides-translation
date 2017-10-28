@@ -239,16 +239,17 @@ public class HelloWorld {
 
 现在你可以使用 `mvn compile` 或者 `mvn package`  Maven已经可以从中央库解析Joda时间库依赖，并成功构建。
 
-### 编写测试用例
+## 编写测试用例
+
 首先增加Junit依赖在pom.xml文件中，test作用域：
 
 ```xml
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
+<dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.12</version>
+	<scope>test</scope>
+</dependency>
 ```
 
 新建测试用例代码如下：

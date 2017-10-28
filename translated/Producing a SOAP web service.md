@@ -158,7 +158,7 @@ dependencies {
 </project>
 ```
 
- [Spring Boot maven 插件 ](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin)提供了很多便捷的特性：
+[Spring Boot maven 插件 ](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin)提供了很多便捷的特性：
 
 - 该插件可以把类路径下所有的jar打包成一个可以运行的“über-jar”，给程序的执行和传输带来很大的方便。
 - 该插件会自动搜索程序中的`public static void main()` 方法，作为程序运行的入口。
@@ -279,7 +279,7 @@ Maven的插件配置：
 
 如果想通过gradle实现相同的效果需要在build文件中配置JAXB:
 
-```
+```groovy
 configurations {
     jaxb
 }
@@ -307,7 +307,7 @@ dependencies {
 
 下一步，添加Gradle生成java类文件时需要的task  `genJaxb`:
 
-```
+```groovy
 task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
     ext.classesDir = "${buildDir}/classes/jaxb"
@@ -500,14 +500,8 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 ```
 
 - Spring WS通过特定类型的servlet来处理SOAP消息：[`MessageDispatcherServlet`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/transport/http/MessageDispatcherServlet.html)。在[`MessageDispatcherServlet`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/transport/http/MessageDispatcherServlet.html)中必须设置应用程序的上下文[ApplicationContext](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/context/ApplicationContext.html)，否则Spring WS扫描不到Spring beans。
-
-
 - 将bean命名为 `messageDispatcherServlet`，这样可以与[Spring Boot的默认DispatcherServlet bean](https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/htmlsingle/#howto-switch-off-the-spring-mvc-dispatcherservlet)相区分。
-
-
 - [DefaultMethodEndpointAdapter](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.html)配置注解驱动的SpringWS编程模型。 这使得前面提到的各种注解都可以使用，如[`@Endpoint`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/server/endpoint/annotation/Endpoint.html)。
-
-
 - [`DefaultWsdl11Definition`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/wsdl/wsdl11/DefaultWsdl11Definition.html)使用[`XsdSchema`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/xml/xsd/XsdSchema.html)发布了一个标准的 WSDL1.1
 
 需要强调的是，[`MessageDispatcherServlet`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/transport/http/MessageDispatcherServlet.html)和[`DefaultWsdl11Definition`](https://docs.spring.io/spring-ws/sites/2.0/apidocs/org/springframework/ws/wsdl/wsdl11/DefaultWsdl11Definition.html)必须指定bean名称。 这两个bean的名称决定了访问WSDL文件的URL。比如，上述代码生成的WSDL文件位于
@@ -542,11 +536,7 @@ public class Application {
 `@SpringBootApplication` 是一个方便的注解，它会自动添加以下所有内容：
 
 - `@Configuration`将该类标记为应用程序上下文中bean定义的源。
-
-
 - `@EnableAutoConfiguration`指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
-
-
 - 通常，Spring MVC 应用程序会添加`@EnableWebMvc`注解，但是当Spring Boot在类路径中发现**spring-webmvc**时会自动添加该注解。通过添加该注解将应用程序标记为Web应用程序，并进行一些关键操作，比如设置`DispatcherServlet`。
 - `@ComponentScan`通知Spring在hello包中查找其他组件，配置和服务，允许Spring扫描到控制器。
 
