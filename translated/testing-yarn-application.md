@@ -104,7 +104,7 @@ mkdir -p gs-yarn-testing-dist/src/test/java/hello
 可以参考这个[initial Gradle build file][20].
 
 
-<h4 id="junit_class"> 创建一个JUnit单元测试类 <h4>
+<h4 id="junit_class"> 创建一个JUnit单元测试类 </h4>
 
 ``gs-yarn-testing-dist/src/test/java/hello/AppIT.java
 ``
