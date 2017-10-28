@@ -173,7 +173,7 @@ dependencies {
 - 阅读如何将这篇指南直接导入进 [Spring Tool Suite](https://spring.io/guides/gs/sts/).
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建.
 
-## 构建GitHub User的表示
+## 构建GitHub User的数据对象
 
 在你创建GitHub查找服务之前，你需要为通过GitHub API检索到的数据定义一个表示形式。
 
@@ -417,8 +417,6 @@ java -jar target/gs-async-method-0.1.0.jar
 
 - [使用Spring MVC提供Web内容](https://spring.io/guides/gs/serving-web-content/)
 - [用Spring Boot构建应用程序](https://spring.io/guides/gs/spring-boot/)
-
-想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
 
