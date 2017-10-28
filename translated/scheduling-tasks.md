@@ -271,7 +271,7 @@ public class Application {
 
 ## 了解更多
 
-下面的指南可能對你也有帮助：
+下面的指南可能对你也有帮助：
 
 *   [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 
