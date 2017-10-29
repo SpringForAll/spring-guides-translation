@@ -166,14 +166,14 @@ public class AppIT extends AbstractBootYarnClusterTests {
 ```
 
 
-一步一步分解 `JUnit` 类。之前提到过，不需要Hadoop实例，是因为Spring YARN的测试框架很方便地开启一个独立地mini cluster测试环境
+接下来一步一步分解 `JUnit` 类。不过之前提到过不需要Hadoop实例，是因为Spring YARN的测试框架很方便地开启一个独立地mini cluster测试环境
 
 
 * 命名一个 `AppIT` 类，运行编译tests的时候，它能兼容gradle和maven。编译的时候。如果Tests添加了artifacts标识，那么只能用jar的形式运行并且通过 `Spring Boot’s` repackage 插件完成这件事情。
 
-* 由于test运行的是一个`gs-yarn-testing-dist` 工程，所以要用 `spring.yarn.client.files` 覆盖 `application.yml`的配置
+* 由于test运行的是一个 `gs-yarn-testing-dist` 工程，所以要用 `spring.yarn.client.files` 覆盖 `application.yml` 的配置
 
-* `@MiniYarnClusterTest` 是一个composed注解，它能使Spring开启一个有`HDFS` 和 `YARN`组件的Hadoop mini Cluster，Hadoop的配置文件能从mini cluster 自动的注入测试上下文
+* `@MiniYarnClusterTest` 是一个composed注解，它能使Spring开启一个有`HDFS` 和 `YARN` 组件的Hadoop mini Cluster，Hadoop的配置文件能从mini cluster 自动的注入测试上下文
 
 * `AbstractBootYarnClusterTests` 这个类包含类许多test需要的基本功能。
 

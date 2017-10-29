@@ -358,7 +358,7 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.ja
 恭喜了，现在可以通过高效的Maven构建一个简单Spring YARN工程了
 
 
-如果想写一个新的指南或者对其他指南有修改意见和建议，请参考[贡献指南说明][7]
+如果想写一个新的指南或者对其他指南有修改意见和建议，请阅读[贡献指南说明][7]
 
 
 [完整的源代码][8]
