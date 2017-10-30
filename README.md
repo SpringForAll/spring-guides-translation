@@ -4,6 +4,8 @@
 
 但是由于该教程内容均是英文的，所以只有少部分人会关注这里。所以，我们[SpringForAll社区](http://spring4all.com)计划开始组织对这部分高质量内容的翻译工作，以促进Spring这样优秀的框架在国内的发展！由衷的希望Spring大生态变得越来越强大！
 
+我们的首页：http://www.spring4all.com/spring-guildes/
+
 ## 协作参与
 
 * 交流社区：[SpringForAll社区](http://spring4all.com)
@@ -30,7 +32,7 @@
 | ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
 | 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) | 等待校对 | [Jitianyu](https://github.com/Jitianyu)  |                                          |
 | 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | 校对完成 | [happyxiaofan](https://github.com/happyxiaofan) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
-| 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) |校对完成     | [hapihapidoge](https://github.com/hapihapidoge) | [maskwang](https://github.com/maskwang520)                                         |
+| 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) | 校对完成 | [hapihapidoge](https://github.com/hapihapidoge) | [maskwang](https://github.com/maskwang520) |
 | 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | 校对完成 | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) | [william-hyx](https://github.com/william-hyx) |
 | 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) |      | [codedrinker](https://github.com/codedrinker) |                                          |
 | 1006 | [Uploading Files](https://spring.io/guides/gs/uploading-files/) |      | [JustDoNow](https://github.com/JustDoNow) |                                          |
@@ -45,7 +47,7 @@
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) | 正在翻译 | [xyq000](https://github.com/xyq000)      |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
-| 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) |寻找校对     |[cleverlzc](https://github.com/cleverlzc)                                          |                                          |
+| 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) | 寻找校对 | [cleverlzc](https://github.com/cleverlzc) |                                          |
 | 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) | [程序猿DiDi](https://github.com/dyc87112)   |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
@@ -53,10 +55,10 @@
 | 1023 | [Caching Data with GemFire](https://spring.io/guides/gs/caching-gemfire/) |      | [liweijian199011](https://github.com/liweijian199011) |                                          |
 | 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                          |                                          |
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
-| 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) | 校对完成 | [cholf](https://github.com/cholf)        |[cleverlzc](https://github.com/cleverlzc)                                          |
+| 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) | 校对完成 | [cholf](https://github.com/cholf)        | [cleverlzc](https://github.com/cleverlzc) |
 | 1027 | [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/) |      | [dejunyu](https://github.com/dejunyu)    |                                          |
 | 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 等待校对 | [JohnHello](https://github.com/JohnHello) |                                          |
-| 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 校对完成 | [shaoshao721](https://github.com/shaoshao721) | [mrdear](https://github.com/mrdear)                                         |
+| 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 校对完成 | [shaoshao721](https://github.com/shaoshao721) | [mrdear](https://github.com/mrdear)      |
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 校对调整 | [nycgym](https://github.com/nycgym)      | [cleverlzc](https://github.com/cleverlzc) |
 | 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) | 校对完成 | [maskwang520](https://github.com/maskwang520) | [strongant](https://github.com/strongant) |
@@ -81,7 +83,7 @@
 | 1051 | [Caching Data with Spring](https://spring.io/guides/gs/caching/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
 | 1052 | [Deploying to Cloud Foundry from STS](https://spring.io/guides/gs/sts-cloud-foundry-deployment/) |      |                                          |                                          |
 | 1053 | [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/) | 校对完成 | [StormMaybin](https://github.com/StormMaybin) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
-| 1054 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) |      校对完成| [xiudongxu](https://github.com/xiudongxu) |[cleverlzc](https://github.com/cleverlzc)                                          |
+| 1054 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) | 校对完成 | [xiudongxu](https://github.com/xiudongxu) | [cleverlzc](https://github.com/cleverlzc) |
 | 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) | 正在翻译 | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 校对完成 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
