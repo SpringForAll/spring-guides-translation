@@ -2,16 +2,16 @@
 
 > 原文：[Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
 >
-> 译者：cholf
+> 译者：[cholf](https://github.com/cholf)
 >
 > 校对：
 
-# 使用MongoDB访问数据
+
 本指南将引导你使用[ Spring Data MongoDB ](https://projects.spring.io/spring-data-mongodb/)来构建一个应用程序,该应用程序将数据存储到[ MongoDB ](https://www.mongodb.com/)(一个基于文档的数据库)并从中获取数据。
 
 
 ## 你将创建什么
-您将使用Spring Data MongoDB存储 Customer [ POJOS ](https://spring.io/understanding/POJO)到MongoDB数据库中。
+您将使用Spring Data MongoDB存储 `Customer` [ POJOS ](https://spring.io/understanding/POJO)到MongoDB数据库中。
 
 ## 开始之前你需要准备
 
@@ -45,13 +45,13 @@
 
 **当你完成之后**，你可以在`gs-accessing-data-mongodb/complete`根据代码检查下结果。
 
-<h2 id="scratch"> 使用Gradle构建 </h2>
+## 使用Gradle构建
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
-创建以下目录结构
+### 创建以下目录结构
 
-在你的项目根目录，创建如下的子目录结构; 例如，如果你使用的是*nix系统，你可以使用`mkdir -p src/main/java/hello`:
+在你的项目根目录，创建如下的子目录结构; 例如，如果你使用的是\*nix系统，你可以使用`mkdir -p src/main/java/hello`:
 
 ```
 └── src
@@ -60,7 +60,7 @@
             └── hello
 ```
 
-创建Gradle构建文件
+### 创建Gradle构建文件
 
 下面是一份[初始化Gradle构建文件](https://github.com/spring-guides/gs-accessing-data-rest/blob/master/initial/build.gradle)
 
@@ -104,8 +104,8 @@ dependencies {
 [Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多非常方便的功能：
 
 * 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷。
-* 搜索public static void main()方法并且将它标记为可执行类。
-* 提供了将内部依赖的版本都去匹配 Spring Boot 依赖的版本。你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
+* 搜索 `public static void main()` 方法并且将它标记为可执行类。
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml) 的版本。你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
 ## 使用Maven构建
 
@@ -201,25 +201,25 @@ dependencies {
 - 阅读如何将本指南直接导入 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建。
 
-<h2 id="initial">安装并启动MongoDB</h2>
+## 安装并启动MongoDB
 
 在您的项目设置完成后，您可以安装并启动 MongoDB 数据库。
 
 如果你使用的是 Mac，你可以使用 homebrew 来安装,像这样：
 
-```
+```sh
 $ brew install mongodb
 ```
 
 如果你使用 MacPorts,像这样:
-```
+```sh
 $ port install mongodb
 ```
 对于其它包管理系统,比如,Redhat, Ubuntu, Debian, CentOS, Windows系统,请参阅[ 说明 ](http://docs.mongodb.org/manual/installation/)
 
 
 在你安装MongoDB后,在控制台窗口启动它,命令还启动了一个服务器进程。
-```
+```sh
 $ mongod
 ```
 这里有更详细的启动信息:
@@ -229,12 +229,12 @@ $ mongod
 ```
 
 ## 定义一个简单的实体
-MongoDB是一个NoSQL文档存储。例子里,你将存储 Customer 对象。
-```
+MongoDB是一个NoSQL文档存储。例子里,你将存储 `Customer` 对象。
+`
 src/main/java/hello/Customer.java
-```
+`
 
-```
+```java
 package hello;
 
 import org.springframework.data.annotation.Id;
@@ -265,19 +265,19 @@ public class Customer {
 }
 ```
 
-这里，您有一个具有三个属性id，firstName 和 lastName 的 Customer 类。该 ID 主要用于 MongoDB 内部使用。创建新实例时，您还可以使用单个构造函数来填充实体。
+这里，您有一个具有三个属性`id`，`firstName` 和 `lastName` 的 `Customer` 类。该 ID 主要用于 MongoDB 内部使用。创建新实例时，您还可以使用单个构造函数来填充实体。
 
 
 
 > 在本指南中，为了简洁起见，典型的 setter 和 getter 省略了
 
-id 符合 MongoDB 标准的标准名称，因此不需要任何特殊的注释来为 Spring Data MongoDB 标记它。
+`id` 符合 MongoDB 标准的标准名称，因此不需要任何特殊的注释来为 Spring Data MongoDB 标记它。
 
-例外的两个属性,firstName, 和 lastName 没有注解,假设它们将映射到与属性本身具有相同名称的字段。
+另外的两个属性,`firstName`, 和 `lastName ``没有注解,假设它们将映射到与属性本身具有相同名称的字段。
 
-方便的 toString() 将会打印关于 customer 的详细信息。
+方便的 `toString()`` 将会打印关于 customer 的详细信息。
 
-> MongoDB存储数据集合, Spring Data MongoDB 将映射 Customer 到一个名为 customer 的集合。如果你要改变集合的名字,你可以在类上使用Spring Data MongoDB 的 [ @Document ](https://docs.spring.io/spring-data/data-mongodb/docs/current/api/org/springframework/data/mongodb/core/mapping/Document.html) 注解。
+> MongoDB存储数据集合, Spring Data MongoDB 将映射 `Customer`类到一个名为 customer 的集合。如果你要改变集合的名字,你可以在类上使用Spring Data MongoDB 的 [ @Document ](https://docs.spring.io/spring-data/data-mongodb/docs/current/api/org/springframework/data/mongodb/core/mapping/Document.html) 注解。
 
 ## 创建简单查询
 Spring Data MongoDB专注于存储数据到 MongoDB。
@@ -285,13 +285,11 @@ Spring Data MongoDB专注于存储数据到 MongoDB。
 本质上，您不必学习 MongoDB 数据库的查询语言;
 您可以简单地编写一些方法完成查询，数据库的查询已经为您编写好。
 
-要了解它是如何工作的，请创建一个查询 Customer 文档的存储库接口。
+要了解它是如何工作的，请创建一个查询 `Customer` 文档的存储库接口。
 
-```
-src/main/java/hello/CustomerRepository.java
-```
+`src/main/java/hello/CustomerRepository.java`
 
-```
+```Java
 package hello;
 
 import java.util.List;
@@ -305,22 +303,22 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
 
 }
 ```
-CustomerRepository 继承 MongoRepository接口,开箱即用,接口有许多可使用操作的方法,包括标准的CRUD操作(create-read-update-delete)。
+`CustomerRepository` 继承 `MongoRepository`接口,开箱即用,接口有许多可使用操作的方法,包括标准的CRUD操作(create-read-update-delete)。
 
-通过简单定义方法签名,你可以定义你需要的查询方法,在这种情况下，添加 findByFirstName ,通过 firstName 搜索 Customer 文档,找到匹配的一个结果。
+通过简单定义方法签名,你可以定义你需要的查询方法,在这种情况下，添加 `findByFirstName` ,通过 `firstName` 搜索 `Customer` 文档,找到匹配的一个结果。
 
-你也可以通过 findByLastName 方法找到匹配姓氏的人员列表。
+你也可以通过 `findByLastName` 方法找到匹配姓氏的人员列表。
 
-在典型的Java应用程序中，您编写一个实现CustomerRepository并自行编写查询的类。 Spring Data MongoDB如此有用的是,您不需要自己创建实现,当您运行应用程序的时候MongoDB会动态创建它。
+在典型的Java应用程序中，您编写一个实现`CustomerRepository`并自行编写查询的类。 Spring Data MongoDB如此有用的是,您不需要自己创建实现,当您运行应用程序的时候MongoDB会动态创建它。
 
 让我们来看看它的样子吧！
 
 ## 创建一个应用程序类
 在这里，您创建一个包含所有组件的 Application 类。
-```
+`
 src/main/java/hello/Application.java
-```
-```
+`
+```java
 package hello;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -379,21 +377,19 @@ public class Application implements CommandLineRunner {
 - 对于Spring MVC应用，通常需要加入`@EnableWebMvc`注解，但是当**spring-webmvc** 存在于classpath中时，Spring Boot自动加入该注解。该注解将当前应用标记为web应用，并激活web应用的关键行为，例如开启`DispatcherServlet`。
 - `@ComponentScan`注解使Spring在`hello`包(package)中搜索其他的组件、配置(configurations)和服务(service),在本例中，spring会搜索到控制器(controllers)。
 
-`main()`方法使用Spring Boot的`SpringApplication.run()`方法来加载应用。你有没有注意到本例子中一行XML代码都没有吗？也没有web.xml文件。此web应用100%使纯java代码，因此不需花精力处理任何像基础设施或者下水管道一般的配置工作。
+`main()`方法使用Spring Boot的`SpringApplication.run()`方法来启动应用。你有没有注意到本例子中一行XML代码都没有吗？也没有web.xml文件。此web应用100%使纯java代码，因此不需花精力处理任何像基础设施或者下水管道一般的配置工作。
 
-只要它们包含在 @SpringBootApplication 类的相同包（或子包）中，Spring Boot将自动处理这些存储库。
-为了更好地控制注册过程，您可以使用 @EnableMongoRepositories 注解。
+只要它们包含在`@SpringBootApplication`类的相同包（或子包）中，Spring Boot将自动处理这些存储库。
+为了更好地控制注册过程，您可以使用 `@EnableMongoRepositories` 注解。
 
-> 默认情况, @EnableMongoRepositories注解会扫描当前包的任何实现了Spring Data的存储库接口的接口。你的项目布局多个项目,没有找到你需要的存储库,使用 basePackageClasses=MyRepository.class,它会根据不同类型安全告诉Spring Data MongoDB 扫描不同的包。
+> 默认情况, `@EnableMongoRepositories`注解会扫描当前包的任何实现了Spring Data的存储库接口的接口。你的项目布局多个项目,没有找到你需要的存储库,使用 `basePackageClasses=MyRepository.class`,它会根据不同类型安全告诉Spring Data MongoDB 扫描不同的包。
 
 
-Spring Data MongoDB使用 MongoTemplate 来执行 find* 方法后面的查询。您可以自己使用该模板进行更复杂的查询，但本指南不包括在内。
+Spring Data MongoDB使用 MongoTemplate 来执行 `find*` 方法后面的查询。您可以自己使用该模板进行更复杂的查询，但本指南不包括在内。
 
-Application:包括一个自动装配实例的 main()方法。
+`Application`:包括一个自动装配实例的 `main()`方法。
 
-CustomerRepository:Spring Data MongoDB 动态创建一个代理并注入。
-
-我们通过几个测试使用 CustomerRepository,首先保存少量 Customer对象,演示了save（）方法，并设置了一些可以使用的数据。下一步,它调用 findAll() 方法从数据库取出所有 Customer对象,然后调用 findByFirstName()方法,根据 firstName 找到一个 Customer对象。最后,调用findByLastName(), 找出所有lashtName 是"Smith"的所有 customers。
+CustomerRepository:Spring Data MongoDB 动态创建一个代理并注入。我们通过几个测试使用 `CustomerRepository`,首先保存少量 `Customer`对象,演示了`save（）`方法，并设置了一些可以使用的数据。下一步,它调用 `findAll()` 方法从数据库取出所有 Customer对象,然后调用 `findByFirstName()`方法,根据 firstName 找到一个 Customer对象。最后,调用`findByLastName()`, 找出所有lashtName 是"Smith"的所有 customers。
 
 > Spring Boot 默认启动尝试连接到一个本地托管MongoDB的实例。阅读[ 参考文档  ](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-mongodb),详细知道应用程序如何关联MongoDB托管在别处的实例。
 
@@ -415,7 +411,7 @@ java -jar target/gs-accessing-data-mongodb-0.1.0.jar
 
 > 上面的过程将创建一个可运行的JAR。您也可以选择 [构建一个WAR文件](https://spring.io/guides/gs/convert-jar-to-war/)。
 
-当我们的应用程序实现了 CommandLineRunner,引导时启动时会调用run方法。你应该看到这样的东西(和查询一样的其他东西):
+当我们的应用程序实现了 `CommandLineRunner`,引导时启动时会调用`run`方法。你应该看到这样的东西(和查询一样的其他东西):
 
 ```
 == Customers found with findAll():
@@ -442,6 +438,6 @@ Customer[id=51df1b0a3004cb49c50210f9, firstName='Bob', lastName='Smith']
 *   [使用MySQL访问数据](https://spring.io/guides/gs/accessing-data-mysql/)
 *   [使用Neo4j访问数据](https://spring.io/guides/gs/accessing-data-neo4j/)
 
-想写一个新的指南或贡献一个现有的？查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)
+想写一个新的指南或贡献一个现有的？查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
