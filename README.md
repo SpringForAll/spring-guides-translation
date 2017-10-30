@@ -84,7 +84,7 @@
 | 1052 | [Deploying to Cloud Foundry from STS](https://spring.io/guides/gs/sts-cloud-foundry-deployment/) |      |                                          |                                          |
 | 1053 | [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/) | 校对完成 | [StormMaybin](https://github.com/StormMaybin) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
 | 1054 | [Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/) | 校对完成 | [xiudongxu](https://github.com/xiudongxu) | [cleverlzc](https://github.com/cleverlzc) |
-| 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
+| 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |正在翻译   |[jadendong](https://github.com/jadendong)|                                          |
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) | 正在翻译 | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 校对完成 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
 | 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 正在校对 | [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
