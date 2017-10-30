@@ -3,7 +3,7 @@
 
 > 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) 
 >
-> 译者：
+> 译者：[jadendong](https://github.com/jadendong)
 >
 > 校对：
 
