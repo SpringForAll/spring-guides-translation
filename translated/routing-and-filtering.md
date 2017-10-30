@@ -4,31 +4,31 @@
 >
 > 译者：[hh23485](https://github.com/hh23485)
 >
-> 校对：
+> 校对：[oshare](https://github.com/oshare)
 
 本指南将引导您完成使用Netflix Zuul边缘服务库来路由和过滤微服务应用程序请求。
 
 ## 你将要构建什么
 
-你将会编写一个简单的微服务应用程序，然后构建一个使用[Netflix Zuul](https://github.com/spring-cloud/spring-cloud-netflix)将请求转发到服务应用程序的逆向代理应用程序。你也会看到如何使用Zuul在代理服务时过滤请求。
+你将会写一个简单的微服务应用，接着使用 [Netflix Zuul](https://github.com/spring-cloud/spring-cloud-netflix) 构建一个反向代理应用将请求转发到应用服务。你也会了解如何使用 Zuul 过滤代理服务中的请求。
 
 ## 你需要什么
 
 - 约15分钟
 - 一个你喜欢的文本编辑器或IDE
-- JDK≥1.8
+- JDK 1.8+
 - [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-- 你也可以将代码直接导入你的IDE:
+- 你也可以将代码直接导入你的IDE：
   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 ## 如何完成这篇指南
 
-像大多数的[Spring指南](https://spring.io/guides)，你可以从头开始，完成每一步，也可以跳过已经熟悉的基本步骤。 无论哪种方式，你都会得到起作用的代码。
+像大多数 Spring [入门指南](https://spring.io/guides)一样，你可以从头开始，完成每一步，也可以跳过已经熟悉的基本步骤。 无论哪种方式，你都会得到起作用的代码。
 
 **从零开始**，请移步[Build with Gradle](https://spring.io/guides/gs/routing-and-filtering/#scratch).
 
-**跳过基础步骤**，请从按照下面步骤进行：
+**跳过基础步骤**，按照下面步骤进行：
 
 - [下载](https://github.com/spring-guides/gs-routing-and-filtering/archive/master.zip)并解压此篇指南的源码，或者使用Git来克隆：`git clone https://github.com/spring-guides/gs-routing-and-filtering.git`
 - 使用cd命令进入`gs-routing-and-filtering/initial`
@@ -38,18 +38,17 @@
 
 ## 使用Gradle构建
 
-首先你得设置基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得设置基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用， 你需要使用的代码包含在这儿：[Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉，可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
 
 ### 创建目录结构
 
-在你选择的项目目录中，创建以下子目录结构;例如, 在Linux/Unix系统中使用如下命令: `mkdir -p src/main/java/hello`
+在你选择的项目目录中，创建以下子目录结构;例如， 在Linux/Unix系统中使用如下命令: `mkdir -p src/main/java/hello`
 
 ```
 └── src
     └── main
         └── java
             └── hello
-
 ```
 
 ### 创建一个Gradle文件
@@ -158,7 +157,7 @@ task wrapper(type: Wrapper) {
 }
 ```
 
-[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多便捷的特性:
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多便捷的特性：
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
@@ -170,7 +169,7 @@ task wrapper(type: Wrapper) {
 
 ### 创建目录结构
 
-在你选择的项目目录中，创建以下子目录结构;例如, 在Linux/Unix系统中使用如下命令: `mkdir -p src/main/java/hello`
+在你选择的项目目录中，创建以下子目录结构;例如， 在Linux/Unix系统中使用如下命令： `mkdir -p src/main/java/hello`
 
 ```
 └── src
@@ -300,7 +299,7 @@ task wrapper(type: Wrapper) {
 </project>
 ```
 
-[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性：
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
@@ -347,7 +346,7 @@ public class BookApplication {
 
 `BookApplication`类是一个Rest Controller。`@RestController`注解表示这是一个控制器类，并且也确保`@RequestMapping`方法的返回值会被自动转换为合适的格式并直接写入到HTTP响应中。
 
-对于`@RequestMapping`方法，我们已经添加两个:`available()`和`checkedOut()`。他们分别处理路径为`/available`和`/checked-out`的请求，每一个都简单地返回`String`格式的书名。
+对于`@RequestMapping`方法，我们已经添加两个：`available()`和`checkedOut()`。他们分别处理路径为`/available`和`/checked-out`的请求，每一个都简单地返回`String`格式的书名。
 
 在`src/main/resources/application.properties`文件中设置应用程序的名称(`book`)。
 
@@ -360,7 +359,7 @@ server.port=8090
 
 ## 创建一个边缘服务
 
-Spring Cloud Netflix 包括了一个内嵌的Zuul代理，我们可以使用`@EnableZuulProxy`注解来启用。这能够让网关(Gateway )应用成为一个代理并转发相关的请求到其他服务中，例如我们的Book服务。
+Spring Cloud Netflix 包括了一个内嵌的Zuul代理，我们可以使用`@EnableZuulProxy`注解来启用。这能够让网关(Gateway)应用成为一个代理并转发相关的请求到其他服务中，例如我们的Book服务。
 
 打开网关应用的`GatewayApplication`类并添加该注解，如下所示：
 
@@ -399,18 +398,18 @@ ribbon.eureka.enabled=false
 server.port=8080
 ```
 
-Spring Cloud Zuul 本会根据应用的名称自动设定路径。在这例子中，因为我们设置了`zuul.routes.books.url`，所以Zuul将会代理请求至`/book`到该url。
+Spring Cloud Zuul 本会根据应用的名称自动设定路径。在这例子中，因为我们设置了`zuul.routes.books.url`，所以Zuul将会代理请求至`/book`到该 url。
 
-注意上述文件的第二个到最后一个属性: Spring Cloud Netflix使用Netflix Ribbon来实现客户端的负载均衡。默认情况下，Ribbon将会使用Netflix Eureka作为服务发现。对于一个简单的例子来说，我们跳过了服务发现应用，所以我们设置`ribbon.eureka.enabled`为`false`。这样，Ribbon不会使用`Eureka`来查找服务，我们必须为Book服务指定`url`。
+注意上述文件的第二个到最后一个属性：Spring Cloud Netflix 使用 Netflix Ribbon 来实现客户端的负载均衡。默认情况下，Ribbon 将会使用 Netflix Eureka 作为服务发现。对于一个简单的例子来说，我们跳过了服务发现应用，所以我们设置`ribbon.eureka.enabled`为`false`。这样，Ribbon 不会使用`Eureka`来查找服务，我们必须为 Book 服务指定`url`。
 
 ## 添加一个过滤器
 
-现在，让我们看看我们怎样在代理服务中过滤请求。Zuul有四个标准的过滤类型:
+现在，让我们看看如何在代理服务中过滤请求。Zuul有四个标准的过滤类型：
 
-- pre 过滤器能够在请求被路由之前执行
-- route 过滤器能够处理请求的实际路由
-- post 过滤器能够在请求被路由之后执行
-- error 过滤器能够在处理请求发生错误时被执行
+- **pre** 过滤器能够在请求被路由之前执行
+- **route** 过滤器能够处理请求的实际路由
+- **post** 过滤器能够在请求被路由之后执行
+- **error** 过滤器能够在处理请求发生错误时被执行
 
 让我们来写一个 *pre* 过滤器。Spring Cloud Netflix 认为所有标注了`@Bean`的`com.netflix.zuul.ZuulFilter`子类都是过滤器，并且他们都能够在应用上下文中被获取到。创建一个新的目录，`src/main/java/hello/filters/pre`，并且在其中创建过滤文件`SimpleFilter.java`：
 
@@ -511,7 +510,7 @@ public class GatewayApplication {
 
 恭喜！你已经使用了Spring开发了一个可以代理和过滤微服务请求的边缘服务应用程序。
 
-## 发现
+## 参考阅读
 
 以下指南也可能有帮助：
 
