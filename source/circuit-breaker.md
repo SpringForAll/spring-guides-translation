@@ -2,7 +2,7 @@
 
 > 原文：[Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/)
 >
-> 译者：
+> 译者：ligang_holy12345
 >
 > 校对：
 
