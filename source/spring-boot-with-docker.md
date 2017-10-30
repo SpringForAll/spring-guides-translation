@@ -2,7 +2,7 @@
 
 > 原文：[Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)
 >
-> 译者：
+> 译者：[jadendong](https://github.com/jadendong)
 >
 > 校对：
 
