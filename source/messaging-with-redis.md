@@ -1,7 +1,6 @@
 
 # Redis消息交互
-
-> 原文：[Messaging With Redis](https://spring.io/guides/gs/messaging-redis/) 
+> 原文：[Messaging with Redis](https://spring.io/guides/gs/messaging-redis/)
 >
 > 译者：linzx2015
 >
