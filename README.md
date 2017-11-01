@@ -6,6 +6,10 @@
 
 我们的首页：http://www.spring4all.com/spring-guildes/
 
+## 如何开始
+
+详情请参考：[WIKI 如何开始](https://github.com/SpringForAll/spring-guides-translation/wiki)
+
 ## 协作参与
 
 * 交流社区：[SpringForAll社区](http://spring4all.com)
