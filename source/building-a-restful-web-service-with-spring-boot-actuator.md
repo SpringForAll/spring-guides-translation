@@ -1,83 +1,195 @@
-【xyq000 正在翻译】
-# 中文标题
+# 使用 Spring Boot Actuator 构建 RESTful Web 服务
 
 > 原文：[Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 >
-> 译者：
+> 译者：[xyq000](https://github.com/xyq000)
 >
 > 校对：
 
-在此处编写正文，基本翻译规范：
+[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) 是 Spring Boot 的一个子项目。开发者只需少量工作，就可为应用添加若干种生产级服务。在这篇指南中，你将构建一个应用并学会如何添加这些服务。
 
-* 正文标题按层次结构 从 \#\# 开始
-* 代码片段\`\`\`之后需要写明语言类型
-* 如有图片更静态资源保存在static目录下，每篇文章建立自己的目录存储
-* 尊重原作、不修改、不删减内容
-* 每篇文章翻译完成之后提交PR，并在翻译交流群中找校对人员完成review，最后由管理员完成Merge
-* 若译者与校对有不同建议，可以将争议部分发到交流群中一起讨论确定结果
+## 你将构建什么
 
-> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
+这篇指南将带领你利用 Spring Boot Actuator 构建一个“hello world”的 [RESTful web 服务](https://spring.io/understanding/REST)。你将构建一个可接收 HTTP GET 请求的服务：
 
-
-GETTING STARTED
-
-# Building a RESTful Web Service with Spring Boot Actuator
-
-[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) is a sub-project of Spring Boot. It adds several production grade services to your application with little effort on your part. In this guide, you’ll build an application and then see how to add these services.
-
-## What you’ll build
-
-This guide will take you through creating a "hello world" [RESTful web service](https://spring.io/understanding/REST) with Spring Boot Actuator. You’ll build a service that accepts an HTTP GET request:
-
-```
+```shell
 $ curl http://localhost:9000/hello-world
 ```
 
-It responds with the following [JSON](https://spring.io/understanding/JSON):
+而它会用如下的 JSON 响应：
 
-```
+```json
 {"id":1,"content":"Hello, World!"}
 ```
 
-There are also many features added to your application out-of-the-box for managing the service in a production (or other) environment. The business functionality of the service you build is the same as in [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service). You don’t need to use that guide to take advantage of this one, although it might be interesting to compare the results.
+为了在一个生产（或其他）环境中管理服务，也会有许多其他开箱即用的特性被添加到你的应用中。这项服务的业务功能类似于[构建 RESTful Web 服务](https://spring.io/guides/gs/rest-service)。您不需要使用该指南来利用此指南，尽管比较二者的结果可能会很有趣。
 
-### What you’ll need
+### 你需要什么
 
-- About 15 minutes
-- A favorite text editor or IDE
-- [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
-- [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-- You can also import the code straight into your IDE:
+- 大约15分钟时间
+- 一个喜欢的文本编辑器或者 IDE
+- [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或更高版本
+- [Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
+- 你也可以直接将代码导入到 IDE：
   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
-## How to complete this guide
+## 如何完成指南
 
-Like most Spring [Getting Started guides](https://spring.io/guides), you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
+像大多数 Spring [入门指南](https://spring.io/guides) 一样，你可以从头开始完成每一步, 或者绕过你熟悉的基本步骤。不管通过哪种方式，你最后都会得到一份可用的代码。
 
-To **start from scratch**, move on to [Build with Gradle](https://spring.io/guides/gs/actuator-service/#scratch).
+**若从基础开始**，查看[使用 Gradle 构建](#scratch)。
 
-To **skip the basics**, do the following:
+**若跳过基础部分**，按如下流程操作：
 
-- [Download](https://github.com/spring-guides/gs-actuator-service/archive/master.zip) and unzip the source repository for this guide, or clone it using [Git](https://spring.io/understanding/Git): `git clone https://github.com/spring-guides/gs-actuator-service.git`
-- cd into `gs-actuator-service/initial`
-- Jump ahead to [Create a representation class](https://spring.io/guides/gs/actuator-service/#initial).
+- [下载](https://github.com/spring-guides/gs-actuator-service/archive/master.zip) 并解压本指南的源码存档，或使用 [Git](https://spring.io/understanding/Git) 克隆：`git clone https://github.com/spring-guides/gs-actuator-service.git`
 
-**When you’re finished**, you can check your results against the code in `gs-actuator-service/complete`.
+- 进入 `gs-actuator-service/initial` 目录
+- 跳转到[创建表示类](#representtationClass).
 
-## Build with Gradle
+**当你完成之后**，你可以在 `gs-actuator-service/complete` 根据代码检查结果。
 
-## Build with Maven
+<h2 id="scratch"> 使用 Gradle 构建 </h2>
 
-## Build with your IDE
+首先你得编写一个基础构建脚本。在使用 Spring 构建应用的时候，你可以使用任何你喜欢的构建系统，这里提供一份你可能会用到的用 [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
-## Run the empty service
+### 创建目录结构
 
-For starters, here’s an empty Spring MVC application.
+在你的项目根目录，创建如下的子目录结构；例如，在 *nix 系统上使用 `mkdir -p src/main/java/hello`:
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+### 创建Gradle构建文件
+
+下面是一份 [Gradle 初始构建文件](https://github.com/spring-guides/gs-accessing-data-rest/blob/master/initial/build.gradle)
+
+`build.gradle`
+
+```gradle
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-accessing-data-rest'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+```
+
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多非常方便的功能：
+
+-  将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，这使得执行和分发你的服务变得更加方便。
+- 搜索 `public static void main()` 方法并且将它标记为可执行类。
+- 提供了内置的依赖解析器，可以将 [Spring Boot](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml) 依赖的版本号设置为最新。你可以用你想要的任意版本进行改写，不过这会是 Spring Boot 的默认版本设置。
+
+## 使用 Maven 构建
+首先你得编写一个基础构建脚本。在使用 Spring 构建应用的时候，你可以使用任何你喜欢的构建系统，这里提供一份你可能会用到的用 [Maven](https://maven.apache.org/) 构建的代码。 如果你对 Maven 不熟悉, 你可以先去参考[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
+
+### 创建目录结构
+在你的项目根目录，创建如下的子目录结构；例如，在 *nix 系统上使用 `mkdir -p src/main/java/hello`:
+
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+`pom.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-actuator-service</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.8.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+```
+
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多非常方便的功能：
+
+-  将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，这使得执行和分发你的服务变得更加方便。
+- 搜索 `public static void main()` 方法并且将它标记为可执行类。
+- 提供了内置的依赖解析器，可以将 [Spring Boot](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml) 依赖的版本号设置为最新。你可以用你想要的任意版本进行改写，不过这会是 Spring Boot 的默认版本设置。
+
+## 使用你的 IDE 构建
+- 阅读如何将本指南直接导入 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。
+- 阅读在 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 中使用本指南。
+
+## 运行空服务
+为了照顾初学者，这里有一个空的 Spring MVC 应用。
 
 `src/main/java/hello/HelloWorldConfiguration.java`
 
-```
+```java
 package hello;
 
 import org.springframework.boot.SpringApplication;
@@ -93,37 +205,37 @@ public class HelloWorldConfiguration {
 }
 ```
 
-The `@SpringBootApplication` annotation provides a load of defaults (like the embedded servlet container) depending on the contents of your classpath, and other things. It also turns on Spring MVC’s @EnableWebMvc annotation that activates web endpoints.
+`@SpringBootApplication` 注解根据类路径上的内容，提供了一系列默认加载（比如嵌入式servlet容器）及其他事物。它也开启了Spring MVC 的 @EnableWebMvc注解来激活 web 端点。
 
-There aren’t any endpoints defined in this application, but there’s enough to launch things and see some of Actuator’s features. The `SpringApplication.run()` command knows how to launch the web application. All you need to do is run this command.
+本应用中不会定义任何端点，但已足够启动服务并体会 Actuator的部分特性。`SpringApplication.run()` 命令知道如何启动这个web 应用。你所需做的全部工作仅是运行这个命令。
 
 ```
 $ ./gradlew clean build && java -jar build/libs/gs-actuator-service-0.1.0.jar
 ```
 
-You hardly written any code yet, so what’s happening? Wait for the server to start and go to another terminal to try it out:
+你还几乎没有写任何代码，所以会发生什么呢？等待server启动，并打开另一个终端试试看吧：
 
 ```
 $ curl localhost:8080
 {"timestamp":1384788106983,"error":"Not Found","status":404,"message":""}
 ```
 
-So the server is running, but you haven’t defined any business endpoints yet. Instead of a default container-generated HTML error response, you see a generic JSON response from the Actuator `/error` endpoint. You can see in the console logs from the server startup which endpoints are provided out of the box. Try a few out, for example
+可见 server 正在运行，但你还没有定义任何业务端点。你能看见一条来自 Actuator `/error` 端点的通用 JSON 响应，而不是由容器产生的默认的 HTML 报错响应。你能从 server 启动的控制台日志看见有哪些开箱即用的端点被提供了。试点别的吧，例如
 
 ```
 $ curl localhost:8080/health
 {"status":"UP"}
 ```
 
-You’re "UP", so that’s good.
+很好，你“上线”了。
 
-Check out Spring Boot’s [Actuator Project](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-actuator) for more details.
+更多细节，请参见 Spring Boot 的 [Actuator 项目](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-actuator) 。
 
-## Create a representation class
+ <h2 id="representtationClass"> 创建表示类 </h2>
 
-First, give some thought to what your API will look like.
+首先，想想你的 API 将是什么样子。
 
-You want to handle GET requests for `/hello-world`, optionally with a name query parameter. In response to such a request, you will send back JSON, representing a greeting, that looks something like this:
+你希望能处理对 `/hello-world` 的 GET 请求，它可以选择性地附带一个姓名查询参数。你会回送一条表示欢迎的 JSON 作为对该请求的响应，它看起来像是
 
 ```
 {
@@ -132,13 +244,13 @@ You want to handle GET requests for `/hello-world`, optionally with a name query
 }
 ```
 
-The `id` field is a unique identifier for the greeting, and `content` is the textual representation of the greeting.
+`id` 字段是欢迎信息的唯一标识符，而 `content` 字段是该欢迎信息的文本表示。
 
-To model the greeting representation, create a representation class:
+创建一个表示类来对该欢迎建模：
 
 `src/main/java/hello/Greeting.java`
 
-```
+```java
 package hello;
 
 public class Greeting {
@@ -162,15 +274,15 @@ public class Greeting {
 }
 ```
 
-Now that you’ll create the endpoint controller that will serve the representation class.
+现在你将创建一个服务于该表示类的端点控制器。
 
-## Create a resource controller
+## 创建资源控制器
 
-In Spring, REST endpoints are just Spring MVC controllers. The following Spring MVC controller handles a GET request for /hello-world and returns the `Greeting` resource:
+在Spring 中，REST 端点即为 Spring MVC 的控制器。如下 Spring MVC控制器处理一条发往 /hello-world的GET 请求并返回 `Greeting` 资源：
 
 `src/main/java/hello/HelloWorldController.java`
 
-```
+```java
 package hello;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -196,21 +308,19 @@ public class HelloWorldController {
 }
 ```
 
-The key difference between a human-facing controller and a REST endpoint controller is in how the response is created. Rather than rely on a view (such as JSP) to render model data in HTML, an endpoint controller simply returns the data to be written directly to the body of the response.
+在面向人的控制器和 REST 端点控制器之间的关键差别在于响应是如何创建的。不同于在 HTML 中依靠视图（如JSP）渲染模型数据，一个端点控制器简单地返回直接写在响应实体中的数据。
 
-The [`@ResponseBody`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html) annotation tells Spring MVC not to render a model into a view, but rather to write the returned object into the response body. It does this by using one of Spring’s message converters. Because Jackson 2 is in the classpath, this means that [`MappingJackson2HttpMessageConverter`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html) will handle the conversion of Greeting to JSON if the request’s `Accept` header specifies that JSON should be returned.
+[`@ResponseBody`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html)  注解告诉Spring MVC 不要在视图中渲染模型，而是把要返回的对象写入响应实体。它利用 Spring 的一种消息转换器来做到这一点。由于 Jackson 2 在类路径下，这意味着如果请求的 Accept 首部指定了应返回 JSON，那么[`MappingJackson2HttpMessageConverter`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)  将会处理从 Greeting 对象到 JSON 的转换。
 
-| **   | How do you know Jackson 2 is on the classpath? Either run ` mvn dependency:tree` or `./gradlew dependencies` and you’ll get a detailed tree of dependencies which shows Jackson 2.x. You can also see that it comes from [spring-boot-starter-web](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-starters/spring-boot-starter-web/pom.xml). |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> 你是怎么知道 Jackson 2 在类路径下呢？运行 ` mvn dependency:tree` 或 `./gradlew dependencies` ，你会得到一个包含 Jackson 2.x 的详细的依赖树。如你所见它来自于 [spring-boot-starter-web](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-starters/spring-boot-starter-web/pom.xml)。
 
-## Create an executable main class
+## 创建可执行 main 类
 
-You can launch the application from a custom main class, or we can do that directly from one of the configuration classes. The easiest way is to use the `SpringApplication` helper class:
+你可以从一个自定义的 main 类启动应用，或者我们可以直接用一个配置类做到这一点。最简单的办法是试用 `SpringApplication` 辅助类：
 
 `src/main/java/hello/HelloWorldConfiguration.java`
 
-```
+```java
 package hello;
 
 import org.springframework.boot.SpringApplication;
@@ -226,44 +336,42 @@ public class HelloWorldConfiguration {
 }
 ```
 
-In a conventional Spring MVC application, you would add `@EnableWebMvc` to turn on key behaviors including configuration of a `DispatcherServlet`. But Spring Boot turns on this annotation automatically when it detects **spring-webmvc** on your classpath. This sets you up to build a controller in an upcoming step.
+在一个便捷的 Spring MVC 应用中，你可以通过添加  `@EnableWebMvc`  注解来开启包括配置 `DispatcherServlet` 在内的关键行为。在 Spring Boot 中，当它检测到 **spring-webmvc** 在类路径下时，它会自动启用该注解。这使得你可以在后续步骤中构建控制器。
 
-The `@SpringBootApplication` also brings in a [`@ComponentScan`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html), which tells Spring to scan the `hello` package for those controllers (along with any other annotated component classes).
+`@SpringBootApplication` 同时引入了 [`@ComponentScan`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html) 注解，它告诉 Spring 扫描 `hello` 包来寻找控制器（以及其他被注解了的组件类）。
 
-## Build an executable JAR
+## 构建可执行 JAR 包
 
-You can run the application from the command line with Gradle or Maven. Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources, and run that. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
+利用 Gradle 或 Maven，你可以从命令行启动应用。或者你可以构建一个单一的可执行 JAR 文件并运行它，该 JAR 文件中包含了所需的所有依赖，class 文件和资源文件。这使得在整个开发的生命周期中，在不同环境间以应用的形式迁移、改版和部署服务等等都变得更容易。
 
-If you are using Gradle, you can run the application using `./gradlew bootRun`. Or you can build the JAR file using `./gradlew build`. Then you can run the JAR file:
+如果你使用的是Gradle，你可以用 `./gradlew bootRun` 运行应用。或者你可以用 `./gradlew build` 构建一个 JAR 文件，然后运行它：
 
 ```
 java -jar build/libs/gs-actuator-service-0.1.0.jar
 ```
 
-If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you can run the JAR file:
+如果你使用的是 Maven，你可以用 `./mvnw spring-boot:run` 运行应用。或者你可以用 `./mvnw clean package` 构建一个 JAR 文件，然后运行它：
 
 ```
 java -jar target/gs-actuator-service-0.1.0.jar
 ```
 
-| **   | The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](https://spring.io/guides/gs/convert-jar-to-war/)instead. |
-| ---- | ---------------------------------------- |
-|      |                                          |
+> 上述步骤会创建一个可执行的 JAR 文件。你也可以选择[构建传统 WAR 文件](https://spring.io/guides/gs/convert-jar-to-war/)。
 
 ```
 ... service comes up ...
 ```
 
-Test it:
+测试：
 
 ```
 $ curl localhost:8080/hello-world
 {"id":1,"content":"Hello, Stranger!"}
 ```
 
-## Switch to a different server port
+## 切换到其他 server 端口
 
-Spring Boot Actuator defaults to run on port 8080. By adding an `application.properties`file, you can override that setting.
+Spring Boot Actuator 默认运行在 8080 端口上。通过添加一个`application.properties` 文件，你可以重写该设置。
 
 `src/main/resources/application.properties`
 
@@ -273,7 +381,7 @@ management.port: 9001
 management.address: 127.0.0.1
 ```
 
-Run the server again:
+重启 server：
 
 ```
 $ ./gradlew clean build && java -jar build/libs/gs-actuator-service-0.1.0.jar
@@ -281,7 +389,7 @@ $ ./gradlew clean build && java -jar build/libs/gs-actuator-service-0.1.0.jar
 ... service comes up on port 9000 ...
 ```
 
-Test it:
+测试：
 
 ```
 $ curl localhost:8080/hello-world
@@ -292,18 +400,18 @@ $ curl localhost:9001/health
 {"status":"UP"}
 ```
 
-## Test your application
+## 测试你的应用
 
-In order to check if your application is functional you should write unit / integration tests of your application. Below you can find an example of such a test that checks:
+你应当编写单元/集成测试来检查你的应用是否起作用。你可以在下面找到一个此类测试的样例，用于检查：
 
-- if your controller is responsive
-- if your management endpoint is responsive
+- 你的控制器是否有响应
+- 你的管理端点是否有响应
 
-As you can see for tests we’re starting the application on a random port.
+正如你所见，我们在一个随机端口上启动应用来做测试。
 
 `src/test/java/hello/HelloWorldConfigurationTests.java`
 
-```
+```java
 /*
  * Copyright 2012-2014 the original author or authors.
  *
@@ -377,15 +485,14 @@ public class HelloWorldConfigurationTests {
 }
 ```
 
-## Summary
+# 总结
+恭喜！你刚用Spring开发了一个简单的 RESTful 服务。你还为它添加了一些有用的内置服务，这多亏了Spring Boot Actutor。
 
-Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
+## 参见
 
-## See Also
+以下指南可能也有帮助：
 
-The following guides may also be helpful:
+- [使用 Spring Boot 构建应用](https://spring.io/guides/gs/spring-boot/)
+- [使用 Spring MVC 提供 Web 内容](https://spring.io/guides/gs/serving-web-content/)
 
-- [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
-- [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-
-Want to write a new guide or contribute to an existing one? Check out our [contribution guidelines](https://github.com/spring-guides/getting-started-guides/wiki).
+> 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
