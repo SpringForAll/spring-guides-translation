@@ -70,7 +70,7 @@ $ curl http://localhost:9000/hello-world
 
 `build.gradle`
 
-```gradle
+```groovy
 buildscript {
     repositories {
         mavenCentral()
