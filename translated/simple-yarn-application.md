@@ -26,8 +26,8 @@
 * 编译工具版本[Gradle 2.3+](http://www.gradle.org/downloads) [ Maven 3.0+](https://maven.apache.org/download.cgi)
 * 也可以将代码直接导入到IDE
   * [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
-  * [IntelliJ IDEA(https://spring.io/guides/gs/intellij-idea/)
-     *  使用本地单实例模式，需要Hadoop 2.2.0以上的版本,Apache Hadoop官网也有相关一些[说明(https://hadoop.apache.org/docs/r2.2.0/hadoop-project-dist/hadoop-common/SingleCluster.html)
+  * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+     *  使用本地单实例模式，需要Hadoop 2.2.0以上的版本,Apache Hadoop官网也有相关一些[说明](https://hadoop.apache.org/docs/r2.2.0/hadoop-project-dist/hadoop-common/SingleCluster.html)
 
 ### 怎样完成本指南
 
@@ -49,7 +49,7 @@
 ## HADOOP YARN 介绍
 
 在Hadoop社区泡了一至两年，你大概了知道很多YARN的讨论，并且YARN作为Hadoop MapReduce的下一代版本，也称为 MapReduce V2。
-YARN的全称是（Yet Another Resource Negotiator），它的最初设计思想是解决MapReduce组件性能问题。MapReduce V2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。因此最后是这样的：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），当然可以在Hadoop官网上找到[YARN 架构](https://hadoop.apache.org/docs/r2.2.0/hadoop-yarn/hadoop-yarn-site/YARN.html)了解有关YARN组件之间的依赖关系图。
+YARN的全称是（Yet Another Resource Negotiator），它的最初设计思想是解决MapReduce组件性能问题。MapReduce V2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。因此最后是这样的：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），当然可以在Hadoop官网浏览[YARN 架构](https://hadoop.apache.org/docs/r2.2.0/hadoop-yarn/hadoop-yarn-site/YARN.html)了解有关YARN组件之间的依赖关系图。
 
 
 MapReduce V2 是在最初的MapReduce代码的基础上重写的。重写的结果是把它当为一个在YARN上运行的应用程序。所以在YARN上可以运行与MapReduce模型无关的应用程序。然而由于YARN的API复杂的性，开发一个基于YARN的应用程序也是有难度的。YARN的API都是低级别的基础架构API，而不是高级别的开发应用API。
@@ -243,7 +243,9 @@ public class ContainerApplication {
 
 然而，Spring YARN 有一个默认的 `DefaultYarnContainer` ，当没有自实现 `YarnContainer` 的时候，这个默认 `DefaultYarnContainer` 从 `Spring Application Context` 找到指定的bean类型，而 `Spring Application Context` 包含类真实用户container的逻辑。
 
-`gs-yarn-basic-container/src/main/java/hello/container/HelloPojo.java`
+```java
+gs-yarn-basic-container/src/main/java/hello/container/HelloPojo.java
+```
 
 ```java
 package hello.container;
