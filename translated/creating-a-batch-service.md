@@ -1,16 +1,16 @@
-# 创建批量服务
+# 创建批处理服务
 
 > 原文：[Creating a Batch Service](https://spring.io/guides/gs/batch-processing/)
 >
 > 译者：[Mr.lzc](https://github.com/cleverlzc)
 >
-> 校对：
+> 校对：[lexburner](https://github.com/lexburner)
 
-本指南将引导您完成创建基本的批量驱动解决方案的过程。
+本指南将引导你完成创建基本的批处理驱动解决方案的过程。
 
 ## 你将构建什么
 
-您将构建一个从CSV电子表格导入数据的服务，并使用自定义代码进行转换，并将最终结果存储在数据库中。
+你将构建一个从CSV电子表格导入数据的服务，并使用自定义代码进行转换，并将最终结果存储在数据库中。
 
 ## 你需要准备什么
 
@@ -26,7 +26,7 @@
 
 像大多数[Spring入门指南](https://spring.io/guides)一样，你可以从头开始，完成每一步，也可以绕过已经熟悉的基本设置步骤。不管采用哪种方式，最终都可以得到能够运行的代码。
 
-如果是**从零开始**，则可以从[使用Gradle构建项目](#使用gradle构建项目)小节开始。
+如果是**从零开始**，则可以从[使用Gradle构建项目](https://github.com/SpringForAll/spring-guides-translation/pull/173#scratch)小节开始。
 
 如果想**跳过基本的设置步骤**，可以按照以下步骤执行：
 
@@ -41,7 +41,7 @@ git clone https://github.com/spring-guides/gs-batch-processing.git
 
 **当完成所有的编码以后**，可以将你的代码与`gs-batch-processing/complete`目录下的示例代码进行对比，以检查结果是否正确。
 
-## 使用Gradle构建项目
+## 使用Gradle构建
 
 首先需要设置一个基本的构建脚本。在使用Spring构建应用程序时，你可以使用任何自己喜欢的构建系统，这里准备了在使用[Gradle](https://gradle.org/)和[Maven](https://maven.apache.org/)构建项目时需要的代码。如果你对Gradle和Maven都不熟悉，可以参照[使用Gradle构建Java项目](https://spring.io/guides/gs/gradle/)或[使用Maven构建Java项目](https://spring.io/guides/gs/gradle/)。
 
@@ -176,7 +176,7 @@ dependencies {
 
 ## 业务数据
 
-通常您的客户或业务分析师提供电子表格。在这种情况下，你可以做到这一点。
+通常你的客户或业务分析师提供电子表格。在这种情况下，你可以做到这一点。
 
 `src/main/resources/sample-data.csv`
 
@@ -188,9 +188,9 @@ Jane,Doe
 John,Doe
 ```
 
-此电子表格每行包含名字和姓氏，用逗号分隔。 这是一个相当常见的模式，正如您将看到的那样，Spring会处理开箱即用的情况。
+此电子表格每行包含名字和姓氏，用逗号分隔。 这是一个相当常见的模式，正如你将看到的那样，Spring会处理开箱即用的情况。
 
-接下来，您编写一个SQL脚本来创建一个表存储数据。
+接下来，你编写一个SQL脚本来创建一个表存储数据。
 
 `src/main/resources/schema-all.sql`
 
@@ -208,7 +208,7 @@ CREATE TABLE people  (
 
 ## 创建业务类
 
-现在看到数据输入和输出的格式，您编写代码来表示一行数据。
+现在看到数据输入和输出的格式，你编写代码来表示一行数据。
 
 `src/main/java/hello/Person.java`
 
@@ -252,11 +252,11 @@ public class Person {
 }
 ```
 
-您可以通过构造函数或通过设置属性来实例化具有名字和姓氏的Person类。
+你可以通过构造函数或通过设置属性来实例化具有名字和姓氏的Person类。
 
 ## 创建中间处理器
 
-批处理中的一个常见范例是摄取数据，转换数据，然后将其导出到其他位置。 在这里，您编写一个简单的变换器，将名字转换为大写。
+批处理中的一个常见范例是获取数据，转换数据，然后将其导出到其他位置。 在这里，你编写一个简单的变换器，将名字转换为大写。
 
 `src/main/java/hello/PersonItemProcessor.java`
 
@@ -287,13 +287,13 @@ public class PersonItemProcessor implements ItemProcessor<Person, Person> {
 }
 ```
 
-`PersonItemProcessor`实现Spring Batch的`ItemProcessor`接口。这样可以方便地将代码连接到本指南中进一步定义的批处理作业中。根据接口，您会收到一个传入的`Person`对象，然后将其转换为大写形式的`Person`。
+`PersonItemProcessor`实现Spring Batch的`ItemProcessor`接口。这样可以方便地将代码连接到本指南中进一步定义的批处理作业中。根据接口，你会收到一个传入的`Person`对象，然后将其转换为大写形式的`Person`。
 
 > 不要求输入和输出类型相同。事实上，在读取一个数据源之后，有时应用程序的数据流需要不同的数据类型。
 
-## 将批处理工作放在一起
+## 将批处理作业集中到一起
 
-现在你把实际的批处理工作放在一起。Spring Batch提供了许多实用程序类，可以减少编写自定义代码的需要。相反，您可以专注于业务逻辑。
+现在，你把实际的批处理作业集中到一起。Spring Batch提供了许多实用程序类，可以减少编写自定义代码的需要。取而代之，你可以专注于业务逻辑。
 
 `src/main/java/hello/BatchConfiguration.java`
 
@@ -426,7 +426,7 @@ public class BatchConfiguration {
     }
  ```
  
-第一个代码块定义了输入，处理器和输出。- `reader()`创建一个`ItemReader`类。它查找一个名为`sample-data.csv`的文件，并解析具有足够信息的每个行项目，将其转换为一个`Person`。- `processor()`创建一个我们先前定义的`PersonItemProcessor`的一个实例，用于转换大写数据。- `write（DataSource）`创建一个ItemWriter类。这个目标是针对JDBC，并自动获取由`@EnableBatchProcessing`创建的dataSource的副本。它包括插入由Java bean属性驱动的单个`Person`所需的SQL语句。
+第一个代码块定义了输入，处理器和输出。- `reader()`创建一个`ItemReader`类。它查找`sample-data.csv`文件，并将每一行的内容转换成一个`Person`类。- `processor()`创建一个我们先前定义的`PersonItemProcessor`的一个实例，用于转换大写数据。- `write（DataSource）`创建一个ItemWriter类。这个目标是针对JDBC，并自动获取由`@EnableBatchProcessing`创建的dataSource的副本。它包括插入由Java bean属性驱动的单个`Person`所需的SQL语句。
 
 下一个重点是实际的工作配置。
 
@@ -456,9 +456,9 @@ public class BatchConfiguration {
     
 第一个方法定义了作业，第二个方法定义了一个步骤。作业是从步骤构建的，每个步骤都可以涉及读取器，处理器和写入器。
 
-在此作业定义中，您需要一个增量器，因为作业使用数据库来维护执行状态。然后您列出每个步骤，其中该作业只有一步。作业结束后，Java API生成完美配置的作业。
+在此作业定义中，你需要一个增量器，因为作业使用数据库来维护执行状态。然后你列出每个步骤，其中该作业只有一步。作业结束后，Java API生成完美配置的作业。
 
-在步骤定义中，您可以定义一次写入的数据量。在这种情况下，它最多可以写入十条记录。接下来，您使用前面的注入位配置读取器，处理器和写入器。
+在步骤定义中，你可以定义一次写入的数据量。在这种情况下，它最多可以写入十条记录。接下来，你使用前面的注入位配置读取器，处理器和写入器。
 
 chunk()由前缀`<Person，Person>`修饰，因为它是一个泛型方法。 这表示处理的每个“块”的输入和输出类型，并与`ItemReader <Person>`和`ItemWriter <Person>`排列。
 
@@ -519,7 +519,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 
 ## 使应用程序可以执行
 
-虽然批处理可以嵌入到Web应用程序和WAR文件中，但下面演示的更简单的方法创建了一个独立的应用程序。 您将所有内容都包装在一个可执行的JAR文件中，由一个好的旧的Java `main()`方法驱动。
+虽然批处理可以嵌入到Web应用程序和WAR文件中，但下面演示的更简单的方法创建了一个独立的应用程序。 你将所有内容都包装在一个可执行的JAR文件中，由一个好的旧的Java `main()`方法驱动。
 
 `src/main/java/hello/Application.java`
 
@@ -542,7 +542,7 @@ public class Application {
 
 - `@Configuration`将该类标记为应用程序上下文中bean定义的源。
 - `@EnableAutoConfiguration`指示Spring Boot根据类路径设置，其他bean和各种属性设置开始添加bean。
-- 通常，您将为Spring MVC 应用程序添加`@EnableWebMvc`注解，但是当Spring Boot在类路径中发现**spring-webmvc**时会自动添加该注解。通过添加该注解将应用程序标记为Web应用程序，并进行一些关键操作，比如设置`DispatcherServlet`。
+- 通常，你将为Spring MVC 应用程序添加`@EnableWebMvc`注解，但是当Spring Boot在类路径中发现**spring-webmvc**时会自动添加该注解。通过添加该注解将应用程序标记为Web应用程序，并进行一些关键操作，比如设置`DispatcherServlet`。
 - `@ComponentScan`通知Spring在`hello`包中查找其他组件，配置和服务，允许Spring扫描到控制器。
 
 `main()`方法使用Spring Boot的`SpringApplication.run()`方法启动应用程序。你注意到我们没有写过一行XML代码吗？而且也没有**web.xml**配置文件。此Web应用程序是100%纯Java编写的，无需再配置其他基础设施。
@@ -569,7 +569,7 @@ java -jar target/gs-soap-service-0.1.0.jar
 
 上述操作完成后，将会看到有日志信息输出，服务程序将会在几秒内启动并运行。
 
-该作业为每个被转换成大写的人的信息打印出一行。作业运行后，您还可以查看查询数据库的输出。
+该作业为每个被转换成大写的人的信息打印出一行。作业运行后，你还可以查看查询数据库的输出。
 
 ```
 Converting (firstName: Jill, lastName: Doe) into (firstName: JILL, lastName: DOE)
@@ -586,7 +586,7 @@ Found <firstName: JOHN, lastName: DOE> in the database.
 
 ## 总结
 
-恭喜！您构建了一个批处理作业，从电子表格中获取数据，对其进行处理，并将其写入数据库。
+恭喜！你构建了一个批处理作业，从电子表格中获取数据，对其进行处理，并将其写入数据库。
 
 ## 了解更多
 
