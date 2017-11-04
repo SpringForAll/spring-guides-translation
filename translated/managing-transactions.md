@@ -37,7 +37,7 @@ git clone https://github.com/spring-guides/gs-managing-transactions.git
 ```
 
 - 进入 `gs-managing-transactions/initial` 目录
-- 直接跳到[创建预定服务](https://spring.io/guides/gs/managing-transactions/#initial)小节。
+- 直接跳到[创建录入服务](https://spring.io/guides/gs/managing-transactions/#initial)小节。
 
 **当完成所有的编码以后**，可以将你的代码与`gs-managing-transactions/complete`目录下的示例代码进行对比，以检查结果是否正确。
 
