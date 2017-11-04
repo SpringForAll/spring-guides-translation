@@ -51,7 +51,7 @@
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) | 正在翻译 | [xyq000](https://github.com/xyq000)      |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
-| 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) | 正在校对 | [cleverlzc](https://github.com/cleverlzc) | [lexburner](https://github.com/lexburner) |
+| 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) | 校对完成 | [cleverlzc](https://github.com/cleverlzc) | [lexburner](https://github.com/lexburner) |
 | 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) | [程序猿DiDi](https://github.com/dyc87112)   |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
