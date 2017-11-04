@@ -1,8 +1,8 @@
-# 简单的YARN程序 
+# 简单的YARN程序
 
-> 原文：[Simple YARN Application][1]
+> 原文：[Simple YARN Application](https://spring.io/guides/gs/yarn-basic/)
 >
-> 译者：[UniKrau][author]
+> 译者：[UniKrau](https://github.com/UniKrau)
 >
 > 校对：
 
@@ -22,23 +22,23 @@
 
 * 大概15分钟
 * 文本编辑器或IDE
-* 需要 [JDK 1.6][2]以上的版本
-* 编译工具版本[Gradle 2.3+][3] [ Maven 3.0+][4]
+* 需要 [JDK 1.6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)以上的版本
+* 编译工具版本[Gradle 2.3+](http://www.gradle.org/downloads) [ Maven 3.0+](https://maven.apache.org/download.cgi)
 * 也可以将代码直接导入到IDE
-  * [Spring Tool Suite (STS)][5]
-  * [IntelliJ IDEA][6]
-     *  使用本地单实例模式，需要Hadoop 2.2.0以上的版本,Apache Hadoop官网也有相关一些[说明][7]
+  * [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
+  * [IntelliJ IDEA(https://spring.io/guides/gs/intellij-idea/)
+     *  使用本地单实例模式，需要Hadoop 2.2.0以上的版本,Apache Hadoop官网也有相关一些[说明(https://hadoop.apache.org/docs/r2.2.0/hadoop-project-dist/hadoop-common/SingleCluster.html)
 
 ### 怎样完成本指南
 
-像大多数[Spring 入门文章][8]一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring 入门文](https://spring.io/guides)一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
 **如果从零基础开始**，参考[配置工程](#set_up)
 
 **如果有基础则跳过一些基本步骤**你可以这样
 
 
-* [下载][download]源码然后使unzip 命令解压，或者使用[Git][9]拷贝一份源代码，克隆命令`git clone` [https://github.com/spring-guides/gs-yarn-basic.git][9]
+* [下载](https://github.com/spring-guides/gs-yarn-basic/archive/master.zip)源码然后使unzip 命令解压，或者使用[Git](https://spring.io/understanding/Git)拷贝一份源代码，克隆命令`git clone` [https://github.com/spring-guides/gs-yarn-basic.git](https://github.com/spring-guides/gs-yarn-basic.git)
 
 * 使用 `cd` 命令跳转到代码目录 `gs-yarn-basic/initial`
 
@@ -49,7 +49,7 @@
 ## HADOOP YARN 介绍
 
 在Hadoop社区泡了一至两年，你大概了知道很多YARN的讨论，并且YARN作为Hadoop MapReduce的下一代版本，也称为 MapReduce V2。
-YARN的全称是（Yet Another Resource Negotiator），它的最初设计思想是解决MapReduce组件性能问题。MapReduce V2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。因此最后是这样的：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），当然可以在Hadoop官网上找到[YARN 架构][11]了解有关YARN组件之间的依赖关系图。
+YARN的全称是（Yet Another Resource Negotiator），它的最初设计思想是解决MapReduce组件性能问题。MapReduce V2的基本理念是把JobTracker的功能和Resource Management以及Job Scheduling/Monitoring分成单独守护进程。因此最后是这样的：有个全局的 Resource Manager（RM）和每一个应用程序对应一个Application Master（AM），当然可以在Hadoop官网上找到[YARN 架构](https://hadoop.apache.org/docs/r2.2.0/hadoop-yarn/hadoop-yarn-site/YARN.html)了解有关YARN组件之间的依赖关系图。
 
 
 MapReduce V2 是在最初的MapReduce代码的基础上重写的。重写的结果是把它当为一个在YARN上运行的应用程序。所以在YARN上可以运行与MapReduce模型无关的应用程序。然而由于YARN的API复杂的性，开发一个基于YARN的应用程序也是有难度的。YARN的API都是低级别的基础架构API，而不是高级别的开发应用API。
@@ -68,7 +68,7 @@ MapReduce V2 是在最初的MapReduce代码的基础上重写的。重写的结�
 
 因此，Spring YARN 和 Spring Boot进行了二次开发Hadoop YARN
 
-在高层次上，Spring YARN 提供三种不同的组件 [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]。这些组件都是Spring YARN Application，我们提供所有组件的默认实现同样也给终端用户尽可能多自定义的选项。
+在高层次上，Spring YARN 提供三种不同的组件 [YarnClient](https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/client/YarnClient.html), [YarnAppmaster](https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/am/YarnAppmaster.html) and [YarnContainer](https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/container/YarnContainer.html)。这些组件都是Spring YARN Application，我们提供所有组件的默认实现同样也给终端用户尽可能多自定义的选项。
 
 
 在Hadoop集群环境下进行开发、打包、发布、运行程序是项较为繁重的工作。举个例子，job提交的过程当中，只是把编译好的包放在Hadoop的classpath下或者通过Hadoop的tool拷贝已经编译的 artifacts jar包到Hadoop集群 ？但是如果代码所依赖的库不在Hadoop默认的classpath？甚至，其依赖的库和已经存在Hadoop默认classpath的库有冲突呢？
@@ -76,19 +76,19 @@ MapReduce V2 是在最初的MapReduce代码的基础上重写的。重写的结�
 
 Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的时候，有两种方式解决依赖性问题：一、通过Spring Boot解决所有的依赖性问题。二、自动提取zip形式执行包并且保存在Hadoop的默认classpath下，而且第二方式可以重复使用。
 
-使用Spring Boot [YarnClient][12], [YarnAppmaster][13] and [YarnContainer][14]这个三个组件把application打包成可执行的jar。可以知道，Spring Boot内部通过应用程序的自动化配置和Spring YARN添加其自动化配置去解决依赖性问题。因此，应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
+使用Spring Boot [YarnClient](https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/client/YarnClient.html), [YarnAppmaster](https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/am/YarnAppmaster.html) and [YarnContainer](https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/container/YarnContainer.html)这个三个组件把application打包成可执行的jar。可以知道，Spring Boot内部通过应用程序的自动化配置和Spring YARN添加其自动化配置去解决依赖性问题。因此，应用开发者可以集中应用本身的开发和配置上。而不需要花太多时间去理解所有的组件之间如何集成的
 
 ###  配置工程
-  
-首先配置基本的编译脚本。可以用熟悉的编译系统构建Spring app。[Gradle][15] 和 [Maven][16]都可以用来构建代码。如果你不熟悉，请参[Building Java Projects with Gradle][24] or [Building Java Projects with Maven][25].
-  
-  
-如果不熟悉而且想知道关于构建Spring YARN的系统说明指南，请参考 [Building Spring YARN Projects with Gradle][17] or [Building Spring YARN Projects with Maven][18].
-  
+
+首先配置基本的编译脚本。可以用熟悉的编译系统构建Spring app。[Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/)都可以用来构建代码。如果你不熟悉，请参[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) or [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+
+
+如果不熟悉而且想知道关于构建Spring YARN的系统说明指南，请参考 [Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn) or [Building Spring YARN Projects with Maven](https://spring.io/guides/gs/maven-yarn ).
+
  #### 创建目录结构
-  
+
   在选定的目录下，创建以下目录结构
-  
+
   ```
   ├── gs-yarn-basic-appmaster
   │   └── src
@@ -125,15 +125,15 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
   mkdir -p gs-yarn-basic-client/src/main/java/hello/client
   mkdir  gs-yarn-basic-dist
   ```
-  
+
 #### 创建Gradle编译文件
- 
-以下是[initial Gradle build file ][19] 和 [initial Gradle settings file][20]文件内容，如果你使用 [Spring Tool Suite (STS)][5]
+
+以下是[initial Gradle build file ](https://github.com/spring-guides/gs-yarn-basic/blob/master/initial/build.gradle)和[initial Gradle settings file](https://github.com/spring-guides/gs-yarn-basic/blob/master/initial/settings.gradle)文件内容，如果你使用 [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
 可以直接导入目录。
 
   `build.gradle`
-  
-  ```
+
+  ```groovy
   buildscript {
       repositories {
           maven { url "http://repo.spring.io/libs-release" }
@@ -142,11 +142,11 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
           classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
       }
   }
-  
+
   allprojects {
       apply plugin: 'base'
   }
-  
+
   subprojects { subproject ->
       apply plugin: 'java'
       apply plugin: 'eclipse'
@@ -166,19 +166,19 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
       }
       assemble.doLast {copyJars.execute()}
   }
-  
+
   project('gs-yarn-basic-client') {
       apply plugin: 'spring-boot'
   }
-  
+
   project('gs-yarn-basic-appmaster') {
       apply plugin: 'spring-boot'
   }
-  
+
   project('gs-yarn-basic-container') {
       apply plugin: 'spring-boot'
   }
-  
+
   project('gs-yarn-basic-dist') {
       dependencies {
           compile project(":gs-yarn-basic-client")
@@ -194,17 +194,18 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
       clean.doLast {ant.delete(dir: "target")}
       jar.enabled = false
   }
-  
+
   task wrapper(type: Wrapper) {
       gradleVersion = '1.11'
   }
   ```
-  
+
   `settings.gradle`
-  
-  ``include 'gs-yarn-basic-client','gs-yarn-basic-appmaster','gs-yarn-basic-container','gs-yarn-basic-dist'
-  ``
-  
+
+```groovy
+include 'gs-yarn-basic-client','gs-yarn-basic-appmaster','gs-yarn-basic-container','gs-yarn-basic-dist'
+```
+
 以上的gradle编译文件，简单的创建了三个不同的jar包，各自的类文件都有他们的角色。Spring Boot的插件把这些jar打包成一个可执行的jar。
 
 <h4 id="CYC">创建YARN容器</h4>
@@ -213,7 +214,7 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
 
 `gs-yarn-basic-container/src/main/java/hello/container/ContainerApplication.java`
 
-```
+```java
 package hello.container;
 
 import org.springframework.boot.SpringApplication;
@@ -244,7 +245,7 @@ public class ContainerApplication {
 
 `gs-yarn-basic-container/src/main/java/hello/container/HelloPojo.java`
 
-```
+```java
 package hello.container;
 
 import org.apache.commons.logging.Log;
@@ -290,13 +291,13 @@ public class HelloPojo {
 
 为了掩饰这一点，在这个类中特意添加了一些真实的功能，使用Spring Hadoop `@FsShell` 列举  `HDFS` 跟文件系统的目录树。并且Hadoop的 `Configuration` 能方便地访问 `HDFS` 文件系统。
 
-#### 创建一个YARN Appmaster 
+#### 创建一个YARN Appmaster
 
 新建一个 `AppmasterApplication` 类.
 
 `AppmasterApplication`
 
-```
+```java
 package hello.appmaster;
 
 import org.springframework.boot.SpringApplication;
@@ -326,7 +327,7 @@ public class AppmasterApplication {
 
 `gs-yarn-basic-client/src/main/java/hello/client/ClientApplication.java`
 
-```
+```java
 package hello.client;
 
 import org.springframework.boot.SpringApplication;
@@ -355,12 +356,12 @@ public class ClientApplication {
 根据所有的子工程创建一个新的 yaml 配置文件
 
 ```
-gs-yarn-basic-container/src/main/resources/application.yml 
-gs-yarn-basic-appmaster/src/main/resources/application.yml 
+gs-yarn-basic-container/src/main/resources/application.yml
+gs-yarn-basic-appmaster/src/main/resources/application.yml
 gs-yarn-basic-client/src/main/resources/application.yml
 ```
 
-```
+```yaml
 spring:
     hadoop:
         fsUri: hdfs://localhost:8020
@@ -403,7 +404,7 @@ spring:
 
 `./gradlew clean build -x test`
 
-如果是maven编译工具可以执行 `clean` and `package` 
+如果是maven编译工具可以执行 `clean` and `package`
 
 `mvn clean package
 `
@@ -415,7 +416,7 @@ spring:
 
 gradle编译成功后，有以下三个jar包
 
-```
+```groovy
 gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
 gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-appmaster-0.1.0.jar
 gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-container-0.1.0.jar
@@ -428,10 +429,13 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 
 在项目的根目录下执行以下命令即可
 
-`$ java -jar gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
-`
+```groovy
+$ java -jar gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
 
-然后登陆[Resource Manager UI][22]界面（默认端口是8088）查看application的状态.
+```
+
+
+然后登陆[Resource Manager UI](http://localhost:8088/cluster)界面（默认端口是8088）查看application的状态.
 
 ![Alt rm_ui](/translated/static/rm_ui.jpg)
 
@@ -440,44 +444,5 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 
 恭喜了，你能够开发Spring YARN的application了
 
-如果想写一个新的指南或者对其他指南有修改意见和建议，请参考[贡献指南说明][20].
-
-[下载完整的源代码][23]
-
-
->
->所有的指南都一个 ASLv2 license，如果想写，请参考[an Attribution, NoDerivatives creative commons license][21]
->
-
-[1]:https://spring.io/guides/gs/yarn-basic/
-[2]:http://www.oracle.com/technetwork/java/javase/downloads/index.html
-[3]:http://www.gradle.org/downloads
-[4]:https://maven.apache.org/download.cgi
-[5]:https://spring.io/guides/gs/sts
-[6]:https://spring.io/guides/gs/intellij-idea/
-[7]:https://hadoop.apache.org/docs/r2.2.0/hadoop-project-dist/hadoop-common/SingleCluster.html
-[8]:https://spring.io/guides
-[9]:https://github.com/spring-guides/gs-yarn-basic.git
-[10]:https://spring.io/guides/gs/gradle
-[11]:https://hadoop.apache.org/docs/r2.2.0/hadoop-yarn/hadoop-yarn-site/YARN.html
-[12]:https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/client/YarnClient.html
-[13]:https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/am/YarnAppmaster.html
-[14]:https://docs.spring.io/spring-hadoop/docs/2.1.0.RELEASE/api/org/springframework/yarn/container/YarnContainer.html
-[15]:http://gradle.org/
-[16]:https://maven.apache.org/
-[17]:https://spring.io/guides/gs/gradle-yarn
-[18]:https://spring.io/guides/gs/maven-yarn 
-[20]:https://github.com/spring-guides/getting-started-guides/wiki
-[21]:https://creativecommons.org/licenses/by-nd/3.0/
-[22]:http://localhost:8088/cluster
-[23]:https://github.com/spring-guides/gs-yarn-basic.git
-[24]:https://spring.io/guides/gs/gradle
-[25]:https://spring.io/guides/gs/maven
-[author]:https://github.com/UniKrau
-[download]:https://github.com/spring-guides/gs-yarn-basic/archive/master.zip
-
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
-
-
-
