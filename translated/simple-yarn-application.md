@@ -40,8 +40,10 @@
 
 * [下载](https://github.com/spring-guides/gs-yarn-basic/archive/master.zip)源码然后使unzip 命令解压，或者使用[Git](https://spring.io/understanding/Git)拷贝一份源代码，克隆命令`git clone` [https://github.com/spring-guides/gs-yarn-basic.git](https://github.com/spring-guides/gs-yarn-basic.git)
 
-* 使用 `cd` 命令跳转到代码目录 `gs-yarn-basic/initial`
-
+* 使用以下命令跳转到代码目录
+```bash
+ $ cd  gs-yarn-basic/initial
+```
 * 跳转到[创建YARN容器](#CYC)
 
 **当你完成以上步骤**可以到`gs-yarn-basic/complete`目录查看代码
@@ -210,7 +212,7 @@ include 'gs-yarn-basic-client','gs-yarn-basic-appmaster','gs-yarn-basic-containe
 
 <h4 id="CYC">创建YARN容器</h4>
 
-分别创建 `ContainerApplication`  and `HelloPojo` 2个类.
+分别创建 `ContainerApplication` and `HelloPojo` 两个类.
 
 `gs-yarn-basic-container/src/main/java/hello/container/ContainerApplication.java`
 
@@ -436,7 +438,6 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 现在application通过了编译和打包阶段，该准备在YARN上跑了
 
 在项目的根目录下执行以下命令即可
-
 ```bash
 $ java -jar gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
 

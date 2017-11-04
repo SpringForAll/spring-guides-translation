@@ -342,7 +342,9 @@ dependencies {
 
 运行编译命令
 
-`gradle clean build`
+```bash
+gradle clean build
+```
 
 将会编译生成三个jar文件
 
