@@ -35,7 +35,7 @@
 * 使用 `cd ` 命令跳转到 `gs-gradle-yarn/initial` 目录
 * 或者戳[理解Gradle使用规则](#gradle_inital)
 
-**以上结束后** 可以到 `gs-gradle-yarn/complete` 目录查看
+**以上步骤结束后** 可以到 `gs-gradle-yarn/complete` 目录查看
 
 如果不了解Gradle或者尚未安装Gradle，请参考[用Gradle构建Java工程](https://spring.io/guides/gs/gradle)
 
@@ -156,15 +156,15 @@ public class ClientApplication {
 }
 ```
 
-在相应的目录下创建一个 `application` ymal 配置文件
+在相应的目录下创建一个 `application` yml 配置文件
 
-``` yaml
+```yaml
 gs-gradle-yarn-container/src/main/resources/application.yml
 gs-gradle-yarn-appmaster/src/main/resources/application.yml 
 gs-gradle-yarn-client/src/main/resources/application.yml
 ```
 
-```groovy
+```ymal
 spring:
     yarn:
         appName: gs-yarn-gradle
@@ -291,7 +291,7 @@ include 'gs-gradle-yarn-dist'
 
 ` Apache Hadoop 2.6.x `
 
-```groovy
+```xml
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE")
 }
