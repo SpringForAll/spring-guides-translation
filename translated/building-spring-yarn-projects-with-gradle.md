@@ -1,8 +1,8 @@
 # Gradle构建Spring YARN项目
 
-> 原文：[Building Spring YARN Projects with Gradle][1] 
+> 原文：[Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn/) 
 >
-> 译者：[UniKrau][author]
+> 译者：[UniKrau](https://github.com/UniKrau)
 >
 > 校对：
 
@@ -21,23 +21,23 @@
 
 * 大约15分钟
 * 文本编辑器或者是IDE
-* 需要[JDK][2] 1.6 以上版本 
+* 需要[JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.6 以上版本 
 
 ### 如何完成指南
 
-像大多数[Spring入门][9]文章一样，即新手按部就班学习或者有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring入门](https://spring.io/guides)文章一样，即新手按部就班学习或者有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
 **如果从基础开始** 参考[配置工程](#gradle_id)
 
 **如果已经熟悉跳过一些基本步骤**你可以这样
 
-* 需要[下载][3]和解压源代码文件，或者用[Git][4]克隆: `git clone` [https://github.com/spring-guides/gs-gradle-yarn.git][5]
+* 需要[下载](https://github.com/spring-guides/gs-gradle-yarn/archive/master.zip)和解压源代码文件，或者用[Git](https://spring.io/understanding/Git)克隆: `git clone` [https://github.com/spring-guides/gs-gradle-yarn.git](https://github.com/spring-guides/gs-gradle-yarn.git)
 * 使用 `cd ` 命令跳转到 `gs-gradle-yarn/initial` 目录
 * 或者戳[理解Gradle使用规则](#gradle_inital)
 
 **以上结束后** 可以到 `gs-gradle-yarn/complete` 目录查看
 
-如果不了解Gradle或者尚未安装Gradle，请参考[用Gradle构建Java工程][6]
+如果不了解Gradle或者尚未安装Gradle，请参考[用Gradle构建Java工程](https://spring.io/guides/gs/gradle)
 
 <h3 id="gradle_id">配置工程</h3>
 
@@ -92,7 +92,7 @@ mkdir    gs-gradle-yarn-dist
 
 `gs-gradle-yarn-container/src/main/java/hello/container/ContainerApplication.java`
 
-```
+```java
 package hello.container;
 
 import org.springframework.boot.SpringApplication;
@@ -116,7 +116,7 @@ public class ContainerApplication {
 gs-gradle-yarn-appmaster/src/main/java/hello/appmaster/AppmasterApplication.java
 `
 
-```
+```java
 package hello.appmaster;
 
 import org.springframework.boot.SpringApplication;
@@ -140,7 +140,7 @@ public class AppmasterApplication {
 gs-gradle-yarn-client/src/main/java/hello/client/ClientApplication.java
 `
 
-```
+```java
 package hello.client;
 
 import org.springframework.boot.SpringApplication;
@@ -156,15 +156,15 @@ public class ClientApplication {
 }
 ```
 
-在相应的目录下创建一个 `application` YMAL配置文件
+在相应的目录下创建一个 `application` ymal 配置文件
 
-```
+``` yaml
 gs-gradle-yarn-container/src/main/resources/application.yml
 gs-gradle-yarn-appmaster/src/main/resources/application.yml 
 gs-gradle-yarn-client/src/main/resources/application.yml
 ```
 
-```
+```groovy
 spring:
     yarn:
         appName: gs-yarn-gradle
@@ -176,7 +176,7 @@ spring:
 
 使用 `Spring Boot Gradle plugin` ，因此在 `buildscript` 里定义仓库和依赖
 
-```
+```groovy
 buildscript {
     repositories {
         maven { url "http://repo.spring.io/libs-release" }
@@ -189,7 +189,7 @@ buildscript {
 
 gradle为整个工程提供 `base` 插件，技术上讲 `base` 插件只为整个工程编译过程进行排序，比如 `clean` 任务.但是 `base` 插件不是必须的
 
-```
+```groovy
 allprojects {
     apply plugin: 'base'
 }
@@ -197,7 +197,7 @@ allprojects {
 
 以下部分内容是，项目版本号为 `0.1.0` ，而 `apply plugins` 定义了以下内容 `java`，`eclipse`，`idea` 。 并且 `repositories` 选项通过 `Maven repositories` 解决所有的第三方jar的依赖问题。接下来为所有的子项目添加 `spring-boot plugin` 插件和 `spring-yarn-boot maven` 依赖属性，最后一步，创建一个 `copyJars` 任务将生成的jar包从子项目的目录拷贝到发布工程目录 `gs-yarn-testing-dist` ，这样就更加方便简单地测试和运行程序。
 
-```
+```groovy
 subprojects { subproject ->
     apply plugin: 'java'
     apply plugin: 'eclipse'
@@ -221,7 +221,7 @@ subprojects { subproject ->
 
 创建一个工程的时候，每一个子项目所需要依赖模块都可以在 `configure section` 进行配置，而且 `Gradle plugin` 为 ` Spring Boot` 自动创建一个能从新打包 `main jar file` 的任务
 
-```
+``` groovy
 project('gs-gradle-yarn-client') {
     apply plugin: 'spring-boot'
 }
@@ -238,7 +238,7 @@ project('gs-gradle-yarn-container') {
 
 和前面的步骤一样， `gs-gradle-yarn-dist` 为其子工程提供解决编译依赖的问题。后面的指南里，在创建单元测试的时候需要这个编译步骤
 
-```
+``` groovy
 project('gs-gradle-yarn-dist') {
     dependencies {
         compile project(":gs-gradle-yarn-client")
@@ -269,7 +269,7 @@ project('gs-gradle-yarn-dist') {
 
 最后再添加一个简单 `gradle wrapper` 任务，其实也不是必须的，但是有一点好处就是使用它可以不必安装  `gradle` 二进制包。
 
-```
+```groovy
 task wrapper(type: Wrapper) {
     gradleVersion = '1.11'
 }
@@ -277,7 +277,7 @@ task wrapper(type: Wrapper) {
 
 为根目录创建 `settings.gradle` 文件，将子工程名写入其中
 
-```
+```groovy
 include 'gs-gradle-yarn-client'
 include 'gs-gradle-yarn-appmaster'
 include 'gs-gradle-yarn-container'
@@ -291,21 +291,21 @@ include 'gs-gradle-yarn-dist'
 
 ` Apache Hadoop 2.6.x `
 
-```
+```groovy
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE")
 }
 ```
 
 ` Pivotal HD 2.1 `
-```
+```groovy
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-phd21")
 }
 ```
 
 ` Hortonworks Data Platform 2.2 `
-```
+```groovy
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hdp22")
 }
@@ -313,7 +313,7 @@ dependencies {
 
 ` Cloudera CDH 5.x `
 
-```
+```groovy
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-cdh5")
 }
@@ -321,7 +321,7 @@ dependencies {
 
 ` Apache Hadoop 2.4.x `
 
-```
+```groovy
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hadoop24")
 }
@@ -329,7 +329,7 @@ dependencies {
 
 ` Apache Hadoop 2.5.x `
 
-```
+```groovy
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hadoop25")
 }
@@ -343,7 +343,7 @@ dependencies {
 
 将会编译生成三个jar文件
 
-```
+```groovy
 gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-client-0.1.0.jar
 gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-container-0.1.0.jar
 gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.jar
@@ -356,23 +356,6 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.ja
 ### 总结
 
 恭喜了，现在可以通过高效的Maven构建一个简单Spring YARN工程了
-
-
-如果想写一个新的指南或者对其他指南有修改意见和建议，请阅读[贡献指南说明][7]
-
-
-[完整的源代码][8]
-
-[1]:https://spring.io/guides/gs/gradle-yarn/
-[2]:http://www.oracle.com/technetwork/java/javase/downloads/index.html
-[3]:https://github.com/spring-guides/gs-gradle-yarn/archive/master.zip
-[4]:https://spring.io/understanding/Git
-[5]:https://github.com/spring-guides/gs-gradle-yarn.git
-[6]:https://spring.io/guides/gs/gradle
-[7]:https://github.com/spring-guides/getting-started-guides/wiki
-[8]:https://github.com/spring-guides/gs-gradle-yarn/archive/master.zip
-[9]:https://spring.io/guides
-[author]:https://github.com/UniKrau
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
