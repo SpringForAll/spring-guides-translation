@@ -6,6 +6,10 @@
 
 我们的首页：http://www.spring4all.com/spring-guildes/
 
+## 如何开始
+
+详情请参考：[WIKI 如何开始](https://github.com/SpringForAll/spring-guides-translation/wiki)
+
 ## 协作参与
 
 * 交流社区：[SpringForAll社区](http://spring4all.com)
@@ -47,7 +51,7 @@
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) | 正在翻译 | [xyq000](https://github.com/xyq000)      |                                          |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
-| 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) | 寻找校对 | [cleverlzc](https://github.com/cleverlzc) |                                          |
+| 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) | 正在校对 | [cleverlzc](https://github.com/cleverlzc) | [lexburner](https://github.com/lexburner) |
 | 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) | [程序猿DiDi](https://github.com/dyc87112)   |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
