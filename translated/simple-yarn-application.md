@@ -116,7 +116,7 @@ Spring Boot可以解决这些问题，比如开发一个uber或者fat jar包的�
 
 比如在类nix系统，可以有以下操作  
 
-  ```
+  ```bash
   mkdir -p gs-yarn-basic-appmaster/src/main/resources
   mkdir -p gs-yarn-basic-appmaster/src/main/java/hello/appmaster
   mkdir -p gs-yarn-basic-container/src/main/resources
@@ -243,7 +243,7 @@ public class ContainerApplication {
 
 然而，Spring YARN 有一个默认的 `DefaultYarnContainer` ，当没有自实现 `YarnContainer` 的时候，这个默认 `DefaultYarnContainer` 从 `Spring Application Context` 找到指定的bean类型，而 `Spring Application Context` 包含类真实用户container的逻辑。
 
-```java
+```
 gs-yarn-basic-container/src/main/java/hello/container/HelloPojo.java
 ```
 
@@ -399,22 +399,28 @@ spring:
 
 如果gradle编译工具可以使用 `clean` and `build` 两个命令
 
-`./gradlew clean build`
+```bash
+./gradlew clean build
+```
 
 
 跳过所有测试命令:
 
-`./gradlew clean build -x test`
+```bash
+./gradlew clean build -x test
+```
 
 如果是maven编译工具可以执行 `clean` and `package`
 
-`mvn clean package
-`
+```bash
+mvn clean package
+```
 
 跳过所有测试命令:
 
-`mvn clean package -DskipTests=true
-`
+```bash
+mvn clean package -DskipTests=true
+```
 
 gradle编译成功后，有以下三个jar包
 
@@ -431,7 +437,7 @@ Now that you’ve successfully compiled and packaged your application, it’s ti
 
 在项目的根目录下执行以下命令即可
 
-```groovy
+```bash
 $ java -jar gs-yarn-basic-dist/target/gs-yarn-basic-dist/gs-yarn-basic-client-0.1.0.jar
 
 ```
