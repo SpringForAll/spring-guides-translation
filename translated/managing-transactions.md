@@ -262,7 +262,7 @@ public class Application {
 ```sql
 drop table BOOKINGS if exists;
 create table BOOKINGS(ID serial, FIRST_NAME varchar(5) NOT NULL);
-``
+```
 
 还有一个`CommandLineRunner`接口注入`BookingService`类，并展示各种事务用例。
 
