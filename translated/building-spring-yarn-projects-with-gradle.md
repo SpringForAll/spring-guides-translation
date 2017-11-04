@@ -32,7 +32,10 @@
 **如果已经熟悉跳过一些基本步骤**你可以这样
 
 * 需要[下载](https://github.com/spring-guides/gs-gradle-yarn/archive/master.zip)和解压源代码文件，或者用[Git](https://spring.io/understanding/Git)克隆: `git clone` [https://github.com/spring-guides/gs-gradle-yarn.git](https://github.com/spring-guides/gs-gradle-yarn.git)
-* 使用 `cd ` 命令跳转到 `gs-gradle-yarn/initial` 目录
+* 使用以下命令跳转到目录
+  ```bash 
+  $ cd gs-gradle-yarn/initial 
+  ``` 
 * 或者戳[理解Gradle使用规则](#gradle_inital)
 
 **以上步骤结束后** 可以到 `gs-gradle-yarn/complete` 目录查看
@@ -75,7 +78,7 @@
 
 举个例子，在unix或者Linux系统下使用 `mkdir -p` 命令分别创建以下文件夹
 
-```
+```bash
 mkdir -p gs-gradle-yarn-appmaster/src/main/resources
 mkdir -p gs-gradle-yarn-appmaster/src/main/java/hello/appmaster
 mkdir -p gs-gradle-yarn-container/src/main/resources
@@ -221,7 +224,7 @@ subprojects { subproject ->
 
 创建一个工程的时候，每一个子项目所需要依赖模块都可以在 `configure section` 进行配置，而且 `Gradle plugin` 为 ` Spring Boot` 自动创建一个能从新打包 `main jar file` 的任务
 
-``` groovy
+```groovy
 project('gs-gradle-yarn-client') {
     apply plugin: 'spring-boot'
 }
@@ -238,7 +241,7 @@ project('gs-gradle-yarn-container') {
 
 和前面的步骤一样， `gs-gradle-yarn-dist` 为其子工程提供解决编译依赖的问题。后面的指南里，在创建单元测试的时候需要这个编译步骤
 
-``` groovy
+```groovy
 project('gs-gradle-yarn-dist') {
     dependencies {
         compile project(":gs-gradle-yarn-client")
@@ -298,14 +301,14 @@ dependencies {
 ```
 
 ` Pivotal HD 2.1 `
-```groovy
+```xml
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-phd21")
 }
 ```
 
 ` Hortonworks Data Platform 2.2 `
-```groovy
+```xml
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hdp22")
 }
@@ -313,7 +316,7 @@ dependencies {
 
 ` Cloudera CDH 5.x `
 
-```groovy
+```xml
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-cdh5")
 }
@@ -321,7 +324,7 @@ dependencies {
 
 ` Apache Hadoop 2.4.x `
 
-```groovy
+```xml
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hadoop24")
 }
@@ -329,7 +332,7 @@ dependencies {
 
 ` Apache Hadoop 2.5.x `
 
-```groovy
+```xml
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hadoop25")
 }
@@ -349,7 +352,11 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-container-0.1.0.ja
 gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.jar
 ```
 
-运行这个工程 `java -jar gs-gradle-yarn-dist/target/dist/gs-gradle-yarn-client-0.1.0.jar`
+运行这个工程 
+
+```bash
+java -jar gs-gradle-yarn-dist/target/dist/gs-gradle-yarn-client-0.1.0.jar
+```
 
 当然还添加提交YARN框架上的代码，但是可以浏览输出的日子信息，可以通过其他的关于 `Spring YARN` 指南了解怎么创建可以提交到YARN上运行的完整应用程序
 
