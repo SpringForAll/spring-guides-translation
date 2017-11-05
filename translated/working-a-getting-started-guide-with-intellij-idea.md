@@ -34,11 +34,11 @@
 
 当IntelliJ IDEA启动和运行后，在**欢迎界面**点击**Import Project**，或者在主菜单中点击**File Open**：
 
-![spring_guide_welcome_import](static\1054\spring_guide_welcome_import.png)
+![spring_guide_welcome_import](https://github.com/xiudongxu/spring-guides-translation/blob/master/translated/static/1054/spring_guide_welcome_import.png?raw=true)
 
 请确保在弹出的对话框中选择在**完整**的文件夹路径下，无论是[Maven](https://spring.io/guides/gs/maven)的**pom.xml**还是[Gradle](https://spring.io/guides/gs/gradle)的**build.gradle**文件。
 
-![spring_guide_select_gradle_file](static\1054\spring_guide_select_gradle_file.png)
+![spring_guide_select_gradle_file](https://github.com/xiudongxu/spring-guides-translation/blob/master/translated/static/1054/spring_guide_select_gradle_file.png?raw=true)
 
 IntelliJ IDEA将使用指南中的所有代码创建一个准备运行的项目。
 
@@ -46,18 +46,12 @@ IntelliJ IDEA将使用指南中的所有代码创建一个准备运行的项目�
 
 假如你喜欢通过一个空的工程或者粘贴复制的方式来开始的话，那么在**项目向导**界面创建一个**Maven**或者**Gradle**工程。
 
-![spring_guide_new_project](static\1054\spring_guide_new_project.png)
+![spring_guide_new_project](https://github.com/xiudongxu/spring-guides-translation/blob/master/translated/static/1054/spring_guide_new_project.png?raw=true)
 
-## 你了解更多
+## 了解更多
 
 下面的文档可能也是有帮助的：
 
 * [通过STS开始一个入门指南](https://spring.io/guides/gs/sts/)
-
-如果你想写一个新的教程或者对我们的的教程有任何建议，可以看我们的[贡献流程](https://github.com/SpringForAll/spring-guides-translation)
-
----
-
-
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
