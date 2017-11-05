@@ -81,7 +81,7 @@
 | 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) | 校对完成 | [strongant](https://github.com/strongant) | [maskwang](https://github.com/maskwang520) |
 | 1046 | [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/) |      |                                          |                                          |
 | 1047 | [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/) | 正在翻译 | [qiushile](https://github.com/qiushile)  |                                          |
-| 1048 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) |      | [hh23485](https://github.com/hh23485)    |                                          |
+| 1048 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) |      |    |                                          |
 | 1049 | [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/) | 校对完成 | [feilangrenM](https://github.com/feilangrenM) | [王嘉龙](https://github.com/zaixiandemiao)  |
 | 1050 | [Simple Single Project YARN Application](https://spring.io/guides/gs/yarn-basic-single/) |      |                                          |                                          |
 | 1051 | [Caching Data with Spring](https://spring.io/guides/gs/caching/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
@@ -91,7 +91,7 @@
 | 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) | 正在翻译 | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 校对完成 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
-| 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 正在校对 | [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
+| 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 校对完成| [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
 | 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |      | [oshare](https://github.com/oshare)      |                                          |
 | 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |      |                                          |                                          |
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |                                          |                                          |
