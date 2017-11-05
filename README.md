@@ -42,7 +42,7 @@
 | 1006 | [Uploading Files](https://spring.io/guides/gs/uploading-files/) |      | [JustDoNow](https://github.com/JustDoNow) |                                          |
 | 1007 | [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/) |      | [512013674](https://github.com/512013674) |                                          |
 | 1008 | [Registering an Application with Facebook](https://spring.io/guides/gs/register-facebook-app/) |      |                                          |                                          |
-| 1009 | [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/) | 等待校对 | [linzx2015](https://github.com/linzx2015) |                                          |
+| 1009 | [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/) | 校对完成 | [linzx2015](https://github.com/linzx2015) |                                          |
 | 1010 | [Registering an Application with Twitter](https://spring.io/guides/gs/register-twitter-app/) |      |                                          |                                          |
 | 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 校对完成 | [chenzhijun](https://github.com/chenzhijun) | [程序猿DD](https://github.com/dyc87112)     |
 | 1012 | [Accessing Twitter Data](https://spring.io/guides/gs/accessing-twitter/) |      |                                          |                                          |

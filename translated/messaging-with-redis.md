@@ -107,7 +107,7 @@ dependencies {
 
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-## \>通过Maven构建
+## 通过Maven构建
 
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建，这里提供一份你可能需要用 [Maven](https://maven.apache.org/) 构建的代码。如果你对 Maven 还不是很熟悉，你可以先去看下[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven).
 
@@ -190,7 +190,7 @@ pom.xml
 
 * 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖的版本](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml).你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-## \>通过你的IDE构建
+## 通过你的IDE构建
 
 *   [如何在Spring Tool Suite中构建](https://spring.io/guides/gs/sts/).
 
