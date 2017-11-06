@@ -408,7 +408,6 @@ java -jar build/libs/gs-accessing-data-mongodb-0.1.0.jar
 java -jar target/gs-accessing-data-mongodb-0.1.0.jar
 ```
 
-
 > 上面的过程将创建一个可运行的JAR。您也可以选择 [构建一个WAR文件](https://spring.io/guides/gs/convert-jar-to-war/)。
 
 当我们的应用程序实现了 `CommandLineRunner`,引导时启动时会调用`run`方法。你应该看到这样的东西(和查询一样的其他东西):
