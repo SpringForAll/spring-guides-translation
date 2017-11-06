@@ -4,7 +4,7 @@
 >
 > 译者：[UniKrau](https://github.com/UniKrau)
 >
-> 校对：
+> 校对：[dyc87112](https://github.com/dyc87112)
 
 
 本指南主要探讨Spring批处理job在Hadoop YARN上执行的过程
@@ -47,11 +47,11 @@ $ cd gs-yarn-batch-processing/initial
 
 首先要配置编译脚本。Spring构建apps的时候可以使用的编译工具有很多，但是在这里需要用[Gradle](http://gradle.org/)编译代码。如果不熟悉，请参考[Gradle编译java工程](https://spring.io/guides/gs/gradle).
 
-#### 创建工程目录结构
+### 创建工程目录结构
 
 在工程文件夹下，创建子文件夹
 
-````
+```groovy
 ├── gs-yarn-batch-processing-appmaster
 │ └── src
 │ └── main
@@ -78,7 +78,7 @@ $ cd gs-yarn-batch-processing/initial
 └── test
 └── java
 └── hello
-````
+```
 
 举个例子，使用unix或者Linux系统的同学使用 `mkdir -p` 命令分别创建以下文件夹
 
@@ -92,7 +92,7 @@ mkdir -p gs-yarn-batch-processing-client/src/main/java/hello/client
 mkdir -p gs-yarn-batch-processing-dist/src/test/java/hello
 ```
 
-#### 创建Gradle编译文件
+### 创建Gradle编译文件
 
 [初始化Gradle编译文件 ](https://github.com/spring-guides/gs-yarn-batch-processing/blob/master/initial/build.gradle)，也可以用[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)工具直接导入源码
 
@@ -186,7 +186,7 @@ task wrapper(type: Wrapper) {
 include 'gs-yarn-batch-processing-client','gs-yarn-batch-processing-appmaster','gs-yarn-batch-processing-container','gs-yarn-batch-processing-dist'
 ````
 
-#### Spring 批处理介绍
+### Spring 批处理介绍
 
 
 可以用单线程或进程的job解决批处理问题，因此处理许多复杂的问题的时候优可能会先考虑是否能用批处理模式解决。Spring Batch提供了很多并行处理方法解决这些问题。有两种高级层次多并行处理模型：单进程，多线程；多进程
@@ -207,14 +207,14 @@ include 'gs-yarn-batch-processing-client','gs-yarn-batch-processing-appmaster','
 > 了解更多关于Spring Batch Partitioning的信息，参照Spring Batch文档
  
  
- <h4 id="remote_batch"> 远程批处理步骤 </h4>
+ <h2 id="remote_batch"> 远程批处理步骤 </h2>
  
  这里创建一个PrintTasklet类
  
 ```groovy
  gs-yarn-batch-processing-container/src/main/java/hello/container/PrintTasklet.java
-
 ``` 
+
 ```java
 package hello.container;
 
@@ -321,11 +321,13 @@ public class ContainerApplication {
 * 配置HDFS文件，在真实的集群里是可以自定义的
 * 通过 `spring.yarn.batch.enabled property` 可以在YARN上使用批处理
 
-#### 创建一个批处理job
+### 创建一个批处理job
 
 创建AppmasterApplication类
 
-`gs-yarn-batch-processing-appmaster/src/main/java/hello/appmaster/AppmasterApplication.java`
+```groovy
+gs-yarn-batch-processing-appmaster/src/main/java/hello/appmaster/AppmasterApplication.java
+```
 
 ````java
 package hello.appmaster;
@@ -438,7 +440,7 @@ spring:
 * enabled 是否自动运行
 * next 是否允许下一步操作
 
-####  创建Yarn客户端
+###  创建Yarn客户端
 
 创建 ClientApplication 类
 
@@ -490,7 +492,7 @@ spring:
 
 * 为application需要提交的，定义好了所有的文件
 
-#### 编译程序
+### 编译程序
 
 使用Gradle命令：clean清空工作目录，build编译
 
@@ -532,7 +534,7 @@ $ java -jar target/gs-yarn-batch-processing-dist/gs-yarn-batch-processing-client
 
 如果这个程序没有出错，在YARN可以看到两段执行过程
 
-####  创建一个单元测试类
+###  创建一个单元测试类
 
 以下这个执行应用程序的类可以作为单元测试类，并不需要在Hadoop集群上跑
 
@@ -600,7 +602,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 }
 ````
 
-### 总结一下
+## 总结一下
 
 恭喜了，可以开发Spring Batch job的Spring YARN程序了
 
