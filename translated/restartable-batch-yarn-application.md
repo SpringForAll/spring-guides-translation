@@ -195,7 +195,7 @@ include 'gs-yarn-batch-restart-client','gs-yarn-batch-restart-appmaster','gs-yar
 
 ```
 
-<h2 id="rbs">Create a Remote Batch Step </h2> 
+<h2 id="rbs">创建一个Remote Batch Step </h2> 
      
 第一、创建一个`HdfsTasklet` 类.
 
