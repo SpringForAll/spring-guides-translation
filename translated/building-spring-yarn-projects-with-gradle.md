@@ -4,7 +4,7 @@
 >
 > 译者：[UniKrau](https://github.com/UniKrau)
 >
-> 校对：
+> 校对：[dyc87112](https://github.com/dyc87112)
 
 
 本指南主要探讨Gradle构建一个简单的Spring YARN 工程
@@ -23,7 +23,7 @@
 * 文本编辑器或者是IDE
 * 需要[JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.6 以上版本 
 
-### 如何完成指南
+## 如何完成指南
 
 像大多数[Spring入门](https://spring.io/guides)文章一样，即新手按部就班学习或者有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
@@ -42,15 +42,15 @@
 
 如果不了解Gradle或者尚未安装Gradle，请参考[用Gradle构建Java工程](https://spring.io/guides/gs/gradle)
 
-<h3 id="gradle_id">配置工程</h3>
+<h2 id="gradle_id">配置工程</h2>
 
 建立一个Java工程，然后用Gradle编译，这个工程尽可能的简单，其目的是学会怎么使用Gradle，
 
-#### 创建工程目录结构
+### 创建工程目录结构
 
 父目录下的子目录的结构应该是这个样子：
 
-````
+```groovy
 ├── gs-gradle-yarn-appmaster
 │   └── src
 │       └── main
@@ -73,7 +73,7 @@
 │               └── hello
 │                   └── client
 └── gs-gradle-yarn-dist
-````
+```
 
 
 举个例子，在unix或者Linux系统下使用 `mkdir -p` 命令分别创建以下文件夹
@@ -177,7 +177,7 @@ spring:
 
 创建 `build.gradle` 文件，在这个文件里定义好编译所需的内容
 
-使用 `Spring Boot Gradle plugin` ，因此在 `buildscript` 里定义仓库和依赖
+使用 `Spring Boot Gradle plugin` ，因此在 `build script` 里定义仓库和依赖
 
 ```groovy
 buildscript {
@@ -294,21 +294,21 @@ include 'gs-gradle-yarn-dist'
 
 ` Apache Hadoop 2.6.x `
 
-```xml
+```
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE")
 }
 ```
 
 ` Pivotal HD 2.1 `
-```xml
+```
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-phd21")
 }
 ```
 
 ` Hortonworks Data Platform 2.2 `
-```xml
+```
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hdp22")
 }
@@ -316,7 +316,7 @@ dependencies {
 
 ` Cloudera CDH 5.x `
 
-```xml
+```
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-cdh5")
 }
@@ -324,7 +324,7 @@ dependencies {
 
 ` Apache Hadoop 2.4.x `
 
-```xml
+```
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hadoop24")
 }
@@ -332,7 +332,7 @@ dependencies {
 
 ` Apache Hadoop 2.5.x `
 
-```xml
+```
 dependencies {
     compile("org.springframework.data:spring-yarn-boot:2.1.0.RELEASE-hadoop25")
 }
@@ -360,9 +360,9 @@ gs-gradle-yarn-dist/target/gs-gradle-yarn-dist/gs-gradle-yarn-appmaster-0.1.0.ja
 java -jar gs-gradle-yarn-dist/target/dist/gs-gradle-yarn-client-0.1.0.jar
 ```
 
-当然还添加提交YARN框架上的代码，但是可以浏览输出的日子信息，可以通过其他的关于 `Spring YARN` 指南了解怎么创建可以提交到YARN上运行的完整应用程序
+当然还添加提交YARN框架上的代码，但是可以浏览输出的日子信息，可以通过其他的 `Spring YARN` 指南了解怎么创建可以提交到YARN上运行的完整应用程序
 
-### 总结
+## 总结
 
 恭喜了，现在可以通过高效的Maven构建一个简单Spring YARN工程了
 
