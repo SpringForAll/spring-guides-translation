@@ -518,9 +518,9 @@ spring:
                 archiveFile: gs-yarn-batch-restart-appmaster-0.1.0.jar
 ```
 
-* 在这个文件里配置了应用程序需要提交的元数据信息
+* 在这个文件里配置了应用程序提交时需要的元数据信息
 
-### Build the Application
+### 编译程序
 
 
 简单的执行gradle clean和build命令
@@ -547,7 +547,7 @@ mvn clean package
 mvn clean package -DskipTests=true
 ```
 
-gradle编译成功类会有以下三个jar包
+gradle编译成功后会有以下三个jar包
 
 ```groovy
 gs-yarn-batch-restart-dist/target/gs-yarn-batch-restart-dist/gs-yarn-batch-restart-client-0.1.0.jar
@@ -586,14 +586,14 @@ $ cd gs-yarn-batch-restart-dist
 $ java -jar target/gs-yarn-batch-restart-dist/gs-yarn-batch-restart-client-0.1.0.jar
 ```
 
-可以在YARN资源管理器看到程序是处于失败状态，因为第二阶段的partitioned steps导致，在HDFS上创建`/tmp/remoteStep2partition0`和`/tmp/remoteStep2partition1`文件：
+可以在YARN资源管理器看到程序是处于失败状态，因为第二阶段的partitioned steps导致的，在HDFS上创建`/tmp/remoteStep2partition0`和`/tmp/remoteStep2partition1`文件：
 
 ```bash
 $ hdfs dfs -touchz /tmp/remoteStep2partition0
 $ hdfs dfs -touchz /tmp/remoteStep2partition1
 ```
 
-重新运行一遍
+重新运行
 
 ```bash
 $ java -jar target/dist/gs-yarn-batch-restart-client-0.1.0.jar
