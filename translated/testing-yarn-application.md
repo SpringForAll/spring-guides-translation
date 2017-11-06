@@ -4,7 +4,7 @@
 >
 > 译者：[UniKrau](https://github.com/UniKrau)
 >
-> 校对：
+> 校对：[dyc87112](https://github.com/dyc87112)
 
 ## 写一个YARN应用程序的单元测试
 
@@ -28,7 +28,7 @@
 > 测试样例程序没有必要在Hadoop实例上运行.
 
 
-### 怎样完成这个指南
+## 怎样完成这个指南
 
 像大多数[Spring入门](https://spring.io/guides)文章一样,即新手按部就班学习或者如果有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
 
@@ -51,7 +51,7 @@ $ cd gs-yarn-testing/initial
 如果不了解Gradle， 请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle).
 
 
-<h3 id="set_up"> 配置工程 </h3>
+<h2 id="set_up"> 配置工程 </h2>
 
 本指南重点在用 `JUnit` 测试样例程序。这个gradle工程以及所有的程序文件都是基于这个样例[YARN Basic Sample](https://spring.io/guides/gs/yarn-basic).剩下的事情只需创建一个 `JUnit` 测试类 
 
@@ -61,7 +61,7 @@ $ cd gs-yarn-testing/initial
 
 另外还有关于构建Spring YARN工程的指南说明。如果不熟悉，请阅读[Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn) or [Building Spring YARN Projects with Maven](https://spring.io/guides/gs/maven-yarn).
 
-#### 创建工程目录结构
+### 创建工程目录结构
 
 选定工程文件夹以后，建立子文件夹：
 
@@ -105,7 +105,7 @@ mkdir -p gs-yarn-testing-client/src/main/resources
 mkdir -p gs-yarn-testing-client/src/main/java/hello/client
 mkdir -p gs-yarn-testing-dist/src/test/java/hello
 ```
-##### 创建一个gradle编译文件
+### 创建一个gradle编译文件
 
 可以参考这个[initial Gradle build file](https://github.com/spring-guides/gs-yarn-testing/blob/master/initial/build.gradle).
 
@@ -196,7 +196,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 
 * `stderr` 是个空文件
 
-#### 运行测试
+### 运行测试
 
 使用gradle命令：
 
@@ -229,7 +229,7 @@ $ grep Hello gs-yarn-testing-dist/target/yarn--1502101888/yarn--1502101888-logDi
 ```
 
 
-### 总结
+## 总结
 
 恭喜！现在已经能写Spring YARN工程的 `JUnit` 单元测试。
 
@@ -243,8 +243,6 @@ $ grep Hello gs-yarn-testing-dist/target/yarn--1502101888/yarn--1502101888-logDi
 * [Restartable Batch YARN Application](https://spring.io/guides/gs/yarn-batch-restart/)
 * [Building Spring YARN Projects with Maven](https://spring.io/guides/gs/maven-yarn/)
 * [Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn/)
-
-
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
