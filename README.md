@@ -92,7 +92,7 @@
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) | 正在翻译 | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 校对完成 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
 | 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 校对完成| [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
-| 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |      | [oshare](https://github.com/oshare)      |                                          |
+| 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |校对完成     | [ligang](http://github.com/holy12345/)      |[Mr.lzc](http://github.com/cleverlzc)                                         |
 | 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |      |                                          |                                          |
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |                                          |                                          |
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
