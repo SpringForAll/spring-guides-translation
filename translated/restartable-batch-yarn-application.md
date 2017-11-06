@@ -12,7 +12,7 @@
 
 ## 你将学会什么
 
-使用Spring Hadoop and Spring Boot构建一个简单Hadoop YARN程序。它含有一个job，当这个job在YARN partitioned steps执行完毕的时候产生两master steps。同样也模拟了每个step出错的情况，所有能知道job的重启点是在step运行失败的地方开始执行
+使用Spring Hadoop and Spring Boot构建一个简单Hadoop YARN程序。它含有一个job，当这个job在YARN partitioned steps执行完毕的时候产生两master steps。同样也模拟了每个step出错的情况，所以能知道job的重启点是在step运行失败的地方开始执行
 
 ## 你要准备什么
 
