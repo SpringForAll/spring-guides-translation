@@ -24,7 +24,7 @@
   * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
      *  使用本地单实例模式，需要Hadoop 2.2.0以上的版本
 
-### 怎样完成指南
+## 怎样完成指南
 
 像大多数[Spring 入门文章](https://spring.io/guides)一样，即新手按部就班完成或者有基础的可以跳过这些基本步骤，不过最后，程序是可以运行的.
 
