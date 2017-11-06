@@ -47,7 +47,7 @@
 **以上步骤完成后** 可以到 `gs-yarn-batch-restart/complete` 目录查看.
 
 
-<h2 id="set_up">配置工程</h2>
+<h2 id="set_up">配置工程 </h2>
 
 
 首先配置脚本， 可以使用[Gradle](http://gradle.org/)工具构建Spring app. 如果不熟悉请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle).
@@ -195,7 +195,7 @@ include 'gs-yarn-batch-restart-client','gs-yarn-batch-restart-appmaster','gs-yar
 
 ```
 
-<h2 id="rbs">Create a Remote Batch Step <h2> 
+<h2 id="rbs">Create a Remote Batch Step </h2> 
      
 第一、创建一个`HdfsTasklet` 类.
 
