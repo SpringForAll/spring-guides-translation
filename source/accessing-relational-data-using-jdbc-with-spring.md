@@ -1,4 +1,4 @@
-【翻译中】
+【codedrinker 翻译中】
 # 中文标题
 
 > 原文：[Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/)
