@@ -313,7 +313,6 @@ public class ContainerApplication {
      yarn:
          batch:
              enabled: true
-
  ```
 
 * 在Spring Boot core里禁用batch功能，因此就可以使用YARN特性
@@ -432,6 +431,7 @@ spring:
             launchcontext:
                 archiveFile: gs-yarn-batch-processing-container-0.1.0.jar
 ```
+
 相关的解析说明
 * 在Spring Boot core里禁用batch功能，因此就可以使用YARN特性
 * 配置HDFS文件，在真实的集群里是可以自定义的
@@ -464,10 +464,9 @@ public class ClientApplication {
 }
 ```
 
-
 ClientApplication与其他指南的例子程序的类差不多，不过这里的目的只是提交一个YARN application
 
-创建一个client `application.yml` 文件
+创建一个client`application.yml`文件
 
 `gs-yarn-batch-processing-client/src/main/resources/application.yml`
 
@@ -521,7 +520,7 @@ gs-yarn-batch-processing-dist/target/gs-yarn-batch-processing-dist/gs-yarn-batch
 
 运行Application
 
-目前为止已经成功的编译打包了application了，该上Hadoop YARN上试试了
+目前为止已经成功的编译打包了application，可以在Hadoop YARN上试试
 
 运行这个client jar包
 
