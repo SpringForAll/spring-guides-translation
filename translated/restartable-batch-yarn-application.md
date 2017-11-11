@@ -19,8 +19,8 @@
 * 大约15分钟
 * 文本编辑器或者是IDE
 * [JDK 1.6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)以上
-* [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-* 可以使用以下两种IDE直接将代码导入:
+* [Gradle 2.3+](http://www.gradle.org/downloads)或者[Maven 3.0+](https://maven.apache.org/download.cgi)
+* 你也可以直接将代码导入到本地开发工具中:
   * [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
     * 使用本地单实例模式，需要Hadoop 2.2.0以上的版本
@@ -29,11 +29,11 @@
 
 ## 怎样完成这个指南
 
-正如和其他的[Spring Getting Started guides](https://spring.io/guides)指南一样，可以按部就班的从零开始完成每个步骤，或者跳过熟悉的基本步骤。无论何种方式。你的代码都能完成本指南的任务。
+像大多数[Spring 入门文章](https://spring.io/guides)一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
 
-**如果是零基础开始** , 可以直接从[配置工程](#set_up)开始学习.
+**你可以往下查看**[配置工程](#set_up)
 
-**如果有些基础** 按照以下步骤:
+**如果已经熟悉跳过一些基本步骤**你可以这样做
 
 * [下载](https://github.com/spring-guides/gs-yarn-batch-restart/archive/master.zip) 并解压本指南的代码库, 或者使用[Git](https://spring.io/understanding/Git)克隆: git clone [https://github.com/spring-guides/gs-yarn-batch-restart.git](https://github.com/spring-guides/gs-yarn-batch-restart.git)
 
@@ -42,19 +42,19 @@
  $ cd   gs-yarn-batch-restart/initial
 ```
 
-* 直接跳转到[Remote Batch Step](#rbs).
+* 跳到[Remote Batch Step](#rbs)。
 
-**以上步骤完成后** 可以到 `gs-yarn-batch-restart/complete` 目录查看.
+**完成上述步骤**，你可以根据代码检查结果`gs-yarn-batch-restart/complete`
 
 
 <h2 id="set_up">配置工程 </h2>
 
 
-首先配置脚本， 可以使用[Gradle](http://gradle.org/)工具构建Spring app. 如果不熟悉请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle).
+首先配置脚本，可以使用[Gradle](http://gradle.org/)工具构建Spring app。如果不熟悉请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle).
 
 ### 创建工程目录结构
 
-选定工程文件夹以后，建立子文件夹：
+在你选择的项目目录中，创建以下子目录结构
 
 ```
 ├── gs-yarn-batch-restart-appmaster

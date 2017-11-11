@@ -11,30 +11,34 @@
 
 ## 你将学到点什么
 
-创建一个简单的app然后用`Maven`构建之
+用`Maven`构建一个简单的app
 
 这篇文章不准备创建一个完整可用的YARN app，而是关注项目和构建模型
 
 ## 需要你准备些什么
+
 *  差不多15分钟搞定
 *  文本编辑器或者IDE都行
 *  支持JDK6以上
 
 ## 怎样完成指南
 
-像大多数[Spring入门](https://spring.io/guides)文章一样，即新手按部就班学习或者如果有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring 入门文章](https://spring.io/guides)一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
 
-**如果从基础开始** ，请移步[配置项目](#setup_with_maven)
+
+**如果从基础开始**参考[配置项目](#setup_with_maven)
 
 
 **如果已经熟悉跳过一些基本步骤** 你可以这样：
- 可以通过[下载](https://github.com/spring-guides/gs-maven-yarn/archive/master.zip)并解压，或者使用[Git](https://spring.io/understanding/Git)的命令拷贝这个项目
-git clone  [`https://github.com/spring-guides/gs-maven-yarn.git`](https://github.com/spring-guides/gs-maven-yarn.git)
-* 使用cd 命令跳到 `gs-maven-yarn/initial`目录
+ 可以通过[下载](https://github.com/spring-guides/gs-maven-yarn/archive/master.zip)并解压，或者使用[Git](https://spring.io/understanding/Git)克隆：`git clone` [https://github.com/spring-guides/gs-maven-yarn.git](https://github.com/spring-guides/gs-maven-yarn.git)
+* 使用以下命令跳转到目录
+  ```bash 
+  $ cd gs-maven-yarn/initial 
+  ``` 
 
-* 跳转到 [通过Spring YARN项目理解Maven的使用规则](#spring_yarn_id)
+* 跳转到[通过Spring YARN项目理解Maven的使用规则](#spring_yarn_id)
 
-**当以上步骤完成**，可以到`gs-maven-yarn/complete`目录检查代码
+**完成上述步骤**，你可以根据代码检查结果`gs-maven-yarn/complete`
 
 
 如果不熟悉gradle工具，可以参考[ Building Java Projects with Maven](https://spring.io/guides/gs/maven)
@@ -45,7 +49,7 @@ git clone  [`https://github.com/spring-guides/gs-maven-yarn.git`](https://github
 
 ### 创建工程目录结构
 
-选定工程文件夹以后，建立子文件夹：
+在你选择的项目目录中，创建以下子目录结构
 
 ```
 ├── gs-maven-yarn-appmaster

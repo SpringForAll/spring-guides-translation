@@ -19,8 +19,8 @@
 * 大约15分钟
 * 文本编辑器或者是IDE
 * [JDK 1.6](https://spring.io/guides/gs/yarn-testing/)以上
-* [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-* 可以使用以下两种IDE直接将代码导入:
+* [Gradle 2.3+](http://www.gradle.org/downloads)或者[Maven 3.0+](https://maven.apache.org/download.cgi)
+* 你也可以直接将代码导入到本地开发工具中:
   * [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
     * 使用本地单实例模式，需要Hadoop 2.2.0以上的版本
@@ -30,13 +30,13 @@
 
 ## 怎样完成这个指南
 
-像大多数[Spring入门](https://spring.io/guides)文章一样,即新手按部就班学习或者如果有基础可以跳过这些基本步骤，不过最后，程序是可以跑的.
+像大多数[Spring 入门文章](https://spring.io/guides)一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
 
-**如果是零基础开始**， 可以直接从[配置工程](#set_up)开始学习.
+**你可以往下查看**[配置工程](#set_up)
 
-**如果有些基础** 按照以下步骤:
+**如果已经熟悉跳过一些基本步骤**你可以这样做
 
-* [下载](https://github.com/spring-guides/gs-yarn-testing/archive/master.zip) 并解压本指南的代码库, 或者使用[Git](https://spring.io/understanding/Git)克隆: `git clone` [ https://github.com/spring-guides/gs-yarn-testing.git](https://github.com/spring-guides/gs-yarn-testing.git)
+* [下载](https://github.com/spring-guides/gs-yarn-testing/archive/master.zip)并解压本指南的代码库, 或者使用[Git](https://spring.io/understanding/Git)克隆: `git clone` [ https://github.com/spring-guides/gs-yarn-testing.git](https://github.com/spring-guides/gs-yarn-testing.git)
 
 * 使用以下命令跳转到目录 
 
@@ -44,26 +44,24 @@
 $ cd gs-yarn-testing/initial 
 ```
 
-* 直接跳转到 [创建一个Junit单元测试类](#junit_class).
+* 直接跳转到[创建一个Junit单元测试类](#junit_class)。
 
-**以上结束后** 可以到 `gs-yarn-testing/complete` 目录查看.
+**完成上述步骤**，你可以根据代码检查结果`gs-yarn-testing/complete`
 
-如果不了解Gradle， 请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle).
-
+如果不了解Gradle，请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)。
 
 <h2 id="set_up"> 配置工程 </h2>
 
-本指南重点在用 `JUnit` 测试样例程序。这个gradle工程以及所有的程序文件都是基于这个样例[YARN Basic Sample](https://spring.io/guides/gs/yarn-basic).剩下的事情只需创建一个 `JUnit` 测试类 
+本指南重点在用`JUnit`测试样例程序。这个gradle工程以及所有的程序文件都是基于这个样例[YARN Basic Sample](https://spring.io/guides/gs/yarn-basic)，剩下的事情只需创建一个`JUnit`测试类 。
 
-首先配置脚本， 可以使用[Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/)工具构建Spring app. 如果不熟悉请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) or [Building Java Projects with Maven](https://spring.io/guides/gs/maven
-).
-
+首先配置脚本，可以使用[Gradle](http://gradle.org/)或者[Maven](https://maven.apache.org/)工具构建Spring app. 如果不熟悉请参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)或者[Building Java Projects with Maven](https://spring.io/guides/gs/maven
+)。
 
 另外还有关于构建Spring YARN工程的指南说明。如果不熟悉，请阅读[Building Spring YARN Projects with Gradle](https://spring.io/guides/gs/gradle-yarn) or [Building Spring YARN Projects with Maven](https://spring.io/guides/gs/maven-yarn).
 
 ### 创建工程目录结构
 
-选定工程文件夹以后，建立子文件夹：
+在你选择的项目目录中，创建以下子目录结构
 
 ```
 ├── gs-yarn-testing-appmaster
@@ -110,7 +108,7 @@ mkdir -p gs-yarn-testing-dist/src/test/java/hello
 可以参考这个[initial Gradle build file](https://github.com/spring-guides/gs-yarn-testing/blob/master/initial/build.gradle).
 
 
-<h4 id="junit_class"> 创建一个JUnit单元测试类 </h4>
+<h3 id="junit_class">创建一个JUnit单元测试类</h3>
 
 ``gs-yarn-testing-dist/src/test/java/hello/AppIT.java
 ``
@@ -171,30 +169,30 @@ public class AppIT extends AbstractBootYarnClusterTests {
 ```
 
 
-接下来一步一步分解 `JUnit` 类。不过之前提到过不需要Hadoop实例，是因为Spring YARN的测试框架很方便地开启一个独立地mini cluster测试环境
+接下来一步一步分解`JUnit`类。不过之前提到过不需要Hadoop实例，是因为Spring YARN的测试框架很方便地开启一个独立地mini cluster测试环境
 
 
-* 命名一个 `AppIT` 类，运行编译tests的时候，它能兼容gradle和maven。编译的时候。如果Tests添加了artifacts标识，那么只能用jar的形式运行并且通过 `Spring Boot’s` repackage 插件完成这件事情。
+* 命名一个`AppIT`类，运行编译tests的时候，它能兼容gradle和maven。编译的时候。如果Tests添加了artifacts标识，那么只能用jar的形式运行并且通过`Spring Boot的repackage插件完成这件事情。
 
-* 由于test运行的是一个 `gs-yarn-testing-dist` 工程，所以要用 `spring.yarn.client.files` 覆盖 `application.yml` 的配置
+* 由于test运行的是一个`gs-yarn-testing-dist` 工程，所以要用`spring.yarn.client.files`覆盖`application.yml`的配置
 
-* `@MiniYarnClusterTest` 是一个composed注解，它能使Spring开启一个有`HDFS` 和 `YARN` 组件的Hadoop mini Cluster，Hadoop的配置文件能从mini cluster 自动的注入测试上下文
+* `@MiniYarnClusterTest`是一个composed注解，它能使Spring开启一个有`HDFS`和`YARN`组件的Hadoop mini Cluster，Hadoop的配置文件能从mini cluster 自动的注入测试上下文
 
-* `AbstractBootYarnClusterTests` 这个类包含类许多test需要的基本功能。
+* `AbstractBootYarnClusterTests`这个类包含类许多test需要的基本功能。
 
 发布程序到miniCluster上
 
-* `submitApplicationAndWait()` 方法调用了 `ClientApplication` 并且它具有发布程序的功能。默认等待60秒然后返回当前的状态
+* `submitApplicationAndWait()`方法调用了`ClientApplication`并且它具有发布程序的功能。默认等待60秒然后返回当前的状态
 
 * 程序的各个运行状态无误
 
-在miniCluster上，可以通过`ContainerLogUtils` 找到 container的日志文件
+在miniCluster上，可以通过`ContainerLogUtils`找到container的日志文件
 
-* assert 日志文件的行数
+* assert日志文件的行数
 
 * 日志文件记录了相关内容
 
-* `stderr` 是个空文件
+* `stderr`是个空文件
 
 ### 运行测试
 
@@ -228,10 +226,9 @@ $ grep Hello gs-yarn-testing-dist/target/yarn--1502101888/yarn--1502101888-logDi
 [2014-02-14 16:37:55.157] boot - 18453  INFO [main] --- HelloPojo: FileStatus{path=hdfs://localhost:33626/app; isDirectory=true; modification_time=1392395854968; access_time=0; owner=jvalkealahti; group=supergroup; permission=rwxr-xr-x; isSymlink=false}
 ```
 
-
 ## 总结
 
-恭喜！现在已经能写Spring YARN工程的 `JUnit` 单元测试。
+恭喜！现在已经能写Spring YARN工程的`JUnit`单元测试。
 
 ## 其他类似内容
    
