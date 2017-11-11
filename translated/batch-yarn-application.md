@@ -1,4 +1,4 @@
-# YARN 的批处理应用程序
+# YARN Batch任务应用程序
 
 > 原文：[Batch YARN Application](https://spring.io/guides/gs/yarn-batch-processing/)
 >
@@ -18,7 +18,7 @@
 * 大概15分钟
 * 文本编辑器或IDE
 * [JDK 1.6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)或者更高的版本
-* [Gradle 2.3+](http://www.gradle.org/downloads)[ Maven 3.0+](https://maven.apache.org/download.cgi)
+* [Gradle 2.3+](http://www.gradle.org/downloads)或者[Maven 3.0+](https://maven.apache.org/download.cgi)
 * 你也可以直接将代码导入到本地开发工具中:
   * [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
@@ -95,7 +95,7 @@ mkdir -p gs-yarn-batch-processing-dist/src/test/java/hello
 
 ### 创建Gradle编译文件
 
-[初始化Gradle编译文件 ](https://github.com/spring-guides/gs-yarn-batch-processing/blob/master/initial/build.gradle)，也可以用[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)工具直接导入源码
+[初始化Gradle编译文件 ](https://github.com/spring-guides/gs-yarn-batch-processing/blob/master/initial/build.gradle)，也可以用[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)工具直接导入源码。
 
 `build.gradle`
 
@@ -177,9 +177,9 @@ task wrapper(type: Wrapper) {
 }
 ```
 
-依照gradle编译文件，简单的构建三个不同的jar包，Spring Boot’s Gradle插件会把这三个包编译成可执行jar包
+根据以上的编译文件，我们简单地创建三个不同的jar包，每一个类都有扮演各自相应地角色。最终Spring Boot Gradle插件会把这三个包再次打包成一个可执行jar包。
 
-`gesettings.gradle`文件定义其子项目
+`settings.gradle`文件定义其子项目
 
 `settings.gradle` 内容
 
@@ -187,22 +187,21 @@ task wrapper(type: Wrapper) {
 include 'gs-yarn-batch-processing-client','gs-yarn-batch-processing-appmaster','gs-yarn-batch-processing-container','gs-yarn-batch-processing-dist'
 ```
 
-### Spring 批处理介绍
+### Spring Batch介绍
 
+可以用单线程或进程的任务地方法解决批处理问题，因此处理许多复杂的问题的时候优可能会先考虑是否能用批处理模式解决。Spring Batch提供了很多并行处理方法解决这些问题。有两种高级层次多并行处理模型：单进程，多线程；多进程
 
-可以用单线程或进程的job解决批处理问题，因此处理许多复杂的问题的时候优可能会先考虑是否能用批处理模式解决。Spring Batch提供了很多并行处理方法解决这些问题。有两种高级层次多并行处理模型：单进程，多线程；多进程
+在Hadoop YARN 计算框架的集群上 Spring Hadoop 支持Spring Batch 类型的任务。为了更好的并行处理， Spring Batch 做了分区，而且在YARN上执行的时候采用remote steps的方式。
 
-在Hadoop YARN 计算框架的集群上 Spring Hadoop 支持Spring Batch 类型的job。为了更好的并行处理， Spring Batch 做了分区，而且在YARN上执行的时候采用remote steps的方式。
+要在YARN上运行Spring Batch Job 的关键地方在于Application Master能否判断这个任务是不是简单类型的或者不要进行分区。任务没有分区的时候，整个任务都运行在 Application Master内并且不会启动额外的容器。好神奇的样子，竟然不要容器就能在YARN跑任务，但是别忘了Application Master其实也是Hadoop 集群分配的资源，当然也是一个能运行在YARN上容器。
 
-要在YARN上运行Spring Batch Job 的关键地方在于Application Master能否判断这个job是不是简单类型的或者不要进行分区。job没有分区的时候，整个job都运行在 Application Master内并且不会启动额外的容器。好神奇的样子，竟然不要容器就能在YARN跑job，但是别忘了Application Master其实也是Hadoop 集群分配的资源，当然也是一个能运行在YARN上容器。
-
- 要在Hadoop 集群上运行Spring Batch jobs，还是有些限制的
+ 要在Hadoop 集群上运行Spring Batch 任务，还是有些限制的
  
- * Job Context - Job 上下文，Application Master是运行job的主要实体
+ * Job Context - Job 上下文，Application Master是运行任务的主要实体
  * Job Repository - Job 仓库， Application Master需要访问驻留在内存或者关系型数据库的仓库。显然Spring Batch是支持这两种。
  * 远程工作集- 由于 Spring Batch有分区能力的基因，所以远程工作集需要访问工作仓库
  
- 快速浏览Spring Batch 分区是怎样的机制，其理念是：一个分区好的job需要三样东西，第一 远程工作集，第二 分区处理器，第三 分区者。站在用户的角度来看，任何一个 remote step 都有点过于简化了。Spring Batch 本身不包含任何专门网格计算或者特殊远程过程调用实现。然而Spring Batch确实提供PartitionHandler的实现，PartitionHandler会根据Spring的TaskExecutor的策略，然后使用各自独立的线程运行工作集。Spring Hadoop针对Hadoop集群提供了远程工作集的实现。
+ 快速浏览Spring Batch 分区是怎样的机制，其理念是：一个分区好的任务需要三样东西，第一 远程工作集，第二 分区处理器，第三 分区者。站在用户的角度来看，任何一个 remote step 都有点过于简化了。Spring Batch 本身不包含任何专门网格计算或者特殊远程过程调用实现。然而Spring Batch确实提供PartitionHandler的实现，PartitionHandler会根据Spring的TaskExecutor的策略，然后使用各自独立的线程运行工作集。Spring Hadoop针对Hadoop集群提供了远程工作集的实现。
  
  
 > 了解更多关于Spring Batch Partitioning的信息，参照Spring Batch文档
@@ -240,7 +239,7 @@ public class PrintTasklet implements Tasklet {
 }
 ```
 
-一个job的step当中，Tasklet接口是Spring Batch最简单通俗易懂的概念之一。这个tasklet目的只是简单示范一下真正Partitioned Step是如何执行的。当然就不用介绍如何处理复杂job处理啦
+一个任务的step当中，Tasklet接口是Spring Batch最简单通俗易懂的概念之一。这个tasklet目的只是简单示范一下真正Partitioned Step是如何执行的。当然就不用介绍如何处理复杂任务处理啦
 
 PrintTasklet类负责输出简单的日志
 
@@ -322,7 +321,7 @@ public class ContainerApplication {
 * 配置HDFS文件，在真实的集群里是可以自定义的
 * 通过 `spring.yarn.batch.enabled property` 可以在YARN上使用批处理
 
-### 创建一个批处理job
+### 创建一个Batch任务
 
 创建AppmasterApplication类
 
@@ -605,7 +604,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 
 ## 总结一下
 
-恭喜了，可以开发Spring Batch job的Spring YARN程序了
+恭喜了，可以开发Spring Batch 任务的Spring YARN程序了
 
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
