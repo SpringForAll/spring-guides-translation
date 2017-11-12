@@ -601,7 +601,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 }
 ```
 
-## 总结一下
+## 总结
 
 恭喜了，可以开发Spring Batch任务的Spring YARN程序了
 
