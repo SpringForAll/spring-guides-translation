@@ -38,7 +38,7 @@
 | 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | 校对完成 | [happyxiaofan](https://github.com/happyxiaofan) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
 | 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) | 校对完成 | [hapihapidoge](https://github.com/hapihapidoge) | [maskwang](https://github.com/maskwang520) |
 | 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | 校对完成 | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) | [william-hyx](https://github.com/william-hyx) |
-| 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) |      | [codedrinker](https://github.com/codedrinker) |                                          |
+| 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) |寻找校对     | [codedrinker](https://github.com/codedrinker) |                                          |
 | 1006 | [Uploading Files](https://spring.io/guides/gs/uploading-files/) |      | [JustDoNow](https://github.com/JustDoNow) |                                          |
 | 1007 | [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/) |      | [512013674](https://github.com/512013674) |                                          |
 | 1008 | [Registering an Application with Facebook](https://spring.io/guides/gs/register-facebook-app/) |      |                                          |                                          |
@@ -61,13 +61,13 @@
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1026 | [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/) | 校对完成 | [cholf](https://github.com/cholf)        | [cleverlzc](https://github.com/cleverlzc) |
 | 1027 | [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/) |      | [dejunyu](https://github.com/dejunyu)    |                                          |
-| 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 等待校对 | [JohnHello](https://github.com/JohnHello) |                                          |
+| 1028 | [Converting a Spring Boot JAR Application to a WAR](https://spring.io/guides/gs/convert-jar-to-war/) | 校对完成 | [JohnHello](https://github.com/JohnHello) |                                          |
 | 1029 | [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/) | 校对完成 | [shaoshao721](https://github.com/shaoshao721) | [mrdear](https://github.com/mrdear)      |
 | 1030 | [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
-| 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 校对调整 | [nycgym](https://github.com/nycgym)      | [cleverlzc](https://github.com/cleverlzc) |
+| 1031 | [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/) | 校对完成 | [nycgym](https://github.com/nycgym)      | [cleverlzc](https://github.com/cleverlzc) |
 | 1032 | [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) | 校对完成 | [maskwang520](https://github.com/maskwang520) | [strongant](https://github.com/strongant) |
 | 1033 | [Working a Getting Started guide with STS](https://spring.io/guides/gs/sts/) | 校对完成 | [hanbin](https://github.com/hanbin)      | [cleverlzc](https://github.com/cleverlzc) |
-| 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) | 正在校对 | [yunlzheng](https://github.com/yunlzheng) | [rhwayfun](https://github.com/rhwayfun)  |
+| 1034 | [Consuming a RESTful Web Service with AngularJS](https://spring.io/guides/gs/consuming-rest-angularjs/) | 校对完成 | [yunlzheng](https://github.com/yunlzheng) | [rhwayfun](https://github.com/rhwayfun)  |
 | 1035 | [Consuming a RESTful Web Service with rest.js](https://spring.io/guides/gs/consuming-rest-restjs/) |      |                                          |                                          |
 | 1036 | [Consuming a RESTful Web Service with jQuery](https://spring.io/guides/gs/consuming-rest-jquery/) |      | [william-hyx](https://github.com/william-hyx) |                                          |
 | 1037 | [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/) |      | [yunlzheng](https://github.com/yunlzheng) |                                          |
@@ -93,11 +93,11 @@
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 校对完成 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
 | 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 校对完成| [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
 | 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |校对完成     | [ligang](http://github.com/holy12345/)      |[Mr.lzc](http://github.com/cleverlzc)                                         |
-| 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |      |                                          |                                          |
+| 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |寻找校对      | [holy12345](https://github.com/holy12345)                                        |                                          |
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |                                          |                                          |
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) | 正在翻译 | [panhoucheng](https://github.com/panhoucheng) |                                          |
-| 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 等待校对 | [HoldDie](https://github.com/HoldDie)    |                                          |
+| 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 校对完成 | [HoldDie](https://github.com/HoldDie)    |                                          |
 | 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | 正在翻译 | [YukunSun](https://github.com/YukunSun)  |                                          |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) | 正在校对 | [silentbalanceyh](https://github.com/silentbalanceyh) | [cleverlzc](https://github.com/cleverlzc) |
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
