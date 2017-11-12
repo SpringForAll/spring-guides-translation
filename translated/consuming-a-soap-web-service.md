@@ -2,9 +2,9 @@
 
 > 原文：[Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/)
 >
-> 译者：dongyang1993
+> 译者：[dongyang1993](https://github.com/dongyang1993)
 >
-> 校对：feilangrenM
+> 校对：[feilangrenM](https://github.com/feilangrenM)
 
 本指南将引导你创建一个消费基于Spring的[SOAP web service](https://spring.io/understanding/SOAP)服务的应用程序。
 
@@ -15,6 +15,7 @@
 该服务提供过往的行情引用。 您可以使用自己的ticker符号。
 
 ## 你需要什么
+
 * 大约15分钟
 * 一个喜欢的文本编辑器或者IDE
 * [JDK1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或者更新的版本
@@ -25,25 +26,25 @@
 
 ## 怎么完成这个指南
 
-
 与大多数Spring[入门指南](https://spring.io/guides)一样，您可以从头开始，完成每一步，也可以绕过已经熟悉的基本设置步骤。 无论哪种方式，你最后都将完成代码。
 
-从头开始，进入到[用Gradle构建]()。
+从头开始，进入到[用Gradle构建](https://spring.io/guides/gs/consuming-web-service/#scratch)。
 
 跳过基本过程，请按照以下步骤执行：
 
-    [下载](https://github.com/spring-guides/gs-consuming-web-service/archive/master.zip)并解压这个指南的资源库，或者用[Git](https://spring.io/understanding/Git)克隆一份:
+* [下载](https://github.com/spring-guides/gs-consuming-web-service/archive/master.zip)并解压这个指南的资源库，或者用[Git](https://spring.io/understanding/Git)克隆一份:
 ```
    git cline [https://github.com/spring-guides/gs-consuming-web-service.git](https://github.com/spring-guides/gs-consuming-web-service.git)
 ```
 
-    cd into `gs-consuming-web-service/initial`
+* cd into `gs-consuming-web-service/initial`
 
-    [基于WSDL生成域对象](https://spring.io/guides/gs/consuming-web-service/#initial)。
+* [基于WSDL生成域对象](https://spring.io/guides/gs/consuming-web-service/#initial)。
 
 完成后，您可以根据`gs-consumption-web-service/complete`中的代码检查结果。
 
 ### 使用Gradle构建
+
 首先你设置一个基本的构建脚本。 在使用Spring构建应用程序时，您可以使用任何您喜欢的构建系统，不过你用[Gradle](http://gradle.org/)或[Maven](https://maven.apache.org/)构建的代码包括在这里。 如果您还不熟悉，请参阅[使用Gradle构建Java项目](http://spring.io/guides/gs/gradle)或[使用Maven构建Java项目](http://spring.io/guides/gs/maven)。
 
 #### 创建目录结构
@@ -55,7 +56,9 @@
         └── java
             └── hello
 ```
+
 #### 创建一个Gradle构建文件
+
 以下是[Gradle初始化构建文件](https://github.com/spring-guides/gs-consuming-web-service/blob/master/initial/build.gradle)。
 
 `build.gradle`
@@ -144,14 +147,18 @@ task afterEclipseImport {
     dependsOn genJaxb
 }
 ```
+
 [Spring Boot gradle插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin)提供了许多方方便的功能：
 + 收集classpath下所有的jar包，并且构建成一个可执行的更便于执行和传输服务的"über-jar"。
 + 搜索`public static void main()`方法并标记为可运行类。
 + 提供内置依赖解析器，设置版本号匹配[Spring Boot依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)。它默认的版本是Boot's选用的版本，不过你可以重写成你想要的任何版本。
 
 ### 使用Maven构建
+
 首先你设置一个基本的构建脚本。在使用Spring构建应用程序时，您可以使用任何构建系统，不过你用[Maven](https://maven.apache.org/)构建的代码包括在了这里。如果您不熟悉Maven，请参阅[使用Maven构建Java项目](http://spring.io/guides/gs/maven)。
+
 #### 创建目录结构
+
 在你选择的项目目录中，创建以下子目录，例如，在 * nix系统中使用`mkdir -p src/main/java/hello`:
 ```
 └── src
@@ -226,12 +233,14 @@ task afterEclipseImport {
 
 </project>
 ```
+
 [Spring Boot Maven插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin)提供了许多方便的功能：
 + 收集classpath下所有的jar包，并且构建成一个可执行的更便于执行和传输服务的"über-jar"。
 + 搜索`public static void main()`方法并标记为可运行类。
 + 提供内置依赖解析器，设置版本号匹配[Spring Boot依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)。它默认的版本是Boot's选用的版本，不过你可以重写成你想要的任何版本。
 
 ### 使用你的IDE构建
+
 + 阅读如何将本指南直接导入到[Spring Tool Suite](http://spring.io/guides/gs/sts/)中。
 + 阅读如何z在IntelliJ IDEA中使用本指南。
 >如果你阅读了[生产SOAP web service](http://spring.io/guides/gs/producing-web-service)，你可能会很想知道为什么本指南不使用 **spring-boot-starter-ws**?因为Spring Boot starter只适用于服务端的web service。这个启动器带有嵌入式的Tomcat，而不需要再进行网络通话。
@@ -487,9 +496,5 @@ Requesting quote for ORCL
 * [生成SOAP Web服务](https://spring.io/guides/gs/producing-web-service/)
 
 * [用Spring Boot构建应用程序](https://spring.io/guides/gs/spring-boot/)
-
-想写一个新的指南或贡献一个现有的？ 查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
-
->所有指南都将发布ASLv2许可证的代码，以及[署名，没有衍生性](https://creativecommons.org/licenses/by-nd/3.0/)的写作许可证。
 
 >本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可 协议进行许可](http://creativecommons.org/licenses/by-nc-sa/4.0/%29%E5%8D%8F%E8%AE%AE%E8%BF%9B%E8%A1%8C%E8%AE%B8%E5%8F%AF%E3%80%82)。
