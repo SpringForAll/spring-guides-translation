@@ -97,7 +97,7 @@
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |                                          |                                          |
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) | 正在翻译 | [panhoucheng](https://github.com/panhoucheng) |                                          |
-| 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 校对完成 | [HoldDie](https://github.com/HoldDie)    |                                          |
+| 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 校对完成 | [HoldDie](https://github.com/HoldDie)    |[Jitianyu](https://github.com/Jitianyu)                                          |
 | 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | 正在翻译 | [YukunSun](https://github.com/YukunSun)  |                                          |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) | 正在校对 | [silentbalanceyh](https://github.com/silentbalanceyh) | [cleverlzc](https://github.com/cleverlzc) |
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
