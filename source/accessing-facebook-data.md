@@ -23,7 +23,7 @@
 - 你也可以直接把代码导入到IDE:
   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
-    - 一个从Facebook[在Facebook中注册应用程序](https://spring.io/guides/gs/register-facebook-app)获取的应用ID和secret。
+    - 一个从Facebook获取的应用ID和secret [在Facebook注册应用程序](https://spring.io/guides/gs/register-facebook-app)。
 
 ## 怎样完成本指南
 像大多数Spring [入门指南](https://spring.io/guides)一样，你可以从头开始，完成每一步，或者跳过那些你熟悉的基本步骤。不管那一种方式，最终会得到可以正常工作的代码。
