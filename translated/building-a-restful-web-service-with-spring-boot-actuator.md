@@ -4,7 +4,7 @@
 >
 > 译者：[xyq000](https://github.com/xyq000)
 >
-> 校对：
+> 校对：[strongant](https://github.com/strongant)
 
 [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) 是 Spring Boot 的一个子项目。开发者只需少量工作，就可为应用添加若干种生产级服务。在这篇指南中，你将构建一个应用并学会如何添加这些服务。
 
