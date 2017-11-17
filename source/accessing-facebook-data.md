@@ -28,8 +28,7 @@
 ## 怎样完成本指南
 像大多数Spring [入门指南](https://spring.io/guides)一样，你可以从头开始，完成每一步，或者跳过那些你熟悉的基本步骤。不管那一种方式，最终会得到可以正常工作的代码。
 
-**从头开始**，移步到[使用Gradle]
-(https://spring.io/guides/gs/accessing-facebook/#scratch)构建项目。
+**从头开始**，移步到[使用Gradle](https://spring.io/guides/gs/accessing-facebook/#scratch)构建项目。
 
 **略过基本步骤**，从这里开始：
 
