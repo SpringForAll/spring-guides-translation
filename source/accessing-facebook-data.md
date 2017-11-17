@@ -10,11 +10,11 @@
 
 本指南将引导你创建一个简单的web应用来访问Facebook数据。
 
-## 你会得到什么
+## 你会创建什么
 
-你会创建一个web应用用了访问Facebook的用户信息，和这些用户在Facebook上发送的一些消息。
+你将会创建一个web应用访问Facebook的一个用户信息，和这个用户的信息流（feed）的一些帖子。
 
-## 你需要准备什么
+## 你需要的准备
 
 - 大约15分钟时间
 - 一个喜欢的文本编辑器或者IDE
@@ -23,13 +23,13 @@
 - 你也可以直接把代码导入到IDE:
   - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
   - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
-    - 一个从Facebook获取的应用ID和secret [在Facebook注册应用程序](https://spring.io/guides/gs/register-facebook-app)。
+    - 一个在Facebook[注册应用程序](https://spring.io/guides/gs/register-facebook-app)时获得的ID和密钥 。
 
 ## 怎样完成本指南
 像大多数Spring [入门指南](https://spring.io/guides)一样，你可以从头开始，完成每一步，或者跳过那些你熟悉的基本步骤。不管那一种方式，最终会得到可以正常工作的代码。
 
-**从头开始**，移步到[使用Gradle]构建项目
-(https://spring.io/guides/gs/accessing-facebook/#scratch)。
+**从头开始**，移步到[使用Gradle]
+(https://spring.io/guides/gs/accessing-facebook/#scratch)构建项目。
 
 **略过基本步骤**，从这里开始：
 
@@ -205,7 +205,7 @@ spring.social.facebook.appId=233668646673605
 spring.social.facebook.appSecret=33b17e044ee6a4fa383f46ec6e28ea1d
 ```
 
-在上述的显示的属性被指定了假的值。当你[注册Facebook应用程序](https://spring.io/guides/gs/register-facebook-app)的时候，可以得到对应的真正的应用程序的消费者key和secret。
+上述显示的属性是用于示例的虚拟值。。当你[注册Facebook应用程序](https://spring.io/guides/gs/register-facebook-app)的时候，可以得到对应的真正的应用程序的消费者key和密钥。
 
 上述属性和Spring Social Facebook出现在classpath中，将触发自动配置Spring Social的`ConnectController`， `FacebookConnectionFactory`，和连接其它Spring Social’s的组件框架。
 
@@ -409,7 +409,7 @@ java -jar target/gs-accessing-facebook-0.1.0.jar
 
 恭喜你，开发了一个简单的web应用，获取用户授权从而从Facebook取到数据。这个应用程序通过Spring Social把用户连接到Facebook，并获取用户的Facebook基本数据，而且也能获取用户好友的一些基本数据。
 
-## 看其它资料
+## 你也可以看
 
 下列的指南也非常有用：
 
