@@ -34,7 +34,7 @@
 
 | 编号   | 标题                                       | 状态   | 译者                                       | 校对                                       |
 | ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
-| 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) | 等待校对 | [Jitianyu](https://github.com/Jitianyu)  |                                          |
+| 1001 | [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) | 校对完成 | [Jitianyu](https://github.com/Jitianyu)  |                                          |
 | 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | 校对完成 | [happyxiaofan](https://github.com/happyxiaofan) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
 | 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) | 校对完成 | [hapihapidoge](https://github.com/hapihapidoge) | [maskwang](https://github.com/maskwang520) |
 | 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | 校对完成 | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) | [william-hyx](https://github.com/william-hyx) |
@@ -46,7 +46,7 @@
 | 1010 | [Registering an Application with Twitter](https://spring.io/guides/gs/register-twitter-app/) |      |                                          |                                          |
 | 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 校对完成 | [chenzhijun](https://github.com/chenzhijun) | [程序猿DD](https://github.com/dyc87112)     |
 | 1012 | [Accessing Twitter Data](https://spring.io/guides/gs/accessing-twitter/) |      |                                          |                                          |
-| 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) |      |                                          |                                          |
+| 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) | 校对调整     | [wangzhidong](https://github.com/wangzhidong)                                         |                                          |
 | 1014 | [Accessing Data with Neo4j](https://spring.io/guides/gs/accessing-data-neo4j/) |      |                                          |                                          |
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) | 正在校对 | [xyq000](https://github.com/xyq000)      | [strongant](https://github.com/strongant) |
