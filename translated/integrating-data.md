@@ -1,12 +1,12 @@
-
+# 数据集成
 > 原文：[Integrating Data](https://spring.io/guides/gs/integration/)
 >
 > 译者：[xuxiaoxie](https://github.com/xuxiaoxie)
 >
-> 校对：[null]()
+> 校对：[feilangrenM](https://github.com/feilangrenM)
 
-本指南将引导您完成使用Spring Integration创建一个简单的应用程序，该应用程序从RSS源（Spring Blog）检索数据，操作数据，然后将其写入文件。
-本指南使用传统的Spring Integration XML配置; 存在其他指南，其中显示了使用具有和不具有JDK 8 Lambda表达式的JavaConfig / DSL。
+本指南将引导您使用Spring Integration创建一个简单的应用程序，该应用程序从RSS源（Spring Blog）检索数据，操作数据，然后将其写入文件。
+本指南使用传统的Spring Integration XML配置; 也有一些其他指南，其中显示了使用具有和不具有JDK 8 Lambda表达式的JavaConfig / DSL。
 
 ## 你会得到什么？
 
@@ -30,19 +30,18 @@
 
 如果已经熟悉一些基本步骤，你可以:
 
-- [下载并解压源码库](https://github.com/spring-guides/gs-integration/archive/master.zip)，或者通过 Git 工具克隆一份代码: `git clone https://github.com/spring-guides/gs-integration.git`
+- [下载并解压源码库](https://github.com/spring-guides/gs-integration/archive/master.zip)，或者通过 Git 工具克隆一份代码: [`git clone https://github.com/spring-guides/gs-integration.git`](https://github.com/spring-guides/gs-integration.git)
 - cd into `gs-integration/initial`
 - 往下看[定义一个集成流](https://spring.io/guides/gs/integration/#initial)。
 
-**当你完成上述准备工作后**, 你可以在`gs-integration/complete`检查一下结果.
+**当你完成上述准备工作后**, 你可以参照`gs-integration/complete`目录下的代码检查一下结果.
 
-#  Gradle构建
+##  Gradle构建
 
-首先你一个基本的构建脚本。 在使用Spring构建应用程序时，您可以使用任何您喜欢的构建系统，但是您需要使用与Gradle和Maven一起使用的代码。 如果您还不熟悉，请参阅使用Gradle构建Java项目或使用Maven构建Java项目。
 
 首先你设置一个基本的构建脚本。 在使用Spring构建应用程序时，您可以使用任何您喜欢的构建系统, 但是你的代码需要跟 [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/)配套使用。 如果您还不熟悉，请参阅使用[Gradle构建Java项目](https://spring.io/guides/gs/gradle)或使用[Maven构建Java项目](https://spring.io/guides/gs/maven)。 
 
-创建目录结构
+### 创建目录结构
 
 在您选择的项目目录中，创建以下子目录结构;比如：在Linux/Unix系统中使用命令 `mkdir -p src/main/java/hello` 
 
@@ -54,7 +53,7 @@
 ```
 创建Gradle构建文件
 
-下面就是[Gradle初始化文件](https://github.com/spring-guides/gs-integration/blob/master/initial/build.gradle)
+下面就是[原始的Gradle构建文件](https://github.com/spring-guides/gs-integration/blob/master/initial/build.gradle)
 
 `build.gradle`
 
@@ -107,16 +106,16 @@ eclipse {
 [Springboot gradle插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin)提供了很多便捷的特性:
 
 - 它收集类路径上的所有jar，并构建一个可运行的“über-jar”，这样可以更方便地执行和传输您的服务。
-- 它搜索`public static void main（）`方法来标记为可运行类。
+- 它搜索`public static void main()`方法来标记为可运行类。
 - 它提供了一个内置的依赖解析器，它将版本号设置为与[Spring Boot依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)关系相匹配。 您可以覆盖任何您想要的版本，但它将默认为Boot所选择的一组版本。
 
-#  maven 构建
+##  maven 构建
 
 首先你设置一个基本的构建脚本。 但的代码需要与Maven一起配套使用。 如果您不熟悉Maven，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
-创建项目目录
+### 创建目录结构
 
-在项目里面创建类似于如下的项目结构，例如，你也可以在*nix系统里通过命令`mkdir -p src/main/java/hello`来创建
+在项目里面创建类似于如下的项目结构，例如，你也可以在Unix/Linux系统里通过命令`mkdir -p src/main/java/hello`来创建
 
 ```
 └── src
@@ -198,21 +197,21 @@ eclipse {
 SpringBoot maven插件提供了很多便捷的特性：
 
 - 它收集类路径上的所有jar，并构建一个可运行的“über-jar”，这样可以更方便地执行和传输您的服务。
-- 它搜索`public static void main（）`方法来标记为可运行类。
+- 它搜索`public static void main()`方法来标记为可运行类。
 - 它提供了一个内置的依赖解析器，它将版本号设置为与[Spring Boot依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml)关系相匹配。 您可以覆盖任何您想要的版本，但它将默认为Boot所选择的一组版本。
 
 
-# 使用你的IDE构建
+## 使用你的IDE构建
 - 阅读何将本指南直接导入到 [Spring Tool Suite](https://spring.io/guides/gs/sts/)中
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建.
 
-## 定义集成流程
+### 定义集成流
 
-本指南的示例程序，将定义一个Spring Integration的集成流，从Spring IO的RSS提要中读取博客文章，将其转换为一个易于阅读的字符串，其中包含帖子标题和帖子的URL，并将其追加到文件`/tmp/si/SpringBlog`中
+本指南的示例程序，将定义一个Spring Integration的集成流，从Spring IO的RSS提要中读取博客文章，将其转换为一个易于阅读的`String`，其中包含帖子标题和帖子的URL，并将`String`追加到文件`/tmp/si/SpringBlog`中
 
-要定义集成流程，您只需创建Spring XML配置，其中包含Spring Integration的XML命名空间中的少量元素。 具体来说，对于所需的集成流程，您可以使用这些Spring Integration命名空间中的元素：core，feed和file。
+要定义集成流，您只需创建Spring XML配置，其中包含Spring Integration的XML命名空间中的少量元素。 具体来说，对于所需的集成流，您可以使用这些Spring Integration命名空间中的元素：core，feed和file。
 
-以下的XML配置定义了集成流程：
+以下的XML配置定义了集成流：
 
 `src/main/resources/hello/integration.xml`
 
@@ -259,13 +258,13 @@ SpringBoot maven插件提供了很多便捷的特性：
 这里有个简单的流程示意图:
 ![image](https://spring.io/guides/gs/integration/images/blogToFile.png)
 
-现在这里忽略`auto-startup`属性，我们将会在讨论测试的时候会回顾一下;在默认情况下，只要注意，默认情况下将是true，这意味着应用程序启动时将会提取帖子。同时还要主意`filename-generator-expression`中的配置占位符，这意味着默认值会springblog，但可以用一个配置将其覆盖。
+现在这里忽略`auto-startup`属性，我们将会在讨论测试的时候会回顾一下;在默认情况下，只要注意，默认情况下是true，这意味着应用程序启动时将会提取帖子。同时还要注意`filename-generator-expression`中的配置占位符，这意味着默认值会`SpringBlog`，但可以用一个配置将其覆盖。
 
-## 使程序可执行
+### 使程序可执行
 
-尽管在较大的应用程序中甚至在Web应用程序中配置Spring Integration流程是很常见的，但是没有理由不能在简单的独立应用程序中定义它。这就是您接下来要做的，创建一个主类来启动集成流程，并声明一小部分bean来支持集成流。你也可以将应用程序构建到一个独立的可执行jar文件中。我们将用spring boot的
+尽管在较大的应用程序中甚至在Web应用程序中配置Spring Integration流程是很常见的，但是没有理由不能在简单的独立应用程序中定义它。这就是您接下来要做的，创建一个主类来启动集成流，并声明一小部分bean来支持集成流。你也可以将应用程序构建到一个独立的可执行jar文件中。我们将用spring boot的
 `SpringApplication`来创建应用的上下文。
-由于这个指南给集成流程使用xml命名空间，我们使用`@ImportResource` 来加载应用的上下文
+由于这个指南给集成流使用xml命名空间，我们使用`@ImportResource` 来加载应用的上下文
 
 `src/main/java/hello/Application.java`
 
@@ -289,7 +288,7 @@ public class Application {
 
 }
 ```
-构建一个可执行的JAR
+### 构建一个可执行的JAR
 
 你可以通过命令行来运行Gradle或者Maven，或者构建一个单一的jar文件，这个jar文件包含所有的必须的依赖、类和配置。这使得在整个开发生命周期中，跨不同的环境等情况下，更容易对程序进行传输，版本管理，和服务部署。
 
@@ -305,10 +304,10 @@ java -jar build/libs/gs-integration-0.1.0.jar
 java -jar target/gs-integration-0.1.0.jar
 ```
 
-> 上述的过程将创建一个可执行的jar文件，当然，您也可以选择构建一个经典的WAR文件。
+> 上述的过程将创建一个可执行的jar文件，当然，您也可以选择[构建一个经典的WAR文件](https://spring.io/guides/gs/convert-jar-to-war/)。
 
 
-## 运行项目
+### 运行项目
 
 现在你可以将下面的jar应用运行起来：
 
@@ -317,7 +316,7 @@ java -jar build/libs/{project_id}-0.1.0.jar
 
 ... app starts up ...
 ```
-一旦应用运气起来的话，他将会连接RSS 订阅，并且抓取博客的推送，程序将会通过你定义的集成流处理，最终将把获取的信息写到文件`/tmp/si/SpringBlog`里
+一旦应用运气起来的话，他将会连接RSS 订阅源，并且抓取博客的推送，程序将会通过你定义的集成流处理，最终将把获取的信息写到文件`/tmp/si/SpringBlog`里
 
 当程序运行一段时间后，你可以打开文件`/tmp/si/SpringBlog`去看看是否已经处理了一批数据了。在Linux/NUIX的操作系统里面，你可以用tail命令去查看写入的数据。
 
@@ -402,7 +401,7 @@ public class FlowTests {
 
 **总结**
 
-恭喜你！你已经开发了一个简单的 用来获取spring.io博客推送并写入文件的 Spring Integration 应用。
+恭喜你！你已经开发了一个简单的Spring Integration 应用，可以用它从获取spring.io博客推送并写入文件中。
 
 **参见**
 
