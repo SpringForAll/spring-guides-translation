@@ -55,7 +55,7 @@
 | 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) | [程序猿DD](https://github.com/dyc87112)     |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
-| 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) |      | [xuxiaoxie](https://github.com/xuxiaoxie) |                                          |
+| 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) | 翻译完成     | [xuxiaoxie](https://github.com/xuxiaoxie) | [xuxiaoxie](https://github.com/xuxiaoxie)[feilangrenM](https://github.com/feilangrenM)                                         |
 | 1023 | [Caching Data with GemFire](https://spring.io/guides/gs/caching-gemfire/) |      | [liweijian199011](https://github.com/liweijian199011) |                                          |
 | 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                          |                                          |
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
