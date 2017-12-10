@@ -38,7 +38,7 @@
 | 1002 | [Scheduling Tasks](https://spring.io/guides/gs/scheduling-tasks/) | 校对完成 | [happyxiaofan](https://github.com/happyxiaofan) | [carlzhangweiwen](https://github.com/carlzhangweiwen) |
 | 1003 | [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/) | 校对完成 | [hapihapidoge](https://github.com/hapihapidoge) | [maskwang](https://github.com/maskwang520) |
 | 1004 | [Building Java Projects with Maven](https://spring.io/guides/gs/maven/) | 校对完成 | [liqiangatongoingdotme](https://github.com/liqiangatongoingdotme) | [william-hyx](https://github.com/william-hyx) |
-| 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) |寻找校对     | [codedrinker](https://github.com/codedrinker) |                                          |
+| 1005 | [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/) | 寻找校对 | [codedrinker](https://github.com/codedrinker) |                                          |
 | 1006 | [Uploading Files](https://spring.io/guides/gs/uploading-files/) |      | [JustDoNow](https://github.com/JustDoNow) |                                          |
 | 1007 | [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/) |      | [512013674](https://github.com/512013674) |                                          |
 | 1008 | [Registering an Application with Facebook](https://spring.io/guides/gs/register-facebook-app/) |      |                                          |                                          |
@@ -46,16 +46,16 @@
 | 1010 | [Registering an Application with Twitter](https://spring.io/guides/gs/register-twitter-app/) |      |                                          |                                          |
 | 1011 | [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) | 校对完成 | [chenzhijun](https://github.com/chenzhijun) | [程序猿DD](https://github.com/dyc87112)     |
 | 1012 | [Accessing Twitter Data](https://spring.io/guides/gs/accessing-twitter/) |      |                                          |                                          |
-| 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) | 校对调整     | [wangzhidong](https://github.com/wangzhidong)                                         |                                          |
+| 1013 | [Accessing Facebook Data](https://spring.io/guides/gs/accessing-facebook/) | 校对调整 | [wangzhidong](https://github.com/wangzhidong) |                                          |
 | 1014 | [Accessing Data with Neo4j](https://spring.io/guides/gs/accessing-data-neo4j/) |      |                                          |                                          |
 | 1015 | [Validating Form Input](https://spring.io/guides/gs/validating-form-input/) |      | [carl-zhao](https://github.com/carl-zhao) |                                          |
 | 1016 | [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) | 正在校对 | [xyq000](https://github.com/xyq000)      | [strongant](https://github.com/strongant) |
 | 1017 | [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/) |      | [zivyu](https://github.com/zivyu)        |                                          |
 | 1018 | [Creating a Batch Service](https://spring.io/guides/gs/batch-processing/) | 校对完成 | [cleverlzc](https://github.com/cleverlzc) | [lexburner](https://github.com/lexburner) |
-| 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [lexburner](https://github.com/lexburner) | [程序猿DD](https://github.com/dyc87112)     |
+| 1019 | [Securing a Web Application](https://spring.io/guides/gs/securing-web/) | 校对完成 | [徐靖峰](https://github.com/lexburner)      | [程序猿DD](https://github.com/dyc87112)     |
 | 1020 | [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) |      |                                          |                                          |
 | 1021 | [Accessing Data with GemFire](https://spring.io/guides/gs/accessing-data-gemfire/) |      |                                          |                                          |
-| 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) | 翻译完成     | [xuxiaoxie](https://github.com/xuxiaoxie) | [xuxiaoxie](https://github.com/xuxiaoxie)[feilangrenM](https://github.com/feilangrenM)                                         |
+| 1022 | [Integrating Data](https://spring.io/guides/gs/integration/) | 翻译完成 | [xuxiaoxie](https://github.com/xuxiaoxie) | [xuxiaoxie](https://github.com/xuxiaoxie)[feilangrenM](https://github.com/feilangrenM) |
 | 1023 | [Caching Data with GemFire](https://spring.io/guides/gs/caching-gemfire/) |      | [liweijian199011](https://github.com/liweijian199011) |                                          |
 | 1024 | [Managing Transactions](https://spring.io/guides/gs/managing-transactions/) |      |                                          |                                          |
 | 1025 | [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) |      | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
@@ -81,7 +81,7 @@
 | 1045 | [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/) | 校对完成 | [strongant](https://github.com/strongant) | [maskwang](https://github.com/maskwang520) |
 | 1046 | [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/) |      |                                          |                                          |
 | 1047 | [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/) | 正在翻译 | [qiushile](https://github.com/qiushile)  |                                          |
-| 1048 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) |      |    |                                          |
+| 1048 | [Accessing GemFire Data with REST](https://spring.io/guides/gs/accessing-gemfire-data-rest/) |      |                                          |                                          |
 | 1049 | [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/) | 校对完成 | [feilangrenM](https://github.com/feilangrenM) | [王嘉龙](https://github.com/zaixiandemiao)  |
 | 1050 | [Simple Single Project YARN Application](https://spring.io/guides/gs/yarn-basic-single/) |      |                                          |                                          |
 | 1051 | [Caching Data with Spring](https://spring.io/guides/gs/caching/) |      | [zzzvvvxxxd](https://github.com/zzzvvvxxxd) |                                          |
@@ -91,14 +91,14 @@
 | 1055 | [Creating CRUD UI with Vaadin](https://spring.io/guides/gs/crud-with-vaadin/) |      |                                          |                                          |
 | 1056 | [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) | 正在翻译 | [lovedboy2012](https://github.com/lovedboy2012) |                                          |
 | 1057 | [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/) | 校对完成 | [zaixiandemiao](https://github.com/zaixiandemiao) | [胡明昊](https://github.com/hh23485)        |
-| 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 校对完成| [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
-| 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) |校对完成     | [ligang](http://github.com/holy12345/)      |[Mr.lzc](http://github.com/cleverlzc)                                         |
-| 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) |寻找校对      | [holy12345](https://github.com/holy12345)                                        |                                          |
+| 1058 | [Routing and Filtering](https://spring.io/guides/gs/routing-and-filtering/) | 校对完成 | [hh23485](https://github.com/hh23485)    | [oshare](https://github.com/oshare)      |
+| 1059 | [Circuit Breaker](https://spring.io/guides/gs/circuit-breaker/) | 校对完成 | [ligang](http://github.com/holy12345/)   | [Mr.lzc](http://github.com/cleverlzc)    |
+| 1060 | [Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/) | 寻找校对 | [holy12345](https://github.com/holy12345) |                                          |
 | 1061 | [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) |      |                                          |                                          |
 | 1062 | [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) |      | [pzzls](https://github.com/pzzls)        |                                          |
 | 1063 | [Creating a Multi Module Project](https://spring.io/guides/gs/multi-module/) | 正在翻译 | [panhoucheng](https://github.com/panhoucheng) |                                          |
-| 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 校对完成 | [HoldDie](https://github.com/HoldDie)    |[Jitianyu](https://github.com/Jitianyu)                                          |
-| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | 正在翻译 | [YukunSun](https://github.com/YukunSun)  |                                          |
+| 1064 | [Creating API Documentation with Restdocs](https://spring.io/guides/gs/testing-restdocs/) | 校对完成 | [HoldDie](https://github.com/HoldDie)    | [Jitianyu](https://github.com/Jitianyu)  |
+| 2001 | [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/) | 正在翻译 | [徐靖峰](https://github.com/lexburner)      | 马超君                                      |
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) | 正在校对 | [silentbalanceyh](https://github.com/silentbalanceyh) | [cleverlzc](https://github.com/cleverlzc) |
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
