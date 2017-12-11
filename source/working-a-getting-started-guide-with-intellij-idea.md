@@ -1,8 +1,8 @@
 # 通过Intellij-Idea开始你的工作  xiudongxu正在翻译 
 
-> 原文：[Working-a-Getting-Started-guide-with-Intellij-Idea](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Working a Getting Started guide with IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 >
-> 译者：
+> 译者：xiudongxu
 >
 > 校对：
 
