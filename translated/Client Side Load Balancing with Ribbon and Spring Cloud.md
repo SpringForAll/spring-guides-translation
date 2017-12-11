@@ -1,10 +1,9 @@
-【ligang翻译完成】
 
 > 原文：[Client Side Load Balancing with Ribbon and Spring Cloud](https://spring.io/guides/gs/client-side-load-balancing/)
 >
 > 译者：[ligang](http://github.com/holy12345/)
 >
-> 校对：
+> 校对：[maskwang520](https://github.com/maskwang520)
 
 # 通过Ribbon和Spring Cloud完成客户端负载均衡
 
