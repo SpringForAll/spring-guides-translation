@@ -4,7 +4,7 @@
 >
 > 译者：[hapihapidoge](https://github.com/hapihapidoge)
 >
-> 校对：
+> 校对：[maskwang520](https://github.com/maskwang520)
 
 本指南将引导您完成创建一个使用RESTful Web服务的应用程序的过程。
 
@@ -57,7 +57,7 @@
 
 `build.gradle`
 
-```
+```groovy
 buildscript {
     repositories {
         mavenCentral()
@@ -322,7 +322,7 @@ public class Application {
 
 由于Jackson JSON处理库位于类路径中，所以RestTemplate将使用它（通过消息转换器）将传入的JSON数据转换为Quote对象。 在那里，Quote对象的内容将被记录到控制台。
 
-目前您只使用了RestTemplate进行HTTP GET请求。 但是RestTemplatealso还支持其他HTTP请求，如POST，PUT和DELETE。
+目前您只使用了RestTemplate进行HTTP GET请求。 但是RestTemplate还支持其他HTTP请求，如POST，PUT和DELETE。
 
 ## 使用Spring Boot管理应用程序生命周期
 
@@ -369,7 +369,7 @@ public class Application {
 
 RestTemplateBuilder由Spring注入，如果您使用它来创建一个RestTemplate，那么您将从Spring Boot的自动配置中受益。 我们还将RestTemplate解压缩成@Bean，使其更易于测试（这样可以更容易模拟）。
 
-### Build an executable JAR 构建可执行的JAR
+### 构建可执行的JAR
 
 您可以通过Gradle或Maven从命令行运行应用程序。 或者，您可以构建一个包含所有依赖，类和资源的单个可执行JAR文件，并运行该文件。 这使得在整个开发生命周期中，在不同的环境中迁移，打版本和部署服务变得更加容易。
 
@@ -385,9 +385,7 @@ java -jar build/libs/gs-consuming-rest-0.1.0.jar
 java -jar target/gs-consuming-rest-0.1.0.jar
 ```
 
-| 上面的过程将创建一个可运行的JAR。 您也可以选择构建一个经典的WAR文件。 |
-| :------------------------------------- |
-|                                        |
+> 上面的程序会生成一个可执行的JAR，你也可以选择构建传统的WAR包。
 
 你会看到下面会输出一段随机字符串：
 
@@ -395,11 +393,9 @@ java -jar target/gs-consuming-rest-0.1.0.jar
 2015-09-23 14:22:26.415  INFO 23613 --- [main] hello.Application  : Quote{type='success', value=Value{id=12, quote='@springboot with @springframework is pure productivity! Who said in #java one has to write double the code than in other langs? #newFavLib'}}
 ```
 
-| 如果您看到错误无法提取响应：Could not extract response: no suitable HttpMessageConverter found for response type [class hello.Quote]，您可能处于无法连接到后端服务（如果能连上会返回JSON）。 也许你是代理， 那么尝试将标准系统属性http.proxyHost和http.proxyPort设置为适合您环境的值。 |
-| :--------------------------------------- |
-|                                          |
+> 如果您看到错误无法提取响应：Could not extract response: no suitable HttpMessageConverter found for response type [class hello.Quote]，您可能处于无法连接到后端服务（如果能连上会返回JSON）。 也许你用的是代理， 那么尝试将标准系统属性http.proxyHost和http.proxyPort设置为适合您环境的值。 
 
-## Summary 总结
+# Summary 总结
 
 恭喜！ 您刚刚使用Spring开发了一个简单的REST客户端程序。
 
