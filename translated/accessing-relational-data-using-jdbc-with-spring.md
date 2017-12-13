@@ -2,9 +2,9 @@
 
 > 原文：[Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/)
 >
-> 译者：[王春磊](https://github.com/codedrinker)
+> 译者：[麻酱](https://github.com/codedrinker)
 >
-> 校对：
+> 校对：[李强](https://github.com/liqiangatongoingdotme)
 
 本指南将引导你使用`Spring`访问关系型数据库。
 
@@ -200,7 +200,7 @@ public class Customer {
 }
 ```
 ## 存储和读取数据
-`Spring`提供了一个叫做`JdbcTemplate`的类，可以轻松的使用`JDBC`访问关系型数据库。大多数`JDBC`的代码需要你处理资源，连接管理，异常处理和错误检查等相关性不是很强的问题，然而`JdbcTemplate`可以只让你关注业务逻辑。
+`Spring` 提供了一个叫做 `JdbcTemplate` 的类，可以简单的使用运行 `sql` 语句的关系型数据库和 `jdbc`.大多数 `JDBC` 的代码都需要获取资源,管理连接和异常处理，还有错误类型检查这些不相关的事，然儿 `JdbcTemplate` 可以让你更专注于做你想做的事情。
 
 `src/main/java/hello/Application.java`
 ```java
@@ -261,10 +261,9 @@ public class Application implements CommandLineRunner {
 
 `@SpringBootApplication`作为一个方便使用的注解，提供了如下的功能：  
 
-- `@Configuration`表明使用该注解的类是应用程序上下文(Applicaiton Context)中Bean定义的来源。
+- `@Configuration`表明使用该注解的类是应用程序上下文(Applicaiton Context)中Bean定义的来源。  
 - `@EnableAutoConfiguration`注解根据classpath的配置、其他bean的定义或者不同的属性设置(property settings)等条件，使Spring Boot自动加入所需的bean。  
-- 对于Spring MVC应用，通常需要加入`@EnableWebMvc`注解，但是当**spring-webmvc** 存在于classpath中时，Spring Boot自动加入该注解。该注解将当前应用标记为web应用，并激活web应用的关键行为，例如开启`DispatcherServlet`。
-- `@ComponentScan`注解使Spring在`hello`包(package)中搜索其他的组件、配置(configurations)和服务(service),在本例中，spring会搜索到控制器(controllers)。  
+- `@ComponentScan`注解使Spring在`hello`包(package)中搜索其他的组件、配置(configurations)和服务(service),在本例中，spring会搜索到控制器(controllers)。    
 
 `main()`方法使用Spring Boot的`SpringApplication.run()`方法来加载应用。你有没有注意到本例子中一行XML代码都没有吗？也没有web.xml文件。此web应用100%使纯java代码，因此不需花精力处理任何像基础设施或者下水管道一般的配置工作。  
 
@@ -273,21 +272,20 @@ public class Application implements CommandLineRunner {
 我们这个`Application`实现了`CommandLineRunner`接口，这样在程序上下文加载完成的时候我们就可以执行其`run()`方法来运行程序。  
 
 那么首先让我们运行`JdbcTemplate`的`execute`方法生成DDL。  
-然后定义一个包含`firstName`和`lastName`的`String list`，使用`Java 8`的`Stream`处理成`firstName`和`lastName`组合的`list`。  
+其次，获取字符串列表并使用Java 8流，将它们拆分为Java数组中的firstName/lastName对。    
 接着使用`JdbcTemplate`的`batchUpdate`方法把解析好的数据插入到表中。`batchUpdate`的第一个参数是`sql`语句，第二个参数是一个对象数组，它循环的把对应的值放到`sql`的占位符`?`里面。
 
 > 插入一条数据的使用使用`JdbcTemplate`的`insert`方法，如果是多条建议使用`batchUpdate`方法。
-当接受到消息的时候，获取到name,服务端服务将会发出一个回应，这个回应消息就和客户端传递的那样，也是一个JSON对象，就像下面这样。  
 
 > 通过`?`占位符绑定变量的方式来避免`SQL`注入的攻击。
 
-最后使用`query`方法根据条件查询结果，当然这时候也可以是用`?`占位符，等到真正执行的时候再赋值即可。最后的参数是使用了`Java 8`的`lambda`语法，循环把每一个结果转成成了`Customer`对象。
+最后，您使用查询方法来搜索您的表以查找符合条件的记录。 再次使用`?`参数为查询创建参数，在进行调用时传入实际值。最后一个参数是用于将每个结果行转换为新的 `Customer` 对象的 `Java 8 lambda` 表达式。
 
-> `Java 8 lambdas`很好地映射到单个方法接口上，比如`Spring`的`RowMapper`。 如果您使用的是`Java 7`或更早版本，则可以使用匿名实现接口的方式替代，里面的内容和`Lambda`的一样就可以了，`Spring`也会正常的解析。
+> `Java 8 lambdas`很好地映射到单个方法接口上，比如`Spring`的`RowMapper`。 如果您使用的是`Java 7`或更早版本，则可以轻松插入匿名接口实现，并具有与 `lambda` 表达式正文包含的方法体相同的方法体，`Spring` 一样可以解析。
 
 ## 构建可执行的JAR
 
-你可以从命令行运行`Gradle`或`Maven`应用程序。或者，你可以构建一个包含所有必需依赖项，类和资源的单个可执行JAR文件，并运行该文件。这使得在整个开发生命周期中，可以非常轻松的传递，版本控制和部署，当然跨平台也是可以的。
+您可以使用 `Gradle` 或 `Maven` 从命令行运行应用程序。 或者，您可以构建一个包含所有必需的依赖项，类和资源的可执行 `JAR` 文件，然后运行该文件。 这使得在整个开发生命周期内跨越不同的环境，将服务作为应用程序发布，版本化和部署变得非常容易。
 如果你使用的是`Gradle`，则可以使用`./gradlew bootRun`运行应用程序。或者你可以使用`./gradlew build构建来构建JAR文件。然后可以运行JAR文件：
 
 ```shell
