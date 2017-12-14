@@ -6,24 +6,24 @@
 >
 > 校对：
 
-本指南,旨在引导您使用 Spring Tool Suite（STS) 向 Cloud Foundry 部署一个 “hello world” 的 Spring 应用程序的过程。
+本指南旨在引导你使用 Spring Tool Suite（STS) 向 Cloud Foundry 部署一个 “hello world” 的 Spring 应用程序的过程。
 
 
-## 你将部署什么到 Cloud Foundry
+## 将部署什么到 Cloud Foundry
 
-您将部署一个接受 HTTP GET 请求的 Spring Boot 的应用程序到 Cloud Foundry
+你将部署一个接受 HTTP GET 请求的 Spring Boot 的应用程序到 Cloud Foundry
 
 ```
  http://gs-sts-cloud-foundry-deployment-myname.cfapps.io/greeting
 ```
 
-这个 URL 将在本指南中根据您修改的 host 部分而有所不同。
+这个 URL 将在本指南中根据你修改的 host 部分而有所不同。
 
-然后，应用程序将响应展示一个问候的 web 页：
+然后应用程序将响应展示一个问候的 web 页：
 
 ``` "Hello World!" ```
 
-您可以通过在查询字符串中使用可选参数```name```来定义自己的问候
+你可以使用查询字符串中的可选参数```name```来定义自己的问候
 
 ``` http://gs-sts-cloud-foundry-deployment-myname.cfapps.io/greeting?name=User ```
 
@@ -31,12 +31,12 @@
 
 ```"Hello, User!"```
 
->当您通过 STS 将应用程序部署到 Cloud Foundry 时，URL 的 myname 部分将是您要更改的内容，以避免在部署过程中发生 host-taken error。
+>当你通过 STS 将应用程序部署到 Cloud Foundry 时，URL 中的 myname 部分将是你要更改的内容，以避免在部署过程中发生 host-taken error。
 
-此应用基于一个提供 web 内容服务的 Spring 服务。更多有关如何从头开始创建服务的信息，请参见使用 [Spring MVC]() ，或通过[导入 Spring 入门内容向导]()将其导入 STS 中。
+此应用基于一个提供 web 内容服务的 Spring 服务。更多有关如何从头开始创建服务的信息，请参见使用 [Spring MVC](https://spring.io/guides/gs/serving-web-content/) ，或通过[导入 Spring 入门内容向导](https://spring.io/guides/gs/sts/)将其导入 STS 中。
 
 
-## 你需要的准备
+## 需要的准备
 
 * 花费15分钟
 * [Spring Tool Suite(STS)]()
@@ -47,27 +47,25 @@
 
 ## 安装 STS
 
-如果您还没有安装 STS，请访问上面的链接。从那里，你可以下载您系统对应的版本。将下载后的压缩包解压安装。
-
-完成后，继续并启动 STS。
+如果你还没有安装 STS，请访问上面的链接。从那里你可以下载你系统对应的版本，将下载后的压缩包解压安装。完成后，启动 STS。
 
 
 ## Spring Boot Dashboard
 
-Spring Boot Dashboard 用于将您的应用程序部署到 Cloud Foundry 中，需要使用 STS 3.7.1或更高版本。
+Spring Boot Dashboard 用于将你的应用程序部署到 Cloud Foundry 中，需要使用 STS 3.7.1或更高版本。
 
 
 ## 创建一个 Cloud Foundary Target
 
-首先您需要为想要部署应用程序的 Cloud Foundry 组织和空间创建一个target。
+首先你需要为想要部署应用程序的 Cloud Foundry organization 和空间创建一个 target。
 
-要创建 Cloud Foundry target，首先打开 Boot Dashboard。
+要创建 Cloud Foundry target，先打开 Boot Dashboard。
 
-您可以在 STS 主工具栏中单击 Boot Dashboard 按钮：
+你可以在 STS 主工具栏中单击 Boot Dashboard 按钮：
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/boot_dashboard_view_main_toolbar.png?raw=true)
 
-或者，您可以在 Eclipse 的 “Show View” 菜单中打开它：
+或者，你可以在 Eclipse 的 “Show View” 菜单中打开它：
 
 Window → Show View → Other → Spring → Boot Dashboard
 
@@ -75,7 +73,7 @@ Window → Show View → Other → Spring → Boot Dashboard
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/boot_dashboard_view_basic.png?raw=true)
 
-在该向导中，输入您的PWS凭据，然后单击 “Select Space” 选择 Cloud Foundry organization 和 space。之后点击 “Finish” 完成创建 target。
+在该向导中，输入你的PWS凭据，然后单击 “Select Space” 选择 Cloud Foundry organization 和 space。最后点击 “Finish” 完成创建 target。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/add_cf_target.png?raw=true)
 
@@ -84,7 +82,7 @@ target 将显示在 Boot Dashboard 中。
 
 ## 导入 Spring 应用程序
 
-现在您可以导入一个提供 web 内容服务的 Spring Boot 应用。之后将其部署到 Cloud Foundry。
+现在你可以导入一个提供 web 内容服务的 Spring Boot 应用。之后将其部署到 Cloud Foundry。
 
 在 STS 中，打开 “Import Spring Getting Started Content” 向导：
 
@@ -98,7 +96,7 @@ target 将显示在 Boot Dashboard 中。
 * 选择 “default” code set。
 * 点击 “Finish”。
 
-导入向导将在您的工作空间中创建一个名为 “gs-sts-cloud-foundry-deployment” 的新 project。
+导入向导将在你的工作空间中创建一个名为 “gs-sts-cloud-foundry-deployment” 的新 project。
 
 
 ## 部署到 Cloud Foundry
@@ -107,13 +105,13 @@ target 将显示在 Boot Dashboard 中。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/drag_drop.png?raw=true)
 
-这将打开部署清单对话框。Boot Dashboard 使用Cloud Foundry manifest.yml 来指定应用程序的部署详细信息，包括要绑定的 application name，host，memory 和 services。
+这将打开部署清单对话框。Boot Dashboard 使用 Cloud Foundry manifest.yml 来指定应用程序的部署详细信息，包括要绑定的 application name，host，memory 和 services。
 
-您可以使用已添加到 Spring Boot 项目中的现有 manifest.yml 文件，也可以选择 “manual” 使用对话框生成的默认值
+你可以使用已添加到 Spring Boot 项目中的现有 manifest.yml 文件，也可以选择 “manual” 使用对话框生成的默认值。
 
-在 manual 模式下，您的项目中不会创建 manifest.yml 文件。
+在 manual 模式下，你的项目中不会创建 manifest.yml 文件。
 
->为确保应用程序的 URL 没有被其他应用程序使用，并避免在部署过程中发生 host-taken error，请在对话框的 manifest.yml 编辑器中指定一个不同的 host。
+>为确保应用程序的 URL 没有被其他应用程序占用，并避免在部署过程中发生 host-taken error，请在对话框的 manifest.yml 编辑器中指定一个不同的 host。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/deployment_manifest.png?raw=true)
 
@@ -126,7 +124,7 @@ target 将显示在 Boot Dashboard 中。
 
 ## 测试应用程序
 
-现在您的应用程序正在 Cloud Foundry 上运行，您可以通过双击 Boot Dashboard 中的应用程序在 STS 内打开应用的网站。这将会打开默认浏览器。
+现在你的应用程序正在 Cloud Foundry 上运行，你可以通过双击 Boot Dashboard 中的应用程序在 STS 内打开应用的网站，这将会打开默认浏览器。
 
 在浏览器中，追加：
 
@@ -140,7 +138,7 @@ target 将显示在 Boot Dashboard 中。
 
 /greeting?name=User.
 
-注意消息是如何从“Hello，World“ 到 “Hello，User”：
+注意消息是如何从 “Hello，World“ 到 “Hello，User”：
 
 ```"Hello, User!"```
 
