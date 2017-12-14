@@ -66,6 +66,7 @@ Spring Boot Dashboard 用于将您的应用程序部署到 Cloud Foundry 中，�
 您可以在 STS 主工具栏中单击 Boot Dashboard 按钮：
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/boot_dashboard_view_main_toolbar.png?raw=true)
+
 或者，您可以在 Eclipse 的 “Show View” 菜单中打开它：
 
 Window → Show View → Other → Spring → Boot Dashboard
@@ -73,9 +74,11 @@ Window → Show View → Other → Spring → Boot Dashboard
 之后点击 Boot Dashboard 工具栏右上角的“+”按钮，打开 Cloud Foundry Target 向导。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/boot_dashboard_view_basic.png?raw=true)
+
 在该向导中，输入您的PWS凭据，然后单击 “Select Space” 选择 Cloud Foundry organization 和 space。之后点击 “Finish” 完成创建 target。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/add_cf_target.png?raw=true)
+
 target 将显示在 Boot Dashboard 中。
 
 
@@ -86,9 +89,11 @@ target 将显示在 Boot Dashboard 中。
 在 STS 中，打开 “Import Spring Getting Started Content” 向导：
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/import_gsg.png?raw=true)
+
 在 search field 中，输入 “sts cloud foundry”，然后出现 sts-cloud-foundry-deployment 指南。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/import_gsg_wizard.png?raw=true)
+
 * 选择 Build Type。
 * 选择 “default” code set。
 * 点击 “Finish”。
@@ -101,6 +106,7 @@ target 将显示在 Boot Dashboard 中。
 现在只需将 project 拖放到在 Boot Dashboard 中的 Cloud Foundry target 即可。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/drag_drop.png?raw=true)
+
 这将打开部署清单对话框。Boot Dashboard 使用Cloud Foundry manifest.yml 来指定应用程序的部署详细信息，包括要绑定的 application name，host，memory 和 services。
 
 您可以使用已添加到 Spring Boot 项目中的现有 manifest.yml 文件，也可以选择 “manual” 使用对话框生成的默认值
@@ -110,6 +116,7 @@ target 将显示在 Boot Dashboard 中。
 >为确保应用程序的 URL 没有被其他应用程序使用，并避免在部署过程中发生 host-taken error，请在对话框的 manifest.yml 编辑器中指定一个不同的 host。
 
 ![Deploying to Cloud Foundry from STS](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1052/deployment_manifest.png?raw=true)
+
 完成应用程序配置后，点击 “OK” 完成部署。
 
 部署可能需要一些时间，但是随着应用程序的部署和启动，应用程序的 console 将自动打开并显示进度。 当应用成功启动运行，console 和 Boot Dashboard 都会显示 “SUCCEEDED”。 应用程序的 Boot Dashboard 图标将变成绿色的“向上”箭头。
