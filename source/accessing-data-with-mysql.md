@@ -73,7 +73,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
     }
 }
 
