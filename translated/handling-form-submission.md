@@ -353,12 +353,14 @@ java -jar target/gs-handling-form-submission-0.1.0.jar
 ## 测试服务
 
 现在该网站正在运行，请访问`http//localhost8080/greeting`，你将看到以下表单：
-
-https://spring.io/guides/gs/handling-form-submission/images/form.png
+![Alt text](https://spring.io/guides/gs/handling-form-submission/images/form.png
+)
+<!-- https://spring.io/guides/gs/handling-form-submission/images/form.png -->
 
 提交id和message来查看一下结果：
+![Alt text](https://spring.io/guides/gs/handling-form-submission/images/result.png
+)
 
-https://spring.io/guides/gs/handling-form-submission/images/result.png
 
 ## 总结
 
