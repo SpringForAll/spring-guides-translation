@@ -348,9 +348,9 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 }
 ```
 
-WebSocketConfig用@Configuration进行注解，表示它是一个Spring配置类。它也注释为[@EnableWebSocketMessageBroker](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/simp/config/EnableWebSocketMessageBroker.html)。顾名思义，@EnableWebSocketMessageBroker启用WebSocket消息处理，由消息代理支持。
+WebSocketConfig用`@Configuration`进行注解，表示它是一个Spring配置类。它也注释为[@EnableWebSocketMessageBroker](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/messaging/simp/config/EnableWebSocketMessageBroker.html)。顾名思义，`@EnableWebSocketMessageBroker`启用WebSocket消息处理，由消息代理支持。
 
-configureMessageBroker()方法覆盖WebSocketMessageBrokerConfigurer中的默认方法来配置消息代理。它通过调用enableSimpleBroker()来启用一个简单的基于内存的消息代理，将问候语消息返回给客户端，前缀为“/ topic”。它还为绑定为@MessageMapping注解方法的邮件指定“/app”前缀。该前缀将用于定义所有消息映射;例如，“/app/hello”是GreetingController.greeting()方法映射到的端点。
+configureMessageBroker()方法覆盖WebSocketMessageBrokerConfigurer中的默认方法来配置消息代理。它通过调用enableSimpleBroker()来启用一个简单的基于内存的消息代理，将问候语消息返回给客户端，前缀为“/ topic”。它还为绑定为`@MessageMapping`注解方法的邮件指定“/app”前缀。该前缀将用于定义所有消息映射;例如，“/app/hello”是GreetingController.greeting()方法映射到的端点。
 
 registerStompEndpoints()方法注册“/ gs-guide-websocket”端点，启用SockJS后备选项，以便在WebSocket不可用时可以使用备用传输。 SockJS客户端将尝试连接到“/ gs-guide-websocket”并使用最好的传输（websocket，xhr-streaming，xhr-polling等）。
 

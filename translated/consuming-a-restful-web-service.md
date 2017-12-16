@@ -322,7 +322,7 @@ public class Application {
 
 由于Jackson JSON处理库位于类路径中，所以RestTemplate将使用它（通过消息转换器）将传入的JSON数据转换为Quote对象。 在那里，Quote对象的内容将被记录到控制台。
 
-目前您只使用了RestTemplate进行HTTP GET请求。 但是RestTemplatealso还支持其他HTTP请求，如POST，PUT和DELETE。
+目前您只使用了RestTemplate进行HTTP GET请求。 但是RestTemplate还支持其他HTTP请求，如POST，PUT和DELETE。
 
 ## 使用Spring Boot管理应用程序生命周期
 
