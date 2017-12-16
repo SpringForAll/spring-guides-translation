@@ -457,11 +457,7 @@ spring.jpa.hibernate.ddl-auto=none
 
 想写一个新的指南或贡献一个现有的？可查看我们的[贡献指南](https://github.com/spring-guides/getting-started-guides/wiki)。
 
-* 代码片段\`\`\`之后需要写明语言类型
-* 如有图片更静态资源保存在static目录下，每篇文章建立自己的目录存储
-* 尊重原作、不修改、不删减内容
-* 每篇文章翻译完成之后提交PR，并在翻译交流群中找校对人员完成review，最后由管理员完成Merge
-* 若译者与校对有不同建议，可以将争议部分发到交流群中一起讨论确定结果
+
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
