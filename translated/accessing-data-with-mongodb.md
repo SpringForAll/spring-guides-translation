@@ -273,9 +273,9 @@ public class Customer {
 
 `id` 符合 MongoDB 标准的标准名称，因此不需要任何特殊的注释来为 Spring Data MongoDB 标记它。
 
-另外的两个属性,`firstName`, 和 `lastName ``没有注解,假设它们将映射到与属性本身具有相同名称的字段。
+另外的两个属性,`firstName`, 和 `lastName `没有注解,假设它们将映射到与属性本身具有相同名称的字段。
 
-方便的 `toString()`` 将会打印关于 customer 的详细信息。
+方便的 `toString()` 将会打印关于 customer 的详细信息。
 
 > MongoDB存储数据集合, Spring Data MongoDB 将映射 `Customer`类到一个名为 customer 的集合。如果你要改变集合的名字,你可以在类上使用Spring Data MongoDB 的 [ @Document ](https://docs.spring.io/spring-data/data-mongodb/docs/current/api/org/springframework/data/mongodb/core/mapping/Document.html) 注解。
 
