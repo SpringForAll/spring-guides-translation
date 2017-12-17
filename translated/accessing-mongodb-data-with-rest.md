@@ -526,7 +526,7 @@ $ curl http://localhost:8080/people
 
 ## 总结
 
-恭喜你!实现了一个通过基于[超媒体](https://spring.io/guides/gs/rest-hateoas)的 [RESTful](https://spring.io/understanding/REST)应用程序。
+恭喜你!实现了一个通过基于[超媒体](https://spring.io/guides/gs/rest-hateoas)的 [RESTful](https://spring.io/understanding/REST)应用程序访问 `MongoDB` 数据库。
 
 ## 了解更多
 下面的指南也非常有帮助：
