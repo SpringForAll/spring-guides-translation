@@ -15,37 +15,46 @@ You’ll build a Vaadin UI for a simple JPA repository. What you’ll get is an 
 
 You can start from two different parts, either by starting from the "initial" project you have set up or from a fresh start. The differences are discussed below.
 
-## What you’ll need
+## 开始之前你需要准备
 
-- About 15 minutes
-- A favorite text editor or IDE
-- [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
-- [Gradle 2.3+](http://www.gradle.org/downloads) or [Maven 3.0+](https://maven.apache.org/download.cgi)
-- You can also import the code straight into your IDE:
-  - [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
-  - [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
+大约15分钟时间
 
-## How to complete this guide
+一个喜欢的文本编辑器或者IDE
 
-Like most Spring [Getting Started guides](https://spring.io/guides), you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
+[JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或 更高版本
 
-To **start from scratch**, move on to [Build with Gradle](https://spring.io/guides/gs/crud-with-vaadin/#scratch).
+[Gradle 2.3+](http://www.gradle.org/downloads) 或 [Maven 3.0+](https://maven.apache.org/download.cgi)
 
-To **skip the basics**, do the following:
+你也可以直接导入代码到IDE:
 
-- [Download](https://github.com/spring-guides/gs-crud-with-vaadin/archive/master.zip) and unzip the source repository for this guide, or clone it using [Git](https://spring.io/understanding/Git): `git clone https://github.com/spring-guides/gs-crud-with-vaadin.git`
-- cd into `gs-crud-with-vaadin/initial`
-- Jump ahead to [Create the backend services](https://spring.io/guides/gs/crud-with-vaadin/#initial).
+[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
 
-**When you’re finished**, you can check your results against the code in `gs-crud-with-vaadin/complete`.
+[IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
-## Build with Gradle
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) is included here. If you’re not familiar with either, refer to [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) or [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+## 如何完成指南？  
 
-### Create the directory structure
+像大多数 `Spring` [入门指南](https://spring.io/guides)一样, 你可以从头开始，完成每一步, 或者你也可以绕过你熟悉的基本步骤再开始。 不管通过哪种方式，你最后都会得到一份可执行的代码。
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/hello` on *nix systems:
+**如果从基础开始**，你可以往下查看[怎样使用 Gradle 构建项目](#使用Gradle构建)。
+
+**如果已经熟悉跳过一些基本步骤**，你可以：
+
+* [下载](https://github.com/spring-guides/gs-crud-with-vaadin/archive/master.zip)并解压源码库，或者通过 [Git](https://spring.io/understanding/Git)克隆：
+
+ `git clone https://github.com/spring-guides/gs-accessing-mongodb-data-rest.git`
+* 进入 `gs-accessing-mongodb-data-rest/initial`目录
+* 跳过前面的部分[创建后台服务](#https://spring.io/guides/gs/crud-with-vaadin/#initial)
+
+**当你完成之后**，你可以在`gs-crud-with-vaadin/complete`根据代码检查下结果。
+
+## 使用Gradle构建
+
+首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
+
+### 创建以下目录结构
+
+在你的项目根目录，创建如下的子目录结构; 例如，如果你使用的是\*nix系统，你可以使用`mkdir -p src/main/java/hello`:
 
 ```
 └── src
@@ -54,13 +63,13 @@ In a project directory of your choosing, create the following subdirectory struc
             └── hello
 ```
 
-### Create a Gradle build file
+### 创建Gradle构建文件
 
-Below is the [initial Gradle build file](https://github.com/spring-guides/gs-crud-with-vaadin/blob/master/initial/build.gradle).
+下面是一份[初始化Gradle构建文件](https://github.com/spring-guides/gs-crud-with-vaadin/blob/master/initial/build.gradle).
 
 `build.gradle`
 
-```
+```gradle
 buildscript {
     repositories {
         mavenCentral()
@@ -95,19 +104,19 @@ dependencies {
 }
 ```
 
-The [Spring Boot gradle plugin](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) provides many convenient features:
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多非常方便的功能：
 
-- It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
-- It searches for the `public static void main()` method to flag as a runnable class.
-- It provides a built-in dependency resolver that sets the version number to match [Spring Boot dependencies](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml). You can override any version you wish, but it will default to Boot’s chosen set of versions.
+* 将 classpath 里面所有用到的 jar 包构建成一个可执行的 JAR 文件，使得运行和发布你的服务变得更加便捷。
+* 搜索 `public static void main()` 方法并且将它标记为可执行类。
+* 提供了将内部依赖的版本都去匹配 [Spring Boot 依赖](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml) 的版本。你可以根据你的需要来重写版本，但是它默认提供给了 Spring Boot 依赖的版本。
 
-## Build with Maven
+## 使用Maven构建
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org/) is included here. If you’re not familiar with Maven, refer to [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先，你需要设置一个基本的构建脚本。当使用 Spring 构建应用程序时，你可以使用任何你喜欢的构建系统，但是使用 [Maven](https://maven.apache.org/) 构建的代码如下所示。如果您不熟悉Maven，请参阅[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
-### Create the directory structure
+### 创建目录结构
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/hello` on *nix systems:
+在你选择的项目目录中，创建以下子目录结构;例如, 在Linux/Unix系统中使用如下命令: `mkdir -p src/main/java/hello`
 
 ```
 └── src
@@ -118,7 +127,7 @@ In a project directory of your choosing, create the following subdirectory struc
 
 `pom.xml`
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
@@ -162,26 +171,26 @@ In a project directory of your choosing, create the following subdirectory struc
 </project>
 ```
 
-The [Spring Boot Maven plugin](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) provides many convenient features:
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
 
-- It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
-- It searches for the `public static void main()` method to flag as a runnable class.
-- It provides a built-in dependency resolver that sets the version number to match [Spring Boot dependencies](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml). You can override any version you wish, but it will default to Boot’s chosen set of versions.
+- 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布你的服务。
+- 它寻找`public static void main()` 方法来将其标记为一个可执行的类。
+- 它提供了一个内置的依赖解析器将应用与Spring Boot依赖的版本号进行匹配。你可以修改成任意的版本，但它将默认为 Boot所选择了一组版本。  
 
-## Build with your IDE
+## 使用你的IDE构建
 
-- Read how to import this guide straight into [Spring Tool Suite](https://spring.io/guides/gs/sts/).
-- Read how to work with this guide in [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea).
+- 阅读如何将本指南直接导入 [Spring Tool Suite](https://spring.io/guides/gs/sts/)。
+- 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建。
 
-## Create the backend services
+## 创建后台服务
 
-This example is a continuation from [Accessing Data with JPA](https://spring.io/gs/accessing-data-jpa). The only difference is that the entity class has getters and setters and the custom search method in the repository is a bit more graceful for end users. You don’t have to read that guide to walk through this one, but you can if you wish.
+本示例是 [Accessing Data with JPA](https://spring.io/gs/accessing-data-jpa)的扩展部分。唯一的不同是entity类有get/set方法，并且对于终端用户来说，可以更加优雅的在repository中自定义搜索方法。你并不需要先去阅读Access Data with JPA就可以完成本示例。
 
-If you started with a fresh project, then add the following entity and repository objects and you’re good to go. In case you started with from the "initial" step, these are already available for you.
+如果你是用一个全新的项目开始本示例，请将下面的entity和repository类加入到项目中。这样的目的是为了方便你接下来很好的完成。如果你的项目是从"初始化"开始的，这些类就都已经在项目中了。
 
 `src/main/java/hello/Customer.java`
 
-```
+```java
 package hello;
 
 import javax.persistence.Entity;
@@ -238,7 +247,7 @@ public class Customer {
 
 `src/main/java/hello/CustomerRepository.java`
 
-```
+```java
 package hello;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -252,10 +261,11 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 ```
 
 You can leave the Spring Boot based application intact as it will fill our DB with some example data.
+你可以保留整个Spring Boot应用，因为它将使用一些初始数据来填充数据库。
 
 `src/main/java/hello/Application.java`
 
-```
+```java
 package hello;
 
 import org.slf4j.Logger;
@@ -314,20 +324,20 @@ public class Application {
 }
 ```
 
-## Vaadin dependencies
+## Vaadin 依赖
 
-If you checked out the "initial" state project, you have all necessary dependencies already set up, but lets look at what you need to do to add Vaadin support to a fresh Spring project. Vaadin Spring integration contains a Spring boot starter dependency collection, so all you must do is to add this Maven snippet or a similar Gradle configuration:
+如果你是从“initial”创建的项目，你已经将需要的依赖添加到项目里了。但如果你从一个全新的Spring项目中，你需要添加Vasdin依赖。Vaadin的Spring集成包中有Spring boot starter，你所需要做的，就是将它加入到Maven的pom文件中，或者在Gradle中做类似的配置：
 
-```
+```xml
 <dependency>
     <groupId>com.vaadin</groupId>
     <artifactId>vaadin-spring-boot-starter</artifactId>
 </dependency>
 ```
 
-The example uses a newer version of Vaadin, than the default one brought in by the starter module. To use a newer version, define the Vaadin Bill of Materials (BOM) like this:
+本示例使用的是较新版本的Vaadin，比starter默认模块中的版本要新一些。如果要使用新的版本，你可以定义Vaadin的一些参数，像下面这样：
 
-```
+```xml
 <dependencyManagement>
     <dependencies>
         <dependency>
