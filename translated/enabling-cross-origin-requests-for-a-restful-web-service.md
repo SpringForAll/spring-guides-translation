@@ -364,7 +364,7 @@ java -jar target/gs-rest-service-cors-0.1.0.jar
 
 显示日志输出。该服务应该在几秒钟内启动并运行。
 
-## 测试上面的service
+## 测试上面创建的的服务
 
 
 现在服务已经启动，访问`http://localhost:8080/greeting`接口,你将看到如下返回值:
