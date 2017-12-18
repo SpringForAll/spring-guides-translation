@@ -30,7 +30,7 @@
 * [待翻译内容](https://github.com/SpringForAll/spring-guides-translation/tree/master/source)
 * [已完成内容](https://github.com/SpringForAll/spring-guides-translation/tree/master/translated)
 
-### 文章状态目录
+<!-- ### 文章状态目录
 
 | 编号   | 标题                                       | 状态   | 译者                                       | 校对                                       |
 | ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
@@ -102,7 +102,7 @@
 | 3001 | [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/) | 正在校对 | [silentbalanceyh](https://github.com/silentbalanceyh) | [cleverlzc](https://github.com/cleverlzc) |
 | 3002 | [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) |      |                                          |                                          |
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
-| 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      |                                          |                                          |
+| 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      |                                          |                                          | -->
 
 ## 翻译规范
 
