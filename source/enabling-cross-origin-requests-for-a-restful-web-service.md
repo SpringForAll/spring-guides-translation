@@ -424,8 +424,13 @@ mvn spring-boot:run -Dserver.port=9000
 ```
 
 客户端所依赖的服务启动后，在浏览器中打开[http://localhost:9000](http://localhost:9000/)，您将看到:
+
 ![如果正确的CORS头部在响应中，则从REST服务中检索到的模型数据被呈现到DOM中。](https://spring.io/guides/gs/rest-service-cors/images/hello.png)
-如果服务的响应信息中包含了CORS头信息，那么ID和content将被呈现到页面中。但是如果缺少了CORS的头信息(或者对客户端不够定义)，那么浏览器将会导致请求失败，而这些值将不会被呈现到DOM中:
+
+
+如果服务的响应信息中包含了CORS头信息，那么ID和content将被呈现到页面中。
+但是如果缺少了CORS的头信息(或者对客户端不够定义)，那么浏览器将会导致请求失败，而这些值将不会被呈现到DOM中:
+
 ![如果响应中缺少CORS标头，则浏览器将会失败。没有数据将被呈现到DOM中。](https://spring.io/guides/gs/rest-service-cors/images/hello_fail.png)
 。
 ## 小结
