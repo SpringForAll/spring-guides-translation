@@ -2,13 +2,9 @@
 
 本指导将引导你使用Spring创建一个超媒体驱动的REST web服务的入门程序。
 
-[Hypermedia](https://en.wikipedia.org/wiki/HATEOAS) is an important aspect of [REST](https://spring.io/understanding/REST). It allows you to build services that decouple client and server to a large extent and allow them to evolve independently. The representations returned for REST resources contain not only data, but links to related resources. Thus the design of the representations is crucial to the design of the overall service.
-
 [超媒体](https://en.wikipedia.org/wiki/HATEOAS)是[REST](https://spring.io/understanding/REST)的一个重要方面。 它允许你可以在很大程度上构建客户端和服务器分离的服务，并允许它们独立构建、发展。 REST资源返回的信息不仅包含数据，还包含指向相关资源的链接。 因此，返回信息的设计对整体服务的设计至关重要。
 
 ## 你将要构建什么
-
-You’ll build a hypermedia-driven REST service with Spring HATEOAS, a library of APIs that you can use to easily create links pointing to Spring MVC controllers, build up resource representations, and control how they’re rendered into supported hypermedia formats such as HAL.
 
 您将使用Spring HATEOAS（一个API库）构建一个超媒体驱动的REST服务，您可以使用它来轻松创建指向Spring MVC控制器的链接，构建资源表示，并控制如何将其呈现为支持的超媒体格式，例如HAL。
 
