@@ -22,11 +22,8 @@
 
 * [翻译和校对的流程](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-readme.md)
 * [待校对的翻译](https://github.com/SpringForAll/spring-guides-translation/pulls)
-* [翻译操作指南](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-step.md)
-<<<<<<< HEAD
-=======
+* [翻译操作指南](https://github.com/SpringForAll/spring-guides-translation/blob/master/translate-step.md) 
 * [校对流程指南](https://github.com/SpringForAll/spring-guides-translation/blob/master/proofread.md)
->>>>>>> 6c5dfe484809c2eadbdd16eb66a6ccfad8960ccf
 
 ### 翻译内容
 
