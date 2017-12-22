@@ -1,10 +1,10 @@
+# 保护web应用的安全
+
 > 原文：[Securing a Web Application](https://spring.io/guides/gs/securing-web/)
 >
-> 译者：[徐靖峰](https://github.com/lexburner)
+> 译者：[lexburner](https://github.com/lexburner)
 >
-> 校对：[程序猿DD](https://github.com/dyc87112/)
-
-# 保护web应用的安全
+> 校对：[zaixiandemiao](https://github.com/zaixiandemiao/)
 
 本指南将引导你使用Spring Security来保护Web应用的安全。
 
@@ -26,19 +26,19 @@
 
 像大多数的Spring指南 [Getting Started guides](https://spring.io/guides),你可以从头开始，完成每一步，也可以跳过已经熟悉的基本设置。 无论哪种方式，你都会得到起作用的代码。
 
- **start from scratch**, 移步 [Build with Gradle](https://spring.io/guides/gs/securing-web/#scratch).
+**如果从基础开始**, 移步 [使用Gradle构建](#scratch).
 
-**跳过基础部分**, 执行以下操作:
+**如果你想跳过基础部分**, 执行以下操作:
 
 - [下载](https://github.com/spring-guides/gs-securing-web/archive/master.zip) 并解压本仓库的源码, 或者使用 [Git](https://spring.io/understanding/Git): `git clone https://github.com/spring-guides/gs-securing-web.git` 
 - 进入 `gs-securing-web/initial`
-- 前往 [Set up Spring Security](https://spring.io/guides/gs/securing-web/#initial).
+- 前往 [安装 Spring Security](https://spring.io/guides/gs/securing-web/#initial).
 
 **当你完成后**, 你可以和此处的代码进行对比 `gs-securing-web/complete`.
 
-## 使用Gradle构建
+<h2 id="scratch">使用Gradle构建</h2>
 
-首先你得安装基础的构建脚本. 你可以使用任意你喜欢的构建系统去构建Spring应用, 你需要使用的代码包含在这儿: [Gradle](http://gradle.org/) and [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先你得安装基础的构建脚本. 可以使用任意你喜欢的构建系统去构建Spring应用, 而使用 Gradle 和 Maven构建需要的代码在本文提供: [Gradle](http://gradle.org/) 和 [Maven](https://maven.apache.org/) . 如果你对两者都不熟悉,可以先参考[Building Java Projects with Gradle](https://spring.io/guides/gs/gradle) 或者 [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
 
 ### 创建目录结构
 
@@ -53,7 +53,7 @@
 
 ### 创建一个Gradle文件
 
-如下是一个 [Gradle初始化文件](https://github.com/spring-guides/gs-securing-web/blob/master/initial/build.gradle).
+如下是一个 [Gradle初始化文件](https://github.com/spring-guides/gs-securing-web/blob/master/initial/build.gradle)：
 
 `build.gradle`
 
@@ -93,7 +93,7 @@ dependencies {
 }
 ```
 
- [Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多便捷的特性:
+[Spring Boot gradle 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin) 提供了很多便捷的特性:
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
@@ -101,7 +101,7 @@ dependencies {
 
 ## 使用Maven构建
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org/) is included here. If you’re not familiar with Maven, refer to [Building Java Projects with Maven](https://spring.io/guides/gs/maven).
+首先，你需要设置一个基本的构建脚本。当使用Spring构建应用程序时，你可以使用任何你喜欢的构建系统，而使用 [Maven](https://maven.apache.org/) 构建的代码如下所示。如果你不熟悉Maven，请参考[使用Maven构建Java项目](https://spring.io/guides/gs/maven)。
 
 ### 创建目录结构
 
@@ -153,7 +153,6 @@ First you set up a basic build script. You can use any build system you like whe
         <java.version>1.8</java.version>
     </properties>
 
-
     <build>
         <plugins>
             <plugin>
@@ -177,11 +176,10 @@ First you set up a basic build script. You can use any build system you like whe
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
 ```
 
- [Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
+[Spring Boot Maven 插件](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin) 提供了很多便捷的特性:
 
 - 它收集类路径上的所有jar包，并构建一个可运行的jar包，这样可以更方便地执行和发布服务。
 - 它寻找`public static void main()` 方法并标记为一个可执行的类.
@@ -230,8 +228,6 @@ Web应用程序包括两个简单的视图：主页和“Hello World”页面。
     </body>
 </html>
 ```
-
-The web application is based on Spring MVC. Thus you need to configure Spring MVC and set up view controllers to expose these templates. Here’s a configuration class for configuring Spring MVC in the application.
 
 Web应用程序基于Spring MVC。 因此，你需要配置Spring MVC并设置视图控制器来暴露这些模板。 如下是一个典型的Spring MVC配置类。
 
@@ -444,11 +440,7 @@ java -jar build/libs/gs-securing-web-0.1.0.jar
 java -jar target/gs-securing-web-0.1.0.jar
 ```
 
-
-
-> The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](https://spring.io/guides/gs/convert-jar-to-war/)instead.
-
-
+> 上述的过程将会创建一个可运行的JAR包. 你也可以在这儿获知如何 [构建一个传统的WAR包](https://spring.io/guides/gs/convert-jar-to-war/). 
 
 ```
 ... app starts up ...
@@ -456,17 +448,17 @@ java -jar target/gs-securing-web-0.1.0.jar
 
 应用启动后, 在浏览器中访问 [http://localhost:8080](http://localhost:8080/). 你可以访问到首页:
 
-![The application's home page](https://spring.io/guides/gs/securing-web/images/home.png)
+![The application's home page](static/1019/images/home.png)
 
 当你点击链接,他将会让你试图去访问 `/hello`. 但因为该页面是受保护的，所以你需要登录, 于是来到了登录页面。
 
-![The login page](https://spring.io/guides/gs/securing-web/images/login.png)
+![The login page](static/1019/images/login.png)
 
 > 如果您使用未收保护的代码版本访问此处，那么你将看不到此登录页面。 随时备份和编写其余的受安全保护的代码。
 
 在登录页面，分别输入用户名和密码字段的"user"和"password"作为测试用户登录。 提交登录表单后，你将进行身份认证，然后转到问候页面：
 
-![The secured greeting page](https://spring.io/guides/gs/securing-web/images/greeting.png)
+![The secured greeting page](static/1019/images/greeting.png)
 
 如果点击“退出”按钮，您的身份认证将被注销，并返回到登录页面，并显示一条消息，提示你已注销。
 
@@ -483,5 +475,5 @@ java -jar target/gs-securing-web-0.1.0.jar
 - [Spring Security 架构](https://spring.io/guides/topicals/spring-security-architecture/) (Reference guide)
 - [Spring Security and Angular JS](https://spring.io/guides/tutorials/spring-security-and-angular-js/) (Tutorial)
 
-
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可。
+
