@@ -43,8 +43,6 @@
 
    ![文章申请过程GIF](https://github.com/chenzhijun/spring-learn-me/blob/master/2.gif)
 
-   ​
-
 ## 翻译
 
 在您的 PR 被 merge 之后，您就可以开始翻译了。您可以选择将仓库克隆到本地进行翻译（推荐方式），当然您也可以选择在远程 web 网页上直接翻译。
