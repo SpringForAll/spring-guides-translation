@@ -44,11 +44,11 @@
 
 **当您完成之后**，您可以在`gs-accessing-neo4j-data-rest/complete`根据代码检查下结果。
 
-##使用Gradle构建
+## 使用Gradle构建
 
 首先您需要编写基础构建脚本。在构建 Spring 应用的时候，您可以使用任何您喜欢的系统来构建， 这里提供一份您可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果您两者都不是很熟悉, 您可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle/)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven/)。
 
-###创建以下目录结构
+### 创建以下目录结构
 
 在您的项目根目录，创建如下的子目录结构; 例如，如果您使用的是\*nix系统，您可以使用
 
@@ -282,7 +282,7 @@ include complete/src/main/resources/application.properties[]
 
 这个时候，让我们来把他们组装起来看看。
 
-##创建一个Person存储库
+## 创建一个Person存储库
 
 接下来，您需要创建一个简单的存储库。
 
@@ -313,7 +313,7 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 
 在这里，您还定义了一个自定义查询来检索基于lastName的`Person`对象列表。 您将看到如何在本指南中进一步调用它。
 
-##使应用程序可执行
+## 使应用程序可执行
 
 尽管可以将此服务作为传统[WAR](https://spring.io/understanding/WAR)文件打包以部署到外部应用程序服务器，但下面演示的更简单的方法创建了独立的应用程序。 您把所有东西都封装在一个单独的，可执行的JAR文件中，由一个好的旧的Java `main()`方法驱动。 在这过程中，您使用Spring的支持来将[Tomcat](https://spring.io/understanding/Tomcat) servlet容器作为HTTP运行时嵌入，而不是部署到外部实例。
 
@@ -349,7 +349,7 @@ public class Application {
 
 `@ EnableNeo4jRepositories` 注解激活Spring Data Neo4j。 Spring Data Neo4j将创建`PersonRepository`的具体实现，并将其配置为使用Cypher查询语言与嵌入的Neo4j数据库对话。
 
-##创建可执行的JAR
+## 创建可执行的JAR
 
 您可以在命令行使用 `Gradle` 或 `Maven` 运行应用程序。或者您可以构建一个可执行的 `JAR` 文件,其中包含所有必需的依赖关系,类,和资源,并运行。这使得在整个开发生命周期中非常容易，跨不同的环境，版本等传输和部署服务成为一个应用程序,等等。
 
@@ -586,7 +586,7 @@ $ curl http://localhost:8080/people
 
 这个[超媒体驱动接口](https://spring.io/understanding/HATEOAS)的一个非常方便的特点是 如何使用curl（或者您正在使用的任何REST客户端）发现所有RESTful端点。 它没有必要与您的客户交换正式的合同或接口文件。
 
-##总结
+## 总结
 
 恭喜！ 您刚刚开发了[基于超媒体的RESTful](https://spring.io/guides/gs/rest-hateoas/)前端和基于Neo4j的后端的应用程序。
 
