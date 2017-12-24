@@ -10,12 +10,10 @@
 
 ## 你将学会构建什么
 
-你将从CloudFoundry持有的服务中构建一个获取请求配额的服务并且能缓存在Pivotal GemFire。
-
-然后，你会明白由于Spring’s Cache Abstraction和Pivotal GemFire备份，再次获取相同配额的时候会节省调用Quote服务的成本。
+你将从CloudFoundry持有的服务中构建一个获取请求配额的服务并且能缓存在Pivotal GemFire。然后，你会明白由于Spring’s Cache Abstraction和Pivotal GemFire备份，再次获取相同配额的时候会节省调用Quote服务的成本。
 相同的请求会被放在缓存中。
 
-Quote服务的地址如下
+Quote服务的地址如下：
 
 ``` 
 http://gturnquist-quoters.cfapps.io
@@ -256,22 +254,17 @@ Spring会处理这个方法调用，并且存储这个响应在缓存中，然�
 当然，在`requestRandomQuote`服务方法中还使用了`@CachePut`注解。因为从服务的调用方法中返回的配额是随机的，不知道具体收到的配额。
 所以，对于一个调用请求来讲，无法其干涉缓存（ `Quotes`）的优先级，但是可以缓存调用的结果，假设配额是随机选择的和已经缓存了。然后在随后的`requestQuote(id)`的调用上添加一个
 positive效果，`@CachePut`使用了SpEL表达式（“#result.id”）访问服务方法调用的结构和检索`Quote`的ID并且作为缓存键。
-更多Spring’s Cache Abstraction SpEL的内容[请点击](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#cache-spel-context).
+更多Spring’s Cache Abstraction SpEL的内容[请点击](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#cache-spel-context)。
 
 
-> 缓存必须要有名字。
-使用"Quotes"只是作为演示的目的，但是在生产环境中，推荐使用一个恰当可描述的名字。
-换句话说，不同的方法对应不同的缓存名。特别是在不同的缓存配置文件中。比如不同的过期策略，等待
+> 缓存必须要有名字。使用"Quotes"只是作为演示的目的，但是在生产环境中，推荐使用一个恰当可描述的名字。换句话说，不同的方法对应不同的缓存名。特别是在不同的缓存配置文件中。比如不同的过期策略，等待时间。
  
 
-运行代码的时候，每一个调用都会显示消耗的时间，能够了解缓存在服务响应时间的作用。
-这只是演示缓存特定调用的意义。
-如果应用程序持续查询相同的数据，缓存的结果能非常明显的够提高性能
+运行代码的时候，每一个调用都会显示消耗的时间，能够了解缓存在服务响应时间的作用。这只是演示缓存特定调用的意义。如果应用程序持续查询相同的数据，缓存的结果能非常明显的够提高性能
 
 ### 使应用程序可执行
     
-虽然Pivotal GemFire缓存能嵌入在web apps和 WAR文件中。以下是简单的演示了创建一个标准的范例
-将所有的都打包在单个，可执行的JAR文件中，入口在`main()`方法。
+虽然Pivotal GemFire缓存能嵌入在web apps和 WAR文件中。以下是简单的演示了创建一个标准的范例。将所有的都打包在单个，可执行的JAR文件中，入口在`main()`方法。
 
 ```
 src/main/java/hello/Application.java
