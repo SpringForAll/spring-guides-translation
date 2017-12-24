@@ -150,7 +150,7 @@ public class QuoteResponse {
 }
 ```
 
-如下是是Quote服务中的一个典型的响应
+以下是Quote服务中的一个典型的响应
 
 ```
 {
