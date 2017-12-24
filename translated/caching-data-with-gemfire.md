@@ -260,7 +260,7 @@ positive效果，`@CachePut`使用了SpEL表达式（“#result.id”）访问�
 > 缓存必须要有名字。使用"Quotes"只是作为演示的目的，但是在生产环境中，推荐使用一个恰当可描述的名字。换句话说，不同的方法对应不同的缓存名。特别是在不同的缓存配置文件中。比如不同的过期策略，等待时间。
  
 
-运行代码的时候，每一个调用都会显示消耗的时间，能够了解缓存在服务响应时间的作用。这只是演示缓存特定调用的意义。如果应用程序持续查询相同的数据，缓存的结果能非常明显的够提高性能
+运行代码的时候，每一个调用都会显示消耗的时间，能够了解缓存在服务响应时间的作用。这只是演示缓存特定调用的意义。如果应用程序持续查询相同的数据，缓存的结果能非常明显的够提高性能。
 
 ### 使应用程序可执行
     
@@ -384,8 +384,7 @@ The first time a quote is requested (using ),
 java -jar build/libs/gs-caching-gemfire-0.1.0.jar
 ```
 
-如果使用Maven，则可以使用`./mvnw spring-boot:run`命令
-或者使用`./mvnw clean package`编译JAR文件。然后运行JAR文件
+如果使用Maven，则可以使用`./mvnw spring-boot:run`命令或者使用`./mvnw clean package`编译JAR文件。然后运行JAR文件
 
 ```bash
 java -jar target/gs-caching-gemfire-0.1.0.jar
@@ -411,7 +410,7 @@ Cache Miss [true] - Elapsed Time [96 ms]
 
 ## Summary
 
-恭喜，你已经学会构建一个执行和标记高成本的操作，并且能缓存结果的服务
+恭喜，你已经学会构建一个执行和标记高成本的操作，并且能缓存结果的服务。
 
 ## 其它
 
