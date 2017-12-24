@@ -18,7 +18,7 @@
 
 HTML5，基于浏览器丰富的功能以及“单页面应用程序”对于现代开发人员来说是非常有价值的工具，但任何有意义的交互都将涉及到后端服务器，以及我们将要涉及的静态内容（HTML，CSS和JavaScript）需要一个后端服务器。后端服务器可以扮演任何或所有角色：提供静态内容，有时（但不是经常这样）呈现动态HTML，认证用户，保护对受保护资源的访问，以及（最后但并非最不重要的）与JavaScript交互在浏览器中通过HTTP和JSON（有时也称为REST API）。
 
-Spring一直是构建后端功能（特别是在企业中）的流行技术，而随着 [Spring Boot](https://projects.spring.io/spring-boot) 的到来，事情从未如此简单。让我们来看看如何使用Spring Boot，Angular和Twitter Bootstrap从零开始构建一个新的单页面应用程序。没有什么特别的理由可以选择这个特定的技术栈，但是它非常受欢迎，特别是在企业级Java商店中的核心Spring选区，所以这是一个有价值的起点。
+Spring一直是构建后端功能（特别是在企业中）的流行技术，而随着 [Spring Boot](https://projects.spring.io/spring-boot) 的到来，事情从未如此简单。让我们来看看如何使用Spring Boot，Angular和Twitter Bootstrap从零开始构建一个新的单页面应用程序。没有什么特别的理由可以选择这个特定的技术栈，但是它非常受欢迎，特别是在企业级Java商店中的核心Spring社区，所以这是一个有价值的起点。
 
 ### 创建一个新项目
 
@@ -66,7 +66,7 @@ $ spring init --dependencies web,security ui/ && cd ui
 
 ### 添加一个主页
 
-单页面应用程序的核心是一个静态的“index.html”，所以让我们继续创建一个（在“src / main / resources / static”或“src / main / resources / public”中）
+单页面应用程序的核心是一个静态的“index.html”，所以让我们继续创建一个（在“src/main/resources/static”或“src/main/resources/public”中）
 
 index.html
 
@@ -109,7 +109,7 @@ index.html
 </html>
 ```
 
-这很短暂，很亲切，因为它只是说“Hello World”。
+这很短暂，很亲切，因为它只是说一句“Hello World”。
 
 #### 主页的功能
 
@@ -149,7 +149,7 @@ $ java -jar target/*.jar
 
 Angular的大多数现代教程倾向于使用node.js工具链下载和重新打包所有的库及其依赖关系。 Angular和其他前端技术的一些演示通常只包括直接来自互联网的库资源。我们将使用 [Webjars](https://webjars.org/) 并在应用程序类路径中安装第三方依赖，而不是使用node.js工具链其中的任何一个。
 
-即使是最基本的Angular应用程序，也有不少需要的webjars：
+即使是最基本的Angular应用程序，也有不少依赖需要webjars：
 
 ```xml
 <dependency>
@@ -230,16 +230,16 @@ Angular的大多数现代教程倾向于使用node.js工具链下载和重新打
 <zone.version>0.8.16</zone.version>
 ```
 
-你可以把这个逐字复制到你的POM中，或者只是在 [Github的源代码](https://github.com/dsyer/spring-security-angular/tree/master/basic/pom.xml#L43) 中进行查看复制。 Twitter Bootstrap对jQuery有依赖性，所以我们也包括这个。一个没有使用Bootstrap的Angular应用程序不需要这样做，因为Angular拥有jQuery本身所需的功能。
+你可以把这个逐字复制到你的POM中，或者只是在 [Github的源代码](https://github.com/dsyer/spring-security-angular/tree/master/basic/pom.xml#L43) 中进行查看复制。 Twitter Bootstrap对jQuery有依赖性，所以我们也包括这个。一个没有使用Bootstrap的Angular应用程序不需要这样做，因为Angular拥有jQuery本身所有的功能。
 
 如果您现在运行应用程序，您应该看到CSS生效，所有资源将成功加载，但业务逻辑和导航仍然缺失。
 
-> 使用webjars是一个切合实际的选择，具有强大的教学影响力。大多数Spring应用程序开发人员不熟悉node.js工具链或TypeScript，这正是所有官方的Angular文档现在使用的。因此，Webjar和普通的旧JavaScript（ES5）是让您开始使用Java开发人员熟悉的工具的一种简单方法，但是从长远来看，它们可能会受到限制。您可能想要使用`npm`和Angular CLI来查看比最基本的应用程序更大的东西：如果您只是将这些工具链的输出放在“src/main/resources/static”或“target/classes/static”那么它将全部工作。
+> 使用 webjars 是一个切合实际的选择，具有强大的教学影响力。大多数 Spring 应用程序开发人员不熟悉node.js 工具链或 TypeScript ，这正是所有官方的 Angular 文档现在使用的。因此，Webjars 和普通的旧JavaScript（ES5）是让您开始使用Java开发人员熟悉的工具的一种简单方法，但是从长远来看，它们可能会受到限制。你可能想要使用 `npm` 和 Angular CLI 来查看比最基本的应用程序更多的东西：如果你只是将这些工具链的输出放在 “src/main/resources/static” 或 “target/classes/static” 那么它将全部工作。
 
 
 ### 创建 Angular 应用
 
-让我们创建"hello"应用(在"src/main/resources/static/js/hello.js")，这样在"index.html"的页面底部在页面加载的时候会被正常加载。
+让我们创建 "hello" 应用(在"src/main/resources/static/js/hello.js")，这样在"index.html"的页面底部在页面加载的时候会被正常加载。
 
 一个小巧的 Angular 应用就像下面这样:
 
@@ -266,13 +266,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-这个Javascript中的大部分代码都是样板片段 - 它只是在那里让Angular运行起来。有趣的东西都在`AppComponent`中，我们定义了“选择器”（HTML元素的名称）和HTML呈现的片段。
+这个 Javascript 中的大部分代码都是样板片段 - 它只是在那里让 Angular 运行起来。有趣的东西都在 `AppComponent` 中，我们定义了“选择器”（HTML元素的名称）和HTML呈现的片段。
 
-如果你在“src/main/resources/static/js”下面添加了这个文件，你的应用程序现在应该是安全的并且可以运行，并且会显示“Hello World！”。问候语是由HTML中的使用占位符`{{greeting.id}}`和`{{greeting.content}}`被Angular渲染。
+如果你在 “src/main/resources/static/js” 下面添加了这个文件，你的应用程序现在应该是安全的并且可以运行，并且会显示 “Hello World！”。问候语是由 HTML 中的占位符`{{greeting.id}}`和`{{greeting.content}}`被  Angular 所渲染出来。
 
 ### 添加动态内容
 
-到目前为止，我们有一个硬编码问候的应用程序。这对于学习如何融合在一起非常有用，但实际上我们希望内容来自后端服务器，因此我们创建一个HTTP端点，用于获取问候语。在您的[应用程序类](https://github.com/dsyer/spring-security-angular/blob/master/basic/src/main/java/demo/UiApplication.java)（在“src/main/java/demo”）中，添加`@RestController`注解并定义一个新的`@RequestMapping`：
+到目前为止，我们有一个硬编码问候的应用程序。这对于学习如何融合在一起非常有用，但实际上我们希望内容来自后端服务器，因此我们创建一个 HTTP 端点，用于获取问候语。在您的[应用程序类](https://github.com/dsyer/spring-security-angular/blob/master/basic/src/main/java/demo/UiApplication.java)（在“src/main/java/demo”）中，添加`@RestController`注解并定义一个新的`@RequestMapping`：
 
 UiApplication.java
 
@@ -300,7 +300,7 @@ public class UiApplication {
 
 运行该应用并尝试访问"resource"端点，你会发现默认情况下它是安全的。
 
-```
+```shell
 $ curl localhost:8080/resource
 {"timestamp":1420442772928,"status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/resource"}
 ```
@@ -325,11 +325,11 @@ var AppComponent = ng.core.Component({
 });
 ```
 
-我们通过 Angular `http`模块注入了一个由Angular提供的[http服务](https://angular.io/guide/http)，并使用它来获取我们的资源。Angular将响应传递给我们，我们将JSON取出并将其分配给`greeting`。
+我们通过 Angular `http`模块注入了一个由 Angular 提供的[http服务](https://angular.io/guide/http)，并使用它来获取我们的资源。Angular 将响应传递给我们，我们将 JSON 取出并将其分配给 `greeting`。
 
 > 遵循一个通用的约定，我们引入了一个“self”变量作为“this”的别名，以便回调回调内部的控制器。
 
-为了将`http`服务依赖注入到我们的自定义组件中，我们需要在`AppModule`包含组件的地方声明它（`imports`与初始代码相比，它只是变化了一行）：
+为了将`http`服务依赖注入到我们的自定义组件中，我们需要在 `AppModule` 包含组件的地方声明它（`imports`与初始代码相比，它只是变化了一行）：
 
 hello.js
 
@@ -343,14 +343,14 @@ var AppModule = ng.core.NgModule({
 ---
 ```
 
-再次运行应用程序（或者只是在浏览器中重新加载主页），您将看到具有唯一ID的动态消息。因此，即使资源受到保护，而且无法直接调整资源，浏览器也能够访问该内容。我们有一个安全的单页应用程序在不到一百行的代码！
+再次运行应用程序（或者只是在浏览器中重新加载主页），您将看到具有唯一ID的动态消息。因此，即使资源受到保护，而且无法直接调整资源，浏览器也能够访问该内容。我们有一个安全的单页应用程序在不到一百行代码的情况下！
 
 > 您可能需要强制浏览器在更改静态资源后重新加载静态资源。在Chrome（和带有插件的Firefox）中，您可以使用“开发人员工具”（F12），这可能就足够了。或者你可能不得不使用CTRL + F5。
 
 
 ### 它是如何工作的？
 
-如果您使用某些开发工具（通常是F12打开此工具，默认情况下在Chrome中运行，可能需要Firefox中的插件），则可以在浏览器中看到浏览器与后端之间的交互。这里有一个总结：
+如果您使用某些开发工具（通常是F12打开此工具，默认情况下在 Chrome 中运行，可能需要 Firefox 中的插件），则可以在浏览器中看到浏览器与后端之间的交互。这里有一个总结：
 
 | 动作   | 路径           | 状态码  | 响应               |
 | ---- | ------------ | ---- | ---------------- |
@@ -360,33 +360,33 @@ var AppModule = ng.core.NgModule({
 | GET  | /js/hello.js | 200  | 应用程序逻辑           |
 | GET  | /resource    | 200  | JSON greeting    |
 
-您可能看不到401，因为浏览器将主页加载视为单个交互，您可能会看到2个“/ resource”请求，因为存在CORS协商。
+您可能看不到401，因为浏览器将主页加载视为单个交互，您可能会看到2个“/resource”请求，因为存在CORS协商。
 
-仔细查看请求，你会看到他们都有一个“授权”头，如下所示：
+仔细查看请求，你会看到他们都有一个“Authorization”头，如下所示：
 
 ```Authorization: Basic dXNlcjpwYXNzd29yZA==```
 
-浏览器正在发送每个请求的用户名和密码（所以请记住在生产中专门使用HTTPS）。这里没有什么“Angular”，所以它适用于你的JavaScript框架或非框架的选择。
+浏览器正在发送每个请求的用户名和密码（所以请记住在生产中专门使用HTTPS）。这里没有什么“Angular”，所以它适用于你的 JavaScript 框架或非框架的选择。
 
 
 
-#### 这是什么错？
+#### 还有什么错？
 
-从表面上看，我们似乎做得非常好，简洁，易于实现，我们所有的数据都被一个秘钥密码保护，如果我们改变了前端或后端技术，它仍然可以工作。但是有一些问题。
+从表面上看，我们似乎做得非常好，简洁，易于实现，我们所有的数据都被一个秘钥保护，如果我们改变了前端或后端技术，它仍然可以工作。但是有一些问题。
 
 - 基本身份验证仅限于用户名和密码身份验证。
 - 验证用户界面无处不在（丑陋的浏览器）。
 - [跨站点请求伪造](https://en.wikipedia.org/wiki/Cross-site_request_forgery)（CSRF）没有保护。
 
-因为它只需要获取后端资源（即服务器中没有状态改变），所以CSRF对于我们的应用来说并不是真正的问题。只要你在你的应用程序中有一个POST，PUT或DELETE，就不会再有任何合理的现代措施。
+因为它只需要获取后端资源（即服务器中没有状态改变），所以 CSRF 对于我们的应用来说并不是真正的问题。只要你在你的应用程序中有一个 POST，PUT 或 DELETE，就不会再有任何合理的现代措施。
 
-在[本系列的下一节中，](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_the_login_page_angular_js_and_spring_security_part_ii)我们将扩展应用程序以使用基于表单的身份验证，这比HTTP Basic灵活得多。一旦我们有了一个表单，我们需要CSRF保护，Spring Security和Angular都有一些不错的开箱即用功能来帮助实现这一点。剧透：我们将需要使用`HttpSession`。
+在[本系列的下一节中，](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_the_login_page_angular_js_and_spring_security_part_ii)我们将扩展应用程序以使用基于表单的身份验证，这比 HTTP Basic 灵活得多。一旦我们有了一个表单，我们需要 CSRF 保护，Spring Security 和 Angular 都有一些不错的开箱即用功能来帮助我们实现这一点。剧透：我们将需要使用 `HttpSession`。
 
-感谢：我要感谢所有帮助我开发这个系列的人，特别是[Rob Winch](https://spring.io/team/rwinch)和[Thorsten Spaeth](https://twitter.com/thspaeth)对文本和源代码的仔细审查，并且教给我一些我甚至不知道的部分的技巧我倍感亲切。
+感谢：我要感谢所有帮助我开发这个系列的人，特别是[Rob Winch](https://spring.io/team/rwinch)和[Thorsten Spaeth](https://twitter.com/thspaeth)对文本和源代码的仔细审查，并且教给我一些我甚至不知道的部分的技巧让我倍感亲切。
 
 ## 登录页面
 
-在本节中，我们继续[讨论](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_spring_and_angular_js_a_secure_single_page_application)如何在“单页面应用程序”中使用[Angular JS和](https://angularjs.org/)[Spring Security](https://projects.spring.io/spring-security)。在这里，我们展示了如何使用Angular JS通过表单对用户进行身份验证，并获取在UI中呈现的安全资源。这是一系列章节的第二部分，您可以通过阅读[第一部分](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_spring_and_angular_js_a_secure_single_page_application)，从头开始构建应用程序的基本构建块，或者直接转到[Github](https://github.com/dsyer/spring-security-angular/tree/master/single)的[源代码](https://github.com/dsyer/spring-security-angular/tree/master/single)。在第一部分中，我们构建了一个使用HTTP基本身份验证来保护后端资源的简单应用程序。在这一个我们添加一个登录表单，给用户一些控制是否验证，并修复第一次迭代（主要是缺乏CSRF保护）的问题。
+在本节中，我们继续[讨论](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_spring_and_angular_js_a_secure_single_page_application)如何在“单页面应用程序”中使用 [Angular JS ](https://angularjs.org/) 和 [Spring Security](https://projects.spring.io/spring-security)。在这里，我们展示了如何使用 Angular JS 通过表单对用户进行身份验证，并获取在 UI 中呈现的安全资源。这是一系列章节的第二部分，您可以通过阅读[第一部分](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_spring_and_angular_js_a_secure_single_page_application)，从头开始构建应用程序的基本构建块，或者直接转到[Github](https://github.com/dsyer/spring-security-angular/tree/master/single)的[源代码](https://github.com/dsyer/spring-security-angular/tree/master/single)。在第一部分中，我们构建了一个使用HTTP基本身份验证来保护后端资源的简单应用程序。在这一个我们添加一个登录表单，给用户一些控制是否验证，并修复第一次迭代（主要是缺乏CSRF保护）的问题。
 
 > 提醒：如果您正在使用示例应用程序完成本节，请务必清除Cookie和HTTP Basic凭据的浏览器缓存。在Chrome中，为单个服务器执行此操作的最佳方式是打开一个新的隐身窗口。
 
@@ -791,22 +791,22 @@ protected static class SecurityConfiguration extends WebSecurityConfigurerAdapte
 
 如果您使用某些开发工具（通常是F12打开此工具，默认情况下在Chrome中运行，可能需要Firefox中的插件），则可以在浏览器中看到浏览器与后端之间的交互。这里有一个总结：
 
-| 动作   | 路径             | 状态   | 响应                |
-| ---- | -------------- | ---- | ----------------- |
-| GET  | /              | 200  | index.html        |
-| GET  | / CSS / **     | 200  | Twitter引导CSS      |
-| GET  | / webjars / ** | 200  | Bootstrap和Angular |
-| GET  | /js/hello.js   | 200  | 应用程序逻辑            |
-| GET  | /user          | 401  | 未经授权（忽略）          |
-| GET  | /home.html     | 200  | 主页                |
-| GET  | /app.html      | 200  | 主页                |
-| GET  | /login.html    | 200  | 角度登录表单部分          |
-| GET  | /user          | 401  | 未经授权（忽略）          |
-| GET  | /resource      | 401  | 未经授权（忽略）          |
-| GET  | /user          | 200  | 发送凭据并获取JSON       |
-| GET  | /resource      | 200  | JSON问候            |
+| 动作   | 路径            | 状态   | 响应                |
+| ---- | ------------- | ---- | ----------------- |
+| GET  | /             | 200  | index.html        |
+| GET  | /css/**       | 200  | Twitter引导CSS      |
+| GET  | / webjars /** | 200  | Bootstrap和Angular |
+| GET  | /js/hello.js  | 200  | 应用程序逻辑            |
+| GET  | /user         | 401  | 未经授权（忽略）          |
+| GET  | /home.html    | 200  | 主页                |
+| GET  | /app.html     | 200  | 主页                |
+| GET  | /login.html   | 200  | 角度登录表单部分          |
+| GET  | /user         | 401  | 未经授权（忽略）          |
+| GET  | /resource     | 401  | 未经授权（忽略）          |
+| GET  | /user         | 200  | 发送凭据并获取JSON       |
+| GET  | /resource     | 200  | JSON问候            |
 
-上面标记为“忽略”的响应是由Angular在XHR调用中收到的HTML响应，由于我们没有处理这些数据，所以HTML被放在地板上。我们在“/ user”资源的情况下寻找一个经过认证的用户，但是由于它在第一次调用中不存在，那么这个响应就会被丢弃。
+上面标记为“忽略”的响应是由Angular在XHR调用中收到的HTML响应，由于我们没有处理这些数据，所以HTML被放在地板上。我们在“/user”资源的情况下寻找一个经过认证的用户，但是由于它在第一次调用中不存在，那么这个响应就会被丢弃。
 
 仔细查看请求，你会看到他们都有cookie。如果你从一个干净的浏览器开始（例如在Chrome浏览器中进行隐身），第一个请求没有发送到服务器的cookie，但是服务器发回“JSESSIONID”（常规`HttpSession`）和“X-XSRF -TOKEN“（我们上面设置的CRSF cookie）。随后的请求都有这些cookie，而且它们很重要：没有它们，应用程序就不能工作，它们提供了一些非常基本的安全功能（认证和CSRF保护）。当用户进行身份验证（POST之后）时，cookie的值会改变，这是另一个重要的安全功能（防止[会话修复攻击](https://en.wikipedia.org/wiki/Session_fixation)）。
 
@@ -1360,7 +1360,7 @@ security.sessions: NEVER
 | GET  | /user          | 401  | 未经授权的用户访问            |
 | GET  | /resource      | 401  | 未经验证的对资源的访问          |
 | GET  | /user          | 200  | JSON身份验证的用户          |
-| GET  | /resource      | 200  | （代理）JSON问候           |
+| GET  | /resource      | 200  | （代理）JSON greeting    |
 
 这与[第二部分](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_the_login_page_angular_js_and_spring_security_part_ii)末尾的序列是一样的，除了cookie名称稍有不同（“SESSION”而不是“JSESSIONID”），因为我们使用的是Spring Session。但是体系结构是不同的，最后一次对“/ resource”的请求是特殊的，因为它被代理到资源服务器。
 
@@ -3024,7 +3024,7 @@ public void configure(AuthorizationServerEndpointsConfigurer endpoints)
 
 在本节中，我们已经看到了如何实现从OAuth2客户端应用程序注销的几种不同模式（以[第五部分中](https://spring.io/guides/tutorials/spring-security-and-angular-js/#_sso_with_oauth2_angular_js_and_spring_security_part_v)的应用程序的教程），并讨论了其他模式的一些选项。这些选项并不是详尽无遗的，但应该给你一个关于所涉及的权衡的好主意，以及一些思考你的用例的最佳解决方案的工具。本节中只有几行JavaScript代码，而Angular并不是特定的（它为XHR请求添加了一个标志），所以所有的课程和模式都可以应用到本指南示例应用程序的范围之外。一个反复出现的主题是，有多个UI应用程序和单个authserver的单一注销（SL）的所有方法往往存在一些缺陷：最好的办法是选择让用户最不舒服的方法。如果您有一个内部authserver和一个由许多组件组成的系统，
 
-想写一个新的指南或贡献一个现有的？查看我们的[贡献准则](https://github.com/spring-guides/getting-started-guides/wiki)。
+
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
 
