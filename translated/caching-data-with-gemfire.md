@@ -6,7 +6,7 @@
 >
 > 校对：
 
-本指南阐述了使用Pivotal GemFire的数据网缓存代码需要的calls
+本指南阐述了使用Pivotal GemFire的数据网缓存代码需要的调用
 
 ## 你将学会构建什么
 
@@ -40,7 +40,7 @@ GET /api/{id}    - get specific quote
   * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
 
-## How to complete this guide
+## 怎样完成本指南
    
 像大多数[Spring 入门文章](https://spring.io/guides)一样，你可以逐渐的完成每一步，也可以跳过一些你熟悉的步骤。不管怎样，最后你都将得到一份可执行的代码。
 
@@ -245,21 +245,18 @@ public class QuoteService {
 }
 ```
 
-这个`QuoteService`使用Spring’s `RestTemplate`查询Quote服务的[API](https://gturnquist-quoters.cfapps.io/api)Quote
+这个`QuoteService`使用Spring’s`RestTemplate`查询Quote服务的[API](https://gturnquist-quoters.cfapps.io/api)Quote
 服务返回一个JSON对象。但是Spring使用Jackson绑定数据到`QuoteResponse`，最终作为`Quote`对象。
  
 这个服务类的精妙之处是`requestQuote`一直能够使用`@Cacheable("Quotes")`注解。[Spring’s Caching Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
 拦截调用然后专递给`requestQuote`去检查服务方法是否已经被调用了。如果是这样，Spring’s Caching Abstraction这是返回了缓存拷贝。否则
-Spring会处理这个方法调用，并且存储这个响应在缓存中，然后返回结果给调用者
+Spring会处理这个方法调用，并且存储这个响应在缓存中，然后返回结果给调用者。
 
 
 当然，在`requestRandomQuote`服务方法中还使用了`@CachePut`注解。因为从服务的调用方法中返回的配额是随机的，不知道具体收到的配额。
 所以，对于一个调用请求来讲，无法其干涉缓存（ `Quotes`）的优先级，但是可以缓存调用的结果，假设配额是随机选择的和已经缓存了。然后在随后的`requestQuote(id)`的调用上添加一个
-positive效果，
-
-
-`@CachePut`使用了SpEL表达式（“#result.id”）访问服务方法调用的结构和检索`Quote`的ID并且作为缓存键
-想要了解更多Spring’s Cache Abstraction SpEL的内容[引用](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#cache-spel-context).
+positive效果，`@CachePut`使用了SpEL表达式（“#result.id”）访问服务方法调用的结构和检索`Quote`的ID并且作为缓存键。
+更多Spring’s Cache Abstraction SpEL的内容[请点击](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#cache-spel-context).
 
 
 > 缓存必须要有名字。
