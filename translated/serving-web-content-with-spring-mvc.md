@@ -12,21 +12,21 @@
 ## 你会建立什么
 
 您将构建一个具有静态主页的应用程序，并且还将在以下位置接受HTTP GET请求：
-```
-http://localhost:8080/greeting
-```
+
+`http://localhost:8080/greeting`
+
 并用显示HTML的网页进行响应。 HTML的主体包含一个问候语：
-```
-"Hello, World!"
-```
+
+`"Hello, World!"`
+
 您可以使用查询字符串中的可选`name`参数来自定义问候语：
-```
-http://localhost:8080/greeting?name=User
-```
+
+`http://localhost:8080/greeting?name=User`
+
 `name`参数值覆盖“World”的默认值，并反映在响应中：
-```
-"Hello, User!"
-```
+
+`"Hello, User!"`
+
 ## 开始之前您需要准备
 
 - 大约15分钟时间
@@ -74,7 +74,7 @@ http://localhost:8080/greeting?name=User
 
 `build.gradle`
 
-```
+```gradle
 buildscript {
     repositories {
         mavenCentral()
@@ -190,12 +190,11 @@ dependencies {
 - 阅读如何使用 [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea) 来构建。
 
 ## 创建一个web controller
-在Spring构建网站的方法中，HTTP请求由控制器(controller)处理。 您可以通过`@Controller`注解轻松识别这些请求。 在以下示例中，GreetingController通过返回`View`（在本例中为“greeting”）来处理`/greeting`的GET请求。 `View`负责呈现HTML内容：
-```
-src/main/java/hello/GreetingController.java
-```
 
-```
+在Spring构建网站的方法中，HTTP请求由控制器(controller)处理。 您可以通过`@Controller`注解轻松识别这些请求。 在以下示例中，GreetingController通过返回`View`（在本例中为“greeting”）来处理`/greeting`的GET请求。 `View`负责呈现HTML内容：
+`src/main/java/hello/GreetingController.java`
+
+```java
 package hello;
 
 import org.springframework.stereotype.Controller;
@@ -224,11 +223,9 @@ public class GreetingController {
 
 方法体的实现依赖于一种[视图技术](https://spring.io/understanding/view-templates)，在这种情况下是[Thymeleaf](http://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html)，执行HTML的服务器端呈现。Thymeleaf分析下面的`greeting.html`模板并计算`th:text`表达式来呈现在控制器中设置的`${name}`参数的值。
 
-```
-src/main/resources/templates/greeting.htm
-```
+`src/main/resources/templates/greeting.htm`
 
-```
+```html
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -254,11 +251,9 @@ src/main/resources/templates/greeting.htm
 
 尽管可以将此服务作为传统[WAR](https://spring.io/understanding/WAR)文件打包以部署到外部应用程序服务器，但下面演示的更简单的方法创建了独立的应用程序。你把所有东西都封装在一个单独的，可执行的JAR文件中，由一个好的旧的Java ·main()`方法驱动。 一路上，您使用Spring的支持来将[Tomcat](https://spring.io/understanding/Tomcat) servlet容器作为HTTP运行时嵌入，而不是部署到外部实例。
 
-```
-src/main/java/hello/Application.java
-```
+`src/main/java/hello/Application.java`
 
-```
+```java
 package hello;
 
 import org.springframework.boot.SpringApplication;
@@ -290,13 +285,13 @@ main()方法使用Spring Boot的`SpringApplication.run()`方法启动应用程�
 
 如果您正在使用Gradle，则可以使用`./gradlew bootRun`运行该应用程序。 或者您可以使用`./gradlew build`生成JAR文件。 然后你可以运行JAR文件：
 
-```
+```shell
 java -jar build/libs/gs-serving-web-content-0.1.0.jar
 ```
 
 如果您正在使用Maven，则可以使用`./mvnw spring-boot：run`来运行该应用程序。 或者你也可以使用`./mvnw clean package`构建JAR文件。 然后你可以运行JAR文件：
 
-```
+```shell
 java -jar target/gs-serving-web-content-0.1.0.jar
 ```
 
@@ -308,15 +303,11 @@ java -jar target/gs-serving-web-content-0.1.0.jar
 
 现在该网站正在运行，请访问 [http://localhost:8080/greeting](http://localhost:8080/greeting),在这里您可以看到：
 
-```
-"Hello, World!"
-```
+`"Hello, World!"`
 
 使用[http://localhost:8080/greeting?name=User](http://localhost:8080/greeting?name=User)提供名称查询字符串参数。注意消息是如何从 "Hello, World!"到 "Hello, User!"：
 
-```
-"Hello, User!"
-```
+`"Hello, User!"`
 
 此更改演示了GreetingController中的`@RequestParam`排列按预期工作。 `name`参数的默认值是“World”，但可以通过查询字符串显式覆盖。
 
@@ -325,11 +316,9 @@ java -jar target/gs-serving-web-content-0.1.0.jar
 
 静态资源，如HTML或JavaScript或CSS，可以很容易地从你的Spring Boot应用程序中提供，只需把它们放在源代码的正确位置即可。 默认情况下，Spring Boot以“/static”（或“/public”）方式从类路径中的资源提供静态内容。 index.html资源是特殊的，因为它被用作“欢迎页面”（如果存在的话），这意味着它将作为根资源提供，即在我们的示例中为`http://localhost:8080/`。 所以创建这个文件：
 
-```
-src/main/resources/static/index.html
-```
+`src/main/resources/static/index.html`
 
-```
+```html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -347,7 +336,8 @@ src/main/resources/static/index.html
 
 恭喜！你刚刚用Spring开发了一个网页。
 
-## 也可以看看
+## 也可以浏览
+
 以下指南也可能有所帮助：
 
 * [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
