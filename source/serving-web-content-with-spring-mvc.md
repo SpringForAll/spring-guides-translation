@@ -2,7 +2,7 @@
 
 > 原文：[Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 >
-> 译者：
+> 译者：[zhangweiwen](https://github.com/carlzhangweiwen)
 >
 > 校对：
 
