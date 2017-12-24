@@ -1,4 +1,4 @@
-# 使用REST访问JPA数据
+# 使用Twitter注册一个应用
 
 > 原文：[Registering an Application with Twitter](https://spring.io/guides/gs/register-twitter-app/)
 >
