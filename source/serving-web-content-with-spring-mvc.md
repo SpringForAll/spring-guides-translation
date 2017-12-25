@@ -1,8 +1,8 @@
 # 中文标题
 
-> 原文：[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) （这里为示例，译者需根据具体文章修改）
+> 原文：[Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 >
-> 译者：
+> 译者：[zhangweiwen](https://github.com/carlzhangweiwen)
 >
 > 校对：
 
