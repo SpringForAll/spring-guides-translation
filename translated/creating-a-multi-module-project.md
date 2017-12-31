@@ -9,6 +9,7 @@
 本指南将向您介绍如何使用Spring Boot创建多模块项目，其中有一个库jar和一个使用该库的主应用程序。 您也可以使用它来查看如何自行构建库（即不是应用程序的jar文件）。。
 
 ## 你会构建什么
+
 您将设置一个简单的库jar，为简单的Hello World消息公开服务，然后将该服务包含在使用该库作为依赖项的Web应用程序中。 你可以使用这个指南学习如何用Maven和Gradle做同样的事情，但是对于一个真正的项目你可能会选择其中的一个。
 
 ## 你需要准备什么
@@ -27,21 +28,20 @@
 
   * [IntelliJ IDEA](https://spring.io/guides/gs/intellij-idea/)
 
-
-
 ## 怎样完成指南？
 
 像大多数 Spring [入门指南](https://spring.io/guides)一样, 你可以从头开始，完成每一步, 或者你也可以绕过你熟悉的基本步骤再开始。 不管通过哪种方式，你最后都会得到一份可执行的代码。
 
 **如果从基础开始**，你可以往下查看[怎样使用 Gradle 构建项目](#scratch)。
 
-
 **如果已经熟悉跳过一些基本步骤**，你可以：
 
 * [下载](https://github.com/spring-guides/draft-gs-multi-module.git)并解压源码库，或者通过 [Git](https://spring.io/understanding/Git)克隆：
 
     `git clone https://github.com/spring-guides/draft-gs-multi-module.git`
+
 * 进入 `draft-gs-multi-module/initial`目录
+
 * 跳过前面的部分[创建一个库项目](https://spring.io/guides/gs/multi-module/#initial) 
 
 **当你完成之后**，你可以在`draft-gs-multi-module/complete`根据代码检查下结果。
@@ -49,18 +49,22 @@
 首先你需要编写基础构建脚本。在构建 Spring 应用的时候，你可以使用任何你喜欢的系统来构建， 这里提供一份你可能需要用 [Gradle](http://gradle.org/) 或者 [Maven](https://maven.apache.org/) 构建的代码。 如果你两者都不是很熟悉, 你可以先去参考[如何使用 Gradle 构建 Java 项目](https://spring.io/guides/gs/gradle)或者[如何使用 Maven 构建 Java 项目](https://spring.io/guides/gs/maven)。
 
 ## 创建一个根项目
+
 ####创建目录结构
 
 在您选择的项目目录中，创建以下子目录结构; 例如， 在*nix系统种使用`mkdir library applicationon`：
+
 ```
 └── library
 └── application
 ```
+
 在项目的根目录下，您需要建立一个构建系统，本指南将向您展示如何使用Maven或Gradle来构建。
 
 ##<div id="grandle_configuration"></div>多模块项目的Grandle配置
 
 我们推荐使用 [Grandle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)。所以可以通过从现有项目中复制或通过`wrapper`任务执行Gradle（按照Gradle文档中的说明）来安装wapper。应当让顶级目录看起来像这样：
+
 ```
 └── library
 └── application
@@ -71,6 +75,7 @@
         └── gradle-wrapper.properties
         └── gradle-wrapper.jar
 ```
+
 Windows（非Cygwin）用户执行`gradlew.bat`脚本来构建项目; 其他用户都使用`gradlew`脚本。然后添加一个`settings.gradle`到根目录来驱动顶层的构建：
 
 `settings.gradle`
@@ -85,6 +90,7 @@ include 'application'
 ##<div id="maven_configuration"></div>多模块项目的Maven配置
 
 我们推荐使用[Maven wrapper](https://github.com/takari/maven-wrapper)。所以可以通过从现有项目中复制或通过执行带有`io.takari:maven:wrapper`目标的Maven （按照wapper文档中的说明）来安装wrapper。应当让顶级目录看起来像这样：
+
 ```
 └── library
 └── application
@@ -120,9 +126,11 @@ Windows（非Cygwin）用户执行`mvnw.cmd`脚本来构建项目; 其他用户�
 ```
 
 ##创建一个库项目
+
 ####创建目录结构
 
 在"library"目录中，创建以下子目录结构; 例如，在*nix系统中使用 `mkdir -p src/main/java/hello/serviceon`：
+
 ```
 └── src
     └── main
@@ -130,6 +138,7 @@ Windows（非Cygwin）用户执行`mvnw.cmd`脚本来构建项目; 其他用户�
             └── hello
                 └── service
 ```
+
 现在我们需要配置一个构建工具（Maven或Gradle）。在这两种情况下需要注意，Spring Boot插件根本**不在**库项目中使用。插件的主要功能是为了库创建一个我们不需要（也不想要）的可执行的“über-jar”。为了让你快速入门，下面是完整的配置：
 
 ##[库的Grandle配置](#grandle_configuration)
@@ -137,6 +146,7 @@ Windows（非Cygwin）用户执行`mvnw.cmd`脚本来构建项目; 其他用户�
 ##[库的Maven配置](#maven_configuration)
 
 ##创建一个服务组件
+
 该库将提供一个可供依赖于该库的应用使用的`Service`类：
 
 `library/src/main/java/hello/service/Service.java`
@@ -250,13 +260,14 @@ public class ServiceTest {
 }
 ```
 
-
 > 在上面的示例中，我们使用`@SpringBootTest`注释的默认属性配置了`service.message`来测试。**不**建议将`application.properties`放入库中，因为在使用它的应用程序的运行时可能会发生冲突（`application.properties`在路径中只会被加载一次）。你**可以**将`application.properties`放在测试类路径，但不要将其放入jar内，例如可以放在`src/test/resources`。
 
 ##创建应用项目
 
 ####创建目录结构
+
 在“应用”目录中，创建以下子目录结构; 例如，在*nix系统使用`mkdir -p src/main/java/hello/app`：
+
 ```
 └── src
     └── main
@@ -336,18 +347,11 @@ public class DemoApplication {
 通过启动应用来测试端到端的结果。你可以很容易地在集成编译环境中启动应用，或者按照以下说明使用命令行。在浏览器中访问客户端应用`http://localhost:8080/`。在那应当能看到响应内显示的字符串`Hello World`。
 
 ####Gradle命令行来运行应用程序
+
 ####Maven命令行来运行应用程序
 
 ##总结
 
-恭喜！您刚刚使用Spring Boot创建了一个可重用的库，然后用它来构建一个应用。
-
-
-
+恭喜！您刚刚使用Spring Boot创建了一个可重用的库，然后用它来构建了一个应用。
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
-
-
-
-
-
