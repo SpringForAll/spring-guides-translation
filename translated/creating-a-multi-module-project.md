@@ -51,7 +51,7 @@
 
 ## 创建一个根项目
 
-####创建目录结构
+#### 创建目录结构
 
 在您选择的项目目录中，创建以下子目录结构; 例如， 在*nix系统种使用`mkdir library applicationon`：
 
@@ -62,7 +62,7 @@
 
 在项目的根目录下，您需要建立一个构建系统，本指南将向您展示如何使用Maven或Gradle来构建。
 
-##<div id="grandle_configuration"></div>多模块项目的Grandle配置
+## <div id="grandle_configuration"></div>多模块项目的Grandle配置
 
 我们推荐使用 [Grandle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)。所以可以通过从现有项目中复制或通过`wrapper`任务执行Gradle（按照Gradle文档中的说明）来安装wapper。应当让顶级目录看起来像这样：
 
@@ -88,7 +88,7 @@ include 'library'
 include 'application'
 ```
 
-##<div id="maven_configuration"></div>多模块项目的Maven配置
+## <div id="maven_configuration"></div>多模块项目的Maven配置
 
 我们推荐使用[Maven wrapper](https://github.com/takari/maven-wrapper)。所以可以通过从现有项目中复制或通过执行带有`io.takari:maven:wrapper`目标的Maven （按照wapper文档中的说明）来安装wrapper。应当让顶级目录看起来像这样：
 
@@ -126,9 +126,9 @@ Windows（非Cygwin）用户执行`mvnw.cmd`脚本来构建项目; 其他用户�
 </project>
 ```
 
-##创建一个库项目
+## 创建一个库项目
 
-####创建目录结构
+#### 创建目录结构
 
 在"library"目录中，创建以下子目录结构; 例如，在*nix系统中使用 `mkdir -p src/main/java/hello/serviceon`：
 
@@ -142,11 +142,11 @@ Windows（非Cygwin）用户执行`mvnw.cmd`脚本来构建项目; 其他用户�
 
 现在我们需要配置一个构建工具（Maven或Gradle）。在这两种情况下需要注意，Spring Boot插件根本**不在**库项目中使用。插件的主要功能是为了库创建一个我们不需要（也不想要）的可执行的“über-jar”。为了让你快速入门，下面是完整的配置：
 
-##[库的Grandle配置](#grandle_configuration)
+## [库的Grandle配置](#grandle_configuration)
 
-##[库的Maven配置](#maven_configuration)
+## [库的Maven配置](#maven_configuration)
 
-##创建一个服务组件
+## 创建一个服务组件
 
 该库将提供一个可供依赖于该库的应用使用的`Service`类：
 
@@ -222,7 +222,7 @@ public class ServiceConfiguration {
 
 不必这样做：库可能只是提供纯Java API，并没有Spring特性。这种情况下，使用库的应用将需要自己提供配置。
 
-##测试服务组件
+## 测试服务组件
 
 你会想为你的库组件编写单元测试。如果你提供可重用的Spring配置作为库的一部分，你可能还想编写一个集成测试以确保配置能够正常工作。要做到这一点，可以使用JUnit和`@SpringBootTest`注解。例如：
 
@@ -263,9 +263,9 @@ public class ServiceTest {
 
 > 在上面的示例中，我们使用`@SpringBootTest`注释的默认属性配置了`service.message`来测试。**不**建议将`application.properties`放入库中，因为在使用它的应用程序的运行时可能会发生冲突（`application.properties`在路径中只会被加载一次）。你**可以**将`application.properties`放在测试类路径，但不要将其放入jar内，例如可以放在`src/test/resources`。
 
-##创建应用项目
+## 创建应用项目
 
-####创建目录结构
+#### 创建目录结构
 
 在“应用”目录中，创建以下子目录结构; 例如，在*nix系统使用`mkdir -p src/main/java/hello/app`：
 
@@ -279,11 +279,11 @@ public class ServiceTest {
 
 除非在应用程序中通过`@ComponentScan`默认包含库中的所有Spring组件，否则不要使用与库（或库包的父级）相同的包。现在来构建配置：
 
-##[应用的Grandle配置](#grandle_configuration)
+## [应用的Grandle配置](#grandle_configuration)
 
-##[应用的Maven配置](#maven_configuration)
+## [应用的Maven配置](#maven_configuration)
 
-##编写应用
+## 编写应用
 
 应用程序中的主类可以是一个使用库中的`Service`来呈现信息的`@RestController`。要做到这一点，你需要从库中`@Import`类`ServiceConfiguration`。例如：
 
@@ -337,21 +337,21 @@ public class DemoApplication {
   
 `main()`方法使用Spring Boot的`SpringApplication.run()`方法来启动一个应用。你有没有注意到一行XML都没有？也没有**web.xml**文件。这个Web应用程序是100％纯Java，您不必处理配置任何管道或基础设施。
 
-##创建`application.properties`文件
+## 创建`application.properties`文件
 
 我们需要通过`application.properties`为库中的服务提供信息。在sources文件夹中，你只需要创建一个文件`src/main/resources/application.properties`：
 
 `service.message=Hello World`
 
-##测试应用
+## 测试应用
 
 通过启动应用来测试端到端的结果。你可以很容易地在集成编译环境中启动应用，或者按照以下说明使用命令行。在浏览器中访问客户端应用`http://localhost:8080/`。在那应当能看到响应内显示的字符串`Hello World`。
 
-####Gradle命令行来运行应用程序
+#### Gradle命令行来运行应用程序
 
-####Maven命令行来运行应用程序
+#### Maven命令行来运行应用程序
 
-##总结
+## 总结
 
 恭喜！您刚刚使用Spring Boot创建了一个可重用的库，然后用它来构建了一个应用。
 
