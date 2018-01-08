@@ -104,6 +104,23 @@
 | 3003 | [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/) |      |                                          |                                          |
 | 3004 | [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/) |      |                                          |                                          | -->
 
+| 编号   | 标题                                       | 状态   | 译者                                       | 校对                                       |
+| ---- | ---------------------------------------- | ---- | ---------------------------------------- | ---------------------------------------- |
+| 1001 | [AngularJS+Spring Security using Basic Authentication](http://websystique.com/spring-security/angularjs-basic-authentication-using-spring-security/) |  |   |                                          |
+| 1002 | [Secure Spring REST API using Basic Authentication](http://websystique.com/spring-security/secure-spring-rest-api-using-basic-authentication/) |  |   |                                          |
+| 1003 | [Secure Spring REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/) |  |   |                                          |
+| 1004 | [Spring MVC 4 + Spring Security 4 + Hibernate Example](http://websystique.com/springmvc/spring-mvc-4-and-spring-security-4-integration-example/) |  |   |                                          |
+| 1005 | [spring-security-4-custom-login-form-annotation-example](http://websystique.com/spring-security/spring-security-4-custom-login-form-annotation-example/) |  |   |                                          |
+| 1006 | [Spring Security 4 Hello World Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) |  |   |                                          |
+| 1007 | [Spring Security 4 Hibernate Integration Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hibernate-annotation-example/) |  |   |                                          |
+| 1008 | [Spring Security 4 Hibernate Role Based Login Example](http://websystique.com/spring-security/spring-security-4-hibernate-role-based-login-example/) |  |   |                                          |
+| 1009 | [Spring Security 4 Logout Example](http://websystique.com/spring-security/spring-security-4-logout-example/) |  |   |                                          |
+| 1010 | [Spring Security 4 Method security using @PreAuthorize,@PostAuthorize, @Secured, EL](http://websystique.com/spring-security/spring-security-4-method-security-using-preauthorize-postauthorize-secured-el/) |  |   |                                          |
+| 1011 | [Spring Security 4 Hibernate Password Encoder Bcrypt Example](http://websystique.com/spring-security/spring-security-4-password-encoder-bcrypt-example-with-hibernate/) |  |   |                                          |
+| 1012 | [Spring Security 4 Remember Me Example with Hibernate](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/) |  |   |                                          |
+| 1013 | [Spring Security 4 Role Based Login Example](http://websystique.com/spring-security/spring-security-4-role-based-login-example/) |  |   |                                          |
+| 1014 | [Spring Security 4 Secure View Fragments using taglibs](http://websystique.com/spring-security/spring-security-4-secure-view-layer-using-taglibs/) |  |   |                                          |
+
 ## 翻译规范
 
 关于翻译的一些规范如下：
