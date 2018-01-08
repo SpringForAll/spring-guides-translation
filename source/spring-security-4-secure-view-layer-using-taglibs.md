@@ -6,7 +6,7 @@
 
 校对：
 
-This tutorial shows you how to secure view layer, show/hide parts of jsp/view based on logged-in user’s roles, using Spring Security tags in Spring MVC web application. Let’s get going.
+This tutorial shows you how to secure view layer, show/hide parts of jsp/view based on logged-in user’s roles, using Spring Security tags in Spring MVC web application. Let’s get going. 
 
 First of all, in order to use Spring Security tags, we need to include **spring-security-taglibs** dependency in pom.xml as shown below:
 

@@ -6,7 +6,7 @@
 
 校对：
 
-So You’ve got the REST API for your application, and now you want to secure it. How to do that? There are several popular ways to do that, ranging from `Basic Authentication` to a full fledged `OAuth2` security solution. This Guide explains securing REST API using Basic Authentication with help of examples involving two separate clients [Postman & a `Spring RestTemplate` based Java app] trying to get access to our REST API. We will be showing the same example with OAuth2 in the next post [Secure REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/).
+So You’ve got the REST API for your application, and now you want to secure it. How to do that? There are several popular ways to do that, ranging from `Basic Authentication` to a full fledged `OAuth2` security solution. This Guide explains securing REST API using Basic Authentication with help of examples involving two separate clients [Postman & a `Spring RestTemplate` based Java app] trying to get access to our REST API. We will be showing the same example with OAuth2 in the next post [Secure REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/). 
 
 As always, complete code can be found in attachment at the end of this article. Let’s get going.
 

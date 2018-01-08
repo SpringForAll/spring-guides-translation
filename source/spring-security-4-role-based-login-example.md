@@ -6,7 +6,7 @@
 
 校对：
 
-This tutorial explores Spring Security’s **role based login**. That means **redirecting users to different URLs upon login according to their assigned roles**. Let’s get going.
+This tutorial explores Spring Security’s **role based login**. That means **redirecting users to different URLs upon login according to their assigned roles**. Let’s get going. 
 
 ![SpringSecurityRoleBasedLoginExample_img1](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityRoleBasedLoginExample_img1.png)
 

@@ -6,7 +6,7 @@
 
 校对：
 
-This post shows you how to **programatically logout** a user in Spring Security. This works well with browser back button too. Let’s get going.
+This post shows you how to **programatically logout** a user in Spring Security. This works well with browser back button too. Let’s get going. 
 
 ![SpringSecurityCustomLogoutExample_img4](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCustomLogoutExample_img4.png)
 
