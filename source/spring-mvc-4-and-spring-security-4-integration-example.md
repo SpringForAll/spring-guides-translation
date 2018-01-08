@@ -6,7 +6,7 @@
 
 校对：
 
-In this post, we will build a full-blown `Spring MVC` application secured using `Spring Security`, integrating with `MySQL` database using `Hibernate`, handling **Many-to-Many** relationship on view, storing passwords in **encrypted**format using `BCrypt`, and providing `RememberMe` functionality using custom `PersistentTokenRepository`implementation with Hibernate `HibernateTokenRepositoryImpl`, retrieving the records from database and updating or deleting them within `transaction`, all using annotation configuration. Let’s get going.
+In this post, we will build a full-blown `Spring MVC` application secured using `Spring Security`, integrating with `MySQL` database using `Hibernate`, handling **Many-to-Many** relationship on view, storing passwords in **encrypted**format using `BCrypt`, and providing `RememberMe` functionality using custom `PersistentTokenRepository`implementation with Hibernate `HibernateTokenRepositoryImpl`, retrieving the records from database and updating or deleting them within `transaction`, all using annotation configuration. Let’s get going. 
 
 This project can be served as a template for your own Spring MVC projects integrating Spring Security.
 

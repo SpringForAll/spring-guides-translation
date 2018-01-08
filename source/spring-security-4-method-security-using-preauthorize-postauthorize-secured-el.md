@@ -6,7 +6,7 @@
 
 校对：
 
-This post shows Method level security in Spring Security 4 with **@PreAuthorize, @PostAuthorize, @Secured and Spring EL expressions**. Let’s get going.
+This post shows Method level security in Spring Security 4 with **@PreAuthorize, @PostAuthorize, @Secured and Spring EL expressions**. Let’s get going. 
 
 In order to enable Spring Method level Security, we need to annotate a **@Configuration** class with `@EnableGlobalMethodSecurity`, as shown below:
 

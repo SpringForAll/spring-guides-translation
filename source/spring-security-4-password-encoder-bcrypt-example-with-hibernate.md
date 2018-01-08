@@ -10,7 +10,7 @@ This tutorial shows **Password Encoding** in Spring Security 4 using **BCryptPas
 
 #### A word on Password Encoding
 
-Any application, which takes Security seriously, should **NEVER** store passwords in plain text format. Passwords should always be encoded using a secure hashing algorithm. There are many standard algorithms like SHA or MD5 which combined with a proper SALT can be a good choice for password encoding. Spring Security provides `BCryptPasswordEncoder`, and implementation of Spring’s `PasswordEncoder` interface that uses the `BCrypt strong hashing function` to encode the password.
+Any application, which takes Security seriously, should **NEVER** store passwords in plain text format. Passwords should always be encoded using a secure hashing algorithm. There are many standard algorithms like SHA or MD5 which combined with a proper SALT can be a good choice for password encoding. Spring Security provides `BCryptPasswordEncoder`, and implementation of Spring’s `PasswordEncoder` interface that uses the `BCrypt strong hashing function` to encode the password. 
 
 #### Where all possibly do we need Password Encoding in application?
 

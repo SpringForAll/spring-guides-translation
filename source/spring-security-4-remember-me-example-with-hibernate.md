@@ -8,7 +8,7 @@
 
 This tutorial shows you **Remember-Me authentication** using Spring Security 4 with Hibernate. Let’s get going.
 
-In `Remember-me` or **persistent-login authentication**, Applications remember the identity of user between sessions. Basically, during login, when you ask for Remember-Me support, application will **send a cookie to the browser** during login. This cookie will be stored at browser side and will remain there for certain period(defined by cookie lifetime). Next time when you try to access the application, browser will **detect the cookie** (if still valid) and user will be automatically logged in, without providing userid/password e.g.
+In `Remember-me` or **persistent-login authentication**, Applications remember the identity of user between sessions. Basically, during login, when you ask for Remember-Me support, application will **send a cookie to the browser** during login. This cookie will be stored at browser side and will remain there for certain period(defined by cookie lifetime). Next time when you try to access the application, browser will **detect the cookie** (if still valid) and user will be automatically logged in, without providing userid/password e.g. 
 
 Spring Security provides two implementations for Remember-Me :
 

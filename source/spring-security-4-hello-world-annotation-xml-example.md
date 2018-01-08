@@ -10,7 +10,7 @@ This tutorial demonstrates Spring Security 4 usage to secure a Spring MVC web ap
 
 **Following technologies being used:**
 
-- Spring 4.1.6.RELEASE
+- Spring 4.1.6.RELEASE 
 - Spring Security 4.0.1.RELEASE
 - Maven 3
 - JDK 1.7

@@ -12,7 +12,7 @@ In this post we will learn Spring Security `database authentication` using `Hibe
 
 #### What changes compare to in-memory authentication discussed in previous posts?
 
-Only major change is the authentication method itself.
+Only major change is the authentication method itself. 
 
 If you recall from previous post, below shown is the setup for **in-memory authentication**
 

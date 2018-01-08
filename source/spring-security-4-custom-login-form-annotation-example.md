@@ -10,7 +10,7 @@ This post shows you creating **custom login form** in Spring Security 4 and inte
 
 ![SpringSecurityCusotmLoginFormAnnotationExample_img2](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img2.png)
 
-In [Spring Security 4 Hello World Annotation+xml example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/), we have seen the default login form provided by Spring Security in case we don’t specify one. In this post, we will create our own Custom login form. Let’s get going.
+In [Spring Security 4 Hello World Annotation+xml example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/), we have seen the default login form provided by Spring Security in case we don’t specify one. In this post, we will create our own Custom login form. Let’s get going. 
 
 Basically, the idea is, in Security Configuration, attach a call to **loginPage(URL)** function with formLogin() like shown below
 

@@ -6,7 +6,7 @@
 
 校对：
 
-Let’s secure our `Spring REST API` using `OAuth2` this time, a simple guide showing what is required to secure a REST API using `Spring OAuth2`. Our use-case fits well with `Resource-owner Password Grant` flow of OAUth2 specification. We will use two different clients [Postman and a `Spring RestTemplate` based java application] to access our OAuth2 protected REST resources.
+Let’s secure our `Spring REST API` using `OAuth2` this time, a simple guide showing what is required to secure a REST API using `Spring OAuth2`. Our use-case fits well with `Resource-owner Password Grant` flow of OAUth2 specification. We will use two different clients [Postman and a `Spring RestTemplate` based java application] to access our OAuth2 protected REST resources. 
 
 If you are already familiar with OAuth2 concepts, you may want to skip the theory, and jump right into code. As always, complete code can be found in attachment at the end of this article. Let’s get going.
 
@@ -297,7 +297,6 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 
 - Ask for tokens[access+refresh] using
 
-   
 
   HTTP POST
 
@@ -319,7 +318,6 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 
 - Ask for a new access token via valid refresh-token, using
 
-   
 
   HTTP POST
 

@@ -6,7 +6,7 @@
 
 校对：
 
-This post shows how an AngularJS application can consume a REST API which is secured with Basic authentication using Spring Security.
+This post shows how an AngularJS application can consume a REST API which is secured with Basic authentication using Spring Security. 
 
 Post [Secure Spring REST API with Basic Authentication](http://websystique.com/spring-security/secure-spring-rest-api-using-basic-authentication/) shows in great details how to secure a REST API using Basic authentication with Spring Security. That application will serve as a Back-end for this example. Although we will touch the main concepts here, complete code for the back-end will not be repeated here again. Please download, install and start that application locally in order to test the AngularJS app from this post.
 

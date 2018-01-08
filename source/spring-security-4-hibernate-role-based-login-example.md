@@ -6,7 +6,7 @@
 
 校对：
 
-This post shows how to use **role based login** in Spring Security 4 using Hibernate setup. That means **redirecting users to different URLs upon login according to their assigned roles**, this time along with Hibernate setup. Let’s get going.
+This post shows how to use **role based login** in Spring Security 4 using Hibernate setup. That means **redirecting users to different URLs upon login according to their assigned roles**, this time along with Hibernate setup. Let’s get going. 
 
 ![SpringSecurityHibernateRoleBasedLoginExample_img1](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHibernateRoleBasedLoginExample_img1.png)
 
