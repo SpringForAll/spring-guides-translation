@@ -1,25 +1,12 @@
-# Spring Security 4 Custom Login Form Annotation+XML Example
+# Spring Security 4 Hello World Annotation+XML Example
 
-原文：[spring-security-4-custom-login-form-annotation-example](http://websystique.com/spring-security/spring-security-4-custom-login-form-annotation-example/)
+原文：[Spring Security 4 Hello World Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/)
 
 译者：
 
 校对：
 
-This post shows you creating **custom login form** in Spring Security 4 and integrate it in Spring MVC web application.
-
-![SpringSecurityCusotmLoginFormAnnotationExample_img2](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img2.png)
-
-In [Spring Security 4 Hello World Annotation+xml example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/), we have seen the default login form provided by Spring Security in case we don’t specify one. In this post, we will create our own Custom login form. Let’s get going.
-
-Basically, the idea is, in Security Configuration, attach a call to **loginPage(URL)** function with formLogin() like shown below
-
-```
-	  	.and().formLogin().loginPage("/login")
-
-```
-
-And then, Map this **‘/login’** URL in your Spring MVC Controller which will return the login view defined by you. Now, on login attempt, the specified login view will be displayed.Rest of the login functionality remains same.
+This tutorial demonstrates Spring Security 4 usage to secure a Spring MVC web application, securing URL access with authentication. We will use classic Hello World example to learn Spring Security 4 basics. This post uses Spring Annotation based configuration for Servlet 3.0 containers [hence no web.xml] and also shows corresponding XML based Security configuration for side-by-side comparison where applicable. Let’s get started.
 
 **Following technologies being used:**
 
@@ -35,7 +22,8 @@ Let’s begin.
 #### Step 1: Project directory structure
 
 Following will be the final project structure:
-![SpringSecurityCusotmLoginFormAnnotationExample_img0](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img0.png)
+
+![SpringSecurityHelloWorldAnnotationExample_img0](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img0.png)
 
 Let’s now add the content mentioned in above structure explaining each in detail.
 
@@ -47,11 +35,11 @@ Let’s now add the content mentioned in above structure explaining each in deta
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.websystique.springsecurity</groupId>
-	<artifactId>SpringSecurityCusotmLoginFormAnnotationExample</artifactId>
+	<artifactId>SpringSecurityHelloWorldAnnotationExample</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
-	<name>SpringSecurityCusotmLoginFormAnnotationExample</name>
+	<name>SpringSecurityHelloWorldAnnotationExample</name>
 
 	<properties>
 		<springframework.version>4.1.6.RELEASE</springframework.version>
@@ -123,21 +111,27 @@ Let’s now add the content mentioned in above structure explaining each in deta
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>SpringSecurityCusotmLoginFormAnnotationExample</warName>
+						<warName>SpringSecurityHelloWorldAnnotationExample</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<finalName>SpringSecurityCusotmLoginFormAnnotationExample</finalName>
+		<finalName>SpringSecurityHelloWorldAnnotationExample</finalName>
 	</build>
 </project>
 
 ```
 
+First thing to notice here is the `maven-war-plugin` declaration. As we are using full annotation configuration, **we don’t even use web.xml**, so we will need to configure this plugin in order to avoid maven failure to build war package. We are using latest versions(at time of writing) of Spring and Spring Security.
+
+Along with that, we have also included JSP/Servlet/Jstl dependencies which we will be needing as we are going to use servlet api’s and jstl view in our code. In general, containers might already contains these libraries, so we can set the scope as ‘provided’ for them in pom.xml.
+
 #### Step 3: Add Spring Security Configuration Class
 
 The first and foremost step to add spring security in our application is to create **Spring Security Java Configuration**. This configuration creates a Servlet Filter known as the `springSecurityFilterChain` which is responsible for all the security (protecting the application URLs, validating submitted username and passwords, redirecting to the log in form, etc) within our application.
+
+`com.websystique.springsecurity.configuration.SecurityConfiguration`
 
 ```
 package com.websystique.springsecurity.configuration;
@@ -153,41 +147,37 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
 		auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
-		auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");
+		auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");//dba have two roles.
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-	  
+ 
 	  http.authorizeRequests()
-	  	.antMatchers("/", "/home").permitAll()
-	  	.antMatchers("/admin/**").access("hasRole('ADMIN')")
-	  	.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
-	  	.and().formLogin().loginPage("/login")
-	  	.usernameParameter("ssoId").passwordParameter("password")
-	  	.and().csrf()
-	  	.and().exceptionHandling().accessDeniedPage("/Access_Denied");
+	  	.antMatchers("/", "/home").permitAll() 
+		.antMatchers("/admin/**").access("hasRole('ADMIN')")
+		.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+		.and().formLogin()
+		.and().exceptionHandling().accessDeniedPage("/Access_Denied");
+ 
 	}
 }
 
-
 ```
 
-This class is same as the one in [previous post](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/). Only differences are shown below
+Method configureGlobalSecurity in above class configures `AuthenticationManagerBuilder` with user credentials and allowed roles. This AuthenticationManagerBuilder creates `AuthenticationManager` which is responsible for processing any authentication request. Notice that in above example, we have used in-memory authentication while you are free to choose from JDBC, LDAP and other authentications.
 
-```
-.and().formLogin().loginPage("/login")
-	  	.usernameParameter("ssoId").passwordParameter("password")
-	  	.and().csrf()
+The overridden Method `Configure` configures `HttpSecurity` which allows configuring web based security for specific http requests. By default it will be applied to all requests, but can be restricted using requestMatcher(RequestMatcher)/antMathchers or other similar methods.
 
-```
+In above configuration, we say that URL’s ‘/’ & ‘/home’ are not secured, anyone can access them. URL ‘/admin/**’ can only be accessed by someone who have ADMIN role. URL ‘/db/**’ can only be accessed by someone who have both ADMIN and DBA roles.
 
-This code creates a custom login page with **‘/login’** url, which will accept **ssoId** as username and **password** Http request parameters. We have also shown a call to `csrf()` which is optional as it is by default active in Spring Security 4. This call is, however, required if you want to disable [CSRF protection](http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/#csrf) by using `csrf().disable()` although it is not a good idea to disable it.
+Method `formLogin` provides support for form based authentication and will generate a default form asking for user credentials. You are allowed to configure your own login form.We will see examples for the same in subsequent posts.
+
+We have also used `exceptionHandling().accessDeniedPage()` which in this case will catch all 403 [http access denied] exceptions and display our user defined page instead of showing default HTTP 403 page [ which is not so helpful anyway].
 
 **Above security configuration in XML configuration format would be:**
 
@@ -203,8 +193,7 @@ This code creates a custom login page with **‘/login’** url, which will acce
         <intercept-url pattern="/home" access="permitAll" />
         <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/dba**" access="hasRole('ADMIN') and hasRole('DBA')" />
-        <form-login  login-page="/login" username-parameter="ssoId" password-parameter="password" authentication-failure-url="/Access_Denied" />
-        <csrf/>
+        <form-login  authentication-failure-url="/Access_Denied" />
     </http>
  
     <authentication-manager >
@@ -226,6 +215,8 @@ This code creates a custom login page with **‘/login’** url, which will acce
 
 Below specified initializer class registers the `springSecurityFilter` [created in Step 3] with application war.
 
+`com.websystique.springsecurity.configuration.SecurityWebApplicationInitializer`
+
 ```
 package com.websystique.springsecurity.configuration;
 
@@ -236,8 +227,6 @@ public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplic
 }
 
 ```
-
-This class is exactly same as in [previous post](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/).
 
 **Above setup in XML configuration format would be:**
 
@@ -255,6 +244,8 @@ This class is exactly same as in [previous post](http://websystique.com/spring-s
 ```
 
 #### Step 5: Add Controller
+
+`com.websystique.springsecurity.controller.HelloWorldController`
 
 ```
 package com.websystique.springsecurity.controller;
@@ -277,7 +268,7 @@ public class HelloWorldController {
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
-		model.addAttribute("greeting", "Hi, Welcome to mysite");
+		model.addAttribute("greeting", "Hi, Welcome to mysite. ");
 		return "welcome";
 	}
 
@@ -286,33 +277,28 @@ public class HelloWorldController {
 		model.addAttribute("user", getPrincipal());
 		return "admin";
 	}
-	
+
 	@RequestMapping(value = "/db", method = RequestMethod.GET)
 	public String dbaPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "dba";
 	}
 
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	   public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+	      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	      if (auth != null){    
+	         new SecurityContextLogoutHandler().logout(request, response, auth);
+	      }
+	      return "welcome";
+	   }
+
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
 	public String accessDeniedPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "accessDenied";
 	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginPage() {
-		return "login";
-	}
-
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null){    
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		return "redirect:/login?logout";
-	}
-
+	
 	private String getPrincipal(){
 		String userName = null;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -324,32 +310,15 @@ public class HelloWorldController {
 		}
 		return userName;
 	}
-
 }
 
 ```
 
-In comparison to [previous post](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) , only changes are new **loginPage** method to handle **‘/login’** requests and adapting **logout**to redirect to login page on logout, as shown below:
-
-```
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginPage() {
-		return "login";
-	}
-
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null){    
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		return "redirect:/login?logout";
-	}
-
-
-```
+Methods in controller class are trivial. Method getPrincipal is a generic function which returns the logged in user name from Spring `SecurityContext`. Method logoutPage handles the logging out with a simple call to **SecurityContextLogoutHandler().logout(request, response, auth);**. It’s handy and saves you from putting cryptic logout logic in your JSP’s which is not really manageable. You might have noticed that ‘/login’ is missing, it is because it will be generated and handled by default by Spring Security.
 
 #### Step 6: Add SpringMVC Configuration Class
+
+`com.websystique.springsecurity.configuration.HelloWorldConfiguration`
 
 ```
 package com.websystique.springsecurity.configuration;
@@ -360,14 +329,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.websystique.springsecurity")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
+public class HelloWorldConfiguration {
 	
 	@Bean
 	public ViewResolver viewResolver() {
@@ -379,20 +346,13 @@ public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
 		return viewResolver;
 	}
 
-     /*
-     * Configure ResourceHandlers to serve static resources like CSS/ Javascript etc...
-     */
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-    }
 }
 
 ```
 
-Changes from [previous post](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) are extend from **WebMvcConfigurerAdapter** [just a convenience class] and implementing method **addResourceHandlers** which handles static resources(CSS/images/..) to be used in views.
-
 #### Step 7: Add Initializer class
+
+`com.websystique.springsecurity.configuration.HelloWorldConfiguration`
 
 ```
 package com.websystique.springsecurity.configuration;
@@ -418,82 +378,12 @@ public class SpringMvcInitializer extends AbstractAnnotationConfigDispatcherServ
 
 }
 
+
 ```
 
-This class is exactly same as in [previous post](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/).
+Notice that above initializer class extends `AbstractAnnotationConfigDispatcherServletInitializer` which is the base class for all `WebApplicationInitializer` implementations. Implementations of WebApplicationInitializer configures ServletContext programatically, for Servlet 3.0 environments. It means we won’t be using web.xml and we will deploy the app on Servlet 3.0 container.
 
 #### Step 8: Add Views
-
-`login.jsp`
-This view additionally contains CSS for login panel layout.
-
-```
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Login page</title>
-		<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>
-		<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
-	</head>
-
-	<body>
-		<div id="mainWrapper">
-			<div class="login-container">
-				<div class="login-card">
-					<div class="login-form">
-						<c:url var="loginUrl" value="/login" />
-						<form action="${loginUrl}" method="post" class="form-horizontal">
-							<c:if test="${param.error != null}">
-								<div class="alert alert-danger">
-									<p>Invalid username and password.</p>
-								</div>
-							</c:if>
-							<c:if test="${param.logout != null}">
-								<div class="alert alert-success">
-									<p>You have been logged out successfully.</p>
-								</div>
-							</c:if>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
-								<input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username" required>
-							</div>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label> 
-								<input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
-							</div>
-							<input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" />
-								
-							<div class="form-actions">
-								<input type="submit"
-									class="btn btn-block btn-primary btn-default" value="Log in">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</body>
-</html>
-
-```
-
-Notice the CSRF related line in above jsp:
-
-```
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /></strong>
-
-```
-
-This is required to protect against [CSRF attacks](http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/#csrf). As you can see, the CSRF parameters are accessed using EL Expressions in your JSP, you may additionally prefer to force EL expressions to be evaluated, by adding following to the top of your JSP:
-
-```
-<%@ page isELIgnored="false"%>
-
-```
 
 `welcome.jsp`
 
@@ -502,7 +392,7 @@ This is required to protect against [CSRF attacks](http://docs.spring.io/spring-
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Welcome page</title>
+	<title>HelloWorld page</title>
 </head>
 <body>
 	Greeting : ${greeting}
@@ -520,7 +410,7 @@ This is required to protect against [CSRF attacks](http://docs.spring.io/spring-
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Admin page</title>
+	<title>HelloWorld Admin page</title>
 </head>
 <body>
 	Dear <strong>${user}</strong>, Welcome to Admin Page.
@@ -566,114 +456,53 @@ This is required to protect against [CSRF attacks](http://docs.spring.io/spring-
 
 ```
 
-In case you need it, here is the quick & dirty CSS i used for this example
-`app.css`
-
-```
-html{
-	background-color:#2F2F2F;
-}
-
-body, #mainWrapper {
-	height: 100%;
-	background-image: -webkit-gradient(
-	linear,
-	right bottom,
-	right top,
-	color-stop(0, #EDEDED),
-	color-stop(0.08, #EAEAEA),
-	color-stop(1, #2F2F2F),
-	color-stop(1, #AAAAAA)
-);
-background-image: -o-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -moz-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -webkit-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -ms-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: linear-gradient(to top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-}
-
-body, #mainWrapper, .form-control{
-	font-size:12px!important;
-}
-
-#mainWrapper {
-	height: 100vh; 
-	padding-left:10px;
-	padding-right:10px;
-	padding-bottom:10px;
-}
-
-#authHeaderWrapper{
-	clear:both;
-	width: 100%;
-	height:3%;
-	padding-top:5px;
-	padding-bottom:5px;
-}
-
-.login-container {
-    margin-top: 100px;
-    background-color: floralwhite;
-    width: 40%;
-    left: 30%;
-    position: absolute;
-}
-
-.login-card {
-    width: 80%;
-    margin: auto;
-}
-.login-form {
-    padding: 10%;
-}
-
-```
-
 #### Step 9: Build and Deploy the application
+
+As mentioned in Step 7, we are not using web.xml in our application as the ServletContext is loaded programmatically.
 
 Now build the war (either by eclipse/m2eclipse) or via maven command line( `mvn clean install`). Deploy the war to a Servlet 3.0 container . Since here i am using Tomcat, i will simply put this war file into `tomcat webapps folder` and click on `start.bat` inside tomcat bin directory.
 
-**Run the application**
-Open browser and goto **localhost:8080/SpringSecurityCusotmLoginFormAnnotationExample/**
+Run the application
+Open browser and goto **localhost:8080/SpringSecurityHelloWorldAnnotationExample/**
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img1](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img1.png)
+![SpringSecurityHelloWorldAnnotationExample_img1](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img1.png)
 
-Now try to access admin page on **localhost:8080/SpringSecurityCusotmLoginFormAnnotationExample/admin**, you will be prompted for login.
+Now try to access admin page on localhost:8080/SpringSecurityHelloWorldAnnotationExample/admin, you will be prompted for login.
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img2](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img2.png)
+![SpringSecurityHelloWorldAnnotationExample_img2](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img2.png)
 
 Provide credentials of a ‘USER’ role.
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img3](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img3.png)
+![SpringSecurityHelloWorldAnnotationExample_img3](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img3.png)
 
 Submit, you will see AccessDenied Page
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img5](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img5.png)
+![SpringSecurityHelloWorldAnnotationExample_img4](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img4.png)
 
 Now logout and try to access admin page again
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img7](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img7.png)
+![SpringSecurityHelloWorldAnnotationExample_img5](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img5.png)
 
 Provide wrong password
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img4](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img4.png)
+![SpringSecurityHelloWorldAnnotationExample_img6](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img6.png)
 
 Provide proper admin role credentials and login
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img8](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img8.png)
+![SpringSecurityHelloWorldAnnotationExample_img7](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img7.png)
 
-Now try to access db page on **localhost:8080/SpringSecurityCusotmLoginFormAnnotationExample/db**, you will get AccessDenied page.
+Now try to access db page on localhost:8080/SpringSecurityHelloWorldAnnotationExample/db, you will get AccessDenied page.
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img9](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img9.png)
+![SpringSecurityHelloWorldAnnotationExample_img8](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img8.png)
 
-Logout.
+Logout, you will be back at home page.
 
-![SpringSecurityCusotmLoginFormAnnotationExample_img6](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityCusotmLoginFormAnnotationExample_img6.png)
+![SpringSecurityHelloWorldAnnotationExample_img9](http://websystique.com/wp-content/uploads/2015/07/SpringSecurityHelloWorldAnnotationExample_img9.png)
 
-That’s it. [Next post](http://websystique.com/spring-security/spring-security-4-logout-example/) shows you implementing custom logout method which plays well with browser back button as well.
+
 
 #### *Download Source Code*
 
-[Download Now!](http://websystique.com/?smd_process_download=1&download_id=1363)
+[Download Now!](http://websystique.com/?smd_process_download=1&download_id=1334)
 
 > 本文由spring4all.com翻译小分队创作，采用[知识共享-署名-非商业性使用-相同方式共享 4.0 国际 许可](http://creativecommons.org/licenses/by-nc-sa/4.0/) 协议进行许可。
