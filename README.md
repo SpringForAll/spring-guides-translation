@@ -109,7 +109,7 @@
 | 1001 | [AngularJS+Spring Security using Basic Authentication](http://websystique.com/spring-security/angularjs-basic-authentication-using-spring-security/) |  |   |                                          |
 | 1002 | [Secure Spring REST API using Basic Authentication](http://websystique.com/spring-security/secure-spring-rest-api-using-basic-authentication/) |已认领  | [新乐](https://github.com/qiushile)  |                                          |
 | 1003 | [Secure Spring REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/) |  |   |                                          |
-| 1004 | [Spring MVC 4 + Spring Security 4 + Hibernate Example](http://websystique.com/springmvc/spring-mvc-4-and-spring-security-4-integration-example/) |已认领  | [anonymous](https://github.com/anonymous)   |                                          |
+| 1004 | [Spring MVC 4 + Spring Security 4 + Hibernate Example](http://websystique.com/springmvc/spring-mvc-4-and-spring-security-4-integration-example/) |已认领  | [anonymous](https://github.com/wjtBird)   |                                          |
 | 1005 | [spring-security-4-custom-login-form-annotation-example](http://websystique.com/spring-security/spring-security-4-custom-login-form-annotation-example/) |  |   |                                          |
 | 1006 | [Spring Security 4 Hello World Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) |  |   |                                          |
 | 1007 | [Spring Security 4 Hibernate Integration Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hibernate-annotation-example/) |  |   |                                          |
