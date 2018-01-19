@@ -114,7 +114,7 @@
 | 1006 | [Spring Security 4 Hello World Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) |  |   |                                          |
 | 1007 | [Spring Security 4 Hibernate Integration Annotation+XML Example](http://websystique.com/spring-security/spring-security-4-hibernate-annotation-example/) |  |   |                                          |
 | 1008 | [Spring Security 4 Hibernate Role Based Login Example](http://websystique.com/spring-security/spring-security-4-hibernate-role-based-login-example/) |  |   |                                          |
-| 1009 | [Spring Security 4 Logout Example](http://websystique.com/spring-security/spring-security-4-logout-example/) |  |   |                                          |
+| 1009 | [Spring Security 4 Logout Example](http://websystique.com/spring-security/spring-security-4-logout-example/) | 已认领  | [FraserYu](https://github.com/FraserYu)  |                                          |
 | 1010 | [Spring Security 4 Method security using @PreAuthorize,@PostAuthorize, @Secured, EL](http://websystique.com/spring-security/spring-security-4-method-security-using-preauthorize-postauthorize-secured-el/) |  |   |                                          |
 | 1011 | [Spring Security 4 Hibernate Password Encoder Bcrypt Example](http://websystique.com/spring-security/spring-security-4-password-encoder-bcrypt-example-with-hibernate/) |  |   |                                          |
 | 1012 | [Spring Security 4 Remember Me Example with Hibernate](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/) |  |   |                                          |
