@@ -6,26 +6,26 @@
 
 校对：
 
-在这个章节中，我们将构建一个基于Spring Security保护的Spring MVC应用程序，使用Hibernate集成MySQL数据库，处理**多对多**关系，以**加密**格式使用`BCrypt`存储密码 ，并使用自定义提供`RememberMe`功能。
-用Hibernate HibernateTokenRepositoryImpl实现`PersistentTokenRepository`，从数据库中检索记录，并在`transaction`中更新或删除它们，全部使用注解配置。 让我们开始吧。
+在这个章节中，我们将构建一个基 于Spring Security 保护的 Spring MVC 应用程序，使用 Hibernate 集成 MySQL 数据库，处理**多对多**关系，以**加密**格式使用 `BCrypt` 存储密码 ，并使用自定义提供 `RememberMe` 功能。
+用 Hibernate HibernateTokenRepositoryImpl 实现 `PersistentTokenRepository` ，从数据库中检索记录，并在 `transaction` 中更新或删除它们，全部使用注解配置。 让我们开始吧。
 
-这个工程也可以作为一个集成Spring Security的Spring MVC工程的模板使用。 
+这个项目也可以作为一个集成Spring Security的Spring MVC项目的模板使用。 
 
-![SpringMVCSecurity-img04](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img04.png)
+![SpringMVCSecurity-img04](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img04.png?raw=true)
 
-![SpringMVCSecurity-img12](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img12.png)
+![SpringMVCSecurity-img12](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img12.png?raw=true)
 
-#### Note:
+#### Note 注意:
 
-This post demonstrates a complete application with complete code. In order to manage the size of the post, i have skipped the textual descriptions of some basic stuff. In case you are interested in those details, [this](http://websystique.com/springmvc/spring-4-mvc-and-hibernate4-integration-example-using-annotations/) ,[this](http://websystique.com/springmvc/springmvc-hibernate-many-to-many-example-annotation-using-join-table/) & [this](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) post will help you.
+这篇文章演示了一个完整的代码的应用程序。 为了管理帖子的大小，我跳过了一些基本的东西的文字描述。 如果你对这些细节感兴趣，[spring-4-mvc-and-hibernate4-integration-example-using-annotations](http://websystique.com/springmvc/spring-4-mvc-and-hibernate4-integration-example-using-annotations/) ,[springmvc-hibernate-many-to-many-example-annotation-using-join-table](http://websystique.com/springmvc/springmvc-hibernate-many-to-many-example-annotation-using-join-table/) 和 [spring-security-4-hello-world-annotation-xml-example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) 帖子将帮助你。
 
-#### Summary:
+#### Summary 总结:
 
-The project shows a simple user-management application. One can create a new user, edit or delete an existing user, and list all the users. User can be associated with one or more UserProfile, showing many-to-many relationship. URL’s of the applications are secured using Spring Security. That means, based on the roles of logged in user, access to certain URL’s will be granted or prohibited. On the view layer, user will see only the content he/she is allowed to based on the roles assigned to him/her, thanks to Spring Security tags for view layer.
+该项目展示了一个简单用户管理的应用程序。 可以创建新用户，编辑或删除现有用户，并列出所有用户。 用户可以关联一个或多个 UserProfile ，显示多对多的关系。 应用程序的 URL 使用 Spring Security 进行保护。 这意味着，基于登录用户的角色，访问某些URL将被授予或禁止。 在视图层，用户将只能看到基于分配给他/她的角色，被允许访问的内容，这要归功于视图层的 Spring Security 标记。
 
 ------
 
-Other interesting posts you may like
+你可能会感兴趣的一些帖子
 
 - [Spring Boot+AngularJS+Spring Data+Hibernate+MySQL CRUD App](http://websystique.com/spring-boot/spring-boot-angularjs-spring-data-jpa-crud-app-example/)
 - [Secure Spring REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/)
@@ -54,7 +54,7 @@ Other interesting posts you may like
 - [Spring MVC 4 Form Validation and Resource Handling](http://websystique.com/springmvc/spring-4-mvc-form-validation-with-hibernate-jsr-validator-resource-handling-using-annotations/)
 - [Spring Batch- MultiResourceItemReader & HibernateItemWriter example](http://websystique.com/springbatch/spring-batch-multiresourceitemreader-hibernateitemwriter-example/)
 
-**Following technologies being used:**
+**以下技术将会被使用:**
 
 - Spring 4.2.5.RELEASE
 - Spring Security 4.0.4.RELEASE
@@ -68,16 +68,17 @@ Other interesting posts you may like
 - Eclipse MARS.1 Release 4.5.1
 - logback 1.1.7
 
-Let’s begin.
+让我们开始.
 
-#### Step 1: Create the directory structure
+#### 步骤 1:创建目录结构 
 
-Following will be the final project structure:
-![SpringMVCSecurity-img01](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img01.png)![SpringMVCSecurity-img02](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img02.png)
+以下将是最终项目的目录结构:
 
-Let’s now add the content mentioned in above structure explaining each in detail.
+![SpringMVCSecurity-img01](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img01.png?raw=true)![SpringMVCSecurity-img02](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img02.png?raw=true)
 
-#### Step 2: Update pom.xml to include required dependencies
+现在，让我们添加并详细解释上面目录结构中提到的每个内容。
+
+#### 步骤 2: 更新 pom.xml 中所需的依赖关系。
 
 ```
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
@@ -225,9 +226,9 @@ Let’s now add the content mentioned in above structure explaining each in deta
 
 ```
 
-#### Step 3: Configure Security
+#### 步骤 3:安全配置 
 
-The first and foremost step to add spring security in our application is to create Spring Security Java Configuration. This configuration creates a Servlet Filter known as the `springSecurityFilterChain` which is responsible for all the security (protecting the application URLs, validating submitted username and passwords, redirecting to the log in form, etc) within our application
+在我们的应用程序中添加 spring security 的第一步是创建 Spring Security Java Configuration。 这个配置创建了一个名为 `springSecurityFilterChain` 的 Servlet 过滤器，它负责我们应用程序中的所有安全性（保护应用程序 URL，验证提交的用户名和密码，重定向到登录表单等）
 
 ```
 package com.websystique.springmvc.security;
@@ -307,15 +308,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ```
 
-As shown above, the access to URLs is governed as follows:
+如上所示，访问URL的方式如下:
 
-- ‘/’ & ‘/list’ : Accessible to everyone
-- ‘/newuser’ & ‘/delete-user-*’ : Accessible only to Admin
-- ‘/edit-user-*’ : Accessible to Admin & DBA
+- ‘/’ & ‘/list’ : 每个人都可以访问
+- ‘/newuser’ & ‘/delete-user-*’ : 只允许Admin访问
+- ‘/edit-user-*’ : 允许 Admin 和 DBA访问
 
-Since we are storing the credentials in database, configuring `DaoAuthenticationProvider` with `UserDetailsService`would come handy. Additionally, in order to encrypt the password in database, we have chosen `BCryptPasswordEncoder`. Moreover, since we will also provide RememberMe functionality, keeping track of token-data in database, we configured a `PersistentTokenRepository` implementation.
+由于我们将凭据存储在数据库中，因此使用 `UserDetailsService` 配置   `DaoAuthenticationProvider` 将会非常方便。 另外，为了加密数据库中的密码，我们选择了 `BCryptPasswordEncoder` 。 此外，由于我们还提供了 RememberMe 的功能，为了跟踪数据库中的令牌数据，我们配置了一个 “PersistentTokenRepository” 的实现。
 
-Spring Security comes with two implementation of PersistentTokenRepository : JdbcTokenRepositoryImpl and InMemoryTokenRepositoryImpl. We could have opted for JdbcTokenRepositoryImpl [[this post](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/) demonstrates the RememberMe with JdbcTokenRepositoryImpl], but since we are using Hibernate in our application, why not create a custom implementation using Hibernate instead of using JDBC? Shown below is an attempt for the same.
+Spring Security 带有 PersistentTokenRepository 的两个实现类分别为： JdbcTokenRepositoryImpl 和 InMemoryTokenRepositoryImpl 。 我们可以选择 JdbcTokenRepositoryImpl [[这篇文章](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/)用 JdbcTokenRepositoryImpl 展示了 RememberMe ]，但是 在我们的项目中使用 Hibernate，为什么不使用 Hibernate创建一个自定义实现替代使用 JDBC？ 让我们开始尝试一下。
 
 ```
 package com.websystique.springmvc.dao;
@@ -394,8 +395,7 @@ public class HibernateTokenRepositoryImpl extends AbstractDao<String, Persistent
 }
 
 ```
-
-Above implementation uses an Entity [PersistentLogin] mapped to persistent_logins table, shown below is the entity itself.
+上面的实现使用了一个 Entity [PersistentLogin] 映射到 persistent_logins 表，下面显示的是实体本身。
 
 ```
 package com.websystique.springmvc.model;
@@ -463,7 +463,7 @@ public class PersistentLogin implements Serializable{
 
 ```
 
-The UserDetailsService implementation, used in Security configuration is shown below:
+在安全配置中使用的 UserDetailsService 的实现如下所示：
 
 ```
 package com.websystique.springmvc.security;
@@ -524,7 +524,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 
 ```
 
-Finally, register the springSecurityFilter with application war using below mentioned initializer class.
+最后，使用下面提到的初始化类来注册 springSecurityFilter 过滤器。
 
 ```
 package com.websystique.springmvc.security;
@@ -537,9 +537,9 @@ public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplic
 
 ```
 
-That’s all with Spring Security Configuration. Now let’s begin with Spring MVC part, discussing Hibernate configuration, necessary DAO, models & services along the way.
+Spring Security Configuration 就是这样。 现在让我们从 Spring MVC 部分开始，一起讨论 Hibernate 配置所必要的 DAO，models 和 services。
 
-#### Step 4: Configure Hibernate
+#### 步骤 4:Hibernate 配置
 
 ```
 package com.websystique.springmvc.configuration;
@@ -607,7 +607,8 @@ public class HibernateConfiguration {
 
 ```
 
-Below is the properties file used in this post.
+以下是这篇文章中使用的 properties 配置文件
+
 `/src/main/resources/application.properties`
 
 ```
@@ -621,7 +622,7 @@ hibernate.format_sql = true
 
 ```
 
-#### Step 5: Configure Spring MVC
+#### 步骤 5: Spring MVC 配置
 
 ```
 package com.websystique.springmvc.configuration;
@@ -707,7 +708,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 
 ```
 
-The main highlight of this configuration is RoleToUserProfileConverter. It will take care of mapping the individual userProfile id’s on view to actual UserProfile Entities in database.
+这个配置的主要亮点是 RoleToUserProfileConverter。 它负责将单个userProfile ID映射到在数据库中的实际 UserProfile 实体。
 
 ```
 package com.websystique.springmvc.converter;
@@ -747,7 +748,7 @@ public class RoleToUserProfileConverter implements Converter<Object, UserProfile
 
 ```
 
-Since we are using JSR validators in our application to validate user input, we have configured the messages to be shown to user in case of validation failures. shown below is message.properties file:
+由于我们在项目中使用 JSR 验证器来验证用户输入，所以我们配置了在验证失败的情况下向用户显示的消息。 下面显示的是 message.properties 配置文件：
 
 ```
 NotEmpty.user.firstName=First name can not be blank.
@@ -760,7 +761,7 @@ non.unique.ssoId=SSO ID {0} already exist. Please fill in different value.
 
 ```
 
-Finally, the Spring Intializer class is shown below:
+最后，Spring的初始化类如下所示:
 
 ```
 package com.websystique.springmvc.configuration;
@@ -788,7 +789,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 ```
 
-#### Step 6: Create Spring Controller
+#### 步骤 6: 创建 Spring Controller
 
 ```
 package com.websystique.springmvc.controller;
@@ -1027,9 +1028,9 @@ public class AppController {
 
 ```
 
-This is a trivial Spring MVC controller. Comments on Each method provide the explanations.
+这是一个每个方法都有注释的，简单 Spring MVC 控制器。 。
 
-#### Step 7: Create Models
+#### 步骤 7: 创建 Models
 
 ```
 package com.websystique.springmvc.model;
@@ -1294,7 +1295,7 @@ public enum UserProfileType implements Serializable{
 
 ```
 
-#### Step 7: Create DAOs
+#### 步骤 8: 创建 DAOs
 
 ```
 package com.websystique.springmvc.dao;
@@ -1501,7 +1502,7 @@ public class UserProfileDaoImpl extends AbstractDao<Integer, UserProfile>impleme
 
 ```
 
-#### Step 8: Create Services
+#### 步骤 9: 创建 Services
 
 ```
 package com.websystique.springmvc.service;
@@ -1661,9 +1662,9 @@ public class UserProfileServiceImpl implements UserProfileService{
 
 ```
 
-#### Step 9: Create Views
+#### 步骤 10: 创建 Views
 
-Start with login page,asking username & password, and optionally ‘RememberMe’ flag.
+从登录页面开始，询问用户名和密码，还可以选择“RememberMe”标志.
 
 `WEB-INF/views/login.jsp`
 
@@ -1727,7 +1728,7 @@ Start with login page,asking username & password, and optionally ‘RememberMe�
 
 ```
 
-Once the user is logged-in successfully, he will be presented with list page, showing all existing users. Pay special attentions to Spring Security tags usage below. Add, Edit & Delete links/buttons are shown based on roles only, so a user with ‘User’ role will not even be able to see them. You may ask: but what about directly typing the url in browser-bar? Well, we have already secured the URL’s in Spring Security configuration, so no-worries.
+一旦用户登录成功，他将看到显示所有现有用户的列表页面。 请特别注意下面的Spring Security标签用法。 添加，编辑和删除链接/按钮仅基于角色显示，因此具有“用户”角色的用户甚至无法看到它们。 您可能会问：但直接在浏览器栏中输入网址呢？ 那么，我们已经在Spring Security配置中保证了这个URL，所以不用担心。
 
 `WEB-INF/views/userslist.jsp`
 
@@ -1796,8 +1797,7 @@ Once the user is logged-in successfully, he will be presented with list page, sh
 </html>
 
 ```
-
-Above page also includes a jsp containing welcome-messagealong with Logout link as shown below:
+上面的页面中包含了一个带有注销链接的welcome-messagealong的jsp页面，如下所示
 
 `WEB-INF/views/authheader.jsp`
 
@@ -1808,7 +1808,8 @@ Above page also includes a jsp containing welcome-messagealong with Logout link 
 
 ```
 
-A user with ‘Admin’ role can add a new user. Shown below is the registration page for the same.
+具有“Admin”角色的用户可以添加新用户。 下面显示的是注册页面。
+
 `WEB-INF/views/registration.jsp`
 
 ```
@@ -1964,8 +1965,7 @@ A user with ‘Admin’ role can add a new user. Shown below is the registration
 </html>
 
 ```
-
-AccessDenied page will be shown if the users is not allowed to go to certain url’s.
+如果用户访问某个不允许访问的 url 网址，则会显示 AccessDenied 页面。
 
 `WEB-INF/views/accessDenied.jsp`
 
@@ -1989,7 +1989,7 @@ AccessDenied page will be shown if the users is not allowed to go to certain url
 
 ```
 
-#### Step 10: Create and populate schema in database
+#### 步骤 11: 创建数据库表结构和表数据
 
 ```
 /*All User's gets stored in APP_USER table*/
@@ -2053,7 +2053,7 @@ CREATE TABLE persistent_logins (
 
 ```
 
-Note that we have inserted one user manually(we do need one Admin user to actually login and create further users for application). This is a real-world scenario. Notice the password which is encrypted form of password ‘abc125′. It’s generated using below mentioned utility class [it could even have been a script] which is used only and only to generate a password for one initial Admin user. It can well be removed from application.
+请注意，我们需要手动插入了一个用户（我们需要一个Admin用户才能实际登录并为应用程序创建更多用户）。 这是一个真实世界的场景。 注意密码是加密形式的密码“abc125”。 它是使用下面提到的工具类生成的（它甚至可以是脚本），仅用于为初始Admin用户生成密码。 它可以很好地从应用程序中删除。
 
 ```
 package com.websystique.springsecurity.util;
@@ -2075,63 +2075,63 @@ public class QuickPasswordEncodingGenerator {
 
 ```
 
-#### Step 11: Build, deploy and Run Application
+#### 步骤 12: 构建，部署和运行应用程序
 
-Now build the war (either by eclipse as was mentioned in previous tutorials) or via maven command line( `mvn clean install`). Deploy the war to a Servlet 3.0 container . Since here i am using Tomcat, i will simply put this war file into `tomcat webapps folder` and click on `start.bat` inside tomcat/bin directory.
+现在通过前面的教程中提到的eclipse或者通过maven命令行（`mvn clean install`）来构建 war 包。 将 war 包部署到一个 Servlet 3.0 容器。 由于我在这里使用的是Tomcat，所以我只是把这个 war 包放到`tomcat webapps文件夹'中，然后点击tomcat / bin目录下的`start.bat`。
 
-If you prefer to deploy from within Eclipse using tomcat: For those of us, who prefer to deploy and run from within eclipse, and might be facing difficulties setting Eclipse with tomcat, the detailed step-by-step solution can be found at : [How to setup tomcat with Eclipse](http://websystique.com/misc/how-to-setup-tomcat-with-eclipse/).
+如果您更喜欢在Eclipse中使用tomcat进行部署：对于我们这些喜欢在Eclipse中进行部署和运行的人员，可能会遇到在Eclipse内使用tomcat困难，详细的分步解决方案可以参考：
+[How to setup tomcat with Eclipse](http://websystique.com/misc/how-to-setup-tomcat-with-eclipse/).
 
-Open browser and browse at http://localhost:8080/SpringMVCHibernateWithSpringSecurityExample/
+打开浏览器输入 http://localhost:8080/SpringMVCHibernateWithSpringSecurityExample/
+![SpringMVCSecurity-img03](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img03.png?raw=true)
 
-![SpringMVCSecurity-img03](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img03.png)
+使用用户名：Sam 密码：abc125，选择 RememberMe 后点击登录。
+![SpringMVCSecurity-img04](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img04.png?raw=true)
 
-Login with User Sam & password abc125, check RememberMe as well.
-![SpringMVCSecurity-img04](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img04.png)
+![SpringMVCSecurity-img05](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img05.png?raw=true)
 
-![SpringMVCSecurity-img05](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img05.png)
+现在查看数据库，在 persistent_logins 表中会生成一条记录。
+![SpringMVCSecurity-img06](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img06.png?raw=true)
 
-Check database now.An entry should be made in persistent_logins table.
-![SpringMVCSecurity-img06](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img06.png)
+在 APP_USER 表中还没有任何变化。
+![SpringMVCSecurity-img07](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img07.png?raw=true)
 
-Nothing changes for APP_USER table though.
-![SpringMVCSecurity-img07](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img07.png)
+现在点击 ‘Add new user’ 的链接，添加一个 ‘USER’ 角色的用户。
+![SpringMVCSecurity-img08](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img08.png?raw=true)
 
-Now click on ‘Add new user’ link. Add a user with ‘USER’ role.
-![SpringMVCSecurity-img08](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img08.png)
+点击 Register，用户将会被添加。
+![SpringMVCSecurity-img09](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img09.png?raw=true)
 
-Click on Register, user should be added.
-![SpringMVCSecurity-img09](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img09.png)
+点击 ‘Users List’ 链接，你将会看见新添加的用户。
+![SpringMVCSecurity-img10](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img10.png?raw=true)
 
-Click on ‘Users List’ link. You should see the newly added user.
-![SpringMVCSecurity-img10](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img10.png)
+继续添加 DBA 和　USER　角色的用户。
+![SpringMVCSecurity-img11](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img11.png?raw=true)
 
-Add another user with DBA & USER role.
-![SpringMVCSecurity-img11](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img11.png)
+点击　Register。再一次检查 ‘Users List’ 列表。
+![SpringMVCSecurity-img12](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img12.png?raw=true)
 
-Register. Now check the list again.
-![SpringMVCSecurity-img12](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img12.png)
+验证 APP_USER 表。
+![SpringMVCSecurity-img13](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img13.png?raw=true)
 
-Verify APP_USER table.
-![SpringMVCSecurity-img13](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img13.png)
+登出。
+![SpringMVCSecurity-img14](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img14.png?raw=true)
 
-Now logout.
-![SpringMVCSecurity-img14](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img14.png)
+检查 persistent_logins 表，记录将会被移除。
+![SpringMVCSecurity-img15](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img15.png?raw=true)
 
-Check persistent_logins table, entry should be removed.
-![SpringMVCSecurity-img15](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img15.png)
+使用 User 角色的用户登录，Add、Edit、Delete 链接将不能使用。
+![SpringMVCSecurity-img16](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img16.png?raw=true)
 
-Login with user ‘will’ which has ‘User’ role. No Add/Edit/Delete links are available to this user.
-![SpringMVCSecurity-img16](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img16.png)
+登出，然后使用用户名 ‘bob’ 登录，Add、Delete 链接将不能使用。
+![SpringMVCSecurity-img17](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img17.png?raw=true)
 
-Now logout and login with ‘bob’. No Add/Delete links are available to this user.
-![SpringMVCSecurity-img17](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img17.png)
-
-Now try to manually type the delete URL in browser-bar and enter.You should see AccessDenied page.
-![SpringMVCSecurity-img18](http://websystique.com/wp-content/uploads/2016/05/SpringMVCSecurity-img18.png)
-
+尝试在浏览器地址栏中使用手动输入删除的URL并敲击回车。你将会看见访问被拒绝的页面。
+![SpringMVCSecurity-img18](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img18.png?raw=true)
 
 
-#### *Download Source Code*
+
+#### *源码下载*
 
 [Download Now!](http://websystique.com/?smd_process_download=1&download_id=2417)
 
