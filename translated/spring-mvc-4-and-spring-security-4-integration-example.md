@@ -6,10 +6,9 @@
 
 校对：
 
-在这个章节中，我们将构建一个基 于Spring Security 保护的 Spring MVC 应用程序，使用 Hibernate 集成 MySQL 数据库，处理**多对多**关系，以**加密**格式使用 `BCrypt` 存储密码 ，并使用自定义提供 `RememberMe` 功能。
-用 Hibernate HibernateTokenRepositoryImpl 实现 `PersistentTokenRepository` ，从数据库中检索记录，并在 `transaction` 中更新或删除它们，全部使用注解配置。 让我们开始吧。
+在这个章节中，我们将构建一个基于 Spring Security 保护的 Spring MVC 项目，集成 MySQL 数据库,使用 Hibernate 处理**多对多**关系，使用 `BCrypt` 以**加密**格式存储密码 ，通过 Hibernate 使用`PersistentTokenRepository`的自定实现类```HibernateTokenRepositoryImpl```，实现 `RememberMe` 功能。使用注解配置，使得从数据库中检索、更新或删除记录可以在 `transaction` 中。 让我们开始吧。
 
-这个项目也可以作为一个集成Spring Security的Spring MVC项目的模板使用。 
+这个项目也可以作为一个集成Spring Security的Spring MVC项目的模板保存。 
 
 ![SpringMVCSecurity-img04](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img04.png?raw=true)
 
@@ -17,15 +16,15 @@
 
 #### Note 注意:
 
-这篇文章演示了一个完整的代码的应用程序。 为了管理帖子的大小，我跳过了一些基本的东西的文字描述。 如果你对这些细节感兴趣，[spring-4-mvc-and-hibernate4-integration-example-using-annotations](http://websystique.com/springmvc/spring-4-mvc-and-hibernate4-integration-example-using-annotations/) ,[springmvc-hibernate-many-to-many-example-annotation-using-join-table](http://websystique.com/springmvc/springmvc-hibernate-many-to-many-example-annotation-using-join-table/) 和 [spring-security-4-hello-world-annotation-xml-example](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) 帖子将帮助你。
+这篇文章是一个拥有完整源码的项目。 为了控制文章的长度，我跳过了一些基本的文字描述。 如果你对这些细节感兴趣，[这](http://websystique.com/springmvc/spring-4-mvc-and-hibernate4-integration-example-using-annotations/) ,[这](http://websystique.com/springmvc/springmvc-hibernate-many-to-many-example-annotation-using-join-table/) 和 [这](http://websystique.com/spring-security/spring-security-4-hello-world-annotation-xml-example/) 些文章将可能帮助到你。
 
 #### Summary 总结:
 
-该项目展示了一个简单用户管理的应用程序。 可以创建新用户，编辑或删除现有用户，并列出所有用户。 用户可以关联一个或多个 UserProfile ，显示多对多的关系。 应用程序的 URL 使用 Spring Security 进行保护。 这意味着，基于登录用户的角色，访问某些URL将被授予或禁止。 在视图层，用户将只能看到基于分配给他/她的角色，被允许访问的内容，这要归功于视图层的 Spring Security 标记。
+该项目为一个简单用户管理的项目。 拥有创建新用户，编辑或删除现有用户，并列出所有用户的功能。 用户可以关联一个或多个 UserProfile ，显示多对多的关系。项目中的 URL 使用 Spring Security 进行保护。 这意味着，基于登录用户的角色，访问某些 URL 将被允许或禁止。 在页面中，用户将只能看到基于分配给他/她的角色，所允许访问的内容，这要归功于视图层的 Spring Security 标记。
 
 ------
 
-你可能会感兴趣的一些帖子
+你可能会感兴趣的一些文章
 
 - [Spring Boot+AngularJS+Spring Data+Hibernate+MySQL CRUD App](http://websystique.com/spring-boot/spring-boot-angularjs-spring-data-jpa-crud-app-example/)
 - [Secure Spring REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/)
@@ -54,7 +53,7 @@
 - [Spring MVC 4 Form Validation and Resource Handling](http://websystique.com/springmvc/spring-4-mvc-form-validation-with-hibernate-jsr-validator-resource-handling-using-annotations/)
 - [Spring Batch- MultiResourceItemReader & HibernateItemWriter example](http://websystique.com/springbatch/spring-batch-multiresourceitemreader-hibernateitemwriter-example/)
 
-**以下技术将会被使用:**
+**你将会用到以下技术:**
 
 - Spring 4.2.5.RELEASE
 - Spring Security 4.0.4.RELEASE
@@ -72,7 +71,7 @@
 
 #### 步骤 1:创建目录结构 
 
-以下将是最终项目的目录结构:
+以下将该项目最终的目录结构:
 
 ![SpringMVCSecurity-img01](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img01.png?raw=true)![SpringMVCSecurity-img02](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img02.png?raw=true)
 
@@ -228,7 +227,7 @@
 
 #### 步骤 3:安全配置 
 
-在我们的应用程序中添加 spring security 的第一步是创建 Spring Security Java Configuration。 这个配置创建了一个名为 `springSecurityFilterChain` 的 Servlet 过滤器，它负责我们应用程序中的所有安全性（保护应用程序 URL，验证提交的用户名和密码，重定向到登录表单等）
+在我们的项目中添加 spring security 的第一步是创建 Spring Security Java Configuration。 在这个配置中创建了一个名为 `springSecurityFilterChain` 的 Servlet 过滤器，它负责我们项目中的所有安全性（保护应用程序 URL，验证提交的用户名和密码，重定向到登录表单等）
 
 ```
 package com.websystique.springmvc.security;
@@ -308,7 +307,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ```
 
-如上所示，访问URL的方式如下:
+如上所示，各个角色允许访问的 URL 如下:
 
 - ‘/’ & ‘/list’ : 每个人都可以访问
 - ‘/newuser’ & ‘/delete-user-*’ : 只允许Admin访问
@@ -316,7 +315,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 由于我们将凭据存储在数据库中，因此使用 `UserDetailsService` 配置   `DaoAuthenticationProvider` 将会非常方便。 另外，为了加密数据库中的密码，我们选择了 `BCryptPasswordEncoder` 。 此外，由于我们还提供了 RememberMe 的功能，为了跟踪数据库中的令牌数据，我们配置了一个 “PersistentTokenRepository” 的实现。
 
-Spring Security 带有 PersistentTokenRepository 的两个实现类分别为： JdbcTokenRepositoryImpl 和 InMemoryTokenRepositoryImpl 。 我们可以选择 JdbcTokenRepositoryImpl [[这篇文章](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/)用 JdbcTokenRepositoryImpl 展示了 RememberMe ]，但是 在我们的项目中使用 Hibernate，为什么不使用 Hibernate创建一个自定义实现替代使用 JDBC？ 让我们开始尝试一下。
+Spring Security 带有 PersistentTokenRepository 的两个实现类分别为： JdbcTokenRepositoryImpl 和 InMemoryTokenRepositoryImpl 。 我们可以选择 JdbcTokenRepositoryImpl [[这篇文章](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/)用 JdbcTokenRepositoryImpl 实现了 RememberMe ]，但是 在我们的项目中使用 Hibernate，为什么不使用 Hibernate 创建一个自定义实现替代使用 JDBC？ 下面是我们的尝试内容。
 
 ```
 package com.websystique.springmvc.dao;
@@ -395,7 +394,7 @@ public class HibernateTokenRepositoryImpl extends AbstractDao<String, Persistent
 }
 
 ```
-上面的实现使用了一个 Entity [PersistentLogin] 映射到 persistent_logins 表，下面显示的是实体本身。
+上面的实现类使用了一个 Entity [PersistentLogin] 映射到 persistent_logins 表，下面显示的是 entity 本身。
 
 ```
 package com.websystique.springmvc.model;
@@ -463,7 +462,7 @@ public class PersistentLogin implements Serializable{
 
 ```
 
-在安全配置中使用的 UserDetailsService 的实现如下所示：
+在安全配置中使用的 UserDetailsService 的实现类如下所示：
 
 ```
 package com.websystique.springmvc.security;
@@ -524,7 +523,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 
 ```
 
-最后，使用下面提到的初始化类来注册 springSecurityFilter 过滤器。
+最后，在项目中使用下面提到的初始化类来注册 springSecurityFilter 过滤器。
 
 ```
 package com.websystique.springmvc.security;
@@ -708,7 +707,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 
 ```
 
-这个配置的主要亮点是 RoleToUserProfileConverter。 它负责将单个userProfile ID映射到在数据库中的实际 UserProfile 实体。
+这个配置的主要亮点是 RoleToUserProfileConverter。 它负责将单个userProfile 的 ID映射到在数据库中的实际 UserProfile 实体。
 
 ```
 package com.websystique.springmvc.converter;
@@ -748,7 +747,7 @@ public class RoleToUserProfileConverter implements Converter<Object, UserProfile
 
 ```
 
-由于我们在项目中使用 JSR 验证器来验证用户输入，所以我们配置了在验证失败的情况下向用户显示的消息。 下面显示的是 message.properties 配置文件：
+由于我们在项目中使用 JSR 验证器来验证用户输入，所以我们配置了在验证失败的情况下向用户提示的消息。 下面是 message.properties 的配置文件：
 
 ```
 NotEmpty.user.firstName=First name can not be blank.
@@ -847,7 +846,8 @@ public class AppController {
 	
 	
 	/**
-	 * This method will list all existing users.
+	 * 此方法展示所有已存在的用户
+	 * 
 	 */
 	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
@@ -859,7 +859,8 @@ public class AppController {
 	}
 
 	/**
-	 * This method will provide the medium to add a new user.
+	 * 此方法为新增用户的媒介
+	 * 
 	 */
 	@RequestMapping(value = { "/newuser" }, method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
@@ -871,8 +872,8 @@ public class AppController {
 	}
 
 	/**
-	 * This method will be called on form submission, handling POST request for
-	 * saving user in database. It also validates the user input
+	 * 此方法通过POST方式请求处理form表单提交的保存用户数据，同时会验证用户的输入
+	 * 
 	 */
 	@RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
 	public String saveUser(@Valid User user, BindingResult result,
@@ -906,7 +907,8 @@ public class AppController {
 
 
 	/**
-	 * This method will provide the medium to update an existing user.
+	 * 此方法为更新现有用户的媒介
+	 * 
 	 */
 	@RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.GET)
 	public String editUser(@PathVariable String ssoId, ModelMap model) {
@@ -918,8 +920,8 @@ public class AppController {
 	}
 	
 	/**
-	 * This method will be called on form submission, handling POST request for
-	 * updating user in database. It also validates the user input
+	 * 此方法通过POST方式请求处理form表单提交的更新用户数据，同时会验证用户的输入
+	 * 
 	 */
 	@RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
 	public String updateUser(@Valid User user, BindingResult result,
@@ -946,7 +948,8 @@ public class AppController {
 
 	
 	/**
-	 * This method will delete an user by it's SSOID value.
+	 * 此方法通过SSOID的值删除一个用户
+	 * 
 	 */
 	@RequestMapping(value = { "/delete-user-{ssoId}" }, method = RequestMethod.GET)
 	public String deleteUser(@PathVariable String ssoId) {
@@ -956,7 +959,7 @@ public class AppController {
 	
 
 	/**
-	 * This method will provide UserProfile list to views
+	 * 此方法给页面提供所有 UserProfile 数据
 	 */
 	@ModelAttribute("roles")
 	public List<UserProfile> initializeProfiles() {
@@ -964,7 +967,7 @@ public class AppController {
 	}
 	
 	/**
-	 * This method handles Access-Denied redirect.
+	 * 此方法处理拒绝访问的重定向
 	 */
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
 	public String accessDeniedPage(ModelMap model) {
@@ -973,8 +976,9 @@ public class AppController {
 	}
 
 	/**
-	 * This method handles login GET requests.
-	 * If users is already logged-in and tries to goto login page again, will be redirected to list page.
+	 * 此方法通过GET方式请求处理登录.
+	 * 如果用户已经登录了，并且想访问登录页面，将会重定向到用户列表页面
+	 * 
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
@@ -986,8 +990,9 @@ public class AppController {
 	}
 
 	/**
-	 * This method handles logout requests.
-	 * Toggle the handlers if you are RememberMe functionality is useless in your app.
+	 * 此方法处理登出请求
+	 * 如果实现了 RememberMe 功能，这个方法将不能生效
+	 * 
 	 */
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response){
@@ -1001,7 +1006,8 @@ public class AppController {
 	}
 
 	/**
-	 * This method returns the principal[user-name] of logged-in user.
+	 * 此方法返回登录用户的用户名[user-name]
+	 * 
 	 */
 	private String getPrincipal(){
 		String userName = null;
@@ -1016,7 +1022,8 @@ public class AppController {
 	}
 	
 	/**
-	 * This method returns true if users is already authenticated [logged-in], else false.
+	 * 如果用户认证通过返回ture 否则返回false
+	 * 
 	 */
 	private boolean isCurrentAuthenticationAnonymous() {
 	    final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -1028,7 +1035,7 @@ public class AppController {
 
 ```
 
-这是一个每个方法都有注释的，简单 Spring MVC 控制器。 。
+这是一个每个方法都有注释的，简单 Spring MVC Controller 。
 
 #### 步骤 7: 创建 Models
 
@@ -1728,7 +1735,7 @@ public class UserProfileServiceImpl implements UserProfileService{
 
 ```
 
-一旦用户登录成功，他将看到显示所有现有用户的列表页面。 请特别注意下面的Spring Security标签用法。 添加，编辑和删除链接/按钮仅基于角色显示，因此具有“用户”角色的用户甚至无法看到它们。 您可能会问：但直接在浏览器栏中输入网址呢？ 那么，我们已经在Spring Security配置中保证了这个URL，所以不用担心。
+一旦用户登录成功，他将看到所有现有用户的列表页面。 请特别注意下面的 Spring Security 标签用法。 添加，编辑和删除链接/按钮仅基于角色显示，因此具有“用户”角色的用户甚至无法看到它们。 您可能会问：直接在浏览器地址栏中输入URL呢？ 不用担心，我们已经在Spring Security配置中保护了这个URL。
 
 `WEB-INF/views/userslist.jsp`
 
@@ -1797,7 +1804,7 @@ public class UserProfileServiceImpl implements UserProfileService{
 </html>
 
 ```
-上面的页面中包含了一个带有注销链接的welcome-messagealong的jsp页面，如下所示
+上面的页面中包含了一个带有登出链接的welcome-messagealong的jsp页面，如下所示
 
 `WEB-INF/views/authheader.jsp`
 
@@ -1965,7 +1972,7 @@ public class UserProfileServiceImpl implements UserProfileService{
 </html>
 
 ```
-如果用户访问某个不允许访问的 url 网址，则会显示 AccessDenied 页面。
+如果用户访问某个不允许访问的 url 地址，则会显示 AccessDenied 页面。
 
 `WEB-INF/views/accessDenied.jsp`
 
@@ -2053,7 +2060,7 @@ CREATE TABLE persistent_logins (
 
 ```
 
-请注意，我们需要手动插入了一个用户（我们需要一个Admin用户才能实际登录并为应用程序创建更多用户）。 这是一个真实世界的场景。 注意密码是加密形式的密码“abc125”。 它是使用下面提到的工具类生成的（它甚至可以是脚本），仅用于为初始Admin用户生成密码。 它可以很好地从应用程序中删除。
+请注意，我们需要手动插入了一个用户（我们需要一个Admin用户才能实际登录并为项目创建更多用户）。 这是一个真实世界的场景。 注意密码是“abc125”加密形式的密码。 它是使用下面提到的工具类生成的（它甚至可以是脚本），仅用于初始Admin用户生成密码。 它可以很好地从项目中移除。
 
 ```
 package com.websystique.springsecurity.util;
@@ -2075,11 +2082,11 @@ public class QuickPasswordEncodingGenerator {
 
 ```
 
-#### 步骤 12: 构建，部署和运行应用程序
+#### 步骤 12: 构建，部署和运行项目
 
-现在通过前面的教程中提到的eclipse或者通过maven命令行（`mvn clean install`）来构建 war 包。 将 war 包部署到一个 Servlet 3.0 容器。 由于我在这里使用的是Tomcat，所以我只是把这个 war 包放到`tomcat webapps文件夹'中，然后点击tomcat / bin目录下的`start.bat`。
+现在通过前面的教程中提到的eclipse或者通过maven命令行（`mvn clean install`）来构建 war 包。 将 war 包部署到一个 Servlet 3.0 容器中。 由于我在这里使用的是Tomcat，所以我只是把这个 war 包放到`tomcat webapps文件夹'中，然后点击tomcat / bin目录下的`start.bat`。
 
-如果您更喜欢在Eclipse中使用tomcat进行部署：对于我们这些喜欢在Eclipse中进行部署和运行的人员，可能会遇到在Eclipse内使用tomcat困难，详细的分步解决方案可以参考：
+如果您更喜欢在Eclipse中使用tomcat进行部署：对于我们这些喜欢在Eclipse中进行部署和运行的人员，可能会遇到在Eclipse内使用tomcat的困难，详细的分步解决方案可以参考：
 [How to setup tomcat with Eclipse](http://websystique.com/misc/how-to-setup-tomcat-with-eclipse/).
 
 打开浏览器输入 http://localhost:8080/SpringMVCHibernateWithSpringSecurityExample/
