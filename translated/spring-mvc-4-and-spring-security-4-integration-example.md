@@ -6,9 +6,9 @@
 
 校对：
 
-在这个章节中，我们将构建一个基于 Spring Security 保护的 Spring MVC 项目，集成 MySQL 数据库,使用 Hibernate 处理**多对多**关系，使用 `BCrypt` 以**加密**格式存储密码 ，通过 Hibernate 使用`PersistentTokenRepository`的自定实现类```HibernateTokenRepositoryImpl```，实现 `RememberMe` 功能。使用注解配置，使得从数据库中检索、更新或删除记录可以在 `transaction` 中。 让我们开始吧。
+在这个章节中，我们将构建一个基于 Spring Security 保护的 Spring MVC 项目，集成 MySQL 数据库,使用 Hibernate 处理**多对多**关系，使用 `BCrypt` 以**加密**的形式存储密码 ，通过 Hibernate 使用`PersistentTokenRepository`的自定实现类```HibernateTokenRepositoryImpl```，实现 `RememberMe` 功能。使用 `transaction` 注解，使得从数据库中检索、更新或删除记录可以在事物中。 让我们开始吧。
 
-这个项目也可以作为一个集成Spring Security的Spring MVC项目的模板保存。 
+这个项目也可以作为一个集成 Spring Security 的 Spring MVC 项目的模板保存。 
 
 ![SpringMVCSecurity-img04](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img04.png?raw=true)
 
@@ -20,7 +20,7 @@
 
 #### Summary 总结:
 
-该项目为一个简单用户管理的项目。 拥有创建新用户，编辑或删除现有用户，并列出所有用户的功能。 用户可以关联一个或多个 UserProfile ，显示多对多的关系。项目中的 URL 使用 Spring Security 进行保护。 这意味着，基于登录用户的角色，访问某些 URL 将被允许或禁止。 在页面中，用户将只能看到基于分配给他/她的角色，所允许访问的内容，这要归功于视图层的 Spring Security 标记。
+该项目为一个简单用户管理的项目。 拥有创建新用户，编辑或删除现有用户，并展出所有用户列表的功能。 用户可以关联一个或多个 UserProfile ，显示多对多的关系。项目中的 URL 基于当前登录用户的角色使用 Spring Security 进行保护，这意味着访问某些 URL 将被允许或禁止。 在页面中，用户将只能看到基于分配给他/她的角色，所允许访问的内容，这要归功于视图层的 Spring Security 标记。
 
 ------
 
@@ -71,11 +71,11 @@
 
 #### 步骤 1:创建目录结构 
 
-以下将该项目最终的目录结构:
+下图为该项目最终的目录结构:
 
 ![SpringMVCSecurity-img01](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img01.png?raw=true)![SpringMVCSecurity-img02](https://github.com/wjtBird/spring-guides-translation/blob/master/translated/static/1004/SpringMVCSecurity-img02.png?raw=true)
 
-现在，让我们添加并详细解释上面目录结构中提到的每个内容。
+现在，让我们详细解释并添加上面目录结构中提到的每个内容。
 
 #### 步骤 2: 更新 pom.xml 中所需的依赖关系。
 
@@ -313,9 +313,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 - ‘/newuser’ & ‘/delete-user-*’ : 只允许Admin访问
 - ‘/edit-user-*’ : 允许 Admin 和 DBA访问
 
-由于我们将凭据存储在数据库中，因此使用 `UserDetailsService` 配置   `DaoAuthenticationProvider` 将会非常方便。 另外，为了加密数据库中的密码，我们选择了 `BCryptPasswordEncoder` 。 此外，由于我们还提供了 RememberMe 的功能，为了跟踪数据库中的令牌数据，我们配置了一个 “PersistentTokenRepository” 的实现。
+由于我们将凭据存储在数据库中，因此使用 `UserDetailsService` 配置 `DaoAuthenticationProvider` 将会非常方便。 另外，为了加密数据库中的密码，我们选择了 `BCryptPasswordEncoder` 。 此外，由于我们还提供了 RememberMe 的功能，为了跟踪数据库中的令牌数据，我们配置了一个 “PersistentTokenRepository” 的实现。
 
-Spring Security 带有 PersistentTokenRepository 的两个实现类分别为： JdbcTokenRepositoryImpl 和 InMemoryTokenRepositoryImpl 。 我们可以选择 JdbcTokenRepositoryImpl [[这篇文章](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/)用 JdbcTokenRepositoryImpl 实现了 RememberMe ]，但是 在我们的项目中使用 Hibernate，为什么不使用 Hibernate 创建一个自定义实现替代使用 JDBC？ 下面是我们的尝试内容。
+Spring Security 带有 PersistentTokenRepository 的两个实现类分别为： JdbcTokenRepositoryImpl 和 InMemoryTokenRepositoryImpl 。 我们可以选择 JdbcTokenRepositoryImpl [[这篇文章](http://websystique.com/spring-security/spring-security-4-remember-me-example-with-hibernate/)用 JdbcTokenRepositoryImpl 实现了 RememberMe ]，但是 在我们的项目中使用了 Hibernate，为什么不使用 Hibernate 创建一个自定义实现替代使用 JDBC？ 下面是我们的尝试内容。
 
 ```
 package com.websystique.springmvc.dao;
@@ -1671,7 +1671,7 @@ public class UserProfileServiceImpl implements UserProfileService{
 
 #### 步骤 10: 创建 Views
 
-从登录页面开始，询问用户名和密码，还可以选择“RememberMe”标志.
+从登录页面开始，询问用户名和密码，还可以选择“RememberMe”功能.
 
 `WEB-INF/views/login.jsp`
 
@@ -2086,7 +2086,7 @@ public class QuickPasswordEncodingGenerator {
 
 现在通过前面的教程中提到的eclipse或者通过maven命令行（`mvn clean install`）来构建 war 包。 将 war 包部署到一个 Servlet 3.0 容器中。 由于我在这里使用的是Tomcat，所以我只是把这个 war 包放到`tomcat webapps文件夹'中，然后点击tomcat / bin目录下的`start.bat`。
 
-如果您更喜欢在Eclipse中使用tomcat进行部署：对于我们这些喜欢在Eclipse中进行部署和运行的人员，可能会遇到在Eclipse内使用tomcat的困难，详细的分步解决方案可以参考：
+如果您更喜欢在Eclipse中使用tomcat进行部署：对于我们这些喜欢在Eclipse中进行部署和运行的人，可能会遇到在Eclipse中使用tomcat的困难，详细的分步解决方案可以参考：
 [How to setup tomcat with Eclipse](http://websystique.com/misc/how-to-setup-tomcat-with-eclipse/).
 
 打开浏览器输入 http://localhost:8080/SpringMVCHibernateWithSpringSecurityExample/
