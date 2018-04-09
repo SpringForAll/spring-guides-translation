@@ -1,3 +1,4 @@
+【DarrenLuo翻译中】
 # Secure Spring REST API using OAuth2
 
 原文：[Secure Spring REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/)
