@@ -4,7 +4,7 @@
 
 但是由于该教程内容均是英文的，所以只有少部分人会关注这里。所以，我们[SpringForAll社区](http://spring4all.com)计划开始组织对这部分高质量内容的翻译工作，以促进Spring这样优秀的框架在国内的发展！由衷的希望Spring大生态变得越来越强大！
 
-我们的成果：http://doc.spring4all.com/spring-guildes/
+我们的成果：http://www.spring4all.com/article/558
 
 ## 如何开始
 
